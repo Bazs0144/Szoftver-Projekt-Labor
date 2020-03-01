@@ -2,7 +2,7 @@
 
 Mindeki kitölti a saját munkája alapján: 2.7(Napló), 2.1.3, 2.1.4, 2.1.5, 2.2.5
 Tomi: 2.1.1, 2.1.2, 2.2.1, 2.2.2
-Balázs	: 2.3, 2.2.4
+Balász: 2.3, 2.2.4
 Kinga: 2.4, 2.2.3
 Ádám: 2.5
 Liza: 2.6

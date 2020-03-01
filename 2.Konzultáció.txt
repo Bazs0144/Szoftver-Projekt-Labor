@@ -1,0 +1,77 @@
+2.Konzultáció 
+-Mint a szoftech házi.
+
+-Érdemes közösen kitalálni az osztálydiagramot, vázlatot együtt, szekvenciáknak is.
+
+-Jó még egyszer találkozni.
+
+-Főnevek--> osztályok
+
+-Objektum leírás: mit tud csinálni egy entitás, pl. sarkkutató: járkál, havat takarít,...
+  -- ez még tervezés előtt, csak szöveges keírás
+  -- tárgyaknak közös főosztály, az embertipusoknak is
+
+-Az objektumokhoz osztályt találunk, asszociációk, függősségek.
+
+-Tárgyak használata: hogyan modellezük?
+	-nem az emberbe kódoljuk a tárgyak képességét, nem flag-ekkel
+
+-Gondolkozzunk el: milyen változásra számítsunk. --inkább általánosan, kevesebb megkötést modellezzünk. 
+(pl ne fix számok, mint az hogy 4 szomszédja van egy fiel-nek.)
+
+-Mit csinálnak a függvények - a leírásban
+
+-Működőképes legyen a modell, az akció következmények levezethetők kell legyenek egymásból.
+--> szekvenciák. pl:valaki beleesik a vízbe búvár ruhába, majd valaki kimenti-- ezt kisebb 
+szekvenciákból össze kell tudni rakni. --min 20 szekvencia :tárgyak használata, ásni, menteni,
+életvesztés, rakéta összerakás...
+
+-a diagram nyomtatásban is olvasható legyen-- ha muszáj, feldarabolható az osztálydiagram, tobb oldalra
+	--de legyenek átfedések az osztályok között a különböző oldalakon.
+
+-kisebb, sok szekvencia-- egy férjen el egy oldalon.
+
+-osztályokhoz: függvények, asszociációk... hogy lépnek interakcióba egymással a szereplők
+	--belső függvények, attribútumok kevésbé fontosak ( de ez is legyen azért benne).
+
+-nevek + paraméterek + típusok (lássuk hogy ki kit ismer, a függvényhívások alapján).
+
+-játék logokája!, grafika nem számít, sem a kontroller feladata ne legyen részletes(időzító megjelenik,
+de nem kell pontos működést leírni)
+
+-helyileg történnek a dolgok (nem kívülről lép az ember, nem más ad neki életet.., NINCS EGY nagyon okos game osztály)
+ --> felelősségek felosztása, lokális meoldások.
+
+-A szekvencia diagram legyen konzisztens az osztálydiagrammal.
+
+-Szekvenciák a 'külső belerugásokra', az időzítésekre, játékon belüli akciókra (evés--> + élet, kimentés, életvesztés),
+	inicializációra (nem egy okos konstruktor hozza létre a pályát): jégtáblák száma, szomszédsága, emberek rajta!
+  --az osztály diagram összes függvényét le kell fedni szekvenciákkal
+
+-közös ősben csak a szükséges függvények (pl. csak eszkimó tud iglut építeni, az ember ősosztálynak nem kell ez a függvény)
+
+-csak olyan osztály függvényét hívja egy másik, akit ismer.
+
+-Modellezni-mint a valós világ
+
+-Függvények: mondom mit csinál, nem kérdezek pl. lukra rálépek, ő majd megöl; nem én kérdezem meg ha ő luk-e.
+
+Tipikus hibák: 
+-szekvenciákon a nyilakról hiányzik a függvény vagy paraméter hiányzik 
+
+-öröklődésnél: --> nem kell tipuslekérdezés ( ne legyen tipuskasztolás!!)
+
+-szekvenciáknál a visszatérési nyílon le legyen függvény, egy függvény mindig ugyanúgy viselkedjen
+(konzisztens minden szekvencián)-->megoldás pl. egy függvénynek lehet ALT-ja, pl tárgyon keresztül
+csinál valamit, de nem az emberbe van kódolva, hogy van-e nálla ilyen-olyan képességű tárgya.
+
+-üres osztályok. Legyen mindenkinek valami funkciója, ne legyen egy túl okos ős.
+
+-tipus- vagy képessegmegkülönböztető-- NE!
+
+
+
+?? valami az absztrakt osztály függvényei a szekvenciadiagramokkon.
+
+
+
