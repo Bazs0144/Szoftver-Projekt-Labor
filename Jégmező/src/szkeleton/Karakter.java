@@ -13,7 +13,7 @@ public class Karakter {
 
     }
 
-    public void vizbe_esik () {
+    public void vizbe_esik() {
 
     }
 
@@ -21,19 +21,19 @@ public class Karakter {
 
     }
 
-    public bool menekit(Karakter k) {
+    public boolean menekit(Karakter k) {
         return true;
     }
 
-    public bool targy_felvetele() {
+    public boolean targy_felvetele() {
         return true;
     }
 
-    public bool tárgy_hozzadasa(Targy t) {
+    public boolean tárgy_hozzadasa(Targy t) {
         return true;
     }
 
-    public bool kias(j: Jegtabla) {
+    public boolean kias(j: Jegtabla) {
 
     }
 
@@ -53,8 +53,9 @@ public class Karakter {
         jegtabla=j;
     }
 
-    public bool van_munkaja() {
-        return true;
+    public boolean van_munkaja() {
+        if (munkak_szama!=0) return true;
+        return false;
     }
 
     public void hasznal(Targy t, Jegtabla hol) {
