@@ -10,15 +10,18 @@ public class Karakter {
 
 
     public void takarit(Jegtabla j, int intensity) {
-
+        System.out.println("------->  takarit(Jegtabla j, int intensity)");
+		System.out.println("<------- takarit(Jegtabla j, int intensity)");
     }
 
     public void vizbe_esik() {
-
+        System.out.println("------->  vizbe_esik()");
+		System.out.println("<------- vizbe_esik()");
     }
 
     public void lep(Jegmezo jm) {
-
+        System.out.println("------->  lep(Jegmezo jm)");
+		System.out.println("<------- lep(Jegmezo jm)");
     }
 
     public boolean menekit(Karakter k) {
@@ -38,11 +41,13 @@ public class Karakter {
     }
 
     public void sebzodik() {
-
+        System.out.println("------->  sebzodik()");
+		System.out.println("<------- sebzodik()");
     }
 
     public void ho_nov() {
-
+        System.out.println("------->   ho_nov()");
+		System.out.println("<-------  ho_nov()");
     }
 
     public Jegtabla getJegtabla() {
