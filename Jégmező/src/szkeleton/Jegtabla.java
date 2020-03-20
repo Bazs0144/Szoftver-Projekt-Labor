@@ -80,7 +80,7 @@ public class Jegtabla {
 	}
 	
 	public boolean szomszed_e(Jegtabla j) {
-		
+
 	}
 	
 	public void lelepnek(Karakter k) {
@@ -88,7 +88,7 @@ public class Jegtabla {
 		System.out.println("<------lelepnek(Karakter k)");
 	}
 	
-	public void elvesz(Karakter k, Targy t) {
+	public boolean elvesz(Karakter k, Targy t) {
 		System.out.println("------>elvesz(Karakter k, Targy t)");
 		System.out.println("Homennyiseg a jegtablan?");
 		Scanner in = new Scanner(System.in);
@@ -97,11 +97,15 @@ public class Jegtabla {
 		int I2 = in.nextInt();
 		
 		if(I ==0  && I2 ==0) {
-			k.tárgy_hozzadasa(t);
+			k.targy_hozzaadasa(t);
+			System.out.println("<---true---elvesz(Karakter k, Targy t)");
+			return true;
 		}
-		
-		in.close();
-		System.out.println("<------elvesz(Karakter k, Targy t)");
+		else {
+			in.close();
+			System.out.println("<---false---elvesz(Karakter k, Targy t)");
+			return false;
+		}
 	}
 	
 	public void kiment(Karakter kit, Jegtabla j) {
