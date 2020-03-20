@@ -96,7 +96,7 @@ public class Jegtabla {
 		int I2 = in.nextInt();
 		
 		if(I ==0  && I2 ==0) {
-			k.targy_hozzaadasa(t);
+			k.tárgy_hozzadasa(t);
 		}
 		
 		in.close();
