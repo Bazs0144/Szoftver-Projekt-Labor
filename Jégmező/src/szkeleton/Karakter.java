@@ -28,25 +28,33 @@ public class Karakter {
     public boolean menekit(Karakter k) {
         System.out.println("-------> menekit(Karakter k)");
        Jegtabla j1=k.getJegtabla();
-       if(j1.szomszed_e(jegtabla)) j1.kiment(k,jegtabla);
-        System.out.println("<------false---- menekit(Karakter k)");
+       if(j1.szomszed_e(jegtabla)){ j1.kiment(k,jegtabla);
+        System.out.println("<------false---- menekit(Karakter k)");}
        else return false;
        jegtabla.ralepnek(k);
         System.out.println("<------true---- menekit(Karakter k)");
         return true;
     }
 
-    public bool targy_felvetele() {
+    public boolean targy_felvetele() {
         Targy t=jegtabla.getTargy();
-        jegtabla.elvesz(this, t);
+        if(jegtabla.elvesz(this, t)) {
+            System.out.println("<---true---- targy_felvetele()");
+            munkak_szama--;
+            return true;
+        }
+        else {
+            System.out.println("<---false---- targy_felvetele()");
+            return false;
+        }
     }
 
-    public boolean tárgy_hozzadasa(Targy t) {
-
+    public void targy_hozzaadasa(Targy t) {
+        zseb.add(t);
     }
 
     public boolean kias(Jegtabla j) {
-
+        return true;
     }
 
     public void sebzodik() {
