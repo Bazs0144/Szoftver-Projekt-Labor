@@ -59,7 +59,11 @@ public final class Szkeleton {
 					  
 			  break;
 		  case 12:
-					    // code block
+			  Jegtabla Jt = new Jegtabla();
+			  Karakter K = new Karakter();
+			  Jt.ralepnek(K);
+			  Jt.hovihar_volt();
+			  
 			  break;	
 		  case 13:
 			    // code block

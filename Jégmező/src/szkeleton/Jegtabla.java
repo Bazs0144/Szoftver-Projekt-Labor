@@ -19,13 +19,13 @@ public class Jegtabla {
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
 		
-		if(I == 1) 
+		if(I == 0) 
 		{
 			for(int i = 0; i < karakterek.size(); ++i) {
 				karakterek.get(i).sebzodik();
 			}
 		}
-		 in.close();
+		// in.close();
 		 System.out.println("<------- hovihar_volt()");
 	}
 	
@@ -36,6 +36,7 @@ public class Jegtabla {
 	}
 	
 	public void ralepnek(Karakter k) {
+		karakterek.add(k);
 	}
 	
 	public void takaritas_volt(int intensity) {

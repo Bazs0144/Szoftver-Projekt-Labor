@@ -8,15 +8,15 @@ public class Main {
 		// System.out.println("Hello :) ");
 		 Szkeleton.kiir_menu();
 		 int I = 14;
-		 Scanner in = new Scanner(System.in);
+		 Scanner in_main = new Scanner(System.in);
 		
 		while(I != 0) {
 			System.out.println("A felhasználó választásának sorszáma: ");
-			I = in.nextInt();
+			I = in_main.nextInt();
 			Szkeleton.valasztas(I);	
 		}
 		
-		in.close();
+		in_main.close();
 	 }
 
 }
