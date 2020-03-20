@@ -1,6 +1,5 @@
 package szkeleton;
 
-import java.util.Scanner;
 
 public final class Szkeleton {
 		
@@ -19,12 +18,11 @@ public final class Szkeleton {
 		System.out.println("11. Rakéta elsütése");
 		System.out.println("12. Hóvihar elkap egy karaktert");
 		System.out.println("13. Hóvihar, de iglu megvéd");
+		System.out.println("0.  Kilépés a menûbõl");
 	}
 	
-	public static void valasztas() {
-		System.out.println("A felhasználó választásának sorszáma: ");
-		Scanner in = new Scanner(System.in);
-		int I = in.nextInt();
+	public static void valasztas(int I) {
+		
 		
 		switch(I) {
 		  case 1:
@@ -69,7 +67,6 @@ public final class Szkeleton {
 		  default:
 		    // code block
 		}
-		 in.close();
 	}
 	
 }
