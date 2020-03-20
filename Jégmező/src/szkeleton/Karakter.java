@@ -53,17 +53,15 @@ public class Karakter {
         zseb.add(t);
     }
 
-    public boolean kias(Jegtabla j) {
-        return true;
-    }
-
     public void sebzodik() {
         System.out.println("------->  sebzodik()");
+        ho--;
 		System.out.println("<------- sebzodik()");
     }
 
     public void ho_nov() {
         System.out.println("------->   ho_nov()");
+        ho++;
 		System.out.println("<-------  ho_nov()");
     }
 
@@ -81,6 +79,8 @@ public class Karakter {
     }
 
     public void hasznal(Targy t, Jegtabla hol) {
-
+        System.out.println("------->  hasznal(Targy t, Jegtabla hol)");
+        t.hasznaljak(this, hol);
+        System.out.println("<-------  hasznal(Targy t, Jegtabla hol)");
     }
 }
