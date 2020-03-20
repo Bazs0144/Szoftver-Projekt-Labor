@@ -1,12 +1,13 @@
 package szkeleton;
+import java.util.List;
 
 public class Karakter {
 
     int ho;
     int munkak_szama;
-    bool vizben_van;
+    boolean vizben_van;
     Jegtabla jegtabla;
-    Targy[] zseb;
+    List<Targy> zseb;
 
 
     public void takarit(Jegtabla j, int intensity) {
@@ -25,18 +26,26 @@ public class Karakter {
     }
 
     public boolean menekit(Karakter k) {
+        System.out.println("-------> menekit(Karakter k)");
+       Jegtabla j1=k.getJegtabla();
+       if(j1.szomszed_e(jegtabla)) j1.kiment(k,jegtabla);
+        System.out.println("<------false---- menekit(Karakter k)");
+       else return false;
+       jegtabla.ralepnek(k);
+        System.out.println("<------true---- menekit(Karakter k)");
         return true;
     }
 
-    public boolean targy_felvetele() {
-        return true;
+    public bool targy_felvetele() {
+        Targy t=jegtabla.getTargy();
+        jegtabla.elvesz(this, t);
     }
 
     public boolean tárgy_hozzadasa(Targy t) {
-        return true;
+
     }
 
-    public boolean kias(j: Jegtabla) {
+    public boolean kias(Jegtabla j) {
 
     }
 
@@ -51,7 +60,7 @@ public class Karakter {
     }
 
     public Jegtabla getJegtabla() {
-        return Jegtabla;
+        return jegtabla;
     }
 
     public void setJegtabla(Jegtabla j) {

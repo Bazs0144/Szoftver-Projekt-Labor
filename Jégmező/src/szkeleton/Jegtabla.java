@@ -79,9 +79,9 @@ public class Jegtabla {
 		return van_iglu;
 	}
 	
-	//public boolean szomszed_e(Jegtabla j) {
+	public boolean szomszed_e(Jegtabla j) {
 		
-	//}
+	}
 	
 	public void lelepnek(Karakter k) {
 		System.out.println("------>lelepnek(Karakter k)");
