@@ -11,7 +11,7 @@ public class Main {
 		 Scanner in_main = new Scanner(System.in);
 		
 		while(I != 0) {
-			System.out.println("A felhasználó választásának sorszáma: ");
+			System.out.println("A felhasznï¿½lï¿½ vï¿½lasztï¿½sï¿½nak sorszï¿½ma: ");
 			I = in_main.nextInt();
 			Szkeleton.valasztas(I);	
 		}
