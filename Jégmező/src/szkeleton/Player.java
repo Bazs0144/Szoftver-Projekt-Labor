@@ -5,7 +5,7 @@ public class Player {
     private int id;
     //private Karakter k;
 
-    public void kör_kezdes() {
+    public void kor_kezdes() {
 
     }
 

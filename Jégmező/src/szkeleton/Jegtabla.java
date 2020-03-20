@@ -80,7 +80,7 @@ public class Jegtabla {
 	}
 	
 	public boolean szomszed_e(Jegtabla j) {
-
+		return true;
 	}
 	
 	public void lelepnek(Karakter k) {
