@@ -76,13 +76,16 @@ public final class Szkeleton {
 			  else System.out.println("Lépés nem sikerült");
 			   break;
 		  case 8:
-
-			   break;
+			  Player lukban=new Player(new Karakter());
+			  lukban.getKarakter().setJegtabla(new Luk());
+			  Player mento=new Player(new Karakter());
+			  mento.getKarakter().setJegtabla(new Stabil());
+			  mento.getKarakter().menekit(lukban.getKarakter());
+			  break;
 		  case 9:
 			  Eszkimo eszk = new Eszkimo();
 			  eszk.setJegtabla(new Jegtabla());
 			  eszk.iglut_epit();
-				  
 			  break;
 		  case 10:
 			  Sarkkutato sk = new Sarkkutato();

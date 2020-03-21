@@ -43,12 +43,17 @@ public class Karakter {
     public boolean menekit(Karakter k) {
         System.out.println("-------> menekit(Karakter k)");
        Jegtabla j1=k.getJegtabla();
-       if(j1.szomszed_e(jegtabla)){ j1.kiment(k,jegtabla);
-        System.out.println("<------false---- menekit(Karakter k)");}
-       else return false;
-       jegtabla.ralepnek(k);
-        System.out.println("<------true---- menekit(Karakter k)");
-        return true;
+       if(j1.szomszed_e(jegtabla)){
+           j1.kiment(k,jegtabla);
+           jegtabla.ralepnek(k);
+           System.out.println("<------true---- menekit(Karakter k)");
+           return true;
+        }
+       else {
+           System.out.println("<------false---- menekit(Karakter k)");
+           return false;
+       }
+
     }
 
     public boolean targy_felvetele() {
