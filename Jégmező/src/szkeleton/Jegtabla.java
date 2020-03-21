@@ -36,7 +36,9 @@ public class Jegtabla {
 	}
 	
 	public void ralepnek(Karakter k) {
+		System.out.println("------->  ralepnek(Karakter k)");
 		karakterek.add(k);
+		System.out.println("<------- ralepnek(Karakter k)");
 	}
 	
 	public void takaritas_volt(int intensity) {
@@ -80,11 +82,23 @@ public class Jegtabla {
 	}
 	
 	public boolean szomszed_e(Jegtabla j) {
-		return true;
+		System.out.println("------>szomszed_e(Jegtabla j)");
+		System.out.println("Szomszédok a jégtáblák?");
+		Scanner in = new Scanner(System.in);
+		int I = in.nextInt();
+		if(I == 1){
+			System.out.println("<------true ---- szomszed_e(Jegtabla j)");
+			return true;
+		}
+		else{
+			System.out.println("<------false ---- szomszed_e(Jegtabla j)");
+			 return false;
+		}
 	}
 	
 	public void lelepnek(Karakter k) {
 		System.out.println("------>lelepnek(Karakter k)");
+		//remove karakter
 		System.out.println("<------lelepnek(Karakter k)");
 	}
 	
@@ -95,7 +109,7 @@ public class Jegtabla {
 		int I = in.nextInt();
 		System.out.println("Be van fagyva?");
 		int I2 = in.nextInt();
-
+		
 		if(I ==0  && I2 ==0) {
 			k.targy_hozzaadasa(t);
 			System.out.println("<---true---elvesz(Karakter k, Targy t)");
@@ -106,6 +120,7 @@ public class Jegtabla {
 			return false;
 		}
 	}
+	
 	
 	public void kiment(Karakter kit, Jegtabla j) {
 		System.out.println("------>kiment(Karakter kit, Jegtabla j) ");
