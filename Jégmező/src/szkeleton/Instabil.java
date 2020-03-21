@@ -13,10 +13,7 @@ public class Instabil extends Jegtabla{
 		System.out.println("Tobb karakter van mint amennyi a kapacitas?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
-		
 		if(I == 1) felfordul(k);
-		
-		in.close();
 		System.out.println("<-------ralepnek(Karakter k)");
 	}
 	

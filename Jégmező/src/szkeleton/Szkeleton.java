@@ -19,7 +19,7 @@ public final class Szkeleton {
 		System.out.println("10. Sarkkutató jégtáblát vizsgál");
 		System.out.println("11. Rakéta elsütése");
 		System.out.println("12. Hóvihar elkap egy karaktert");
-		System.out.println("13. Hóvihar, de iglu megvéd"); //Ez szerintem már meg van csinálva a 12-ben (Balázs)
+		System.out.println("13. Hóvihar, de iglu megvéd");
 		System.out.println("14: Játék menete");
 		System.out.println("15: Hóvihar végigsöpör a jégmezõn");
 		System.out.println("0.  Kilépés a menübõl");
@@ -56,29 +56,47 @@ public final class Szkeleton {
 			  else System.out.println("Tárgy felvétel nem sikerült");
 			  break;
 		  case 5:
-				  
+			  Player p5=new Player(new Karakter());
+			  p5.getKarakter().setJegtabla(new Jegtabla());
+			  Jegtabla j2=new Jegtabla();
+			  boolean siker=p5.getKarakter().lep(j2);
+			  if(siker) System.out.println("Lépés sikerült");
+			  else System.out.println("Lépés nem sikerült");
 			  break;
 		  case 6:
-				    // code block
+			  Player p6=new Player(new Karakter());
+			  p6.getKarakter().setJegtabla(new Jegtabla());
+			  Instabil ins = new Instabil();
+			  boolean hat=p6.getKarakter().lep(ins);
+			  if(hat) System.out.println("Lépés sikerült");
+			  else System.out.println("Lépés nem sikerült");
 			  break;
 		  case 7:
-			  
+			  Player p7=new Player(new Karakter());
+			  p7.getKarakter().setJegtabla(new Jegtabla());
+			  Luk luk= new Luk();
+			  boolean het=p7.getKarakter().lep(luk);
+			  if(het) System.out.println("Lépés sikerült");
+			  else System.out.println("Lépés nem sikerült");
 			   break;
 		  case 8:
-			    // code block
-			   break;
+			  Player lukban=new Player(new Karakter());
+			  lukban.getKarakter().setJegtabla(new Luk());
+			  Player mento=new Player(new Karakter());
+			  mento.getKarakter().setJegtabla(new Stabil());
+			  mento.getKarakter().menekit(lukban.getKarakter());
+			  break;
 		  case 9:
 			  Eszkimo eszk = new Eszkimo();
 			  eszk.setJegtabla(new Jegtabla());
 			  eszk.iglut_epit();
-				  
 			  break;
 		  case 10:
 			  Sarkkutato sk = new Sarkkutato();
 			  sk.megnez(new Jegtabla());
 			  break;
 		  case 11:
-					  
+
 			  break;
 		  case 12:
 			  Jegtabla Jt = new Jegtabla();
@@ -88,7 +106,10 @@ public final class Szkeleton {
 			  
 			  break;
 		  case 13:
-			    // code block
+			  Eszkimo es = new Eszkimo();
+			  es.setJegtabla(new Jegtabla());
+			  es.iglut_epit();
+			  es.getJegtabla().hovihar_volt();
 			  break;
 		  case 14:
 			  ArrayList<Player> p_array = new ArrayList<Player>();
@@ -100,6 +121,7 @@ public final class Szkeleton {
 		  case 15:
 		  	  Jegmezo jm = new Jegmezo(10);
 		  	  jm.hovihar_indul();
+		  	  break;
 		  default:
 		    // code block
 		}
