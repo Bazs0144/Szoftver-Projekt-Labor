@@ -26,10 +26,15 @@ public final class Szkeleton {
 		
 		switch(I) {
 		  case 1:
-			  
+			  Player p1=new Player(new Karakter());
+			  Etel e= new Etel();
+			  p1.getKarakter().hasznal(e, p1.getKarakter().getJegtabla());
 		    break;
 		  case 2:
-		    // code block
+			  Player p2=new Player(new Karakter());
+			  p2.getKarakter().setJegtabla(new Jegtabla());
+			  int erosseg=1;
+			  p2.getKarakter().takarit(erosseg);
 		    break;
 		  case 3:
 			  

@@ -10,19 +10,28 @@ public class Karakter {
     List<Targy> zseb;
 
 
-    public void takarit(Jegtabla j, int intensity) {
-        System.out.println("------->  takarit(Jegtabla j, int intensity)");
-		System.out.println("<------- takarit(Jegtabla j, int intensity)");
+    public void takarit(int intensity) {
+        System.out.println("-------> takarit(int intensity)");
+        jegtabla.takaritas_volt(intensity);
+		System.out.println("<------- takarit(int intensity)");
     }
 
     public void vizbe_esik() {
         System.out.println("------->  vizbe_esik()");
+        vizben_van=true;
 		System.out.println("<------- vizbe_esik()");
     }
 
-    public void lep(Jegmezo jm) {
+    public boolean lep(Jegtabla jt) {
         System.out.println("------->  lep(Jegmezo jm)");
-		System.out.println("<------- lep(Jegmezo jm)");
+        if(jegtabla.szomszed_e(jt)) {
+            jegtabla.lelepnek(this);
+            jt.ralepnek(this);
+            System.out.println("<---true---- lep(Jegmezo jm)");
+            return true;
+        } else {
+            System.out.println("<---false---- lep(Jegmezo jm)");
+            return false; }
     }
 
     public boolean menekit(Karakter k) {
