@@ -1,5 +1,6 @@
 package szkeleton;
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class Karakter {
 
@@ -7,8 +8,13 @@ public class Karakter {
     int munkak_szama;
     boolean vizben_van;
     Jegtabla jegtabla;
-    List<Targy> zseb;
+    ArrayList<Targy> zseb;
 
+     public Karakter() {
+        System.out.println("-------> Karakter()");
+        zseb= new ArrayList<Targy>();
+        System.out.println("<------- Karakter()");
+    }
 
     public void takarit(int intensity) {
         System.out.println("-------> takarit(int intensity)");
@@ -83,8 +89,7 @@ public class Karakter {
     }
 
     public boolean van_munkaja() {
-        if (munkak_szama!=0) return true;
-        return false;
+        return munkak_szama != 0;
     }
 
     public void hasznal(Targy t, Jegtabla hol) {
