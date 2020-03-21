@@ -95,14 +95,13 @@ public class Jegtabla {
 		int I = in.nextInt();
 		System.out.println("Be van fagyva?");
 		int I2 = in.nextInt();
-		
+
 		if(I ==0  && I2 ==0) {
 			k.targy_hozzaadasa(t);
 			System.out.println("<---true---elvesz(Karakter k, Targy t)");
 			return true;
 		}
 		else {
-			in.close();
 			System.out.println("<---false---elvesz(Karakter k, Targy t)");
 			return false;
 		}

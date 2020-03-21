@@ -52,13 +52,28 @@ public final class Szkeleton {
 			  else System.out.println("Tárgy felvétel nem sikerült");
 			  break;
 		  case 5:
-				  
+			  Player p5=new Player(new Karakter());
+			  p5.getKarakter().setJegtabla(new Jegtabla());
+			  Jegtabla j2=new Jegtabla();
+			  boolean siker=p5.getKarakter().lep(j2);
+			  if(siker) System.out.println("Lépés sikerült");
+			  else System.out.println("Lépés nem sikerült");
 			  break;
 		  case 6:
-				    // code block
+			  Player p6=new Player(new Karakter());
+			  p6.getKarakter().setJegtabla(new Jegtabla());
+			  Instabil ins = new Instabil();
+			  boolean hat=p6.getKarakter().lep(ins);
+			  if(hat) System.out.println("Lépés sikerült");
+			  else System.out.println("Lépés nem sikerült");
 			  break;
 		  case 7:
-			  
+			  Player p7=new Player(new Karakter());
+			  p7.getKarakter().setJegtabla(new Jegtabla());
+			  Luk luk= new Luk();
+			  boolean het=p7.getKarakter().lep(luk);
+			  if(het) System.out.println("Lépés sikerült");
+			  else System.out.println("Lépés nem sikerült");
 			   break;
 		  case 8:
 			    // code block
