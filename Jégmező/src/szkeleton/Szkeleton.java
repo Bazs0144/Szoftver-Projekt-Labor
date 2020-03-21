@@ -76,7 +76,7 @@ public final class Szkeleton {
 			  else System.out.println("Lépés nem sikerült");
 			   break;
 		  case 8:
-			    // code block
+
 			   break;
 		  case 9:
 			  Eszkimo eszk = new Eszkimo();
