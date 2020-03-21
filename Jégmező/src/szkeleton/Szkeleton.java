@@ -92,7 +92,7 @@ public final class Szkeleton {
 			  sk.megnez(new Jegtabla());
 			  break;
 		  case 11:
-					  
+
 			  break;
 		  case 12:
 			  Jegtabla Jt = new Jegtabla();
@@ -102,7 +102,10 @@ public final class Szkeleton {
 			  
 			  break;	
 		  case 13:
-			    // code block
+			  Eszkimo es = new Eszkimo();
+			  es.setJegtabla(new Jegtabla());
+			  es.iglut_epit();
+			  es.getJegtabla().hovihar_volt();
 			  break;	
 		  default:
 		    // code block
