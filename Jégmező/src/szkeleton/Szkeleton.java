@@ -18,7 +18,7 @@ public final class Szkeleton {
 		System.out.println("11. Rakéta elsütése");
 		System.out.println("12. Hóvihar elkap egy karaktert");
 		System.out.println("13. Hóvihar, de iglu megvéd");
-		System.out.println("0.  Kilépés a menüböl");
+		System.out.println("0.  Kilépés a menûbõl");
 	}
 	
 	public static void valasztas(int I) {
@@ -37,19 +37,10 @@ public final class Szkeleton {
 			  p2.getKarakter().takarit(erosseg);
 		    break;
 		  case 3:
-			  Player p3=new Player(new Karakter());
-			  p3.getKarakter().setJegtabla(new Jegtabla());
-			  Lapat l= new Lapat();
-			  p3.getKarakter().hasznal(l, p3.getKarakter().getJegtabla());
+			  
 			 break;
 		  case 4:
-			  Player p4=new Player(new Karakter());
-			  Targy t=new Targy();
-			  p4.getKarakter().setJegtabla(new Jegtabla());
-			  p4.getKarakter().getJegtabla().setTargy(t);
-			  boolean sikerult=p4.getKarakter().targy_felvetele();
-			  if(sikerult) System.out.println("Tárgy felvéve");
-			  else System.out.println("Tárgy felvétel nem sikerült");
+			    // code block
 			  break;
 		  case 5:
 				  
@@ -64,10 +55,14 @@ public final class Szkeleton {
 			    // code block
 			   break;
 		  case 9:
+			  Eszkimo eszk = new Eszkimo();
+			  eszk.setJegtabla(new Jegtabla());
+			  eszk.iglut_epit();
 				  
 			  break;
 		  case 10:
-				    // code block
+			  Sarkkutato sk = new Sarkkutato();
+			  sk.megnez(new Jegtabla());
 			  break;
 		  case 11:
 					  

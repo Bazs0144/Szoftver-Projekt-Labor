@@ -7,13 +7,13 @@ public class Main {
 	 {
 		// System.out.println("Hello :) ");
 		 Szkeleton.kiir_menu();
-		 int i = 14;
+		 int I = 14;
 		 Scanner in_main = new Scanner(System.in);
 		
-		while(i != 0) {
-			System.out.println("A felhasznalo valasztasanak sorszama: ");
-			i = in_main.nextInt();
-			Szkeleton.valasztas(i);
+		while(I != 0) {
+			System.out.println("A felhasználó választásának sorszáma: ");
+			I = in_main.nextInt();
+			Szkeleton.valasztas(I);	
 		}
 		
 		in_main.close();
