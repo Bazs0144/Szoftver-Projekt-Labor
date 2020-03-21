@@ -1,6 +1,8 @@
 package szkeleton;
 
 
+import java.util.ArrayList;
+
 public final class Szkeleton {
 		
 	public static void kiir_menu() {
@@ -17,7 +19,9 @@ public final class Szkeleton {
 		System.out.println("10. Sarkkutató jégtáblát vizsgál");
 		System.out.println("11. Rakéta elsütése");
 		System.out.println("12. Hóvihar elkap egy karaktert");
-		System.out.println("13. Hóvihar, de iglu megvéd");
+		System.out.println("13. Hóvihar, de iglu megvéd"); //Ez szerintem már meg van csinálva a 12-ben (Balázs)
+		System.out.println("14: Játék menete");
+		System.out.println("15: Hóvihar végigsöpör a jégmezõn");
 		System.out.println("0.  Kilépés a menübõl");
 	}
 	
@@ -82,10 +86,20 @@ public final class Szkeleton {
 			  Jt.ralepnek(K);
 			  Jt.hovihar_volt();
 			  
-			  break;	
+			  break;
 		  case 13:
 			    // code block
-			  break;	
+			  break;
+		  case 14:
+			  ArrayList<Player> p_array = new ArrayList<Player>();
+			  p_array.add(new Player(new Karakter()));
+			  p_array.add(new Player(new Karakter()));
+			  p_array.add(new Player(new Karakter()));
+			  Jatektabla jatekt = new Jatektabla(30, p_array);
+		  	  break;
+		  case 15:
+		  	  Jegmezo jm = new Jegmezo(10);
+		  	  jm.hovihar_indul();
 		  default:
 		    // code block
 		}

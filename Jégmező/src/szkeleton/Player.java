@@ -8,9 +8,9 @@ public class Player {
     private Karakter k;
 
     Player(Karakter kr) {
-        System.out.println("-------> Player(Karakter kr) konstruktor");
+        System.out.println("-------> Player(Karakter kr) *konstruktor*");
         k=kr;
-        System.out.println("<------- Player(Karakter kr) konstruktor");
+        System.out.println("<------- Player(Karakter kr) *konstruktor*");
     }
 
     public Karakter getKarakter() {
