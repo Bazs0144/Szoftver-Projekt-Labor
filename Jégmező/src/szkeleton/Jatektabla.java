@@ -56,7 +56,7 @@ public class Jatektabla {
             next_player(p.get(act_index));
             game_over = check_game_over();
             act_index++;
-            //ide kell majd még hóvihar.
+            //+
         }
         game_over();
         System.out.println("<------- init()");
@@ -64,7 +64,4 @@ public class Jatektabla {
 
     //----------- Interfész ---
     //-----------
-
-
-
 }
