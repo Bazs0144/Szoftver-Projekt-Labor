@@ -37,6 +37,7 @@ public class Jegtabla {
 			}
 		}
 		// in.close();
+		ho_mennyiseg++;
 		 System.out.println("<------- hovihar_volt()");
 	}
 	
@@ -148,7 +149,8 @@ public class Jegtabla {
 		System.out.print("this jegtabla.");
 		this.lelepnek(kit);	 
 		System.out.print("karakter.");
-		kit.setJegtabla(j);  
+		j.ralepnek(kit);
+		//kit.setJegtabla(j);  
 		System.out.println("<------kiment(Karakter kit, Jegtabla j) ");
 	}
 }

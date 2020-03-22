@@ -11,9 +11,11 @@ public class Karakter {
     ArrayList<Targy> zseb;
 
      public Karakter() {
+        System.out.println("-------> Karakter()");
         System.out.println("-------> Karakter() *konstruktor*");
         zseb= new ArrayList<Targy>();
         System.out.println("<------- Karakter() *konstruktor*");
+        System.out.println("<------- Karakter()");
     }
 
     public void takarit(int intensity) {
@@ -45,7 +47,7 @@ public class Karakter {
        Jegtabla j1=k.getJegtabla();
        if(j1.szomszed_e(jegtabla)){
            j1.kiment(k,jegtabla);
-           jegtabla.ralepnek(k);
+           //jegtabla.ralepnek(k);
            System.out.println("<------true---- menekit(Karakter k)");
            return true;
         }
