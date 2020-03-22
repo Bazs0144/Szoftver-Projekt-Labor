@@ -2,9 +2,10 @@ package szkeleton;
 
 public class Sarkkutato extends Karakter {
 	
-	public void megnez(Jegtabla j) {
+	public int megnez(Jegtabla j) {
 		System.out.println("------->  megnez(Jegtabla j)");
-		j.getKapacitas();
+		int kap = j.getKapacitas();
 		System.out.println("<------- megnez(Jegtabla j)");
+		return kap;
 	}
 }
