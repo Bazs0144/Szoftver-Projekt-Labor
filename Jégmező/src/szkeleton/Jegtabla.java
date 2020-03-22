@@ -59,15 +59,18 @@ public class Jegtabla {
 	}
 	
 	public void setTargy(Targy t) {
-		System.out.println("------->setTargy(Targy t)");
-		System.out.println("<-------setTargy(Targy t)");
+		System.out.println("-------> setTargy(Targy t)");
+		System.out.println("<------- setTargy(Targy t)");
 		this.T = t;
 	}
 	
 	public int getHoMennyiseg() {
 		System.out.println("------->getHoMennyiseg()");
+		System.out.println("Mennyi ho van ezen a jegtablan?");
+		Scanner in = new Scanner(System.in);
+		int I = in.nextInt();
 		System.out.println("<------- ho_mennyiseg ----- getHoMennyiseg()");
-		return ho_mennyiseg;
+		return I;
 	}
 	
 	public void igluEpitese() {
@@ -76,9 +79,15 @@ public class Jegtabla {
 	}
 	
 	public boolean getVanIglu() {
-		System.out.println("------->getVanIglu()");
+		System.out.println("-------> getVanIglu()");
+		System.out.println("van iglu?");
+		Scanner in = new Scanner(System.in);
+		int I = in.nextInt();
 		System.out.println("<------- van_iglu ----- getVanIglu()");
-		return van_iglu;
+		if(I == 0) {
+			return true;
+		}
+		else return false;
 	}
 	
 	public boolean szomszed_e(Jegtabla j) {
@@ -98,7 +107,6 @@ public class Jegtabla {
 	
 	public void lelepnek(Karakter k) {
 		System.out.println("------>lelepnek(Karakter k)");
-		//remove karakter
 		System.out.println("<------lelepnek(Karakter k)");
 	}
 	
@@ -124,6 +132,7 @@ public class Jegtabla {
 	
 	public void kiment(Karakter kit, Jegtabla j) {
 		System.out.println("------>kiment(Karakter kit, Jegtabla j) ");
+		this.lelepnek(kit);
 		kit.setJegtabla(j);
 		System.out.println("<------kiment(Karakter kit, Jegtabla j) ");
 	}
