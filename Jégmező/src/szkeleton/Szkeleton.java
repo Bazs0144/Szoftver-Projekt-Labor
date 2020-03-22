@@ -82,7 +82,6 @@ public final class Szkeleton {
 			  Karakter lukban= new Karakter();
 			  Luk luk1= new Luk();
 			  luk1.ralepnek(lukban);
-			  System.out.println(luk1.getKarakterek().size());
 			  Karakter mento= new Karakter();
 			  Stabil stabil =new Stabil();
 			  stabil.ralepnek(mento);
