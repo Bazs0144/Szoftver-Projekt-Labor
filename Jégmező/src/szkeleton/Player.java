@@ -1,5 +1,3 @@
-/*------------ Gábor Balázs ------------*/
-
 package szkeleton;
 
 public class Player {
