@@ -1,6 +1,5 @@
 package szkeleton;
 
-
 import java.util.ArrayList;
 
 public final class Szkeleton {
@@ -104,13 +103,13 @@ public final class Szkeleton {
 			  Jt.ralepnek(K);
 			  Jt.hovihar_volt();
 			  
-			  break;
+			  break;	
 		  case 13:
 			  Eszkimo es = new Eszkimo();
 			  es.setJegtabla(new Jegtabla());
 			  es.iglut_epit();
 			  es.getJegtabla().hovihar_volt();
-			  break;
+			  break;	
 		  case 14:
 			  ArrayList<Player> p_array = new ArrayList<Player>();
 			  p_array.add(new Player(new Karakter()));
