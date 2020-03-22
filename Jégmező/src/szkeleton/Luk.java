@@ -10,7 +10,9 @@ public class Luk extends Jegtabla{
 	@Override
 	public void ralepnek(Karakter k) {
 		System.out.println("------->ralepnek(Karakter k)");
+		System.out.print("karakter.");
 		k.setJegtabla(this);
+		System.out.print("karakter.");
 		k.vizbe_esik();
 		System.out.println("<-------ralepnek(Karakter k)");
 	}
