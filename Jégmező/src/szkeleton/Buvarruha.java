@@ -7,5 +7,6 @@ public class Buvarruha extends Targy {
         System.out.println("------->   hasznaljak(Karakter karakter, Jegtabla hol)");
         
 		System.out.println("<-------  hasznaljak(Karakter karakter, Jegtabla hol)");
+		return;
 	}
 }

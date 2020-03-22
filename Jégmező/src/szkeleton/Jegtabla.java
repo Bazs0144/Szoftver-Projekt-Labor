@@ -18,6 +18,10 @@ public class Jegtabla {
 		System.out.println("<------- Jegtabla() *konstruktor*");
 	}
 	
+	public ArrayList<Karakter> getKarakterek(){
+		return karakterek;
+	}
+	
 	public void hovihar_volt() {
 		System.out.println("-------> hovihar_volt()");
 		System.out.println("Van iglu?");
