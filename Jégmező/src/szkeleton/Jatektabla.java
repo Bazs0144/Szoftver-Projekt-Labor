@@ -1,4 +1,4 @@
-/*------------ GÃ¡bor BalÃ¡zs ------------*/
+/*------------ Gábor Balázs ------------*/
 
 package szkeleton;
 
@@ -15,7 +15,7 @@ public class Jatektabla {
         System.out.println("-------> Jatektabla(size: int, p: Player[]) *konstruktor*");
         j = new Jegmezo(size);
         this.p = p;
-        a = new ArrayList<>(); //Ez csak egyszerÅ±sÃ­tÃ©s, bele kell rakni ebbe majd alkatrÃ©szeket, Ã©s elosztani a jÃ©gtÃ¡blÃ¡k kÃ¶zÃ¶tt.
+        a = new ArrayList<>(); //Ez csak egyszerûsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
         init();
         System.out.println("<------- Jatektabla(size: int, p: Player[]) *konstruktor*");
     }
@@ -52,19 +52,19 @@ public class Jatektabla {
         System.out.println("-------> init()");
         boolean game_over = false;
         int act_index = 0;
-        //itt is lesznek mÃ©g dolgok(jÃ¡tÃ©kosok elhelyezÃ©se tÃ¡blÃ¡kba...stb).
+        //itt is lesznek még dolgok(játékosok elhelyezése táblákba...stb).
         while(!game_over) {
-            act_index = act_index % p.size(); //azÃ©rt, hogy utolsÃ³ embernÃ©l ÃºjrakezdÅ‘djÃ¶n.
+            act_index = act_index % p.size(); //azért, hogy utolsó embernél újrakezdõdjön.
             next_player(p.get(act_index));
             game_over = check_game_over();
             act_index++;
-            //ide kell majd mÃ©g hÃ³vihar.
+            //ide kell majd még hóvihar.
         }
         game_over();
         System.out.println("<------- init()");
     }
 
-    //----------- InterfÃ©sz ---
+    //----------- Interfész ---
     //-----------
 
 
