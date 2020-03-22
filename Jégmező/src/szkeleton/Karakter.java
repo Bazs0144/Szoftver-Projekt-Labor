@@ -12,7 +12,9 @@ public class Karakter {
 
      public Karakter() {
         System.out.println("-------> Karakter()");
+        System.out.println("-------> Karakter() *konstruktor*");
         zseb= new ArrayList<Targy>();
+        System.out.println("<------- Karakter() *konstruktor*");
         System.out.println("<------- Karakter()");
     }
 

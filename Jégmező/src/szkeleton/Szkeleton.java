@@ -86,13 +86,22 @@ public final class Szkeleton {
 			  else System.out.println("Lépés nem sikerült");
 			   break;
 		  case 8:
+			  /*
 			  Player lukban=new Player(new Karakter());
 			  Luk l8 = new Luk();
 			  lukban.getKarakter().setJegtabla(l8);
 			  Player mento=new Player(new Karakter());
 			  Stabil s8 = new Stabil();
 			  mento.getKarakter().setJegtabla(s8);
-			  mento.getKarakter().menekit(lukban.getKarakter());
+			  mento.getKarakter().menekit(lukban.getKarakter());*/
+			  Karakter lukban= new Karakter();
+			  Luk luk1= new Luk();
+			  luk1.ralepnek(lukban);
+			  System.out.println(luk1.getKarakterek().size());
+			  Karakter mento= new Karakter();
+			  Stabil stabil =new Stabil();
+			  stabil.ralepnek(mento);
+			  mento.hasznal(new Kotel(), luk1);
 			  break;
 		  case 9:
 			  Eszkimo eszk = new Eszkimo();
@@ -130,7 +139,7 @@ public final class Szkeleton {
 			  p_array.add(new Player(new Karakter()));
 			  p_array.add(new Player(new Karakter()));
 			  p_array.add(new Player(new Karakter()));
-			  Jatektabla jatek = new Jatektabla(30, p_array);
+			  Jatektabla jatek = new Jatektabla(5, p_array);
 		  	  break;
 		  case 15:
 		  	  Jegmezo jm = new Jegmezo(10);
