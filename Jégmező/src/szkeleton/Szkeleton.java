@@ -115,7 +115,7 @@ public final class Szkeleton {
 			  p_array.add(new Player(new Karakter()));
 			  p_array.add(new Player(new Karakter()));
 			  p_array.add(new Player(new Karakter()));
-			  Jatektabla jatek = new Jatektabla(30, p_array);
+			  Jatektabla jatek = new Jatektabla(5, p_array);
 		  	  break;
 		  case 15:
 		  	  Jegmezo jm = new Jegmezo(10);
