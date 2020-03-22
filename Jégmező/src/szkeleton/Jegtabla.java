@@ -13,6 +13,15 @@ public class Jegtabla {
 	
 	ArrayList<Karakter> karakterek = new  ArrayList<Karakter>();
 	
+	public Jegtabla() {
+		System.out.println("-------> Jegtabla() *konstruktor*");
+		System.out.println("<------- Jegtabla() *konstruktor*");
+	}
+	
+	public ArrayList<Karakter> getKarakterek(){
+		return karakterek;
+	}
+	
 	public void hovihar_volt() {
 		System.out.println("-------> hovihar_volt()");
 		System.out.println("Van iglu?");
@@ -22,7 +31,8 @@ public class Jegtabla {
 		if(I == 0) 
 		{
 			for(int i = 0; i < karakterek.size(); ++i) {
-				karakterek.get(i).sebzodik();
+				System.out.print("karakter.");
+				karakterek.get(i).sebzodik();  
 			}
 		}
 		// in.close();
@@ -119,7 +129,7 @@ public class Jegtabla {
 		int I2 = in.nextInt();
 		
 		if(I ==0  && I2 ==0) {
-			k.targy_hozzaadasa(t);
+			k.targy_hozzaadasa(t);  System.out.print("k");
 			System.out.println("<---true---elvesz(Karakter k, Targy t)");
 			return true;
 		}
@@ -132,8 +142,10 @@ public class Jegtabla {
 	
 	public void kiment(Karakter kit, Jegtabla j) {
 		System.out.println("------>kiment(Karakter kit, Jegtabla j) ");
-		this.lelepnek(kit);
-		kit.setJegtabla(j);
+		System.out.print("this jegtabla.");
+		this.lelepnek(kit);	 
+		System.out.print("karakter.");
+		kit.setJegtabla(j);  
 		System.out.println("<------kiment(Karakter kit, Jegtabla j) ");
 	}
 }
