@@ -1,7 +1,12 @@
 package szkeleton;
 
 public class Eszkimo extends Karakter {
-	
+
+	public Eszkimo() {
+		System.out.println("-------> Eszkimo() *konstruktor*");
+		System.out.println("<------- Eszkimo() *konstruktor*");
+	}
+
 	public boolean iglut_epit() {
 		
 		System.out.println("------->  iglut_epit()");

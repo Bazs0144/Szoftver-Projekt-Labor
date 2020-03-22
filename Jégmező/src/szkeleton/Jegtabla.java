@@ -11,10 +11,11 @@ public class Jegtabla {
 	private int poz;
 	private Targy T;
 	
-	ArrayList<Karakter> karakterek = new  ArrayList<Karakter>();
+	ArrayList<Karakter> karakterek;
 	
 	public Jegtabla() {
 		System.out.println("-------> Jegtabla() *konstruktor*");
+		karakterek = new  ArrayList<Karakter>();
 		System.out.println("<------- Jegtabla() *konstruktor*");
 	}
 	
@@ -48,6 +49,7 @@ public class Jegtabla {
 	public void ralepnek(Karakter k) {
 		System.out.println("------->  ralepnek(Karakter k)");
 		karakterek.add(k);
+		k.setJegtabla(this);
 		System.out.println("<------- ralepnek(Karakter k)");
 	}
 	
@@ -117,6 +119,7 @@ public class Jegtabla {
 	
 	public void lelepnek(Karakter k) {
 		System.out.println("------>lelepnek(Karakter k)");
+		karakterek.remove(k);
 		System.out.println("<------lelepnek(Karakter k)");
 	}
 	

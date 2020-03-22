@@ -11,9 +11,9 @@ public class Karakter {
     ArrayList<Targy> zseb;
 
      public Karakter() {
-        System.out.println("-------> Karakter()");
+        System.out.println("-------> Karakter() *konstruktor*");
         zseb= new ArrayList<Targy>();
-        System.out.println("<------- Karakter()");
+        System.out.println("<------- Karakter() *konstruktor*");
     }
 
     public void takarit(int intensity) {

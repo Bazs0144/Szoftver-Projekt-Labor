@@ -16,6 +16,7 @@ public class Instabil extends Jegtabla{
 		System.out.println("------->ralepnek(Karakter k)");
 		System.out.print("karakter.");
 		k.setJegtabla(this);
+		karakterek.add(k);
 		System.out.println("Tobb karakter van mint amennyi a kapacitas?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
