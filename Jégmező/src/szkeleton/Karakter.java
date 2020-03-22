@@ -70,7 +70,9 @@ public class Karakter {
     }
 
     public void targy_hozzaadasa(Targy t) {
+    	 System.out.println("-----> targy_hozzaadasa(Targy t)");
         zseb.add(t);
+        System.out.println("<------- targy_hozzaadasa(Targy t)");
     }
 
     public void sebzodik() {
@@ -86,11 +88,15 @@ public class Karakter {
     }
 
     public Jegtabla getJegtabla() {
+    	System.out.println("-------> getJegtabla()");
+    	System.out.println("<-------jegtabla ----- getJegtabla()");
         return jegtabla;
     }
 
     public void setJegtabla(Jegtabla j) {
-        jegtabla=j;
+    	System.out.println("-------> setJegtabla(Jegtabla j)");
+    	jegtabla=j;
+    	System.out.println("<------- setJegtabla(Jegtabla j)");
     }
 
     public boolean van_munkaja() {
