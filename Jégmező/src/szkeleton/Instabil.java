@@ -7,12 +7,15 @@ public class Instabil extends Jegtabla{
 //	private int kapacitas;
 	
 	public Instabil() {
+        Szkeleton.printTabs(true);
 		System.out.println("-------> Instabil()  *konstruktor*");
+        Szkeleton.printTabs(false);
 		System.out.println("<------- Instabil()  *konstruktor*");
 	}
 	
 	@Override
 	public void ralepnek(Karakter k) {
+        Szkeleton.printTabs(true);
 		System.out.println("------->ralepnek(Karakter k)");
 		System.out.print("karakter.");
 		k.setJegtabla(this);
@@ -25,13 +28,16 @@ public class Instabil extends Jegtabla{
 			System.out.print("this jegtabla.");
 			felfordul(k);
 		}
+        Szkeleton.printTabs(false);
 		System.out.println("<-------ralepnek(Karakter k)");
 	}
 	
 	public void felfordul(Karakter k) {
+        Szkeleton.printTabs(true);
 		System.out.println("------->felfordul(Karakter k)");
 		System.out.print("karakter.");
 		k.vizbe_esik();
+        Szkeleton.printTabs(false);
 		System.out.println("<-------felfordul(Karakter k)");
 	}
 }

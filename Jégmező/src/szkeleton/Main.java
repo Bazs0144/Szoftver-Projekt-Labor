@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Main {
 	 public static void main(String[] args)
 	 {
-		// System.out.println("Hello :) ");
-		 Szkeleton.kiir_menu();
+	     Szkeleton.kiir_menu();
 		 int I = 14;
 		 Scanner in_main = new Scanner(System.in);
 		
