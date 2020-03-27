@@ -12,9 +12,9 @@ public class Main {
 		while(I != 0) {
 			System.out.println("A felhasználó választásának sorszáma: ");
 			I = in_main.nextInt();
-			System.out.println("------------A szimuláció elkezdõdött------------");
+			if(I != 0)System.out.println("------------A szimuláció elkezdõdött------------");
 			Szkeleton.valasztas(I);
-			System.out.println("------------A szimulációnak vége----------------");
+			if(I != 0)System.out.println("------------A szimulációnak vége----------------");
 		}
 		
 		in_main.close();

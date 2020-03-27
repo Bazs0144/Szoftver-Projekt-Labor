@@ -59,6 +59,10 @@ public final class Szkeleton {
 		objects.put(k, "k");
 		Player p=new Player(k);
 		objects.put(p, "p");
+		Player p2=new Player(k);
+		objects.put(p2, "p2");
+		Player p3=new Player(k);
+		objects.put(p3, "p3");
 		Etel e= new Etel();
 		objects.put(e, "e");
 		Jegtabla j = new Jegtabla();
@@ -86,10 +90,21 @@ public final class Szkeleton {
 			//help for Jatektabla----------------------
 			ArrayList<Player> p_array = new ArrayList<Player>();
 			p_array.add(p);
+			p_array.add(p2);
+			p_array.add(p3);
 			//------------------------------------------
-		Jatektabla jatek = new Jatektabla(0, p_array);
+		Jatektabla jatek = new Jatektabla(null, p_array);
 		objects.put(jatek, "jatek");
-		Jegmezo jm = new Jegmezo(10);
+			//help for Jatektabla----------------------
+			Jegtabla jegt1 = new Jegtabla();
+			Jegtabla jegt2 = new Jegtabla();
+			Jegtabla jegt3 = new Jegtabla();
+			ArrayList<Jegtabla> i_array = new ArrayList<Jegtabla>();
+			i_array.add(jegt1);
+			i_array.add(jegt2);
+			i_array.add(jegt2);
+			//------------------------------------------
+		Jegmezo jm = new Jegmezo(i_array);
 		objects.put(jm, "jm");
 		//------------------------------------------
 		enableOutput(true);
@@ -155,14 +170,6 @@ public final class Szkeleton {
 			  else System.out.println("Lépés nem sikerült");
 			  break;
 		  case 8:
-			  /*
-			  Player lukban=new Player(new Karakter());
-			  Luk l8 = new Luk();
-			  lukban.getKarakter().setJegtabla(l8);
-			  Player mento=new Player(new Karakter());
-			  Stabil s8 = new Stabil();
-			  mento.getKarakter().setJegtabla(s8);
-			  mento.getKarakter().menekit(lukban.getKarakter());*/  //Ez mire kell?
 			  enableOutput(false);
 			  luk.ralepnek(lukban);
 			  stabil.ralepnek(mento);
@@ -187,7 +194,6 @@ public final class Szkeleton {
 			  sk.megnez(kutatott);
 			  break;
 		  case 11:
-		  	  //???
 			  break;
 		  case 12:
 			  //----------
@@ -203,6 +209,7 @@ public final class Szkeleton {
 			  eszk.getJegtabla().hovihar_volt(); //ez nem lehet siman j?
 			  break;	
 		  case 14:
+
 			  //----------
 			  jatek.init();
 		  	  break;

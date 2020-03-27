@@ -2,35 +2,34 @@ package szkeleton;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Jegmezo {
     private ArrayList<Jegtabla> JegT;
 
     //Konstruktor egy megadott méret alapján legenerál jégtáblákat.
-    public Jegmezo(int size) {
+    public Jegmezo(ArrayList<Jegtabla> j) {
         Szkeleton.printFunction("-------> Jegmezo(size: int) *konstruktor*", true, this);
-        this.JegT = new ArrayList<Jegtabla>();
-        for(int i = 0; i < size; i++){
-            this.JegT.add(new Jegtabla());
-        }
+        this.JegT = j;
         Szkeleton.printFunction("<------- Jegmezo(size: int) *konstruktor*", false, this);
     }
 
     //----------- Interfész ---
-    //hovihar_indul végig iterál az összes jétáblán, és 10% eséllyel hóvihart gerjeszt rajtuk.
+    //hovihar_indul végig iterál az összes jétáblán,
     public void hovihar_indul() {
         Szkeleton.printFunction("-------> hovihar_indul()", true, this);
-        Szkeleton.printTabs(true);
-        System.out.println("--for each Jegtabla-- begin");
         Random rand = new Random();
         for(Jegtabla item: this.JegT) {
-            int r = rand.nextInt(100);
-            if(r < 10) {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Legyen hovihar a jegtablan?");
+            int I = in.nextInt();
+            //int r = rand.nextInt(100);
+            //if(r < 10) {
+            if(I == 1)
                 item.hovihar_volt();
-            }
+
+            //}
         }
-        Szkeleton.printTabs(false);
-        System.out.println("--for each Jegtabla-- end");
         Szkeleton.printFunction("<------- hovihar_indul()", false, this);
     }
     //-----------
