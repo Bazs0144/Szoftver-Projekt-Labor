@@ -13,10 +13,10 @@ public class Luk extends Jegtabla{
 	public void ralepnek(Karakter k) {
 		Szkeleton.printTabs(true);
 		System.out.println("------->ralepnek(Karakter k)");
-		System.out.print("karakter.");
+		// System.out.print("karakter."); Ez mi ez?
 		karakterek.add(k);
 		k.setJegtabla(this);
-		System.out.print("karakter.");
+		// System.out.print("karakter.");
 		k.vizbe_esik();
 		Szkeleton.printTabs(false);
 		System.out.println("<-------ralepnek(Karakter k)");

@@ -1,6 +1,6 @@
 package szkeleton;
 
-import java.io.FileOutputStream;
+import java.util.HashMap;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public final class Szkeleton {
 	private static int numberOfTabs = -1;
 	private static PrintStream printStreamOriginal = System.out;
+	public static HashMap<Object, String> objects = new HashMap<Object, String>();;
+
+
 
 	public static void enableOutput(boolean b) {
 		if(!b) {
@@ -47,87 +50,107 @@ public final class Szkeleton {
 	}
 	
 	public static void valasztas(int I) {
-		
+		enableOutput(false);
+		//variables for simulation------------------
+		Karakter k = new Karakter();
+		objects.put(k, "k");
+		Player p=new Player(k);
+		objects.put(p, "p");
+		Etel e= new Etel();
+		objects.put(e, "e");
+		Jegtabla j = new Jegtabla();
+		objects.put(j, "j");
+		Lapat l= new Lapat();
+		objects.put(l, "l");
+		Targy t=new Targy();
+		objects.put(t, "t");
+		Instabil ins = new Instabil();
+		objects.put(ins, "ins");
+		Luk luk= new Luk();
+		objects.put(luk, "luk");
+		Karakter lukban= new Karakter();
+		objects.put(lukban, "lukban");
+		Karakter mento= new Karakter();
+		objects.put(mento, "mento");
+		Stabil stabil =new Stabil();
+		objects.put(stabil, "stabil");
+		Eszkimo eszk = new Eszkimo();
+		objects.put(eszk, "eszk");
+		Jegtabla kutatott = new Jegtabla();
+		objects.put(kutatott, "kutatott");
+		Sarkkutato sk = new Sarkkutato();
+		objects.put(sk, "sk");
+			//help for Jatektabla----------------------
+			ArrayList<Player> p_array = new ArrayList<Player>();
+			p_array.add(p);
+			//------------------------------------------
+		Jatektabla jatek = new Jatektabla(0, p_array);
+		objects.put(jatek, "jatek");
+		Jegmezo jm = new Jegmezo(10);
+		objects.put(jm, "jm");
+		//------------------------------------------
+		enableOutput(true);
 		
 		switch(I) {
 		  case 1:
 		  	  enableOutput(false);
-			  Player p1=new Player(new Karakter());
-			  Etel e= new Etel();
-			  Jegtabla j1 = new Jegtabla();
-			  p1.getKarakter().setJegtabla(j1);
+			  k.setJegtabla(j);
 			  enableOutput(true);
 			  //----------
-			  p1.getKarakter().hasznal(e, p1.getKarakter().getJegtabla());
+			  k.hasznal(e, j);
 		    break;
 		  case 2:
 		  	  enableOutput(false);
-			  Player p2=new Player(new Karakter());
-			  Jegtabla j2 = new Jegtabla();
-			  p2.getKarakter().setJegtabla(j2);
+			  k.setJegtabla(j);
 			  int erosseg=1;
 			  enableOutput(true);
 			  //----------
-			  p2.getKarakter().takarit(erosseg);
+			  k.takarit(erosseg);
 		    break;
 		  case 3:
 		  	  enableOutput(false);
-			  Player p3=new Player(new Karakter());
-			  Jegtabla j3 = new Jegtabla();
-			  p3.getKarakter().setJegtabla(j3);
-			  Lapat l= new Lapat();
+			  k.setJegtabla(j);
 			  enableOutput(true);
 			  //----------
-			  p3.getKarakter().hasznal(l, p3.getKarakter().getJegtabla());
+			  k.hasznal(l, j);
 			 break;
 		  case 4:
 			  enableOutput(false);
-			  Player p4=new Player(new Karakter());
-			  Targy t=new Targy();
-			  Jegtabla j4 = new Jegtabla();
-			  p4.getKarakter().setJegtabla(j4);
-			  p4.getKarakter().getJegtabla().setTargy(t);
+			  k.setJegtabla(j);
+			  j.setTargy(t);
 			  enableOutput(true);
 			  //----------
-			  boolean sikerult=p4.getKarakter().targy_felvetele();
+			  boolean sikerult = k.targy_felvetele();
 			  if(sikerult) System.out.println("Tárgy felvéve");
 			  else System.out.println("Tárgy felvétel nem sikerült");
 			  break;
 		  case 5:
-			  enableOutput(false);
-			  Player p5=new Player(new Karakter());
-			  p5.getKarakter().setJegtabla(new Jegtabla());
-			  Jegtabla j5=new Jegtabla();
-			  enableOutput(true);
 			  //----------
-			  boolean siker=p5.getKarakter().lep(j5);
+			  enableOutput(false);
+			  k.setJegtabla(j);
+			  enableOutput(true);
+			  boolean siker = k.lep(j);
 			  if(siker) System.out.println("Lépés sikerült");
 			  else System.out.println("Lépés nem sikerült");
 			  break;
 		  case 6:
 		  	  enableOutput(false);
-			  Player p6=new Player(new Karakter());
-			  Jegtabla j6 = new Jegtabla();
-			  p6.getKarakter().setJegtabla(j6);
-			  Instabil ins = new Instabil();
+			  k.setJegtabla(j);
 			  enableOutput(true);
 			  //----------
-			  boolean hat=p6.getKarakter().lep(ins);
+			  boolean hat = k.lep(ins);
 			  if(hat) System.out.println("Lépés sikerült");
 			  else System.out.println("Lépés nem sikerült");
 			  break;
 		  case 7:
 		  	  enableOutput(false);
-			  Player p7=new Player(new Karakter());
-			  Jegtabla j7 = new Jegtabla();
-			  p7.getKarakter().setJegtabla(j7);
-			  Luk luk= new Luk();
+			  k.setJegtabla(j);
 			  enableOutput(true);
 			  //----------
-			  boolean het=p7.getKarakter().lep(luk);
+			  boolean het=k.lep(luk);
 			  if(het) System.out.println("Lépés sikerült");
 			  else System.out.println("Lépés nem sikerült");
-			   break;
+			  break;
 		  case 8:
 			  /*
 			  Player lukban=new Player(new Karakter());
@@ -136,23 +159,17 @@ public final class Szkeleton {
 			  Player mento=new Player(new Karakter());
 			  Stabil s8 = new Stabil();
 			  mento.getKarakter().setJegtabla(s8);
-			  mento.getKarakter().menekit(lukban.getKarakter());*/
+			  mento.getKarakter().menekit(lukban.getKarakter());*/  //Ez mire kell?
 			  enableOutput(false);
-			  Karakter lukban= new Karakter();
-			  Luk luk1= new Luk();
-			  luk1.ralepnek(lukban);
-			  Karakter mento= new Karakter();
-			  Stabil stabil =new Stabil();
+			  luk.ralepnek(lukban);
 			  stabil.ralepnek(mento);
 			  enableOutput(true);
 			  //----------
-			  mento.hasznal(new Kotel(), luk1);
+			  mento.hasznal(new Kotel(), luk);
 			  break;
 		  case 9:
 		  	  enableOutput(false);
-			  Eszkimo eszk = new Eszkimo();
-			  Jegtabla j9 = new Jegtabla();
-			  eszk.setJegtabla(j9);
+			  eszk.setJegtabla(j);
 			  enableOutput(true);
 			  //----------
 			  if(eszk.iglut_epit())
@@ -161,10 +178,7 @@ public final class Szkeleton {
 			  break;
 		  case 10:
 		  	  enableOutput(false);
-			  Jegtabla j10 = new Jegtabla();
-			  Jegtabla kutatott = new Jegtabla();
-			  Sarkkutato sk = new Sarkkutato();
-			  sk.setJegtabla(j10);
+			  sk.setJegtabla(j);
 			  enableOutput(true);
 			  //----------
 			  sk.megnez(kutatott);
@@ -173,38 +187,23 @@ public final class Szkeleton {
 		  	  //???
 			  break;
 		  case 12:
-		  	  enableOutput(false);
-			  Jegtabla Jt = new Jegtabla();
-			  Karakter K = new Karakter();
-			  enableOutput(true);
 			  //----------
-			  Jt.ralepnek(K);
-			  Jt.hovihar_volt();
+			  j.ralepnek(k);
+			  j.hovihar_volt();
 			  break;	
-		  case 13:
+		  case 13: //ez fura
 		  	  enableOutput(false);
-			  Jegtabla j13 = new Jegtabla();
-			  Eszkimo es = new Eszkimo();
-			  es.setJegtabla(j13);
+			  eszk.setJegtabla(j);
 			  enableOutput(true);
 			  //----------
-			  es.iglut_epit();
-			  es.getJegtabla().hovihar_volt();
+			  eszk.iglut_epit();
+			  eszk.getJegtabla().hovihar_volt(); //ez nem lehet siman j?
 			  break;	
 		  case 14:
-		  	  enableOutput(false);
-			  ArrayList<Player> p_array = new ArrayList<Player>();
-			  p_array.add(new Player(new Karakter()));
-			  p_array.add(new Player(new Karakter()));
-			  p_array.add(new Player(new Karakter()));
-			  enableOutput(true);
 			  //----------
-			  Jatektabla jatek = new Jatektabla(0, p_array);
+			  jatek.init();
 		  	  break;
 		  case 15:
-		  	  enableOutput(false);
-		  	  Jegmezo jm = new Jegmezo(10);
-		  	  enableOutput(true);
 			  //----------
 		  	  jm.hovihar_indul();
 		  	  break;

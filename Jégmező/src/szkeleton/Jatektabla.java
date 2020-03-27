@@ -15,8 +15,6 @@ public class Jatektabla {
         j = new Jegmezo(size);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
-        // for(Alkatresz)
-        init();
         Szkeleton.printTabs(false);
         System.out.println("<------- Jatektabla(size: int, p: Player[]) *konstruktor*");
     }
@@ -56,17 +54,16 @@ public class Jatektabla {
 
     }
 
-    private void init() {
+    //Ez ????
+    public void init() {
         Szkeleton.printTabs(true);
         System.out.println("-------> init()");
         boolean game_over = false;
         int act_index = 0;
         //itt is lesznek még dolgok(játékosok elhelyezése táblákba...stb).
         while(!game_over) {
-            act_index = act_index % p.size(); //azért, hogy utolsó embernél újrakezdődjön.
             next_player(p.get(act_index));
             game_over = check_game_over();
-            act_index++;
             //+
         }
         game_over();
