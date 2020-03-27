@@ -9,9 +9,9 @@ public class Jatektabla {
     private ArrayList<Alkatresz> a;
 
 
-    public Jatektabla(ArrayList<Jegtabla> jt, ArrayList<Player> p) {
+    public Jatektabla(int size, ArrayList<Player> p) {
         Szkeleton.printFunction("-------> Jatektabla(size: int, p: Player[]) *konstruktor*", true, this);
-        j = new Jegmezo(jt);
+        j = new Jegmezo(size);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
         Szkeleton.printFunction("<------- Jatektabla(size: int, p: Player[]) *konstruktor*", false, this);

@@ -93,9 +93,9 @@ public final class Szkeleton {
 			p_array.add(p2);
 			p_array.add(p3);
 			//------------------------------------------
-		Jatektabla jatek = new Jatektabla(null, p_array);
+		Jatektabla jatek = new Jatektabla(3, p_array);
 		objects.put(jatek, "jatek");
-			//help for Jatektabla----------------------
+	/*		//help for Jatektabla----------------------
 			Jegtabla jegt1 = new Jegtabla();
 			Jegtabla jegt2 = new Jegtabla();
 			Jegtabla jegt3 = new Jegtabla();
@@ -104,7 +104,9 @@ public final class Szkeleton {
 			i_array.add(jegt2);
 			i_array.add(jegt2);
 			//------------------------------------------
-		Jegmezo jm = new Jegmezo(i_array);
+
+	 */
+		Jegmezo jm = new Jegmezo(3);
 		objects.put(jm, "jm");
 		//------------------------------------------
 		enableOutput(true);
