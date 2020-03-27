@@ -112,14 +112,14 @@ public final class Szkeleton {
 		switch(I) {
 		  case 1:
 		  	  enableOutput(false);
-			  k.setJegtabla(j);
+			  j.ralepnek(k);
 			  enableOutput(true);
 			  //----------
 			  k.hasznal(e, j);
 		    break;
 		  case 2:
 		  	  enableOutput(false);
-			  k.setJegtabla(j);
+			  j.ralepnek(k);
 			  int erosseg=1;
 			  enableOutput(true);
 			  //----------
@@ -127,14 +127,14 @@ public final class Szkeleton {
 		    break;
 		  case 3:
 		  	  enableOutput(false);
-			  k.setJegtabla(j);
+			  j.ralepnek(k);
 			  enableOutput(true);
 			  //----------
 			  k.hasznal(l, j);
 			 break;
 		  case 4:
 			  enableOutput(false);
-			  k.setJegtabla(j);
+			  j.ralepnek(k);
 			  j.setTargy(t);
 			  enableOutput(true);
 			  //----------
@@ -145,7 +145,7 @@ public final class Szkeleton {
 		  case 5:
 			  //----------
 			  enableOutput(false);
-			  k.setJegtabla(j);
+			  j.ralepnek(k);
 			  enableOutput(true);
 			  boolean siker = k.lep(j);
 			  if(siker) System.out.println("Lépés sikerült");
@@ -153,7 +153,7 @@ public final class Szkeleton {
 			  break;
 		  case 6:
 		  	  enableOutput(false);
-			  k.setJegtabla(j);
+			  j.ralepnek(k);
 			  enableOutput(true);
 			  //----------
 			  boolean hat = k.lep(ins);
@@ -162,7 +162,7 @@ public final class Szkeleton {
 			  break;
 		  case 7:
 		  	  enableOutput(false);
-			  k.setJegtabla(j);
+			  j.ralepnek(k);
 			  enableOutput(true);
 			  //----------
 			  boolean het=k.lep(luk);
@@ -179,7 +179,7 @@ public final class Szkeleton {
 			  break;
 		  case 9:
 		  	  enableOutput(false);
-			  eszk.setJegtabla(j);
+			  j.ralepnek(eszk);
 			  enableOutput(true);
 			  //----------
 			  if(eszk.iglut_epit())
@@ -188,7 +188,7 @@ public final class Szkeleton {
 			  break;
 		  case 10:
 		  	  enableOutput(false);
-			  sk.setJegtabla(j);
+			  j.ralepnek(sk);
 			  enableOutput(true);
 			  //----------
 			  sk.megnez(kutatott);
@@ -202,11 +202,11 @@ public final class Szkeleton {
 			  break;	
 		  case 13: //ez fura
 		  	  enableOutput(false);
-			  eszk.setJegtabla(j);
+			  j.ralepnek(eszk);
 			  enableOutput(true);
 			  //----------
 			  eszk.iglut_epit();
-			  eszk.getJegtabla().hovihar_volt(); //ez nem lehet siman j?
+			  j.hovihar_volt();
 			  break;	
 		  case 14:
 

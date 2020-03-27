@@ -12,11 +12,17 @@ public class Jegtabla {
 	private Targy T;
 	
 	ArrayList<Karakter> karakterek;
+	ArrayList<Jegtabla> szomszedok;
 	
 	public Jegtabla() {
 		Szkeleton.printFunction("-------> Jegtabla() *konstruktor*", true, this);
 		karakterek = new  ArrayList<Karakter>();
+		szomszedok= new ArrayList<Jegtabla>();
 		Szkeleton.printFunction("<------- Jegtabla() *konstruktor*", false, this);
+	}
+
+	public void addSzomszed(Jegtabla j) {
+		szomszedok.add(j);
 	}
 	
 	public ArrayList<Karakter> getKarakterek(){
