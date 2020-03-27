@@ -89,6 +89,7 @@ public class Jegtabla {
 	public void igluEpitese() {
 		Szkeleton.printFunction("------->igluEpitese()", true, this);
 		Szkeleton.printFunction("<-------igluEpitese()", false, this);
+		van_iglu = true;
 	}
 	
 	public boolean getVanIglu() {
