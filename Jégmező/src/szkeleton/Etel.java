@@ -3,17 +3,13 @@ package szkeleton;
 public class Etel extends Targy {
 
 	public Etel() {
-		Szkeleton.printTabs(true);
-		System.out.println("-------> Etel() *konstruktor* :"+Szkeleton.objects.get(this));
-		Szkeleton.printTabs(false);
-		System.out.println("<------- Etel() *konstruktor* :"+Szkeleton.objects.get(this));
+		Szkeleton.printFunction("-------> Etel() *konstruktor*", true, this);
+		Szkeleton.printFunction("<------- Etel() *konstruktor*", false, this);
 	}
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printTabs(true);
-        System.out.println("------->   hasznaljak(Karakter karakter, Jegtabla hol) :"+Szkeleton.objects.get(this));
+		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
         karakter.ho_nov();
-		Szkeleton.printTabs(false);
-		System.out.println("<-------  hasznaljak(Karakter karakter, Jegtabla hol) :"+Szkeleton.objects.get(this));
+		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

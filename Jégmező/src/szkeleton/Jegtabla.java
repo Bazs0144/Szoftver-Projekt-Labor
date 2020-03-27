@@ -14,11 +14,9 @@ public class Jegtabla {
 	ArrayList<Karakter> karakterek;
 	
 	public Jegtabla() {
-        Szkeleton.printTabs(true);
-		System.out.println("-------> Jegtabla() *konstruktor*");
+		Szkeleton.printFunction("-------> Jegtabla() *konstruktor*", true, this);
 		karakterek = new  ArrayList<Karakter>();
-        Szkeleton.printTabs(false);
-		System.out.println("<------- Jegtabla() *konstruktor*");
+		Szkeleton.printFunction("<------- Jegtabla() *konstruktor*", false, this);
 	}
 	
 	public ArrayList<Karakter> getKarakterek(){
@@ -26,8 +24,7 @@ public class Jegtabla {
 	}
 	
 	public void hovihar_volt() {
-        Szkeleton.printTabs(true);
-		System.out.println("-------> hovihar_volt()");
+		Szkeleton.printFunction("-------> hovihar_volt()", true, false);
 		System.out.println("Van iglu?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
@@ -35,125 +32,105 @@ public class Jegtabla {
 		if(I == 0) 
 		{
 			for(int i = 0; i < karakterek.size(); ++i) {
-				System.out.print("karakter.");
 				karakterek.get(i).sebzodik();  
 			}
 		}
 		// in.close();
 		ho_mennyiseg++;
-        Szkeleton.printTabs(false);
-		 System.out.println("<------- hovihar_volt()");
+		Szkeleton.printFunction("<------- hovihar_volt()", false, this);
 	}
 	
 	public int getKarakterek_szama() {
-        Szkeleton.printTabs(true);
-		System.out.println("-------> getKarakterek_szama()");
-        Szkeleton.printTabs(false);
-		System.out.println("<------- kar ------- getKarakterek_szama()");
+		Szkeleton.printFunction("-------> getKarakterek_szama()", true, this);
+		Szkeleton.printFunction("<--kar-- getKarakterek_szama()", false, this);
 		return  karakterek.size();
 	}
 	
 	public void ralepnek(Karakter k) {
-        Szkeleton.printTabs(true);
-		System.out.println("------->  ralepnek(Karakter k)");
+		Szkeleton.printFunction("------->  ralepnek(Karakter k)", true, this);
 		karakterek.add(k);
 		k.setJegtabla(this);
-        Szkeleton.printTabs(false);
-		System.out.println("<------- ralepnek(Karakter k)");
+		Szkeleton.printFunction("<------- ralepnek(Karakter k)", false, this);
 	}
 	
 	public void takaritas_volt(int intensity) {
-        Szkeleton.printTabs(true);
-		System.out.println("------->  takaritas_volt(int intensity)");
-        Szkeleton.printTabs(false);
-		System.out.println("<------- takaritas_volt(int intensity)");
+		Szkeleton.printFunction("------->  takaritas_volt(int intensity)", true, this);
+		Szkeleton.printFunction("<------- takaritas_volt(int intensity)", false, this);
 	}
 	
 	public int getKapacitas() {
-        Szkeleton.printTabs(true);
-		System.out.println("-------> getKapacitas()");
-        Szkeleton.printTabs(false);
-		System.out.println("<------- kapacitas ------- getKapacitas()");
+		Szkeleton.printFunction("-------> getKapacitas()", true, this);
+		Szkeleton.printFunction("<--kapacitas-- getKapacitas()", false, this);
 		return kapacitas;
 	}
 	
 	public Targy getTargy() {
-        Szkeleton.printTabs(true);
-		System.out.println("------->getTargy()");
+		Szkeleton.printFunction("------->getTargy()", true, this);
         Szkeleton.printTabs(false);
-		System.out.println("<------- T ------- getTargy()");
+		Szkeleton.printFunction("<---T--- getTargy()", false, this);
 		return T;
 	}
 	
 	public void setTargy(Targy t) {
-        Szkeleton.printTabs(true);
-		System.out.println("-------> setTargy(Targy t)");
-        Szkeleton.printTabs(false);
-		System.out.println("<------- setTargy(Targy t)");
+		Szkeleton.printFunction("-------> setTargy(Targy t)", true, this);
+		Szkeleton.printFunction("<------- setTargy(Targy t)", false, this);
 		this.T = t;
 	}
 	
 	public int getHoMennyiseg() {
-        Szkeleton.printTabs(true);
-		System.out.println("------->getHoMennyiseg()");
+		Szkeleton.printFunction("------->getHoMennyiseg()", true, this);
 		System.out.println("Mennyi ho van ezen a jegtablan?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
-        Szkeleton.printTabs(false);
-		System.out.println("<------- ho_mennyiseg ----- getHoMennyiseg()");
+		Szkeleton.printFunction("<--ho_mennyiseg-- getHoMennyiseg()", false, this);
 		return I;
 	}
 	
 	public void igluEpitese() {
-        Szkeleton.printTabs(true);
-		System.out.println("------->igluEpitese()");
-        Szkeleton.printTabs(false);
-		System.out.println("<-------igluEpitese()");
+		Szkeleton.printFunction("------->igluEpitese()", true, this);
+		Szkeleton.printFunction("<-------igluEpitese()", false, this);
 	}
 	
 	public boolean getVanIglu() {
-        Szkeleton.printTabs(true);
-		System.out.println("-------> getVanIglu()");
+		Szkeleton.printFunction("------->getVanIglu()", true, this);
 		System.out.println("van iglu?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
-        Szkeleton.printTabs(false);
-		System.out.println("<------- van_iglu ----- getVanIglu()");
 		if(I == 0) {
+			Szkeleton.printFunction("<--true-- getVanIglu()",false, this);
 			return true;
 		}
-		else return false;
+		else {
+			Szkeleton.printFunction("<--false-- getVanIglu()", false, this);
+			return false;
+		}
+
+
 	}
 	
 	public boolean szomszed_e(Jegtabla j) {
-        Szkeleton.printTabs(true);
-		System.out.println("------>szomszed_e(Jegtabla j)");
+		Szkeleton.printFunction("------>szomszed_e(Jegtabla j)", true, this);
 		System.out.println("Szomszédok a jégtáblák?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
 		if(I == 1){
-            Szkeleton.printTabs(false);
-			System.out.println("<------true ---- szomszed_e(Jegtabla j)");
+			Szkeleton.printFunction("<--true-- szomszed_e(Jegtabla j)", false, this);
 			return true;
 		}
 		else{
-            Szkeleton.printTabs(false);
-			System.out.println("<------false ---- szomszed_e(Jegtabla j)");
+			Szkeleton.printFunction("<--false-- szomszed_e(Jegtabla j)", false, this);
 			 return false;
 		}
 	}
 	
 	public void lelepnek(Karakter k) {
-        Szkeleton.printTabs(true);
-		System.out.println("------>lelepnek(Karakter k)");
+		Szkeleton.printFunction("------>lelepnek(Karakter k)", true, this);
 		karakterek.remove(k);
-        Szkeleton.printTabs(false);
-		System.out.println("<------lelepnek(Karakter k)");
+		Szkeleton.printFunction("<------lelepnek(Karakter k)", false, this);
 	}
 	
 	public boolean elvesz(Karakter k, Targy t) {
-        Szkeleton.printTabs(true);
-		System.out.println("------>elvesz(Karakter k, Targy t)");
+		Szkeleton.printFunction("------>elvesz(Karakter k, Targy t)", true, this);
 		System.out.println("Homennyiseg a jegtablan?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
@@ -162,27 +139,21 @@ public class Jegtabla {
 		
 		if(I ==0  && I2 ==0) {
 			k.targy_hozzaadasa(t);  System.out.print("k");
-            Szkeleton.printTabs(false);
-			System.out.println("<---true---elvesz(Karakter k, Targy t)");
+			Szkeleton.printFunction("<--true--elvesz(Karakter k, Targy t)", false, this);
 			return true;
 		}
 		else {
-            Szkeleton.printTabs(false);
-			System.out.println("<---false---elvesz(Karakter k, Targy t)");
+			Szkeleton.printFunction("<--false--elvesz(Karakter k, Targy t)", false, this);
 			return false;
 		}
 	}
 	
 	
 	public void kiment(Karakter kit, Jegtabla j) {
-        Szkeleton.printTabs(true);
-		System.out.println("------>kiment(Karakter kit, Jegtabla j) ");
-		System.out.print("this jegtabla.");
-		this.lelepnek(kit);	 
-		System.out.print("karakter.");
+		Szkeleton.printFunction("------>kiment(Karakter kit, Jegtabla j) ", true, this);
+		this.lelepnek(kit);
 		j.ralepnek(kit);
 		//kit.setJegtabla(j);
-        Szkeleton.printTabs(false);
-		System.out.println("<------kiment(Karakter kit, Jegtabla j) ");
+		Szkeleton.printFunction("<------kiment(Karakter kit, Jegtabla j) ", false, this);
 	}
 }

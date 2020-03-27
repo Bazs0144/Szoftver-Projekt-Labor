@@ -6,34 +6,26 @@ public class Player {
     private Karakter k;
 
     Player(Karakter kr) {
-        Szkeleton.printTabs(true);
-        System.out.println("-------> Player(Karakter kr) *konstruktor*");
+        Szkeleton.printFunction("-------> Player(Karakter kr) *konstruktor*", true, this);
         k=kr;
-        Szkeleton.printTabs(false);
-        System.out.println("<------- Player(Karakter kr) *konstruktor*");
+        Szkeleton.printFunction("<------- Player(Karakter kr) *konstruktor*",false, this);
     }
 
     public Karakter getKarakter() {
-        Szkeleton.printTabs(true);
-        System.out.println("-------> getKarakter()");
-        Szkeleton.printTabs(false);
-        System.out.println("<---k---- getKarakter()");
+        Szkeleton.printFunction("-------> getKarakter()", true, this);
+        Szkeleton.printFunction("<---k---- getKarakter()", false, this);
         return k;
     }
 
     //----------- Interfész ---
     public void kor_kezdes() {
-        Szkeleton.printTabs(true);
-        System.out.println("-------> kor_kezdes()");
-        Szkeleton.printTabs(false);
-        System.out.println("<------- kor_kezdes()");
+        Szkeleton.printFunction("-------> kor_kezdes()", true, this);
+        Szkeleton.printFunction("<------- kor_kezdes()", false, this);
     }
 
     public void kor_vegzes() {
-        Szkeleton.printTabs(true);
-        System.out.println("---p---> kor_vegzes()");
-        Szkeleton.printTabs(false);
-        System.out.println("<---p--- kor_vegzes()");
+        Szkeleton.printFunction("---p---> kor_vegzes()", true, this);
+        Szkeleton.printFunction("<---p--- kor_vegzes()", false, this);
     }
     //-----------
 }

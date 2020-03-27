@@ -3,22 +3,18 @@ package szkeleton;
 public class Sarkkutato extends Karakter {
 	
 	public Sarkkutato() {
-		Szkeleton.printTabs(true);
-		System.out.println("-------> Sarkkutato() *konstruktor*");
-		Szkeleton.printTabs(false);
-		System.out.println("<------- Sarkkutato() *konstruktor*");
+		Szkeleton.printFunction("-------> Sarkkutato() *konstruktor*", true, this);
+		Szkeleton.printFunction("<------- Sarkkutato() *konstruktor*", false, this);
 	}
 	
 	public int megnez(Jegtabla j) {
-		Szkeleton.printTabs(false);
-		System.out.println("------->  megnez(Jegtabla j)");
+		Szkeleton.printFunction("------->  megnez(Jegtabla j)", true, this);
 		int kap;
 		if(this.jegtabla.szomszed_e(j))
 			kap = j.getKapacitas();
 		else
 			kap = -1;
-		Szkeleton.printTabs(false);
-		System.out.println("<------- megnez(Jegtabla j)");
+		Szkeleton.printFunction("<------- megnez(Jegtabla j)", false, this);
 		return kap;
 	}
 }

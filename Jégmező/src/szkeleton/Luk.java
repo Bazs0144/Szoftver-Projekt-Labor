@@ -3,22 +3,16 @@ package szkeleton;
 public class Luk extends Jegtabla{
 
 	public Luk() {
-		Szkeleton.printTabs(true);
-		System.out.println("-------> Luk()  *konstruktor*");
-		Szkeleton.printTabs(false);
-		System.out.println("<------- Luk()  *konstruktor*");
+		Szkeleton.printFunction("-------> Luk()  *konstruktor*", true, this);
+		Szkeleton.printFunction("<------- Luk()  *konstruktor*", false, this);
 	}
 	
 	@Override
 	public void ralepnek(Karakter k) {
-		Szkeleton.printTabs(true);
-		System.out.println("------->ralepnek(Karakter k)");
-		// System.out.print("karakter."); Ez mi ez?
+		Szkeleton.printFunction("------->ralepnek(Karakter k)", true, this);
 		karakterek.add(k);
 		k.setJegtabla(this);
-		// System.out.print("karakter.");
 		k.vizbe_esik();
-		Szkeleton.printTabs(false);
-		System.out.println("<-------ralepnek(Karakter k)");
+		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
 }

@@ -10,7 +10,10 @@ public final class Szkeleton {
 	private static PrintStream printStreamOriginal = System.out;
 	public static HashMap<Object, String> objects = new HashMap<Object, String>();;
 
-
+	public static void printFunction(String message, boolean in, Object o) {
+		printTabs(in);
+		System.out.println(message + ": " + objects.get(o));
+	}
 
 	public static void enableOutput(boolean b) {
 		if(!b) {

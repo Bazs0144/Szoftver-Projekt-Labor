@@ -3,17 +3,14 @@ package szkeleton;
 public class Buvarruha extends Targy {
 
 	public Buvarruha() {
-		Szkeleton.printTabs(true);
-		System.out.println("-------> Buvarruha() *konstruktor*");
+		Szkeleton.printFunction("-------> Buvarruha() *konstruktor*", true, this);
 		Szkeleton.printTabs(false);
-		System.out.println("<------- Buvarruha() *konstruktor*");
+		Szkeleton.printFunction("<------- Buvarruha() *konstruktor*", false, this);
 	}
 
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printTabs(true);
-        System.out.println("------->   hasznaljak(Karakter karakter, Jegtabla hol)");
-		Szkeleton.printTabs(false);
-		System.out.println("<-------  hasznaljak(Karakter karakter, Jegtabla hol)");
+		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
+		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }
