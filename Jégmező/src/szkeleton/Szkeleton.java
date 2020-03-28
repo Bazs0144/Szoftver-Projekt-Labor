@@ -57,14 +57,20 @@ public final class Szkeleton {
 		//variables for simulation------------------
 		Karakter k = new Karakter();
 		objects.put(k, "k");
+		Karakter lukban= new Karakter();
+		objects.put(lukban, "lukban");
+		Karakter mento= new Karakter();
+		objects.put(mento, "mento");
 		Player p=new Player(k);
 		objects.put(p, "p");
 		Player p2=new Player(k);
-		objects.put(p2, "p2");
+		objects.put(mento, "mento");
 		Player p3=new Player(k);
-		objects.put(p3, "p3");
+		objects.put(lukban, "lukban");
 		Etel e= new Etel();
 		objects.put(e, "e");
+		Kotel kotel= new Kotel();
+		objects.put(kotel, "kotel");
 		Jegtabla j = new Jegtabla();
 		objects.put(j, "j");
 		Lapat l= new Lapat();
@@ -75,10 +81,6 @@ public final class Szkeleton {
 		objects.put(ins, "ins");
 		Luk luk= new Luk();
 		objects.put(luk, "luk");
-		Karakter lukban= new Karakter();
-		objects.put(lukban, "lukban");
-		Karakter mento= new Karakter();
-		objects.put(mento, "mento");
 		Stabil stabil =new Stabil();
 		objects.put(stabil, "stabil");
 		Eszkimo eszk = new Eszkimo();
@@ -176,9 +178,10 @@ public final class Szkeleton {
 			  enableOutput(false);
 			  luk.ralepnek(lukban);
 			  stabil.ralepnek(mento);
+			  mento.targy_hozzaadasa(kotel);
 			  enableOutput(true);
 			  //----------
-			  mento.hasznal(new Kotel(), luk);
+			  mento.hasznal(kotel, luk);
 			  break;
 		  case 9:
 		  	  enableOutput(false);
