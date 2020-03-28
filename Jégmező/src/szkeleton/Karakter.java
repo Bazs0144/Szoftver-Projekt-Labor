@@ -76,6 +76,12 @@ public class Karakter {
         Szkeleton.printFunction("<------- targy_hozzaadasa(Targy t)", true, this);
     }
 
+    public void targy_elhasznalasa(Targy t) {
+        Szkeleton.printFunction("  ------> targy_elhasznalasa(Targy t)", true, this);
+        zseb.remove(t);
+        Szkeleton.printFunction(" <------ targy_elhasznalasa(Targy t)", true, this);
+    }
+
     public void sebzodik() {
         Szkeleton.printFunction("------->  sebzodik()", true, this);
         ho--;

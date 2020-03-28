@@ -10,6 +10,7 @@ public class Etel extends Targy {
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
         karakter.ho_nov();
+        karakter.targy_elhasznalasa(this);
 		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

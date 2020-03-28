@@ -115,6 +115,7 @@ public final class Szkeleton {
 		  case 1:
 		  	  enableOutput(false);
 			  j.ralepnek(k);
+			  k.targy_hozzaadasa(e);
 			  enableOutput(true);
 			  //----------
 			  k.hasznal(e, j);
