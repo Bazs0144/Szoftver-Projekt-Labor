@@ -14,10 +14,18 @@ public class Jatektabla {
         j = new Jegmezo(size);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
+        a.add(new Alkatresz(this));
         Szkeleton.printFunction("<------- Jatektabla(size: int, p: Player[]) *konstruktor*", false, this);
     }
 
-    private void game_over() {
+    /**
+     *Visszaadja a játéktáblán lévő alkatrészek listáját
+     */
+    public ArrayList<Alkatresz> getAlkatresz() {
+        return a;
+    }
+
+    public void game_over() {
         Szkeleton.printFunction("-------> game_over()", true, this);
         Szkeleton.printFunction("<------- game_over()", false, this);
     }

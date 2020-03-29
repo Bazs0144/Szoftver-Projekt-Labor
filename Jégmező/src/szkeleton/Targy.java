@@ -6,6 +6,7 @@ public class Targy {
 	 */
 	
 	private String nev;
+	private Karakter k;
 	
 	/**
 	 * A Targy osztály konstruktora, kiírás miatt lett implementálva.
@@ -23,5 +24,19 @@ public class Targy {
 		Szkeleton.printFunction("-------> hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
 		Szkeleton.printFunction("<------- hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
     	return;
+    }
+
+    /**
+     *A paraméterként karakterhez állítja be, hogy nála van a tárgy
+     */
+    public void setKarakter(Karakter k) {
+        this.k=k;
+    }
+
+    /**
+     *Visszadja melyik karakternél van a tárgy
+     */
+    public Karakter getKarakter() {
+        return k;
     }
 }

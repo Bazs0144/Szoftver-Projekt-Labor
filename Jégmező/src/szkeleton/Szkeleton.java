@@ -97,6 +97,7 @@ public final class Szkeleton {
 			//------------------------------------------
 		Jatektabla jatek = new Jatektabla(3, p_array);
 		objects.put(jatek, "jatek");
+		Alkatresz alk=jatek.getAlkatresz().get(0);
 	/*		//help for Jatektabla----------------------
 			Jegtabla jegt1 = new Jegtabla();
 			Jegtabla jegt2 = new Jegtabla();
@@ -200,6 +201,9 @@ public final class Szkeleton {
 			  sk.megnez(kutatott);
 			  break;
 		  case 11:
+		  	k.targy_hozzaadasa(alk);
+		  	j.ralepnek(k);
+		  	k.hasznal(alk, j);
 			  break;
 		  case 12:
 			  //----------

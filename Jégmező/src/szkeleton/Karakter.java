@@ -112,6 +112,7 @@ public class Karakter {
     public void targy_hozzaadasa(Targy t) {
         Szkeleton.printFunction("-----> targy_hozzaadasa(Targy t)", true, this);
         zseb.add(t);
+        t.setKarakter(this);
         Szkeleton.printFunction("<------- targy_hozzaadasa(Targy t)", true, this);
     }
 
