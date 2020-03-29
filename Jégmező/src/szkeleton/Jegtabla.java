@@ -54,7 +54,7 @@ public class Jegtabla {
 	 * Amennyiben nincs, minden rajta álló karakter sebzõdik; minden karakterre meghivja a sebzodik függvényét.
 	 * A  jégtábla ho_mennyiseg értéke egy egységgel növekszik.*/
 	public void hovihar_volt() {
-		Szkeleton.printFunction("-------> hovihar_volt()", true, false);
+		Szkeleton.printFunction("-------> hovihar_volt()", true, this);
 		System.out.println("Van iglu?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();

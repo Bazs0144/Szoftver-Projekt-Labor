@@ -10,11 +10,21 @@ public final class Szkeleton {
 	private static PrintStream printStreamOriginal = System.out;
 	public static HashMap<Object, String> objects = new HashMap<Object, String>();;
 
+    /**
+     * Kiírja az adott függvényt indentálva, objektummal elhelyezve.
+     * @param message A függvény maga.
+     * @param in true = meghívott, false = visszatér.
+     * @param o Az objektum, amin meghívódott.
+     */
 	public static void printFunction(String message, boolean in, Object o) {
 		printTabs(in);
 		System.out.println(message + ": " + objects.get(o));
 	}
 
+    /**
+     * Az átláthatóság kedvéért nincs spam az outputon.
+     * @param b true = engedélyezi az outputot, false = nem engedélyezi.
+     */
 	public static void enableOutput(boolean b) {
 		if(!b) {
 			System.setOut(new PrintStream(new OutputStream(){
@@ -25,13 +35,20 @@ public final class Szkeleton {
 		else System.setOut(printStreamOriginal);
 	}
 
+    /**
+     * Az indentálásért felelõs függvény.
+     * @param in true = meghívott, false = visszatér.
+     */
 	public static void printTabs(boolean in) {
 		if (in) numberOfTabs++;
 		for (int i = 0; i < numberOfTabs; i++)
 			System.out.print('\t');
 		if (!in) numberOfTabs--;
 	}
-		
+
+    /**
+     * A menü kiírásért felelõs függvény a program könnyebb használhatósága érdekében.
+     */
 	public static void kiir_menu() {
 		System.out.println("Menü: ");
 		System.out.println("1.  Játékos ételt használ");
@@ -51,7 +68,12 @@ public final class Szkeleton {
 		System.out.println("15: Hóvihar végigsöpör a jégmezõn");
 		System.out.println("0.  Kilépés a menübõl");
 	}
-	
+
+    /**
+     * Elõször felépíti a szimulációs környezetet és az objektumok nevét eltárolja a Hashmapben, majd megvalósítja
+     * a use caseket.
+     * @param I A kiválasztott szimuláció sorszáma.
+     */
 	public static void valasztas(int I) {
 		enableOutput(false);
 		//variables for simulation------------------
@@ -98,17 +120,6 @@ public final class Szkeleton {
 		Jatektabla jatek = new Jatektabla(3, p_array);
 		objects.put(jatek, "jatek");
 		Alkatresz alk=jatek.getAlkatresz().get(0);
-	/*		//help for Jatektabla----------------------
-			Jegtabla jegt1 = new Jegtabla();
-			Jegtabla jegt2 = new Jegtabla();
-			Jegtabla jegt3 = new Jegtabla();
-			ArrayList<Jegtabla> i_array = new ArrayList<Jegtabla>();
-			i_array.add(jegt1);
-			i_array.add(jegt2);
-			i_array.add(jegt2);
-			//------------------------------------------
-
-	 */
 		Jegmezo jm = new Jegmezo(3);
 		objects.put(jm, "jm");
 		//------------------------------------------

@@ -8,7 +8,11 @@ public class Jatektabla {
     private ArrayList<Player> p;
     private ArrayList<Alkatresz> a;
 
-
+    /**
+     * A játéktábla konstruktora, mely legenerál egy jégmezőt, és az alkatrészeket, valamint megkapja a jétékosokat.
+     * @param size: A jégmező mérete.
+     * @param p : a játékosok, akik játszani fognak.
+     */
     public Jatektabla(int size, ArrayList<Player> p) {
         Szkeleton.printFunction("-------> Jatektabla(size: int, p: Player[]) *konstruktor*", true, this);
         j = new Jegmezo(size);
@@ -19,18 +23,24 @@ public class Jatektabla {
     }
 
     /**
-     *Visszaadja a játéktáblán lévő alkatrészek listáját
+     *Visszaadja a játéktáblán lévő alkatrészek listáját.
      */
     public ArrayList<Alkatresz> getAlkatresz() {
         return a;
     }
 
-
+    /**
+     * Befejezi a játékot.
+     */
     public void game_over() {
         Szkeleton.printFunction("-------> game_over()", true, this);
         Szkeleton.printFunction("<------- game_over()", false, this);
     }
 
+    /**
+     * Ellenőrzi, hogy a játék véget ért-e, vagy sem.
+     * @return igaz ha véget ért, hamis ha nem.
+     */
     private boolean check_game_over() {
         Szkeleton.printFunction("------->  check_game_over()", true, this);
         System.out.println("Jatek vege? 1: igen");
@@ -46,15 +56,21 @@ public class Jatektabla {
         }
     }
 
+    /**
+     * Átadja a játék kezelését a következő játékosnak.
+     * @param p Az adott játékos következik.
+     */
     private void next_player(Player p) {
-        Szkeleton.printFunction("---p---> next_player(p: Player)", true, this);
+        Szkeleton.printFunction("-------> next_player(p: Player)", true, this);
         p.kor_kezdes();
         p.kor_vegzes();
         Szkeleton.printFunction("<---p--- next_player(p: Player)", false, this);
 
     }
 
-    //Ez ????
+    /**
+     * Kezeli a játék menetét addig, amíg nincsen vége a játéknak.
+     */
     public void init() {
         Szkeleton.printFunction("-------> init()", true, this);
         boolean game_over = false;
@@ -70,7 +86,4 @@ public class Jatektabla {
         game_over();
         Szkeleton.printFunction("<------- init()", false, this);
     }
-
-    //----------- Interfész ---
-    //-----------
 }

@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Buvarruha.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Eszkimo.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Etel.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Instabil.java" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/szkeleton/Jegtabla.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Kotel.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Lapat.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Luk.java" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/szkeleton/Main.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Sarkkutato.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Stabil.java" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/szkeleton/Szkeleton.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/szkeleton/Targy.java" charset="windows-1250" />
   </component>
 </project>
