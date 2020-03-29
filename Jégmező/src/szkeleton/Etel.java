@@ -11,11 +11,13 @@ public class Etel extends Targy {
 	}
 	/**
 	 * A paraméterként kapott karakter használja az ételt az adott jégtáblán. Jelen esetben ezzel eggyel növeli a testhõjét.
+	 * Eltávolításra kerül az étel a zsebébõl.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
         karakter.ho_nov();
+        karakter.targy_elhasznalasa(this);
 		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }
