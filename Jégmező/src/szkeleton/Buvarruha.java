@@ -1,6 +1,10 @@
 package szkeleton;
 
 public class Buvarruha extends Targy {
+	
+	/**
+	 * A Buvarruha osztály konstruktora, kiírás miatt lett implementálva.
+	 */
 
 	public Buvarruha() {
 		Szkeleton.printFunction("-------> Buvarruha() *konstruktor*", true, this);
@@ -8,9 +12,13 @@ public class Buvarruha extends Targy {
 		Szkeleton.printFunction("<------- Buvarruha() *konstruktor*", false, this);
 	}
 
+	/**
+	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán.
+	 */
+	
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
+		Szkeleton.printFunction("------->  hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
 		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

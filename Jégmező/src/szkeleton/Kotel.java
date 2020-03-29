@@ -3,10 +3,18 @@ import java.util.ArrayList;
 
 public class Kotel extends Targy {
 
+	/**
+	 * A Kotel osztály konstruktora, kiírás miatt lett implementálva.
+	 */
 	public Kotel() {
 		Szkeleton.printFunction("-------> Kotel() *konstruktor*", true, this);
 		Szkeleton.printFunction("<------- Kotel() *konstruktor*", false, this);
 	}
+	
+	
+	/**
+	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán, kimentve az összes karaktert róla.
+	 */
 
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
