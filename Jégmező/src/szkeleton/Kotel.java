@@ -11,7 +11,6 @@ public class Kotel extends Targy {
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
-		//ArrayList<Karakter> mentendo = hol.getKarakterek();
 		ArrayList<Karakter> mentendo = new ArrayList<>();
 		for(Karakter karak : hol.getKarakterek()) mentendo.add(karak);
 		for (Karakter kar : mentendo) {
