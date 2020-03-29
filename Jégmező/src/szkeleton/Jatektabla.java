@@ -25,6 +25,7 @@ public class Jatektabla {
         return a;
     }
 
+
     public void game_over() {
         Szkeleton.printFunction("-------> game_over()", true, this);
         Szkeleton.printFunction("<------- game_over()", false, this);
