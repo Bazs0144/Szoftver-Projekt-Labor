@@ -1,30 +1,30 @@
 package szkeleton;
 
 /**
- * Az luk implementálásáért felelõs osztály a Luk, a Jegtabla leszármazottja.
+ * Az luk implementï¿½lï¿½sï¿½ï¿½rt felelï¿½s osztï¿½ly a Luk, a Jegtabla leszï¿½rmazottja.
  *
  */
 public class Luk extends Jegtabla{
 
 	/**
-	 * A Luk osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
+	 * A Luk osztï¿½ly konstruktï¿½ra, csak a konstruktorhivï¿½s kiirï¿½sï¿½nak cï¿½ljï¿½bï¿½l lett implementï¿½lva */
 	public Luk() {
 		Szkeleton.printFunction("-------> Luk()  *konstruktor*", true, this);
 		Szkeleton.printFunction("<------- Luk()  *konstruktor*", false, this);
 	}
 	
 	/**
-	 * A Jegtabla osztályból öröklött ralepnek függvény felülirása.
-	 * Az aktiv karakter, amely egy szomszédos jégtábláról lép a jelenlegire (lukra), felkerül a jégtáblára (ennek nyilvántartásába).
-	 * A karakternek is beállitjuk az aktuális jégtábláját.
-	 * A luk jégtábla kapacitása nulla, ezért a karakter aki rálép egybõl vizbe esik. 
-	 * Ez a karakter vizbe_esik függvényével valósul majd meg.*/
+	 * A Jegtabla osztï¿½lybï¿½l ï¿½rï¿½klï¿½tt ralepnek fï¿½ggvï¿½ny felï¿½lirï¿½sa.
+	 * Az aktiv karakter, amely egy szomszï¿½dos jï¿½gtï¿½blï¿½rï¿½l lï¿½p a jelenlegire (lukra), felkerï¿½l a jï¿½gtï¿½blï¿½ra (ennek nyilvï¿½ntartï¿½sï¿½ba).
+	 * A karakternek is beï¿½llitjuk az aktuï¿½lis jï¿½gtï¿½blï¿½jï¿½t.
+	 * A luk jï¿½gtï¿½bla kapacitï¿½sa nulla, ezï¿½rt a karakter aki rï¿½lï¿½p egybï¿½l vizbe esik. 
+	 * Ez a karakter vizbe_esik fï¿½ggvï¿½nyï¿½vel valï¿½sul majd meg.*/
 	@Override
-	public void ralepnek(Karakter k) {
+	public void ralepnek(Figura f) {
 		Szkeleton.printFunction("------->ralepnek(Karakter k)", true, this);
-		karakterek.add(k);
-		k.setJegtabla(this);
-		k.vizbe_esik();
+		figurak.add(f);
+		f.setJegtabla(this);
+		f.vizbe_esik();
 		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
 }

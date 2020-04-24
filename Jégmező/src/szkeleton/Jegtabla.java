@@ -25,14 +25,14 @@ public class Jegtabla {
 	private int poz;
 	private Targy T;
 	
-	ArrayList<Karakter> karakterek;
+	ArrayList<Figura> figurak;
 	ArrayList<Jegtabla> szomszedok;
 	
 	/**
 	 * A Jegtabla osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
 	public Jegtabla() {
 		Szkeleton.printFunction("-------> Jegtabla() *konstruktor*", true, this);
-		karakterek = new  ArrayList<Karakter>();
+		figurak = new  ArrayList<Figura>();
 		szomszedok= new ArrayList<Jegtabla>();
 		Szkeleton.printFunction("<------- Jegtabla() *konstruktor*", false, this);
 	}
@@ -43,10 +43,10 @@ public class Jegtabla {
 	
 	/**
 	 * A jégtáblán található karakterek lekérdezése. */
-	public ArrayList<Karakter> getKarakterek(){
+	public ArrayList<Figura> getFigurak(){
 		Szkeleton.printFunction("-------> getKarakterek()", true, this);
 		Szkeleton.printFunction("<--karakterek-- getKarakterek()", false, this);
-		return karakterek;
+		return figurak;
 	}
 	
 	/**
@@ -61,8 +61,8 @@ public class Jegtabla {
 		
 		if(I == 0) 
 		{
-			for(int i = 0; i < karakterek.size(); ++i) {
-				karakterek.get(i).sebzodik();  
+			for(int i = 0; i < figurak.size(); ++i) {
+				figurak.get(i).sebzodik();
 			}
 		}
 		ho_mennyiseg++;
@@ -71,19 +71,19 @@ public class Jegtabla {
 	
 	/**
 	 * A jégtáblán található karakterek számának lekérdezése lekérdezése. */
-	public int getKarakterek_szama() {
+	public int getFigurak_szama() {
 		Szkeleton.printFunction("-------> getKarakterek_szama()", true, this);
 		Szkeleton.printFunction("<--kar-- getKarakterek_szama()", false, this);
-		return  karakterek.size();
+		return  figurak.size();
 	}
 	
 	/**
 	 * A jégtáblára lépett karakter nyilvántartása kerül.
 	 * A karakter jégtábláját is beállitja az aktuálisra. */
-	public void ralepnek(Karakter k) {
+	public void ralepnek(Figura f) {
 		Szkeleton.printFunction("------->  ralepnek(Karakter k)", true, this);
-		karakterek.add(k);
-		k.setJegtabla(this);
+		figurak.add(f);
+		f.setJegtabla(this);
 		Szkeleton.printFunction("<------- ralepnek(Karakter k)", false, this);
 	}
 	
@@ -177,9 +177,9 @@ public class Jegtabla {
 	
 	/**
 	 *Amikor egy karakter rálép egy szomszédos jégtáblára, a jelenlegirõl lelép, ilyenkor törlõdik ennek nyilvántartásából*/
-	public void lelepnek(Karakter k) {
+	public void lelepnek(Figura f) {
 		Szkeleton.printFunction("------>lelepnek(Karakter k)", true, this);
-		karakterek.remove(k);
+		figurak.remove(f);
 		Szkeleton.printFunction("<------lelepnek(Karakter k)", false, this);
 	}
 	
@@ -214,5 +214,9 @@ public class Jegtabla {
 		this.lelepnek(kit);
 		j.ralepnek(kit);
 		Szkeleton.printFunction("<------kiment(Karakter kit, Jegtabla j) ", false, this);
+	}
+
+	public void setBefagyva(boolean be) {
+		befagyva=be;
 	}
 }

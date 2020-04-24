@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * A Karaketer az Eszkimó és Sarkkutató ősosztálya, egyenlőre nem absztrakt, hogy általános teszteléseket el tudjunk rajta végezni
  */
-public class Karakter {
+public class Karakter extends Figura {
     /**
      * A Karakter osztály adattagjai:
      * - int ho : A Karakter hőmérséklete
@@ -15,8 +15,6 @@ public class Karakter {
      */
     int ho;
     int munkak_szama;
-    boolean vizben_van;
-    Jegtabla jegtabla;
     ArrayList<Targy> zseb;
 
     /**
@@ -41,6 +39,7 @@ public class Karakter {
     /**
      * Ha a karakter vízbeesik, átváltja a saját vizben_van adattagját igazra
      */
+    @Override
     public void vizbe_esik() {
         Szkeleton.printFunction("------->  vizbe_esik()", true, this);
         vizben_van=true;
@@ -52,6 +51,7 @@ public class Karakter {
      * @param jt : erre a jégtáblára akar átlépni
      * @return ha át tudott lépni igazzal tér vissza, ha nem akkor hamissal
      */
+    @Override
     public boolean lep(Jegtabla jt) {
         Szkeleton.printFunction("------->  lep(Jegmezo jm)", true, this);
         if(jegtabla.szomszed_e(jt)) {
@@ -84,7 +84,6 @@ public class Karakter {
            Szkeleton.printFunction("<------false---- menekit(Karakter k)", false, this);
            return false;
        }
-
     }
 
     /**
@@ -129,6 +128,7 @@ public class Karakter {
     /**
      * A karakternek csökken eggyel a hőmérséklete
      */
+    @Override
     public void sebzodik() {
         Szkeleton.printFunction("------->  sebzodik()", true, this);
         ho--;
@@ -142,25 +142,6 @@ public class Karakter {
         Szkeleton.printFunction("------->   ho_nov()", true, this);
         ho++;
         Szkeleton.printFunction("<-------  ho_nov()", false, this);
-    }
-
-    /**
-     * Visszaadja a jégtáblát amin áll a karakter
-     */
-    public Jegtabla getJegtabla() {
-        Szkeleton.printFunction("-------> getJegtabla()", true, this);
-        Szkeleton.printFunction("<--jegtabla-- getJegtabla()", false, this);
-        return jegtabla;
-    }
-
-    /**
-     * Beállítja a jégtáblát amin áll a karakter
-     * @param j: erre a jégtáblára állítja be
-     */
-    public void setJegtabla(Jegtabla j) {
-        Szkeleton.printFunction("-------> setJegtabla(Jegtabla j)", true, this);
-    	jegtabla=j;
-        Szkeleton.printFunction("<------- setJegtabla(Jegtabla j)", false, this);
     }
 
     /**
@@ -179,5 +160,21 @@ public class Karakter {
         Szkeleton.printFunction("------->  hasznal(Targy t, Jegtabla hol)", true, this);
         t.hasznaljak(this, hol);
         Szkeleton.printFunction("<-------  hasznal(Targy t, Jegtabla hol)", false, this);
+    }
+
+    public boolean kias(Jegtabla j) {
+        if(j.getHoMennyiseg()==0) {
+            j.setBefagyva(true);
+            return true;
+        }
+        return false;
+    }
+
+    public int getHo() {
+        return ho;
+    }
+
+    public void setHo(int ho) {
+        this.ho=ho;
     }
 }

@@ -19,10 +19,10 @@ public class Stabil extends Jegtabla {
 	 * A karakternek is beállitjuk az aktuális jégtábláját.
 	 * Mivel a jégtábla stabil, nem szükségesek további ellenõrzések, a rajta álló karakterek biztosan nem esnek vizbe. */
 	@Override
-	public void ralepnek(Karakter k) {
+	public void ralepnek(Figura f) {
 		Szkeleton.printFunction("------->ralepnek(Karakter k)", true, this);
-		karakterek.add(k);
-		k.setJegtabla(this);
+		figurak.add(f);
+		f.setJegtabla(this);
 		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
 }

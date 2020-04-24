@@ -27,16 +27,16 @@ public class Instabil extends Jegtabla{
 	 * Ezután megviszgálja ha az instabil jégtáblán álló karakterek száma meghaladja-e a kapacitását. 
 	 * Ha igen, az insatbil jégtábla meghivja a felfordul függvényét.*/
 	@Override
-	public void ralepnek(Karakter k) {
+	public void ralepnek(Figura f) {
 		Szkeleton.printFunction("------->ralepnek(Karakter k)", true, this);
-		k.setJegtabla(this);
-		karakterek.add(k);
+		f.setJegtabla(this);
+		figurak.add(f);
 		System.out.println("Tobb karakter van mint amennyi a kapacitas?");
 		Scanner in = new Scanner(System.in);
 		int I = in.nextInt();
 		
 		if(I == 1) {
-			felfordul(k);
+			felfordul(f);
 		}
 		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
@@ -44,9 +44,9 @@ public class Instabil extends Jegtabla{
 
 	/**
 	 * Amikor az instabil jégtábla felfordul, a rajta álló karakter(ek) a vizbe esnek. A karakter vizbe_esik függvénye hivódik meg. */
-	public void felfordul(Karakter k) {
+	public void felfordul(Figura f) {
 		Szkeleton.printFunction("------->felfordul(Karakter k)", true, this);
-		k.vizbe_esik();
+		f.vizbe_esik();
 		Szkeleton.printFunction("<-------felfordul(Karakter k)", false, this);
 	}
 }
