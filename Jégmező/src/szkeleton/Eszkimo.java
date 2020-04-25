@@ -17,11 +17,12 @@ public class Eszkimo extends Karakter {
 	public boolean iglut_epit() {
 		Szkeleton.printFunction("------->  iglut_epit()", true, this);
 		
-		if(!jegtabla.getVanIglu()) {
+		if(jegtabla.getEpitmeny() != null) {
 			if(jegtabla.getHoMennyiseg() == 0)
 				if(jegtabla.getTargy() == null)
 				{
-					jegtabla.igluEpitese();
+					Iglu I = new Iglu();
+					jegtabla.epitmenyKeszul(I);
 					Szkeleton.printFunction("<--true-- iglut_epit()", false, this);
 					//this.munkak_szama--;
 					return true;

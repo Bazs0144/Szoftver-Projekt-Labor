@@ -45,7 +45,7 @@ public class Instabil extends Jegtabla{
 		for(int i = 0; i < figurak.size(); ++i) {
 			figurak.get(i).vizbe_esik();
 		}
-		E = null;
+		epitmenyTorles();
 		Szkeleton.printFunction("<-------felfordul(Karakter k)", false, this);
 	}
 }

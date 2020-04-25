@@ -119,6 +119,10 @@ public class Jegtabla {
 		return T;
 	}
 	
+	public Epitmeny getEpitmeny() {
+		return E;
+	}
+	
 	/**
 	 * A paraméterként megkapott tárgy beállitása. */
 	public void setTargy(Targy t) {
