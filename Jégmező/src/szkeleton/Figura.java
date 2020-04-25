@@ -5,7 +5,7 @@ public abstract class Figura {
     Jegtabla jegtabla;
 
 
-
+    public abstract boolean lep(Jegtabla jt);
     public abstract void sebzodik();
     public abstract void setHo(int ho);
 

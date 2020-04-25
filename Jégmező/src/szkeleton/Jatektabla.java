@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Jatektabla {
+    int kor;
     private Jegmezo j;
     private ArrayList<Player> p;
     private ArrayList<Alkatresz> a;
@@ -15,6 +16,7 @@ public class Jatektabla {
      */
     public Jatektabla(int size, ArrayList<Player> p) {
         Szkeleton.printFunction("-------> Jatektabla(size: int, p: Player[]) *konstruktor*", true, this);
+        kor=1;
         j = new Jegmezo(size);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
@@ -42,7 +44,7 @@ public class Jatektabla {
      * @return igaz ha véget ért, hamis ha nem.
      */
     private boolean check_game_over() {
-        Szkeleton.printFunction("------->  check_game_over()", true, this);
+     /*   Szkeleton.printFunction("------->  check_game_over()", true, this);
         System.out.println("Jatek vege? 1: igen");
         Scanner in = new Scanner(System.in);
         int I = in.nextInt();
@@ -54,16 +56,20 @@ public class Jatektabla {
             Szkeleton.printFunction("<---false--- check_game_over()", false, this);
             return false;
         }
+
+      */
+     for(Player pl: p) if(pl.getKarakter().getHo()==0) return true;
+     return false;
     }
 
     /**
      * Átadja a játék kezelését a következő játékosnak.
-     * @param p Az adott játékos következik.
+     * pl: az  adott játékos következik.
      */
-    private void next_player(Player p) {
+    private void next_player(Player pl) {
         Szkeleton.printFunction("-------> next_player(p: Player)", true, this);
-        p.kor_kezdes();
-        p.kor_vegzes();
+        pl.kor_kezdes();
+        pl.kor_vegzes();
         Szkeleton.printFunction("<---p--- next_player(p: Player)", false, this);
 
     }
@@ -78,9 +84,11 @@ public class Jatektabla {
         //itt is lesznek még dolgok(játékosok elhelyezése táblákba...stb).
         while(!game_over) {
             act_index = act_index % p.size();
+            System.out.println(kor+". kör, következö játékos: " + p.get(act_index));
             next_player(p.get(act_index));
             game_over = check_game_over();
-            act_index++;
+            if(act_index==p.size()-1) {act_index=0; kor++;}
+            else act_index++;
             //+
         }
         game_over();

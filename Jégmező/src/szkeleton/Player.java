@@ -4,6 +4,7 @@ public class Player {
     private String nev;
     private int id;
     private Karakter k;
+    boolean aktiv;
 
     /**
      * Egyszerű konstruktor.
@@ -30,6 +31,11 @@ public class Player {
      */
     public void kor_kezdes() {
         Szkeleton.printFunction("-------> kor_kezdes()", true, this);
+        aktiv=true;
+        k.munkak_szama=4;
+        while(aktiv&&k.munkak_szama>0) {
+
+        }
         Szkeleton.printFunction("<------- kor_kezdes()", false, this);
     }
 
@@ -38,6 +44,7 @@ public class Player {
      */
     public void kor_vegzes() {
         Szkeleton.printFunction("-------> kor_vegzes()", true, this);
+        aktiv=false;
         Szkeleton.printFunction("<---p--- kor_vegzes()", false, this);
     }
     //-----------
