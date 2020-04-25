@@ -22,6 +22,7 @@ public class Alkatresz extends Targy {
 	 */
 	public void hasznaljak(Karakter k, Jegtabla hol) {
 		Szkeleton.printFunction("-------> hasznaljak(Karakter k, Jegtabla hol)", true, this);
+		if(k.vizben_van) return;
 		ArrayList<Alkatresz> alk = new ArrayList<>(jt.getAlkatresz());
 		ArrayList<Jegtabla> jegt=new ArrayList<>();
 		for(Alkatresz j : alk) {

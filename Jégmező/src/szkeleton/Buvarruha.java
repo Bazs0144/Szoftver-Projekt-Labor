@@ -19,6 +19,7 @@ public class Buvarruha extends Targy {
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		Szkeleton.printFunction("------->  hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
+        karakter.set_vizben_van(false);
 		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

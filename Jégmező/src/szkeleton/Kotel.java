@@ -19,10 +19,14 @@ public class Kotel extends Targy {
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
-		ArrayList<Karakter> mentendo = new ArrayList<>();
-		for(Karakter karak : hol.getKarakterek()) mentendo.add(karak);
-		for (Karakter kar : mentendo) {
-			karakter.menekit(kar);
+		 if(karakter.vizben_van) return;
+
+		
+		//ArrayList<Karakter> mentendo = new ArrayList<>();
+		for(Jegtabla sz : hol.getSzomszedok())
+		for (Figura f : sz.getFigurak()) {
+			if(f.vizben_van)
+			karakter.menekit((Karakter)f);
 		}
 		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}

@@ -11,7 +11,8 @@ public class Instabil extends Jegtabla{
 	/**
 	 * Az Instabil osztály karakterek_szama adattagja tárolja az aktuálisan a jégtáblán álló karakterek számát.
 	 */
-	private int karakterek_szama;
+	private int figurak_szama;
+	private int kapacitas;
 
 	/**
 	 * Az Instabil osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
@@ -32,21 +33,19 @@ public class Instabil extends Jegtabla{
 		f.setJegtabla(this);
 		figurak.add(f);
 		System.out.println("Tobb karakter van mint amennyi a kapacitas?");
-		Scanner in = new Scanner(System.in);
-		int I = in.nextInt();
-		
-		if(I == 1) {
-			felfordul(f);
-		}
+		if(figurak.size() > kapacitas) felfordul();
 		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
 	
 
 	/**
 	 * Amikor az instabil jégtábla felfordul, a rajta álló karakter(ek) a vizbe esnek. A karakter vizbe_esik függvénye hivódik meg. */
-	public void felfordul(Figura f) {
+	public void felfordul() {
 		Szkeleton.printFunction("------->felfordul(Karakter k)", true, this);
-		f.vizbe_esik();
+		for(int i = 0; i < figurak.size(); ++i) {
+			figurak.get(i).vizbe_esik();
+		}
+		E = null;
 		Szkeleton.printFunction("<-------felfordul(Karakter k)", false, this);
 	}
 }

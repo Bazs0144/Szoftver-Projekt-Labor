@@ -16,7 +16,8 @@ public class Etel extends Targy {
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
-        karakter.ho_nov();
+		if(karakter.vizben_van) return;
+		karakter.ho_nov();
         karakter.targy_elhasznalasa(this);
 		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}

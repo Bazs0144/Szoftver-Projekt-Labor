@@ -20,10 +20,11 @@ public class Jegtabla {
 	 */
 	private int kapacitas;
 	private int ho_mennyiseg;
-	private boolean van_iglu;
 	private boolean befagyva;
 	private int poz;
 	private Targy T;
+	protected Epitmeny E;
+	
 	
 	ArrayList<Figura> figurak;
 	ArrayList<Jegtabla> szomszedok;
@@ -49,6 +50,11 @@ public class Jegtabla {
 		return figurak;
 	}
 	
+	public ArrayList<Jegtabla> getSzomszedok(){
+		Szkeleton.printFunction("-------> getKarakterek()", true, this);
+		Szkeleton.printFunction("<--karakterek-- getKarakterek()", false, this);
+		return szomszedok;
+	}
 	/**
 	 * Amikor hóvihar éri a jégtáblát, megvizsgálja ha van rajta iglu. 
 	 * Amennyiben nincs, minden rajta álló karakter sebzõdik; minden karakterre meghivja a sebzodik függvényét.
@@ -92,6 +98,7 @@ public class Jegtabla {
 	 * Az intensity értéke 1 vagy 2, attól függ, hogy a karakter lapát nélkül vagy lapáttal végzi a takarjtásat. */
 	public void takaritas_volt(int intensity) {
 		Szkeleton.printFunction("------->  takaritas_volt(int intensity)", true, this);
+		if(ho_mennyiseg - intensity >= 0) ho_mennyiseg -= intensity;
 		Szkeleton.printFunction("<------- takaritas_volt(int intensity)", false, this);
 	}
 	
@@ -124,47 +131,24 @@ public class Jegtabla {
 	 * A jégtáblán található hómennyiség lekérdezése. */
 	public int getHoMennyiseg() {
 		Szkeleton.printFunction("------->getHoMennyiseg()", true, this);
-		System.out.println("Mennyi ho van ezen a jegtablan?");
-		Scanner in = new Scanner(System.in);
-		int I = in.nextInt();
 		Szkeleton.printFunction("<--ho_mennyiseg-- getHoMennyiseg()", false, this);
-		return I;
+		return ho_mennyiseg;
 	}
 	
-	/**
-	 *Amikor egy eszkimó iglut épit a jégtáblára, a jégtábla megjegyzi, hogy található rajta iglu. */
-	public void igluEpitese() {
-		Szkeleton.printFunction("------->igluEpitese()", true, this);
-		Szkeleton.printFunction("<-------igluEpitese()", false, this);
-		van_iglu = true;
-	}
-	
-	/**
-	 * Annak lekérdezése, ha a jégtáblán található-e iglu. */
-	public boolean getVanIglu() {
-		Szkeleton.printFunction("------->getVanIglu()", true, this);
-		System.out.println("van iglu?");
-		Scanner in = new Scanner(System.in);
-		int I = in.nextInt();
-		if(I == 0) {
-			Szkeleton.printFunction("<--true-- getVanIglu()",false, this);
-			return true;
-		}
-		else {
-			Szkeleton.printFunction("<--false-- getVanIglu()", false, this);
-			return false;
-		}
 
 
-	}
 	
 	/**
 	 * Meghatározza, ha a paraméterként kapott jégtábla szomszédos-e a jelengivel. */
 	public boolean szomszed_e(Jegtabla j) {
 		Szkeleton.printFunction("------>szomszed_e(Jegtabla j)", true, this);
-		System.out.println("Szomszédok a jégtáblák?");
-		Scanner in = new Scanner(System.in);
-		int I = in.nextInt();
+		
+		for(int i = 0; i < szomszedok.size(); ++i) {
+			if (szomszedok.get(i).equals(j)) return true;
+		}
+		 return false;
+		
+	/*	int I = 0;
 		if(I == 1){
 			Szkeleton.printFunction("<--true-- szomszed_e(Jegtabla j)", false, this);
 			return true;
@@ -172,7 +156,7 @@ public class Jegtabla {
 		else{
 			Szkeleton.printFunction("<--false-- szomszed_e(Jegtabla j)", false, this);
 			 return false;
-		}
+		}*/
 	}
 	
 	/**
@@ -195,8 +179,10 @@ public class Jegtabla {
 		System.out.println("Be van fagyva?");
 		int I2 = in.nextInt();
 		
-		if(I ==0  && I2 ==0) {
-			k.targy_hozzaadasa(t);  System.out.print("k");
+		if(!befagyva && ho_mennyiseg ==0) {
+			k.targy_hozzaadasa(t); 
+			T = null;
+			System.out.print("k");
 			Szkeleton.printFunction("<--true--elvesz(Karakter k, Targy t)", false, this);
 			return true;
 		}
@@ -218,5 +204,20 @@ public class Jegtabla {
 
 	public void setBefagyva(boolean be) {
 		befagyva=be;
+	}
+	
+	public boolean get_befagyva() {
+		return befagyva;
+	}
+	/*medveitt
+	 * 
+	 */
+	
+	public void epitmenyTorles() {
+		E = null;
+	}
+	
+	public void epitmenyKeszul(Epitmeny e) {
+		E = e; //
 	}
 }
