@@ -66,7 +66,6 @@ public class Karakter extends Figura {
        if(j1.szomszed_e(jegtabla)){
            j1.kiment(k,jegtabla);
            munkak_szama--;
-           //jegtabla.ralepnek(k);
            return true;
         }
        else {
@@ -137,18 +136,29 @@ public class Karakter extends Figura {
         t.hasznaljak(this, hol);
     }
 
-    public boolean kias(Jegtabla j) {
-        if(j.getHoMennyiseg()==0) {
-            j.setBefagyva(true);
+    /**
+     * Megprobóál kiásni egy tárgyat a jégből, ha sikerül visszatér igazzal ,ha nem hamissal
+     */
+    public boolean kias() {
+        if(jegtabla.getHoMennyiseg()==0) {
+            jegtabla.setBefagyva(false);
             return true;
         }
         return false;
     }
 
+    /**
+     * Visszadja a karakter hőmennyiségét
+     * @return a karakter hője
+     */
     public int getHo() {
         return ho;
     }
 
+    /**
+     * beállítja a karakter hőmennyiségét
+     * @param ho erre állítja be
+     */
     public void setHo(int ho) {
         this.ho=ho;
     }
