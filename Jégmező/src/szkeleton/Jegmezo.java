@@ -10,23 +10,41 @@ public class Jegmezo {
 
     /**
      * Konstruktor: Létrehozza a jágtáblákat, és megadja az adott jágtábla szomszédait
-     * @param size A Jégmezőt alkotó jégtáblák száma.
+     * @param width height A Jégmezőt alkotó jégtáblák száma.
      */
-    public Jegmezo(int size) {
+    public Jegmezo(int width, int height) {
         Szkeleton.printFunction("-------> Jegmezo(size: int) *konstruktor*", true, this);
         this.JegT = new ArrayList<>();
-        for(int i=0; i<size; i++) {
-            Jegtabla j=new Jegtabla();
-            JegT.add(j);
-            Szkeleton.objects.put(JegT.get(i), "Jegt["+i+"]");
+        for(int i=0; i<height; i++)
+            for(int j=0; j<width; j++) {
+            Jegtabla jeg=new Stabil(new Poz(j, i));
+            JegT.add(jeg);
+          //  Szkeleton.objects.put(JegT.get(i), "Jegt["+i+"]");
         }
-        for(int i=0; i<size; i++) {
-            if(i+1<size) JegT.get(i).addSzomszed(JegT.get(i+1));
-            if(i-1>=0) JegT.get(i).addSzomszed(JegT.get(i-1));
-
-        }
+        for(int i=0; i<height; i++)
+            for(int j=0; j<width; j++) {
+                if(i-1>=0) JegT.get(i).addSzomszed(JegT.get(i-1));
+                if(i+1<height) JegT.get(i).addSzomszed(JegT.get(i+1));
+                if(j-1>=0) JegT.get(i).addSzomszed(JegT.get(j-1));
+                if(j+1<width) JegT.get(i).addSzomszed(JegT.get(j+1));
+            }
 
         Szkeleton.printFunction("<------- Jegmezo(size: int) *konstruktor*", false, this);
+    }
+
+    public void addJegtabla(Jegtabla jeg) {
+        JegT.add(jeg);
+    }
+
+    public void szomszedokkaTesz(Jegtabla egy, Jegtabla ketto) {
+        egy.addSzomszed(ketto);
+        ketto.addSzomszed(egy);
+    }
+
+    public void addTargy(Poz p, Targy t) {
+        for(Jegtabla jt: JegT) {
+            if(jt.getPoz().equals(p)) jt.setTargy(t);
+        }
     }
 
     /**

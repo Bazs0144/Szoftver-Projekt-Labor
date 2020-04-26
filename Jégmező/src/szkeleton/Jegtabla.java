@@ -21,7 +21,7 @@ public class Jegtabla {
 	private int kapacitas;
 	private int ho_mennyiseg;
 	private boolean befagyva;
-	private int poz;
+	private Poz poz;
 	private Targy T;
 	protected Epitmeny E;
 	
@@ -31,11 +31,16 @@ public class Jegtabla {
 	
 	/**
 	 * A Jegtabla osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
-	public Jegtabla() {
+	public Jegtabla(Poz p) {
 		Szkeleton.printFunction("-------> Jegtabla() *konstruktor*", true, this);
 		figurak = new  ArrayList<Figura>();
 		szomszedok= new ArrayList<Jegtabla>();
+		poz=new Poz(p);
 		Szkeleton.printFunction("<------- Jegtabla() *konstruktor*", false, this);
+	}
+
+	public Poz getPoz() {
+		return poz;
 	}
 
 	public void addSzomszed(Jegtabla j) {

@@ -11,16 +11,16 @@ public class Jatektabla {
 
     /**
      * A játéktábla konstruktora, mely legenerál egy jégmezőt, és az alkatrészeket, valamint megkapja a jétékosokat.
-     * @param size: A jégmező mérete.
+     * @param width: A jégmező szélessége
+     * @param height  a jégmező hossza
      * @param p : a játékosok, akik játszani fognak.
      */
-    public Jatektabla(int size, ArrayList<Player> p) {
+    public Jatektabla(int width,int height, ArrayList<Player> p) {
         Szkeleton.printFunction("-------> Jatektabla(size: int, p: Player[]) *konstruktor*", true, this);
         kor=1;
-        j = new Jegmezo(size);
+        j = new Jegmezo(width, height);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
-        a.add(new Alkatresz(this));
         Szkeleton.printFunction("<------- Jatektabla(size: int, p: Player[]) *konstruktor*", false, this);
     }
 
@@ -44,20 +44,6 @@ public class Jatektabla {
      * @return igaz ha véget ért, hamis ha nem.
      */
     private boolean check_game_over() {
-     /*   Szkeleton.printFunction("------->  check_game_over()", true, this);
-        System.out.println("Jatek vege? 1: igen");
-        Scanner in = new Scanner(System.in);
-        int I = in.nextInt();
-        if(I == 1) {
-            Szkeleton.printFunction("<---true--- check_game_over()", false, this);
-            return true;
-        }
-        else {
-            Szkeleton.printFunction("<---false--- check_game_over()", false, this);
-            return false;
-        }
-
-      */
      for(Player pl: p) if(pl.getKarakter().getHo()==0) return true;
      return false;
     }

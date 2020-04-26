@@ -5,13 +5,23 @@ package szkeleton;
  *
  */
 public class Stabil extends Jegtabla {
-	
+	/**
+	 * A Jegtabla osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva
+	 *
+	 * @param p
+	 */
+	public Stabil(Poz p) {
+		super(p);
+	}
+
 	/**
 	 * A Stabil osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
-	public Stabil() {
+/*	public Stabil() {
 		Szkeleton.printFunction("-------> Stabil()  *konstruktor*", true,  this);
 		Szkeleton.printFunction("<------- Stabil()  *konstruktor*", false, this);
 	}
+
+ */
 	
 	/**
 	 * A Jegtabla osztályból öröklött ralepnek függvény felülirása:
