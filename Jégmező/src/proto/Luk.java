@@ -1,30 +1,27 @@
 package proto;
 
 /**
- * Az luk implement�l�s��rt felel�s oszt�ly a Luk, a Jegtabla lesz�rmazottja.
+ * Az luk implementálásáért felelős osztály a Luk, a Jegtabla leszármazottja.
  *
  */
 public class Luk extends Jegtabla{
 
 	/**
-	 * A Luk oszt�ly konstrukt�ra, csak a konstruktorhiv�s kiir�s�nak c�lj�b�l lett implement�lva */
-	public Luk() {
-		Szkeleton.printFunction("-------> Luk()  *konstruktor*", true, this);
-		Szkeleton.printFunction("<------- Luk()  *konstruktor*", false, this);
+	 * A Luk osztály konstruktora, amelyben beállitásra kerül ennek poziciója a jégmezőn*/
+	public Luk(Poz p) {
+		super(p);
 	}
 	
 	/**
-	 * A Jegtabla oszt�lyb�l �r�kl�tt ralepnek f�ggv�ny fel�lir�sa.
-	 * Az aktiv karakter, amely egy szomsz�dos j�gt�bl�r�l l�p a jelenlegire (lukra), felker�l a j�gt�bl�ra (ennek nyilv�ntart�s�ba).
-	 * A karakternek is be�llitjuk az aktu�lis j�gt�bl�j�t.
-	 * A luk j�gt�bla kapacit�sa nulla, ez�rt a karakter aki r�l�p egyb�l vizbe esik. 
-	 * Ez a karakter vizbe_esik f�ggv�ny�vel val�sul majd meg.*/
+	 * A Jegtabla osztályból öröklött ralepnek függvény felülirása.
+	 * Az aktiv figura, amely egy szomszédos jégtábláról lép a jelenlegire, felkerül a jégtáblára (ennek nyilvántartásába).
+	 * A figura is beállitjuk az aktuális jégtábláját.
+	 * A luk jégtábla kapacitása nulla, ezért a figura aki rálép egyből vizbe esik. 
+	 * Ez a figura vizbe_esik függvényével valósul majd meg.*/
 	@Override
 	public void ralepnek(Figura f) {
-		Szkeleton.printFunction("------->ralepnek(Karakter k)", true, this);
 		figurak.add(f);
 		f.setJegtabla(this);
 		f.vizbe_esik();
-		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
 }

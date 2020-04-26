@@ -1,38 +1,26 @@
 package proto;
 
 /**
- * A stabil jégtábla implementálásáért felelõs osztály az Stabil, a Jegtabla leszármazottja.
+ * A stabil jÃ©gtÃ¡bla implementÃ¡lÃ¡sÃ¡Ã©rt felelÃµs osztÃ¡ly az Stabil, a Jegtabla leszÃ¡rmazottja.
  *
  */
 public class Stabil extends Jegtabla {
 	/**
-	 * A Jegtabla osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva
-	 *
-	 * @param p
+	 * A Jegtabla osztÃ¡ly konstruktÃ³ra, amelyben beÃ¡llitÃ¡sra kerÃ¼l ennek poziciÃ³ja a jÃ©gmezÅ‘n.
 	 */
 	public Stabil(Poz p) {
 		super(p);
 	}
 
-	/**
-	 * A Stabil osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
-/*	public Stabil() {
-		Szkeleton.printFunction("-------> Stabil()  *konstruktor*", true,  this);
-		Szkeleton.printFunction("<------- Stabil()  *konstruktor*", false, this);
-	}
-
- */
 	
 	/**
-	 * A Jegtabla osztályból öröklött ralepnek függvény felülirása:
-	 * Az aktiv karakter, amely egy szomszédos jégtábláról lép a jelenlegire, felkerül a jégtáblára (ennek nyilvántartásába).
-	 * A karakternek is beállitjuk az aktuális jégtábláját.
-	 * Mivel a jégtábla stabil, nem szükségesek további ellenõrzések, a rajta álló karakterek biztosan nem esnek vizbe. */
+	 * A Jegtabla osztÃ¡lybÃ³l Ã¶rÃ¶klÃ¶tt ralepnek fÃ¼ggvÃ©ny felÃ¼lirÃ¡sa:
+	 * Az aktiv figura, amely egy szomszÃ©dos jÃ©gtÃ¡blÃ¡rÃ³l lÃ©p a jelenlegire, felkerÃ¼l a jÃ©gtÃ¡blÃ¡ra (ennek nyilvÃ¡ntartÃ¡sÃ¡ba).
+	 * A figurÃ¡nak is beÃ¡llitjuk az aktuÃ¡lis jÃ©gtÃ¡blÃ¡jÃ¡t.
+	 * Mivel a jÃ©gtÃ¡bla stabil, nem szÃ¼ksÃ©gesek tovÃ¡bbi ellenÃµrzÃ©sek, a rajta Ã¡llÃ³ figurÃ¡k biztosan nem esnek vizbe. */
 	@Override
 	public void ralepnek(Figura f) {
-		Szkeleton.printFunction("------->ralepnek(Karakter k)", true, this);
 		figurak.add(f);
 		f.setJegtabla(this);
-		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
 }

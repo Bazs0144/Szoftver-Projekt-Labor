@@ -1,22 +1,24 @@
 package proto;
 
+/**
+ * Az lapát implementálásáért felelõs osztály a Lapat, a Targy leszármazottja.
+ *
+ */
 public class Lapat extends Targy {
 	
 	/**
-	 * A Lapat osztï¿½ly konstruktora, kiï¿½rï¿½s miatt lett implementï¿½lva.
+	 * A Lapat osztály konstruktora..
 	 */
 	public Lapat() {
-		Szkeleton.printFunction("-------> Lapat() *konstruktor*", true, this);
-		Szkeleton.printFunction("<------- Lapat() *konstruktor*", false, this);
+		
 	}
 	/**
-	 * A paramï¿½terkï¿½nt kapott karakter hasznï¿½lja a lapï¿½tot, hogy 2-t takarï¿½tson a jï¿½gtï¿½blï¿½rï¿½l.
+	 * A paraméterként kapott karakter használja a lapátot, hogy 2-t takaritson a jégtáblán.
+	 * A karakter csak akkor használhatja a lapátot, ha nincs vizbe esve.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
         if(karakter.vizben_van) return;
 		karakter.takarit(2);
-		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

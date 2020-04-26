@@ -4,19 +4,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * A jégtáblát megvalósitó osztály.
+ * A jÃ©gtÃ¡blÃ¡t megvalÃ³sitÃ³ osztÃ¡ly.
  *
  */
 public class Jegtabla {
 	/**
-	 * A Jegtabla osztály adattagjai:
-	 * kapacitás: tárolja, hogy maximálisan hány karakter állhat rajta egy idõben. Luk esetén az értéke 0, Stabil esetén végtelen (közelitve), Instabil esetén pedig változó.
-	 * ho_mennyiseg: a jégtáblán található aktuális hómennyiséget tárolja. Ennek értéke hóvihar következtében növelhetõ, takarjtás után pedig csökken.
-	 * van_iglu: ha igaz értéket tárol, a jégtáblán van elhelyezve egy iglu.
-	 * befagyva: ha igaz értéket tárol, a jégtábla a hóréteg alatt még tartalmaz egy réteg jeget, amelyben egy tárgy lehet befagyva.
-	 * poz: a jégtábla poziciója a jégmezõn.
-	 * T: a jégtáblán található tárgy; értéke lehett null is.
-	 * karakterek: a jégtáblán álló karakterek nyilvántartása.
+	 * A Jegtabla osztÃ¡ly adattagjai:
+	 * @param kapacitas: tÃ¡rolja, hogy maximÃ¡lisan hÃ¡ny karakter Ã¡llhat rajta egy idÃµben. Luk esetÃ©n az Ã©rtÃ©ke 0, Stabil esetÃ©n vÃ©gtelen (kÃ¶zelitve), Instabil esetÃ©n pedig vÃ¡ltozÃ³.
+	 * @param ho_mennyiseg: a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ aktuÃ¡lis hÃ³mennyisÃ©get tÃ¡rolja. Ennek Ã©rtÃ©ke hÃ³vihar kÃ¶vetkeztÃ©ben nÃ¶velhetÃµ, takarjtÃ¡s utÃ¡n pedig csÃ¶kken.
+	 * @param befagyva: ha igaz Ã©rtÃ©ket tÃ¡rol, a jÃ©gtÃ¡bla a hÃ³rÃ©teg alatt mÃ©g tartalmaz egy rÃ©teg jeget, amelyben egy tÃ¡rgy lehet befagyva.
+	 * @param poz: a jÃ©gtÃ¡bla poziciÃ³ja a jÃ©gmezÃµn.
+	 * @param T: a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ tÃ¡rgy; Ã©rtÃ©ke lehett null is.
+	 * @param E: a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny; Ã©rtÃ©ke lehett null is.
+	 * @param figurak: a jÃ©gtÃ¡blÃ¡n Ã¡llÃ³ figurÃ¡k nyilvÃ¡ntartÃ¡sa.
+	 * @param szomszedok: a jÃ©gtÃ¡bla szomszÃ©dsÃ¡gÃ¡ban talÃ¡lhatÃ³ jÃ©gtÃ¡blÃ¡k nyilvÃ¡ntartÃ¡sa.
+	 * @param medveitt: Ã¡ll-e medve ezen a jÃ©gtÃ¡blÃ¡n.
 	 */
 	private int kapacitas;
 	private int ho_mennyiseg;
@@ -24,208 +26,175 @@ public class Jegtabla {
 	private Poz poz;
 	private Targy T;
 	protected Epitmeny E;
+	private boolean medveitt;
 	
 	
 	ArrayList<Figura> figurak;
 	ArrayList<Jegtabla> szomszedok;
 	
 	/**
-	 * A Jegtabla osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
+	 * A Jegtabla osztÃ¡ly konstruktÃ³ra. A paramÃ©terkÃ©nt kapott poziciÃ³ lesz a jÃ©gtÃ¡bla poziciÃ³ja a jÃ©gmezÅ‘n */
 	public Jegtabla(Poz p) {
-		Szkeleton.printFunction("-------> Jegtabla() *konstruktor*", true, this);
 		figurak = new  ArrayList<Figura>();
 		szomszedok= new ArrayList<Jegtabla>();
 		poz=new Poz(p);
-		Szkeleton.printFunction("<------- Jegtabla() *konstruktor*", false, this);
 	}
 
+	/** JÃ©gtÃ¡bla poziciÃ³jÃ¡nak lekÃ©rdezÃ©se.*/
 	public Poz getPoz() {
 		return poz;
 	}
 
+	/** SzomszÃ©dos jÃ©gtÃ¡bla hozzÃ¡adÃ¡sa a jÃ©gtÃ¡bla nyilvÃ¡ntartÃ¡sÃ¡ba.*/
 	public void addSzomszed(Jegtabla j) {
 		szomszedok.add(j);
 	}
 	
 	/**
-	 * A jégtáblán található karakterek lekérdezése. */
+	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ figurÃ¡k lekÃ©rdezÃ©se. */
 	public ArrayList<Figura> getFigurak(){
-		Szkeleton.printFunction("-------> getKarakterek()", true, this);
-		Szkeleton.printFunction("<--karakterek-- getKarakterek()", false, this);
 		return figurak;
 	}
 	
+	
+	/**
+	 * A jÃ©gtÃ¡bla szomszÃ©dainak lekÃ©rdezÃ©se. */
 	public ArrayList<Jegtabla> getSzomszedok(){
-		Szkeleton.printFunction("-------> getKarakterek()", true, this);
-		Szkeleton.printFunction("<--karakterek-- getKarakterek()", false, this);
 		return szomszedok;
 	}
+	
 	/**
-	 * Amikor hóvihar éri a jégtáblát, megvizsgálja ha van rajta iglu. 
-	 * Amennyiben nincs, minden rajta álló karakter sebzõdik; minden karakterre meghivja a sebzodik függvényét.
-	 * A  jégtábla ho_mennyiseg értéke egy egységgel növekszik.*/
+	 * Amikor hÃ³vihar Ã©ri a jÃ©gtÃ¡blÃ¡t, megvizsgÃ¡lja ha van rajta epitmÃ©ny. 
+	 * Amennyiben nincs, minden rajta Ã¡llÃ³ karakter sebzÃµdik; minden karakterre meghivja a sebzodik fÃ¼ggvÃ©nyÃ©t.
+	 * A  jÃ©gtÃ¡bla ho_mennyiseg Ã©rtÃ©ke egy egysÃ©ggel nÃ¶vekszik.*/
 	public void hovihar_volt() {
-		Szkeleton.printFunction("-------> hovihar_volt()", true, this);
-		System.out.println("Van iglu?");
-		Scanner in = new Scanner(System.in);
-		int I = in.nextInt();
 		
-		if(I == 0) 
+		if(E == null) 
 		{
-			for(int i = 0; i < figurak.size(); ++i) {
+			for(int i = 0; i < figurak.size(); ++i) { /////!!!!!
 				figurak.get(i).sebzodik();
 			}
 		}
 		ho_mennyiseg++;
-		Szkeleton.printFunction("<------- hovihar_volt()", false, this);
 	}
 	
 	/**
-	 * A jégtáblán található karakterek számának lekérdezése lekérdezése. */
+	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ figurÃ¡k szÃ¡mÃ¡nak lekÃ©rdezÃ©se. */
 	public int getFigurak_szama() {
-		Szkeleton.printFunction("-------> getKarakterek_szama()", true, this);
-		Szkeleton.printFunction("<--kar-- getKarakterek_szama()", false, this);
 		return  figurak.size();
 	}
 	
 	/**
-	 * A jégtáblára lépett karakter nyilvántartása kerül.
-	 * A karakter jégtábláját is beállitja az aktuálisra. */
+	 * A jÃ©gtÃ¡blÃ¡ra lÃ©pett figura nyilvÃ¡ntartÃ¡sa kerÃ¼l.
+	 * A figura jÃ©gtÃ¡blÃ¡jÃ¡t is beÃ¡llitja az aktuÃ¡lisra. */
 	public void ralepnek(Figura f) {
-		Szkeleton.printFunction("------->  ralepnek(Karakter k)", true, this);
 		figurak.add(f);
 		f.setJegtabla(this);
-		Szkeleton.printFunction("<------- ralepnek(Karakter k)", false, this);
 	}
 	
 	/**
-	 * Egy karakter jégtábla takaritási munkája: a paramétertként kapott intensity értékkel csökken a jégtábla hómennyisége.
-	 * Az intensity értéke 1 vagy 2, attól függ, hogy a karakter lapát nélkül vagy lapáttal végzi a takarjtásat. */
+	 * Egy karakter jÃ©gtÃ¡bla takaritÃ¡si munkÃ¡ja: a paramÃ©tertkÃ©nt kapott intensity Ã©rtÃ©kkel csÃ¶kken a jÃ©gtÃ¡bla hÃ³mennyisÃ©ge.
+	 * Az intensity Ã©rtÃ©ke 1 vagy 2, attÃ³l fÃ¼gg, hogy a karakter tÃ¡rgy nÃ©lkÃ¼l vagy lapÃ¡ttal/Ã¡sÃ³val vÃ©gzi a takarjtÃ¡sat.
+	 * Ha mÃ¡r nincs hÃ³, de mÃ©g be van fagyva a jÃ©gtÃ¡bla, ezt a jÃ©grÃ©teget is el lehet tÃ¡volitani
+	 * Ha mÃ¡r sem hÃ³, sem jÃ©grÃ©teg nincs a jÃ©gtÃ¡blÃ¡n, akkor nem tÃ¶rtÃ©nik semmi vÃ¡ltozÃ¡s a jÃ©gtÃ¡blÃ¡n */
 	public void takaritas_volt(int intensity) {
-		Szkeleton.printFunction("------->  takaritas_volt(int intensity)", true, this);
+		if(ho_mennyiseg == 0) befagyva = false;
 		if(ho_mennyiseg - intensity >= 0) ho_mennyiseg -= intensity;
-		Szkeleton.printFunction("<------- takaritas_volt(int intensity)", false, this);
 	}
 	
 	/**
-	 * A jégtábla kapacitásának lekérdezése. */
+	 * A jÃ©gtÃ¡bla kapacitÃ¡sÃ¡nak lekÃ©rdezÃ©se. */
 	public int getKapacitas() {
-		Szkeleton.printFunction("-------> getKapacitas()", true, this);
-		Szkeleton.printFunction("<--kapacitas-- getKapacitas()", false, this);
 		return kapacitas;
 	}
 	
 	/**
-	 * A jégtáblán található tárgy lekérdezése. */
+	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ tÃ¡rgy lekÃ©rdezÃ©se. */
 	public Targy getTargy() {
-		Szkeleton.printFunction("------->getTargy()", true, this);
-        Szkeleton.printTabs(false);
-		Szkeleton.printFunction("<---T--- getTargy()", false, this);
 		return T;
 	}
 	
+	/**
+	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny lekÃ©rdezÃ©se. */
 	public Epitmeny getEpitmeny() {
 		return E;
 	}
 	
 	/**
-	 * A paraméterként megkapott tárgy beállitása. */
+	 * A paramÃ©terkÃ©nt megkapott tÃ¡rgy beÃ¡llitÃ¡sa. */
 	public void setTargy(Targy t) {
-		Szkeleton.printFunction("-------> setTargy(Targy t)", true, this);
-		Szkeleton.printFunction("<------- setTargy(Targy t)", false, this);
 		this.T = t;
 	}
 	
 	/**
-	 * A jégtáblán található hómennyiség lekérdezése. */
+	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ hÃ³mennyisÃ©g lekÃ©rdezÃ©se. */
 	public int getHoMennyiseg() {
-		Szkeleton.printFunction("------->getHoMennyiseg()", true, this);
-		Szkeleton.printFunction("<--ho_mennyiseg-- getHoMennyiseg()", false, this);
 		return ho_mennyiseg;
 	}
 	
-
-
-	
 	/**
-	 * Meghatározza, ha a paraméterként kapott jégtábla szomszédos-e a jelengivel. */
+	 * MeghatÃ¡rozza, ha a paramÃ©terkÃ©nt kapott jÃ©gtÃ¡bla szomszÃ©dos-e a jelengivel.
+	 * A jelenlegi szomszÃ©djainak nyilvÃ¡ntartÃ¡sÃ¡ban vÃ©gighalad Ã©s megvizsgÃ¡lja, ha az egyes elemek egyenlÅ‘ek-e a paramÃ©terkÃ©nt kapottal */
 	public boolean szomszed_e(Jegtabla j) {
-		Szkeleton.printFunction("------>szomszed_e(Jegtabla j)", true, this);
 		
 		for(int i = 0; i < szomszedok.size(); ++i) {
 			if (szomszedok.get(i).equals(j)) return true;
 		}
 		 return false;
-		
-	/*	int I = 0;
-		if(I == 1){
-			Szkeleton.printFunction("<--true-- szomszed_e(Jegtabla j)", false, this);
-			return true;
-		}
-		else{
-			Szkeleton.printFunction("<--false-- szomszed_e(Jegtabla j)", false, this);
-			 return false;
-		}*/
 	}
 	
 	/**
-	 *Amikor egy karakter rálép egy szomszédos jégtáblára, a jelenlegirõl lelép, ilyenkor törlõdik ennek nyilvántartásából*/
+	 *Amikor egy figura rÃ¡lÃ©p egy szomszÃ©dos jÃ©gtÃ¡blÃ¡ra, a jelenlegirÃµl lelÃ©p, ilyenkor tÃ¶rlÃµdik ennek nyilvÃ¡ntartÃ¡sÃ¡bÃ³l*/
 	public void lelepnek(Figura f) {
-		Szkeleton.printFunction("------>lelepnek(Karakter k)", true, this);
 		figurak.remove(f);
-		Szkeleton.printFunction("<------lelepnek(Karakter k)", false, this);
 	}
 	
 	/**
-	 *A paraméterként kapott karakter elveszi a jégtábláról a paraméterként megadott tárgyat.
-	 *Ekkor a karakter targy_hozzaadasa függvényének meghivásával a tárgy a karakter tulajdonába kerül.
-	 *Ugyanakkor a jégtábla tárgy adattagja null értékû lesz.*/
+	 *A paramÃ©terkÃ©nt kapott karakter elveszi a jÃ©gtÃ¡blÃ¡rÃ³l a paramÃ©terkÃ©nt megadott tÃ¡rgyat.
+	 *Ekkor a karakter targy_hozzaadasa fÃ¼ggvÃ©nyÃ©nek meghivÃ¡sÃ¡val a tÃ¡rgy a karakter tulajdonÃ¡ba kerÃ¼l.
+	 *Ugyanakkor a jÃ©gtÃ¡bla tÃ¡rgy adattagja null Ã©rtÃ©kÃ» lesz.
+	 *Ha a felvÃ©tel sikeres volt, a metÃ³dus igaz Ã©rtÃ©kkel tÃ©r vissza, kÃ¼lÃ¶nben hamissal.*/
 	public boolean elvesz(Karakter k, Targy t) {
-		Szkeleton.printFunction("------>elvesz(Karakter k, Targy t)", true, this);
-		System.out.println("Homennyiseg a jegtablan?");
-		Scanner in = new Scanner(System.in);
-		int I = in.nextInt();
-		System.out.println("Be van fagyva?");
-		int I2 = in.nextInt();
 		
-		if(!befagyva && ho_mennyiseg ==0) {
+		if(!befagyva && ho_mennyiseg == 0) {
 			k.targy_hozzaadasa(t); 
 			T = null;
-			System.out.print("k");
-			Szkeleton.printFunction("<--true--elvesz(Karakter k, Targy t)", false, this);
 			return true;
 		}
 		else {
-			Szkeleton.printFunction("<--false--elvesz(Karakter k, Targy t)", false, this);
 			return false;
 		}
 	}
 	
 	/**
-	 *Amikor egy vizbe esett karaktert sikeresen kiment egy társa, a jelenlegi jégtábáról (luk vagy átfordult instabil jégtábla) lelép és rálép arra a szomszédos 
-	 *jégtáblára, amelyen a megmentõje is áll. */
+	 *Amikor egy vizbe esett karaktert sikeresen kiment egy tÃ¡rsa, a jelenlegi jÃ©gtÃ¡bÃ¡rÃ³l (luk vagy Ã¡tfordult instabil jÃ©gtÃ¡bla) lelÃ©p Ã©s rÃ¡lÃ©p arra a szomszÃ©dos 
+	 *jÃ©gtÃ¡blÃ¡ra, amelyen a megmentÃµje is Ã¡ll. */
 	public void kiment(Karakter kit, Jegtabla j) {
-		Szkeleton.printFunction("------>kiment(Karakter kit, Jegtabla j) ", true, this);
 		this.lelepnek(kit);
 		j.ralepnek(kit);
-		Szkeleton.printFunction("<------kiment(Karakter kit, Jegtabla j) ", false, this);
 	}
 
+	/** a jÃ©gtÃ¡blÃ¡t befagyottra Ã¡llitja*/
 	public void setBefagyva(boolean be) {
 		befagyva=be;
 	}
 	
+	/** a jÃ©gtÃ¡bla befagyott igazsÃ¡gÃ©rtÃ©kÃ©t kÃ©rdezi le*/
 	public boolean get_befagyva() {
 		return befagyva;
 	}
-	/*medveitt
-	 * 
-	 */
 	
+	/** a jÃ©gtÃ¡bla medveitt igazsÃ¡gÃ©rtÃ©kÃ©t kÃ©rdezi le*/
+	public boolean get_medveitt(){
+		return medveitt;
+	}
+	
+	/** a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny Ã©rtÃ©ke null lesz*/
 	public void epitmenyTorles() {
 		E = null;
 	}
 	
+	/** a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny Ã©rtÃ©ke a paramÃ©terkÃ©nt kapott Ã©pitmÃ©ny lesz.*/
 	public void epitmenyKeszul(Epitmeny e) {
 		E = e; //
 	}
