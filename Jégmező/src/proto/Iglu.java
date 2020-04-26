@@ -1,4 +1,4 @@
-package szkeleton;
+package proto;
 
 public class Iglu implements Epitmeny {
 

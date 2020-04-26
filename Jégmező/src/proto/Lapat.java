@@ -1,16 +1,16 @@
-package szkeleton;
+package proto;
 
 public class Lapat extends Targy {
 	
 	/**
-	 * A Lapat osztály konstruktora, kiírás miatt lett implementálva.
+	 * A Lapat osztï¿½ly konstruktora, kiï¿½rï¿½s miatt lett implementï¿½lva.
 	 */
 	public Lapat() {
 		Szkeleton.printFunction("-------> Lapat() *konstruktor*", true, this);
 		Szkeleton.printFunction("<------- Lapat() *konstruktor*", false, this);
 	}
 	/**
-	 * A paraméterként kapott karakter használja a lapátot, hogy 2-t takarítson a jégtábláról.
+	 * A paramï¿½terkï¿½nt kapott karakter hasznï¿½lja a lapï¿½tot, hogy 2-t takarï¿½tson a jï¿½gtï¿½blï¿½rï¿½l.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {

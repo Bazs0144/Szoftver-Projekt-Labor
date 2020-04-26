@@ -1,4 +1,4 @@
-package szkeleton;
+package proto;
 
 public abstract class Figura {
     boolean vizben_van;

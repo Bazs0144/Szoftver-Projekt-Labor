@@ -1,5 +1,4 @@
-package szkeleton;
-import java.util.ArrayList;
+package proto;
 
 public class Kotel extends Targy {
 

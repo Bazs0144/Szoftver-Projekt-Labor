@@ -1,7 +1,6 @@
-package szkeleton;
+package proto;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Jatektabla {
     int kor;
@@ -55,7 +54,6 @@ public class Jatektabla {
     private void next_player(Player pl) {
         Szkeleton.printFunction("-------> next_player(p: Player)", true, this);
         pl.kor_kezdes();
-        pl.kor_vegzes();
         Szkeleton.printFunction("<---p--- next_player(p: Player)", false, this);
 
     }

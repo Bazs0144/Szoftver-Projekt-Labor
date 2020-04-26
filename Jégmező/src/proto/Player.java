@@ -1,6 +1,7 @@
-package szkeleton;
+package proto;
 
 public class Player {
+    Proto proto;
     private String nev;
     private int id;
     private Karakter k;
@@ -10,9 +11,10 @@ public class Player {
      * Egyszerű konstruktor.
      * @param kr A Játékos választott karaktere.
      */
-    Player(Karakter kr) {
+    Player(Karakter kr, Proto p) {
         Szkeleton.printFunction("-------> Player(Karakter kr) *konstruktor*", true, this);
         k=kr;
+        proto=p;
         Szkeleton.printFunction("<------- Player(Karakter kr) *konstruktor*",false, this);
     }
 
@@ -34,7 +36,7 @@ public class Player {
         aktiv=true;
         k.munkak_szama=4;
         while(aktiv&&k.munkak_szama>0) {
-
+            proto.nextCommand();
         }
         Szkeleton.printFunction("<------- kor_kezdes()", false, this);
     }

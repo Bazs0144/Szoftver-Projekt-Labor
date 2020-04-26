@@ -1,4 +1,4 @@
-package szkeleton;
+package proto;
 
 public interface Epitmeny {
     public boolean megvedHovihartol();
