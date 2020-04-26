@@ -1,25 +1,31 @@
 package proto;
 
+/**
+ * Az ásó implementálásáért felelõs osztály az Aso, a Targy leszármazottja.
+ *
+ */
+
 public class Aso extends Targy {
 	
 	private int tartossag;
 	/**
-	 * A Lapat osztály konstruktora, kiírás miatt lett implementálva.
+	 * Az Aso osztály konstruktora.
 	 */
 	public Aso() {
-		Szkeleton.printFunction("-------> Aso() *konstruktor*", true, this);
-		Szkeleton.printFunction("<------- Aso() *konstruktor*", false, this);
+		
 	}
 	/**
-	 * A paraméterként kapott karakter használja a lapátot, hogy 2-t takarítson a jégtábláról.
+	 * A paraméterként kapott karakter használja az ásót, hogy 2-t takarítson a jégtábláról.
+	 * Ha a karakter vizben van, nem tudja használni az ásót.
+	 * Ha már háromszor használta, akkor az ásó használhatatlan, ekkor nem megy végbe a takaritás.
+	 * Ha még használható az ásó, a tartossági értéke kisebb mint három, az ásót használó karakter takaritani kezd.
+	 * Minden használat után a tartósság értéke egyel növekszik.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
         if(karakter.vizben_van) return;
         if(tartossag >= 3) return;
 		karakter.takarit(2);
 		tartossag++;
-		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

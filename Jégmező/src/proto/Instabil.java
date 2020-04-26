@@ -1,50 +1,46 @@
 package proto;
 
-
 /**
- * Az instabil jégtábla implementálásáért felelõs osztály az Instabil, a Jegtabla leszármazottja.
+ * Az instabil jÃ©gtÃ¡bla implementÃ¡lÃ¡sÃ¡Ã©rt felelÃµs osztÃ¡ly az Instabil, a Jegtabla leszÃ¡rmazottja.
  *
  */
 public class Instabil extends Jegtabla{
 	/**
-	 * Az Instabil osztály karakterek_szama adattagja tárolja az aktuálisan a jégtáblán álló karakterek számát.
+	 *@param figurak_szama: tÃ¡rolja az aktuÃ¡lisan a jÃ©gtÃ¡blÃ¡n Ã¡llÃ³ figurÃ¡k szÃ¡mÃ¡t.
+	 *@param kapacitas: az instabil jÃ©gtÃ¡bla max. ennyi figurÃ¡t bir el.
 	 */
 	private int figurak_szama;
 	private int kapacitas;
 
 	/**
-	 * Az Instabil osztály konstruktóra, csak a konstruktorhivás kiirásának céljából lett implementálva */
-	public Instabil() {
-		Szkeleton.printFunction("-------> Instabil()  *konstruktor*", true, this);
-		Szkeleton.printFunction("<------- Instabil()  *konstruktor*", false, this);
+	 * Az Instabil osztÃ¡ly konstruktÃ³ra, amelyben beÃ¡llitÃ¡sra kerÃ¼l ennek poziciÃ³ja a jÃ©gmezÅ‘n.
+	 * */
+	public Instabil(Poz p) {
+		super(p);
 	}
 
 	/**
-	 * A Jegtabla osztályból öröklött ralepnek függvény felülirása:
-	 * Az aktiv karakter, amely egy szomszédos jégtábláról lép a jelenlegire, felkerül a jégtáblára (ennek nyilvántartásába).
-	 * A karakternek is beállitjuk az aktuális jégtábláját.
-	 * Ezután megviszgálja ha az instabil jégtáblán álló karakterek száma meghaladja-e a kapacitását. 
-	 * Ha igen, az insatbil jégtábla meghivja a felfordul függvényét.*/
+	 * A Jegtabla osztÃ¡lybÃ³l Ã¶rÃ¶klÃ¶tt ralepnek fÃ¼ggvÃ©ny felÃ¼lirÃ¡sa:
+	 * Az aktiv figura, amely egy szomszÃ©dos jÃ©gtÃ¡blÃ¡rÃ³l lÃ©p a jelenlegire, felkerÃ¼l a jÃ©gtÃ¡blÃ¡ra (ennek nyilvÃ¡ntartÃ¡sÃ¡ba).
+	 * A figura is beÃ¡llitjuk az aktuÃ¡lis jÃ©gtÃ¡blÃ¡jÃ¡t.
+	 * EzutÃ¡n megviszgÃ¡lja ha az instabil jÃ©gtÃ¡blÃ¡n Ã¡llÃ³ karakterek szÃ¡ma meghaladja-e a kapacitÃ¡sÃ¡t. 
+	 * Ha igen, az insatbil jÃ©gtÃ¡bla meghivja a felfordul fÃ¼ggvÃ©nyÃ©t.*/
 	@Override
 	public void ralepnek(Figura f) {
-		Szkeleton.printFunction("------->ralepnek(Karakter k)", true, this);
 		f.setJegtabla(this);
 		figurak.add(f);
-		System.out.println("Tobb karakter van mint amennyi a kapacitas?");
 		if(figurak.size() > kapacitas) felfordul();
-		Szkeleton.printFunction("<-------ralepnek(Karakter k)", false, this);
 	}
 	
 
 	/**
-	 * Amikor az instabil jégtábla felfordul, a rajta álló karakter(ek) a vizbe esnek. A karakter vizbe_esik függvénye hivódik meg. */
+	 * Amikor az instabil jÃ©gtÃ¡bla felfordul, a rajta Ã¡llÃ³ figurÃ¡k Ã¶sszessÃ©ge a vizbe esik. A figura vizbe_esik fÃ¼ggvÃ©nye hivÃ³dik meg.
+	 * Ha volt Ã©pitmÃ©ny a jÃ©gtÃ¡blÃ¡n, ez tÃ¶rlÅ‘dik */
 	public void felfordul() {
-		Szkeleton.printFunction("------->felfordul(Karakter k)", true, this);
 		for(int i = 0; i < figurak.size(); ++i) {
 			figurak.get(i).vizbe_esik();
 		}
 		epitmenyTorles();
-		Szkeleton.printFunction("<-------felfordul(Karakter k)", false, this);
 	}
 }
 

@@ -1,24 +1,26 @@
 package proto;
 
+/**
+ * Az étel implementálásáért felelõs osztály az Etel, a Targy leszármazottja.
+ *
+ */ 
 public class Etel extends Targy {
 
 	/**
-	 * Az Etel oszt�ly konstruktora, mely ki�r�s miatt lett implement�lva.
+	 * Az Etel osztály konstruktora.
 	 */
 	public Etel() {
-		Szkeleton.printFunction("-------> Etel() *konstruktor*", true, this);
-		Szkeleton.printFunction("<------- Etel() *konstruktor*", false, this);
 	}
 	/**
-	 * A param�terk�nt kapott karakter haszn�lja az �telt az adott j�gt�bl�n. Jelen esetben ezzel eggyel n�veli a testh�j�t.
-	 * Elt�vol�t�sra ker�l az �tel a zseb�b�l.
+	 * A paraméterként kapott karakter használja az ételt, hogy megnövelje a hőmennyiségét.
+	 * Ha a karakter vizben van, nem tudja használni az ételt.
+	 * Az étel használatával megnő a karakter hőmennyisége.
+	 * A használat után az ételt nem lehet újrahasználni, elhasználódik.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
 		if(karakter.vizben_van) return;
 		karakter.ho_nov();
         karakter.targy_elhasznalasa(this);
-		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

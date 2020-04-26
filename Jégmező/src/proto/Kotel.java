@@ -1,32 +1,31 @@
 package proto;
 
+/**
+ * Az kötél implementálásáért felelõs osztály a Kotel, a Targy leszármazottja.
+ *
+ */
 public class Kotel extends Targy {
 
 	/**
-	 * A Kotel osztály konstruktora, kiírás miatt lett implementálva.
+	 * A Kotel osztály konstruktora.
 	 */
 	public Kotel() {
-		Szkeleton.printFunction("-------> Kotel() *konstruktor*", true, this);
-		Szkeleton.printFunction("<------- Kotel() *konstruktor*", false, this);
 	}
 	
 	
 	/**
-	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán, kimentve az összes karaktert róla.
+	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán, kimentve az összes karaktert a jégtábla szomszédságában.
+	 * Csak akkor használható a kötél, ha a menekitó karakter nincs vizben.
 	 */
 
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printFunction("------->   hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
 		 if(karakter.vizben_van) return;
 
-		
-		//ArrayList<Karakter> mentendo = new ArrayList<>();
 		for(Jegtabla sz : hol.getSzomszedok())
 		for (Figura f : sz.getFigurak()) {
 			if(f.vizben_van)
 			karakter.menekit((Karakter)f);
 		}
-		Szkeleton.printFunction("<-------  hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
 	}
 }

@@ -1,29 +1,30 @@
 package proto;
 
+/**
+ * Az tárgy implementálásáért felelõs osztály a Targy.
+ *
+ */
+
 public class Targy {
 	/**
 	 * String név: a tárgy nevét tárolja
+	 * Karalter k: a karakter akinek a tulajdonában található a tárgy. Amig be van fagyva a jégtáblába, az értéke null.
 	 */
 	
 	private String nev;
 	private Karakter k;
 	
 	/**
-	 * A Targy osztály konstruktora, kiírás miatt lett implementálva.
+	 * A Targy osztály konstruktora.
 	 */
 	public Targy() {
-		Szkeleton.printFunction("-------> Targy() *konstruktor*", true, this);
-		Szkeleton.printFunction("<------- Targy() *konstruktor*", false, this);
 	}
 	
 	/**
-	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán.
+	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán. Minden leszármazott osztály felülirja.
 	 */
 	
     public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		Szkeleton.printFunction("-------> hasznaljak(Karakter karakter, Jegtabla hol)", true, this);
-		Szkeleton.printFunction("<------- hasznaljak(Karakter karakter, Jegtabla hol)", false, this);
-    	return;
     }
 
     /**
