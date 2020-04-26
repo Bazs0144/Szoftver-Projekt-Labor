@@ -13,7 +13,6 @@ public class Jegmezo {
      * @param width height A Jégmezőt alkotó jégtáblák száma.
      */
     public Jegmezo(int width, int height) {
-        Szkeleton.printFunction("-------> Jegmezo(size: int) *konstruktor*", true, this);
         this.JegT = new ArrayList<>();
         for(int i=0; i<height; i++)
             for(int j=0; j<width; j++) {
@@ -28,8 +27,6 @@ public class Jegmezo {
                 if(j-1>=0) JegT.get(i).addSzomszed(JegT.get(j-1));
                 if(j+1<width) JegT.get(i).addSzomszed(JegT.get(j+1));
             }
-
-        Szkeleton.printFunction("<------- Jegmezo(size: int) *konstruktor*", false, this);
     }
 
     public void addJegtabla(Jegtabla jeg) {
@@ -51,7 +48,6 @@ public class Jegmezo {
      * Hóvihar esetén végigmegy az összes jégtáblán, és bizonyos logika alapján, egyes jégtáblákon hóvihart gerjeszt.
      */
     public void hovihar_indul() {
-        Szkeleton.printFunction("-------> hovihar_indul()", true, this);
         //Random rand = new Random();
         for(Jegtabla item: this.JegT) {
             Scanner in = new Scanner(System.in);
@@ -64,6 +60,5 @@ public class Jegmezo {
 
             //}
         }
-        Szkeleton.printFunction("<------- hovihar_indul()", false, this);
     }
 }

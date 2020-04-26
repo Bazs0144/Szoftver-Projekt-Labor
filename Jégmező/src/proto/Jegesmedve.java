@@ -26,15 +26,12 @@ public class Jegesmedve extends Figura {
      * @return ha át tudott lépni igazzal tér vissza, ha nem akkor hamissal
      */
     public boolean lep(Jegtabla jt) {
-        Szkeleton.printFunction("------->  lep(Jegmezo jm)", true, this);
         if(jegtabla.szomszed_e(jt)) {
             jegtabla.lelepnek(this);
             jt.ralepnek(this);
             megesz();
-            Szkeleton.printFunction("<---true---- lep(Jegmezo jm)", false, this);
             return true;
         } else {
-            Szkeleton.printFunction("<---false---- lep(Jegmezo jm)", false, this);
             return false; }
     }
 

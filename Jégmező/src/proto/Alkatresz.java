@@ -9,9 +9,7 @@ public class Alkatresz extends Targy {
 	 *Létrehozza az alkatrészt, kiírja a meghívását és beállítja a játéktáblát amin van
 	 */
 	public Alkatresz(Jatektabla j) {
-		Szkeleton.printFunction("-------> Alkatresz(Jatektabla j) *konstruktor*", true, this);
 		jt=j;
-		Szkeleton.printFunction("<------- Alkatresz(Jatektabla j) *konstruktor*", false,this);
 	}
 
 	/**
@@ -21,7 +19,6 @@ public class Alkatresz extends Targy {
 	 * @param hol : ezen a Jégtáblán használják
 	 */
 	public void hasznaljak(Karakter k, Jegtabla hol) {
-		Szkeleton.printFunction("-------> hasznaljak(Karakter k, Jegtabla hol)", true, this);
 		if(k.vizben_van) return;
 		ArrayList<Alkatresz> alk = new ArrayList<>(jt.getAlkatresz());
 		ArrayList<Jegtabla> jegt=new ArrayList<>();
@@ -36,7 +33,5 @@ public class Alkatresz extends Targy {
 			}
 		}
 		if(siker) jt.game_over();
-		else Szkeleton.printFunction("Alkatrész összerakás nem sikerült", true, this);
-		Szkeleton.printFunction("<------- hasznaljak(Karakter k, Jegtabla hol)", true, this);
 	}
 }

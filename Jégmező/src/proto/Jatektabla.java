@@ -15,12 +15,10 @@ public class Jatektabla {
      * @param p : a játékosok, akik játszani fognak.
      */
     public Jatektabla(int width,int height, ArrayList<Player> p) {
-        Szkeleton.printFunction("-------> Jatektabla(size: int, p: Player[]) *konstruktor*", true, this);
         kor=1;
         j = new Jegmezo(width, height);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
-        Szkeleton.printFunction("<------- Jatektabla(size: int, p: Player[]) *konstruktor*", false, this);
     }
 
     /**
@@ -34,8 +32,6 @@ public class Jatektabla {
      * Befejezi a játékot.
      */
     public void game_over() {
-        Szkeleton.printFunction("-------> game_over()", true, this);
-        Szkeleton.printFunction("<------- game_over()", false, this);
     }
 
     /**
@@ -52,17 +48,13 @@ public class Jatektabla {
      * pl: az  adott játékos következik.
      */
     private void next_player(Player pl) {
-        Szkeleton.printFunction("-------> next_player(p: Player)", true, this);
         pl.kor_kezdes();
-        Szkeleton.printFunction("<---p--- next_player(p: Player)", false, this);
-
     }
 
     /**
      * Kezeli a játék menetét addig, amíg nincsen vége a játéknak.
      */
     public void init() {
-        Szkeleton.printFunction("-------> init()", true, this);
         boolean game_over = false;
         int act_index = 0;
         //itt is lesznek még dolgok(játékosok elhelyezése táblákba...stb).
@@ -76,6 +68,5 @@ public class Jatektabla {
             //+
         }
         game_over();
-        Szkeleton.printFunction("<------- init()", false, this);
     }
 }
