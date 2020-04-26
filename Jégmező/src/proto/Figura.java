@@ -14,17 +14,13 @@ public abstract class Figura {
      * @param j: erre a jégtáblára állítja be
      */
     public void setJegtabla(Jegtabla j) {
-        Szkeleton.printFunction("-------> setJegtabla(Jegtabla j)", true, this);
         jegtabla=j;
-        Szkeleton.printFunction("<------- setJegtabla(Jegtabla j)", false, this);
     }
 
     /**
      * Visszaadja a jégtáblát amin áll a figura
      */
     public Jegtabla getJegtabla() {
-        Szkeleton.printFunction("-------> getJegtabla()", true, this);
-        Szkeleton.printFunction("<--jegtabla-- getJegtabla()", false, this);
         return jegtabla;
     }
 

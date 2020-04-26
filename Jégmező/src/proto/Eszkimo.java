@@ -15,16 +15,13 @@ public class Eszkimo extends Karakter {
 	 * @return: Ha sikerült az iglu építése igazzal tér vissza, egyébként hamissal.
 	 */
 	public boolean iglut_epit() {
-		Szkeleton.printFunction("------->  iglut_epit()", true, this);
-		
 		if(jegtabla.getEpitmeny() != null) {
 			if(jegtabla.getHoMennyiseg() == 0)
 				if(jegtabla.getTargy() == null)
 				{
 					Iglu I = new Iglu();
 					jegtabla.epitmenyKeszul(I);
-					Szkeleton.printFunction("<--true-- iglut_epit()", false, this);
-					//this.munkak_szama--;
+					this.munkak_szama--;
 					return true;
 				}
 		}

@@ -17,15 +17,13 @@ public class Sarkkutato extends Karakter {
 	 * @return kap: A j�gt�bla kapacit�sa, ha -1-el t�r vissza, akkor nem szomsz�dos mez�t pr�b�lt megvizsg�lni a karakter.
 	 */
 	public int megnez(Jegtabla j) {
-		Szkeleton.printFunction("------->  megnez(Jegtabla j)", true, this);
 		int kap;
 		if(this.jegtabla.szomszed_e(j)) {
 			kap = j.getKapacitas();
-			//this.munkak_szama--;
+			munkak_szama--;
 			}
 		else
 			kap = -1;
-		Szkeleton.printFunction("<------- megnez(Jegtabla j)", false, this);
 		return kap;
 	}
 }
