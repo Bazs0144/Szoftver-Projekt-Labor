@@ -1,0 +1,6 @@
+90kjk12
+GenerateMap 1 1 0
+setSnow 0 0 3
+listJegtablaAttrib 0 0
+egyHovihar 0 0
+listJegtablaAttrib 0 0

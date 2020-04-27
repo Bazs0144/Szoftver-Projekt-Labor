@@ -9,6 +9,8 @@ public class Commands {
     static protected Jatektabla jt;
     static protected BufferedReader reader;
     static protected FileReader fr;
+    static protected boolean siker;
+    static boolean isTest = false;
 
     protected static void help(){ //Ez jo
         System.out.println("Reszletes leiras a parancsokra a 7. reszletes tervek dokumentacioban talalhato.\n");
@@ -64,7 +66,6 @@ public class Commands {
                 ObjectOutputStream out = new ObjectOutputStream(fs);
                 out.writeObject(jt);
                 out.close();
-                System.out.println("saveMap sikerult");
             }
         }
     }
@@ -80,20 +81,19 @@ public class Commands {
                 ObjectInputStream in = new ObjectInputStream(fs);
                 jt = (Jatektabla) in.readObject();
                 in.close();
-                System.out.println("loadMap sikeresen lefutott");
 
-            } else System.out.println("loadMap nem sikerult");
-        } else System.out.println("loadMap nem sikerult");
+            } else {System.out.println("loadMap nem sikerult"); siker = false;};
+        } else {System.out.println("loadMap nem sikerult"); siker = false;};
     }
 
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
-        File f = new File(cmd[2]);
+        File f = new File(cmd[1]);
         if (!f.exists()) {
             System.out.println("loadTest nem sikerult");
+            siker = false;
             return;
         }
         fr = new FileReader(f);
-        System.out.println("loadTest sikerult");
     }
 
 
@@ -104,8 +104,10 @@ public class Commands {
     protected static  void start() throws IOException {
 
         reader = new BufferedReader(fr);
+        isTest = true;
         if (reader.readLine().compareTo("90kjk12") != 0) {
             System.out.println("start nem sikerult");
+            siker = false;
             return;
         }
 
@@ -114,10 +116,10 @@ public class Commands {
     protected static void generateMap(String[] cmd) { //Ez jo
         if (Integer.parseInt(cmd[1]) < 0 || Integer.parseInt(cmd[2]) < 0) {
             System.out.println("generateMap nem sikerult");
+            siker = false;
             return;
         }
         jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
-        System.out.println("generateMap sikeresen lefutott");
     }
 
     protected static void changeJegtabla(String[] cmd) {

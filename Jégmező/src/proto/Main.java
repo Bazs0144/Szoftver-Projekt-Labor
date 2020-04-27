@@ -15,9 +15,16 @@ public class Main extends Commands{
 		System.out.println("Udvozlom a prototipusban\n" +
 				" A lehetseges parancsok listajahoz irja be a help parancsot.\n");
 		while (!isOver) {
-			System.out.print("command: ");
-			boolean siker=true;
-			line = reader.readLine();
+			if(!isTest)System.out.print("command: ");
+			siker = true;
+
+			if((line = reader.readLine()) == null && isTest) {
+				isTest = false;
+				reader.close();
+				reader = new BufferedReader(new InputStreamReader(System.in));
+				line = "";
+
+			}
 			String[] cmd = line.split(" ");
 			try {
 				if (cmd[0].equals("exit")) isOver = true;
@@ -53,7 +60,8 @@ public class Main extends Commands{
 				else if (cmd[0].equals("addJegtablaSzomszed")) addJegtablaSzomszed(cmd);
 				else if (cmd[0].equals("setInstabilKap")) setInstabilKap(cmd);
 				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
-				else if (cmd[0].equals("startGame")) startGame();
+				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
+				else if (cmd[0].equals("")) siker = false;
 				else {System.out.println("Ilyen parancs nem letezik :("); siker=false;}
 				if(siker) System.out.println(cmd[0] + " sikeresen lefutott");
 			} catch(Exception e) {

@@ -1,0 +1,6 @@
+90kjk12
+generateMap 5 5 0
+addTargy 2 3 etel
+addPlayer jatekos1 2 3 eszkimo
+targyFelvetel jatekos1 2 3
+listKarTargy jatekos1

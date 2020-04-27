@@ -1,0 +1,4 @@
+90kjk12
+generateMap 5 5 0
+addPlayer p1 2 2 sarkkutato
+kutatoVizsgal p1 2 3

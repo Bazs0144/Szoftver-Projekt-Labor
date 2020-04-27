@@ -1,0 +1,7 @@
+90kjk12
+generateMap 1 2 0
+addPlayer p1 0 0 eszkimo
+iglutEpit p1
+addMedve 0 1
+MedveLep 0
+printPlayersLife p1

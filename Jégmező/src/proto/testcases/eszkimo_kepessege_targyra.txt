@@ -1,0 +1,5 @@
+90kjk12
+generateMap 5 5 0
+addTargy 2 3 etel
+addPlayer p1 2 3 eszkimo
+iglutEpit p1

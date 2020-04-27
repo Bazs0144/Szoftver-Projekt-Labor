@@ -1,0 +1,12 @@
+90kjk12
+GenerateMap 1 2 0
+changeJegtabla 0 0 luk
+addPlayer p1 0 1 eszkimo
+addPlayer p2 0 1 sarkkutato
+targyHozzadasa p2 kotel
+startGame
+listJegtablaSzomszed 0 1
+playerLep p1 0 0
+listKarakterTargyak p2
+targyatHasznal p2 0 0 0
+listKarAttrib p1

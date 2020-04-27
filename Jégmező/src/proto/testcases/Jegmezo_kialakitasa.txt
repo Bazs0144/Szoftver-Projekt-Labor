@@ -1,0 +1,60 @@
+90kjk12
+GenerateMap 1 1 0
+changeJegtabla 0 0 instabil
+setInstabilKap 0 0 3
+addTargy 0 0 raketa
+setSnow 0 0 1
+addJegtabla 0 1 stabil null null
+setSnow 0 1 2
+addJegtablaSzomszed 0 0 0 1
+addJegtabla 0 2 luk null null
+addJegtablaSzomszed 0 2 0 1
+addJegtabla 1 0 luk null null
+addJegtablaSzomszed 1 0 0 0
+addJegtablaSzomszed 1 0 0 1
+addJegtabla 1 1 stabil raketa null
+setSnow 1 1 1
+addJegtablaSzomszed 1 1 0 1
+addJegtablaSzomszed 1 1 0 2
+addJegtablaSzomszed 1 1 1 0
+addJegtabla 1 2 instabil null null
+setSnow 1 2 0
+setInstabilKap 1 2 1
+addJegtablaSzomszed 1 2 0 2
+addJegtablaSzomszed 1 2 1 1
+addJegtabla 1 3 luk null null
+addJegtablaSzomszed 1 3 1 2
+addJegtabla 2 0 stabil raketa null
+setSnow 2 0 1
+addJegtablaSzomszed 2 0 0 0
+addJegtablaSzomszed 2 0 1 0
+addJegtabla 2 1 stabil aso null
+setSnow 2 1 1
+addJegtablaSzomszed 2 1 1 0
+addJegtablaSzomszed 2 1 1 1
+addJegtablaSzomszed 2 1 2 0
+addJegtabla 2 2 luk null null
+addJegtablaSzomszed 2 2 1 1
+addJegtablaSzomszed 2 2 2 1
+addJegtablaSzomszed 2 2 1 2
+addJegtabla 3 0 luk null null
+addJegtablaSzomszed 3 0 2 0
+addJegtablaSzomszed 3 0 2 1
+addJegtabla 3 1 instabil null null
+setSnow 3 1 3
+setInstabilKap 3 1 2
+addJegtablaSzomszed 3 1 3 0
+addJegtablaSzomszed 3 1 2 1
+addJegtablaSzomszed 3 1 2 2
+addJegtabla 3 2 stabil null null
+setSnow 3 2 3
+addJegtablaSzomszed 3 2 3 1
+addJegtablaSzomszed 3 2 2 2
+addJegtablaSzomszed 3 2 1 2
+addJegtablaSzomszed 3 2 1 3
+addPlayer p1 1 2 eszkimo
+addPlayer p2 3 1 sarkkutato
+addPlayer p2 3 2 sarkkutato
+addMedve 0 1
+saveMap palya.ser
+listJegmezo

@@ -1,0 +1,5 @@
+90kjk12
+generateMap 1 2 0
+addMedve 0 0
+MedveLep 0
+listJegtablaAttrib 0 1

@@ -1,0 +1,7 @@
+90kjk12
+generateMap 1 2 0
+changeJegtabla 0 1 luk
+addPlayer jatekos1 0 0 eszkimo
+playerLep jatekos1 0
+listKarAttrib jatekos1
+playerLep jatekos1 0

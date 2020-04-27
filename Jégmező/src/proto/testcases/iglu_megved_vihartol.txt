@@ -1,0 +1,6 @@
+90kjk12
+generateMap 5 5 0
+addPlayer p1 2 3 eszkimo
+iglutEpit p1
+egyHovihar 2 3
+printPlayersLife p1

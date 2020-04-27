@@ -1,0 +1,7 @@
+90kjk12
+loadMap palya.ser
+startGame
+listKarAttrib p1
+listJegtablaAttrib 1 2
+iglutEpit p1
+listJegtablaAttrib 1 2

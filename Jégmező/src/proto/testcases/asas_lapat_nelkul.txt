@@ -1,0 +1,6 @@
+90kjk12
+generateMap 5 5 0
+setSnow 2 3 2
+addPlayer jatekos1 2 3 sarkkutato
+digSnow jatekos1 2 3
+listJegtablaAtrib 2 3

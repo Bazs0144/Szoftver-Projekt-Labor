@@ -1,0 +1,8 @@
+90kjk12
+GenerateMap 1 2 0
+changeJegtabla 0 0 luk
+addPlayer p1 0 1 eszkimo
+listKarAttrib p1
+startGame
+listJegtablaSzomszed 0 1
+playerLep p1 0 0

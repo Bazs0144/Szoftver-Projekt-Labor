@@ -1,0 +1,6 @@
+90kjk12
+GenerateMap 1 1 0
+addPlayer p1 0 0 eszkimo
+listKarAttrib p1
+egyHovihar 0 0
+listKarAttrib p1

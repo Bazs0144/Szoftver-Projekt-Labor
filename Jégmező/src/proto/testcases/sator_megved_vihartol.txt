@@ -1,0 +1,8 @@
+90kjk12
+generateMap 5 5 0
+addPlayer jatekos1 2 3 eszkimo
+targyHozzaadasa jatekos1 sator
+targyatHasznal jatekos1 sator 2 3
+egyHovihar 2 3
+listJegtablaAttrib 2 3
+printPlayersLife jatekos1

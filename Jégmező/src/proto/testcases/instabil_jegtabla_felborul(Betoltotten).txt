@@ -1,0 +1,9 @@
+90kjk12
+loadMap palya.ser
+startGame
+listJegtablaAttrib 1 2
+jatekosKorVege p1
+listJegtablaSzomszed 3 1
+playerLep p2 3
+listJegtablaSzomszed 3 1
+playerLep p2 2
