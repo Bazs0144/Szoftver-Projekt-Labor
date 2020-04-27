@@ -58,7 +58,7 @@ public class Jegmezo implements Serializable {
         //Random rand = new Random();
         for(Jegtabla item: this.JegT) {
             Scanner in = new Scanner(System.in);
-            System.out.println("Legyen hovihar a jegtablan? 1: igen");
+            //System.out.println("Legyen hovihar a jegtablan? 1: igen");
             int I = in.nextInt();
             //int r = rand.nextInt(100);
             //if(r < 10) {

@@ -10,6 +10,7 @@ public class Sarkkutato extends Karakter implements Serializable {
 	 */
 	public Sarkkutato() {
 		Name = "Sarkkutato";
+		ho = 4;
 	}
 
 	public int megnez(Jegtabla j) {

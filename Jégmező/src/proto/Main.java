@@ -34,15 +34,15 @@ public class Main extends Commands{
 			else if (cmd[0].equals("kutatoVizsgal")) kutatoVizsgal(cmd);
 			else if (cmd[0].equals("targyatHasznal")) targyatHasznal(cmd);
 			else if (cmd[0].equals("targyFelvetel")) targyFelvetel();
-			else if (cmd[0].equals("targyHozzaadasa")) targyHozzadasa();
-			else if (cmd[0].equals("addMedve")) addMedve();
+			else if (cmd[0].equals("targyHozzaadasa")) targyHozzadasa(cmd);
+			else if (cmd[0].equals("addMedve")) addMedve(cmd);
 			else if (cmd[0].equals("medveLep")) medveLep();
 			else if (cmd[0].equals("egyHovihar")) egyHovihar();
 			else if (cmd[0].equals("hoviharRand")) hoviharRand();
 			else if (cmd[0].equals("listKarakterTargyak")) listKarakterTargyak();
 			else if (cmd[0].equals("listJegtablaAttrib")) listJegtablaAttrib(cmd);
 			else if (cmd[0].equals("listJegmezo")) listJegmezo();
-			else if (cmd[0].equals("printPlayersLife")) printPlayersLife();
+			else if (cmd[0].equals("printPlayersLife")) printPlayersLife(cmd);
 			else if (cmd[0].equals("digSnow")) digSnow(cmd);
 			else if (cmd[0].equals("setSnow")) setSnow(cmd);
 			else if (cmd[0].equals("listKarAttrib")) listKarAttrib();

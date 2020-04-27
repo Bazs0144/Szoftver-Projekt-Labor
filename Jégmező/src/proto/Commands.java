@@ -15,10 +15,13 @@ public class Commands {
         System.out.println("saveTest <filename>: a teszt kimenetet a megadott fajlba menti.");
         System.out.println("start: elinditja a betoltott tesztesetet.");
         System.out.println("saveMap <filename>: Elmenti a jegmezo allapotat egy fajlba");
-        System.out.println("generateMap <width><height><rand>: General egy jegmezot a megadott szelesseggel es magassaggal, " +
+        System.out.println("generateMap <width><height><rand>: General egy jegmezot " +
+                "a megadott szelesseggel es magassaggal, " +
                 "és rand opciotol fuggoen hogy kitolti-e objektumokkal a jegmezot. ");
-        System.out.println("changeJegtabla <pozX><pozY><Type>: Atalakitja az egyik mar letezo jegtablat masik tipussa az adott pozicioban.");
-        System.out.println("addTargy <pozX><pozY><Type> Beallitja az adott pzicioban levo jegtablan levo targyat az adott tipussal");
+        System.out.println("changeJegtabla <pozX><pozY><Type>: Atalakitja az egyik mar letezo " +
+                "jegtablat masik tipussa az adott pozicioban.");
+        System.out.println("addTargy <pozX><pozY><Type> Beallitja az adott pzicioban levo " +
+                "jegtablan levo targyat az adott tipussal");
         System.out.println("addPlayer <name><pozX><pozY><karakter>: hozzaad eg jatekost az adott jegtablahoz.");
         System.out.println("playerLep <name><pozX><pozY><karakter>: A karakter lep egyet az adott indexu jegtablara");
         System.out.println("iglutEpit <name>: Eszkimo karakter epit egy iglut.");
@@ -32,7 +35,8 @@ public class Commands {
         System.out.println("hoviharRand: Hovihart general veletlenszeruen kivalasztott jegtablakon.");
         System.out.println("listKarakterTargyak <name>: Kilistazza a karakternel levo targyakat.");
         System.out.println("listJegtablaAttrib <pozX><pozY>: Kiírja a jegtabla attributumait.");
-        System.out.println("listJegmezo: kiirja mindegyik jégtablan mely karakterek allnak, mennyi rajtuk a homennyiseg," +
+        System.out.println("listJegmezo: kiirja mindegyik jégtablan mely " +
+                "karakterek allnak, mennyi rajtuk a homennyiseg," +
                 " es a rajtuk levo targy micsoda.");
         System.out.println("printPlayersLife <name>: Kiirja az adott jatekos eletet.");
         System.out.println("digSnow <name><pozX><pozY>: A Jatekos asast vegez az adott jegtablan.");
@@ -132,7 +136,7 @@ public class Commands {
             j2.addPlayer(p);
     }
 
-    protected static void iglutEpit(String[] cmd) {//not works :(
+    protected static void iglutEpit(String[] cmd) {//Ez mukodik, ha atirtam az iglut_epit fuggvenyt.(Nem ertettem)
         Eszkimo k =(Eszkimo) jt.getPlayer(cmd[1]).getKarakter();
         if(k.Name.compareTo("Eszkimo") == 0) {
             k.iglut_epit();
@@ -154,12 +158,25 @@ public class Commands {
 
     }
 
-    protected static void targyHozzadasa() {
+    protected static void targyHozzadasa(String[] cmd) {//Nem tudom hogy jo
+        Karakter k = jt.getPlayer(cmd[1]).getKarakter();
+        if(cmd[3].compareTo("Alkatresz") == 0){
+            Alkatresz alk = new Alkatresz(jt);
+            k.targy_hozzaadasa(alk);
+            jt.addAlkatresz(alk);
+        }
+        else if(cmd[2].compareTo("aso") == 0 ) k.targy_hozzaadasa(new Aso());
+        else if(cmd[2].compareTo( "buvarruha") == 0) k.targy_hozzaadasa(new Buvarruha());
+        else if(cmd[2].compareTo("etel") == 0) k.targy_hozzaadasa(new Etel());
+        else if(cmd[2].compareTo("kotel") == 0) k.targy_hozzaadasa(new Kotel());
+        else if(cmd[2].compareTo("lapat") == 0) k.targy_hozzaadasa(new Lapat());
+        else if(cmd[2].compareTo("sator") == 0) k.targy_hozzaadasa(new Sator());
 
     }
 
-    protected static void addMedve() {
-
+    protected static void addMedve(String[] cmd) { //Ez jo
+        Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+        j.addFigura(new Jegesmedve());
     }
 
     protected static void medveLep() {
@@ -198,7 +215,7 @@ public class Commands {
         System.out.print("Epitmeny: ");
         if(j.getEpitmeny() == null) System.out.println("null");
         else System.out.println(j.getEpitmeny().getName());
-        if(j.type == "Instabil") {
+        if(j.type.compareTo("Instabil") == 0) {
             Instabil jr = (Instabil) jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
             System.out.println("Kapacitas: " + jr.getKapacitas());
         }
@@ -209,8 +226,8 @@ public class Commands {
 
     }
 
-    protected static void printPlayersLife() {
-
+    protected static void printPlayersLife(String[] cmd) {
+        System.out.println("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
     }
 
     protected static void digSnow(String[] cmd) { //Ez jó

@@ -9,10 +9,11 @@ public class Eszkimo extends Karakter implements Serializable {
 	 */
 	public Eszkimo() {
 		Name = "Eszkimo";
+		ho = 5;
 	}
 
 	public boolean iglut_epit() {
-		if(jegtabla.getEpitmeny() != null) {
+		if(jegtabla.getEpitmeny() == null) { //??? Itt miert volt !=
 			if(jegtabla.getHoMennyiseg() == 0)
 				if(jegtabla.getTargy() == null)
 				{
