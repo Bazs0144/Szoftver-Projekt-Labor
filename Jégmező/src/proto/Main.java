@@ -10,7 +10,7 @@ public class Main extends Commands{
 
 	public static void main(String[] args) throws IOException {
 
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		reader = new BufferedReader(new InputStreamReader(System.in));
 		String line = null;
 		System.out.println("Udvozlom a prototipusban\n" +
 				" A lehetseges parancsok listajahoz irja be a help parancsot.\n");
@@ -22,7 +22,7 @@ public class Main extends Commands{
 				if (cmd[0].equals("exit")) isOver = true;
 				else if (cmd[0].equals("help")) help();
 				else if (cmd[0].equals("loadMap")) loadMap(cmd);
-				else if (cmd[0].equals("loadTest")) loadTest();
+				else if (cmd[0].equals("loadTest")) loadTest(cmd);
 				else if (cmd[0].equals("saveTest")) saveTest();
 				else if (cmd[0].equals("start")) start();
 				else if (cmd[0].equals("saveMap")) saveMap(cmd);
