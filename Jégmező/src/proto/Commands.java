@@ -7,6 +7,8 @@ import java.util.Random;
 public class Commands {
 
     static protected Jatektabla jt;
+    static protected BufferedReader reader;
+    static protected FileReader fr;
 
     protected static void help(){ //Ez jo
         System.out.println("Reszletes leiras a parancsokra a 7. reszletes tervek dokumentacioban talalhato.\n");
@@ -51,39 +53,59 @@ public class Commands {
         System.out.println("startGame: Elkezdi a jetekot.");
     }
 
-    protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jo
-        if (cmd.length > 1) {
-            File f = new File(cmd[1]);
-            if (!f.exists())
-                f.createNewFile();
-            if (f.exists()) {
-                FileOutputStream fs = new FileOutputStream(f);
-                ObjectOutputStream out = new ObjectOutputStream(fs);
-                out.writeObject(jt);
-                out.close();
+    protected static void saveMap(String[] cmd) { //Remelhetoleg jo
+        try {
+            if (cmd.length > 1) {
+                File f = new File(cmd[1]);
+                if (!f.exists())
+                    f.createNewFile();
+                if (f.exists()) {
+                    FileOutputStream fs = new FileOutputStream(f);
+                    ObjectOutputStream out = new ObjectOutputStream(fs);
+                    out.writeObject(jt);
+                    out.close();
+                    System.out.println("saveMap sikerult");
+                }
             }
+        }
+        catch (Exception e) {
+            System.out.println("saveMap nem sikerult");
         }
     }
 
     protected static void loadMap(String[] cmd) throws IOException { //Remelhetoleg jo
-        String wd = System.getProperty("user.dir");
-        File f = new File(wd, cmd[1]);
-        if (cmd.length > 1) {
-            if (f.exists()) {
-                try {
+        try {
+            String wd = System.getProperty("user.dir");
+            File f = new File(wd, cmd[1]);
+            if (cmd.length > 1) {
+                if (f.exists()) {
+
                     FileInputStream fs = new FileInputStream(f);
                     ObjectInputStream in = new ObjectInputStream(fs);
                     jt = (Jatektabla) in.readObject();
                     in.close();
-                }
-                catch (ClassNotFoundException e) {}
-            }
-        }
+                    System.out.println("loadMap sikeresen lefutott");
 
+                } else System.out.println("loadMap nem sikerult");
+            } else System.out.println("loadMap nem sikerult");
+        } catch (Exception e) {
+            System.out.println("loadMap nem sikerult");
+        }
     }
 
-    protected  static void loadTest() {
-
+    protected  static void loadTest(String[] cmd) throws FileNotFoundException {
+        try {
+            File f = new File(cmd[2]);
+            if (!f.exists()) {
+                System.out.println("loadTest nem sikerult");
+                return;
+            }
+            fr = new FileReader(f);
+            System.out.println("loadTest sikerult");
+        }
+        catch (Exception e) {
+            System.out.println("loadTest nem sikerult");
+        }
     }
 
     protected static void saveTest() {
@@ -91,11 +113,29 @@ public class Commands {
     }
 
     protected static  void start() {
-
+        try {
+            reader = new BufferedReader(fr);
+            if (reader.readLine().compareTo("90kjk12") != 0) {
+                System.out.println("start nem sikerult");
+                return;
+            }
+        }
+        catch (Exception e){
+            System.out.println("start nem sikerult");
+        }
     }
 
     protected static void generateMap(String[] cmd) { //Ez jo
-        jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
+        try {
+             if(Integer.parseInt(cmd[1]) < 0 || Integer.parseInt(cmd[2]) < 0) {
+                 System.out.println("generateMap nem sikerult");
+                 return;
+             }
+            jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
+            System.out.println("generateMap sikeresen lefutott");
+        } catch (Exception e) {
+            System.out.println("generateMap nem sikerult");
+        }
     }
 
     protected static void changeJegtabla(String[] cmd) {
@@ -286,7 +326,7 @@ public class Commands {
         }
     }
 
-    protected static void addJegtabla() {
+    protected static void addJegtabla(String[] cmd) {
 
     }
 
@@ -300,15 +340,15 @@ public class Commands {
         }
     }
 
-    protected static void addJegtablaSzomszed() {
+    protected static void addJegtablaSzomszed(String[] cmd) {
 
     }
 
-    protected static void setInstabilKap() {
+    protected static void setInstabilKap(String[] cmd) {
 
     }
 
-    protected static void jatekosKorVege() {
+    protected static void jatekosKorVege(String[] cmd) {
 
     }
 
