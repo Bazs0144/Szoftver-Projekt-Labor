@@ -122,12 +122,30 @@ public class Commands {
         jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
     }
 
-    protected static void changeJegtabla(String[] cmd) {
-       // Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
-
-    }
-    protected static void addTargy(String[] cmd) { //Ez jo
+       protected static void changeJegtabla(String[] cmd) throws Exception{
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+        if(j == null) throw new Exception();
+        ArrayList<Jegtabla> jegT = jt.getJegMezo().getJegtablak();
+        jegT.remove(Integer.parseInt(cmd[1]) * jt.getJegMezo().getwidth()  + Integer.parseInt(cmd[2]));
+        Poz poz =  new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+        if(cmd[3].compareTo("luk") == 0 ) {
+        	Luk luk = new Luk(poz);
+        	jt.getJegMezo().addJegtabla(luk);
+        }
+        else  if(cmd[3].compareTo("instabil") == 0 ) {
+            Instabil in = new Instabil(poz);
+            jt.getJegMezo().addJegtabla(in);
+            }
+        else  if(cmd[3].compareTo("stabil") == 0 ) {
+            Stabil st = new Stabil(poz);
+            jt.getJegMezo().addJegtabla(st);
+            }
+        else throw new Exception();
+    }
+    
+    protected static void addTargy(String[] cmd)throws Exception {
+        Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+        if(j == null) throw new Exception();
         if(cmd[3].compareTo("Alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
             j.setTargy(alk);
@@ -139,47 +157,66 @@ public class Commands {
         else if(cmd[3].compareTo("kotel") == 0) j.setTargy(new Kotel());
         else if(cmd[3].compareTo("lapat") == 0) j.setTargy(new Lapat());
         else if(cmd[3].compareTo("sator") == 0) j.setTargy(new Sator());
+        else throw new Exception();
+    	
     }
 
-    protected static void addPlayer(String[] cmd) { //Ez jo
+    protected static void addPlayer(String[] cmd)throws Exception { //Ez jo
         Karakter k;
         if(cmd[4].compareTo("eszkimo") == 0) k = new Eszkimo();
         else if(cmd[4].compareTo("sarkkutato") == 0) k = new Sarkkutato();
-        else return;
+        else throw new Exception();
         Player p = new Player(k, cmd[1]);
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
+        if(j == null) throw new Exception();
         jt.addPlayer(p);
         j.addPlayer(p);
         p.getKarakter().setJegtabla(j);
 
     }
 
-    protected static void playerLep(String[] cmd) {// Nem tudom hogy jó-e
+    protected static void playerLep(String[] cmd) throws Exception {
             Player p = jt.getPlayer(cmd[1]);
-            ArrayList<Jegtabla> ja = p.getKarakter().jegtabla.getSzomszedok();
-            Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
-            j2.addPlayer(p);
+            if(p == null) throw new Exception();
+            Jegtabla j2 = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
+            if( j2 == null) throw new Exception();
+            Jegtabla j = p.getKarakter().jegtabla;
+            if(j.szomszed_e(j2))
+            {
+            	 p.getKarakter().lep(j2);
+            }
+            else throw new Exception();
     }
 
-    protected static void iglutEpit(String[] cmd) {//Ez mukodik, ha atirtam az iglut_epit fuggvenyt.(Nem ertettem)
+    protected static void iglutEpit(String[] cmd)throws Exception {
         Eszkimo k =(Eszkimo) jt.getPlayer(cmd[1]).getKarakter();
         if(k.Name.compareTo("Eszkimo") == 0) {
             k.iglut_epit();
         }
+        else throw new Exception(); 
 
     }
-    protected static void kutatoVizsgal(String[] cmd) { //Ez meg nem jo
+    protected static void kutatoVizsgal(String[] cmd)throws Exception { 
         Sarkkutato k =(Sarkkutato) jt.getPlayer(cmd[1]).getKarakter();
         if(k.Name.compareTo("Sarkkutato") == 0) {
-            k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
+            int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
+            if(kapacitas < 0) throw new Exception(); 
+            System.out.println("A vizsgált jégtábla kapacitása: " + kapacitas);
         }
-
+        else throw new Exception(); 
     }
 
-    protected static void targyatHasznal(String[] cmd) {
-
+    protected static void targyatHasznal(String[] cmd)throws Exception {
+    	Player p = jt.getPlayer(cmd[1]);
+        if(p == null) throw new Exception();
+        Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
+        if(j == null) throw new Exception();
+        ArrayList<Targy> zseb = p.getKarakter().getTargyak();
+        Targy T = zseb.get(Integer.parseInt(cmd[4]));
+        if(T == null) throw new Exception();
+        T.hasznaljak(p.getKarakter(), j);
     }
-
+    
     protected static void targyFelvetel(String[] cmd) throws Exception {//Szerintem jo
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
