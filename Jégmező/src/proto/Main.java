@@ -16,6 +16,7 @@ public class Main extends Commands{
 				" A lehetseges parancsok listajahoz irja be a help parancsot.\n");
 		while (!isOver) {
 			System.out.print("command: ");
+			boolean siker=true;
 			line = reader.readLine();
 			String[] cmd = line.split(" ");
 			try {
@@ -40,7 +41,6 @@ public class Main extends Commands{
 				else if (cmd[0].equals("medveLep")) medveLep(cmd);
 				else if (cmd[0].equals("egyHovihar")) egyHovihar(cmd);
 				else if (cmd[0].equals("hoviharRand")) hoviharRand();
-				else if (cmd[0].equals("listKarakterTargyak")) listKarakterTargyak();
 				else if (cmd[0].equals("listJegtablaAttrib")) listJegtablaAttrib(cmd);
 				else if (cmd[0].equals("listJegmezo")) listJegmezo();
 				else if (cmd[0].equals("printPlayersLife")) printPlayersLife(cmd);
@@ -54,7 +54,8 @@ public class Main extends Commands{
 				else if (cmd[0].equals("setInstabilKap")) setInstabilKap(cmd);
 				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
 				else if (cmd[0].equals("startGame")) startGame();
-				else System.out.println("Ilyen parancs nem letezik :(");
+				else {System.out.println("Ilyen parancs nem letezik :("); siker=false;}
+				if(siker) System.out.println(cmd[0] + " sikeresen lefutott");
 			} catch(Exception e) {
 				System.out.println(cmd[0] + " nem sikerult");
 			}

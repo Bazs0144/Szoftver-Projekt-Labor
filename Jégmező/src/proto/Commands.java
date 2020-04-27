@@ -53,6 +53,7 @@ public class Commands {
         System.out.println("startGame: Elkezdi a jetekot.");
     }
 
+
     protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jó
         if (cmd.length > 1) {
             File f = new File(cmd[1]);
@@ -94,6 +95,7 @@ public class Commands {
         fr = new FileReader(f);
         System.out.println("loadTest sikerult");
     }
+
 
     protected static void saveTest() {
 
@@ -186,7 +188,7 @@ public class Commands {
 
     protected static void targyHozzadasa(String[] cmd) {//Szerintem jo
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
-        if(cmd[2].compareTo("Alkatresz") == 0){
+        if(cmd[2].compareTo("alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
             k.targy_hozzaadasa(alk);
             jt.addAlkatresz(alk);
@@ -228,11 +230,6 @@ public class Commands {
         for(int i = 0; i<mennyi; i++){
             ja.get(r.nextInt(ja.size())).hovihar_volt();
         }
-    }
-
-    //Ebből valamiért ketto van ne csináld meg, lejebb már megvan
-    protected static void listKarakterTargyak() {
-
     }
 
     protected static void listJegtablaAttrib(String[] cmd) { //Ez jo
