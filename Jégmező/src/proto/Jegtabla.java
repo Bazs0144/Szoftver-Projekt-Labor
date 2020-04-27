@@ -102,9 +102,10 @@ public class Jegtabla implements Serializable {
 	public int getKapacitas() {
 		return kapacitas;
 	}
+	
 	/** A jégtábla kapacitásának beállítása. */
-	public void setKapacitas(int kapacitas) {
-		this.kapacitas = kapacitas;
+	public void setKapacitas(int cap) {
+		kapacitas = cap;
 	}
 	
 	/** A jégtáblán található tárgy lekérdezése. */

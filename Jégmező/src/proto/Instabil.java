@@ -46,8 +46,14 @@ public class Instabil extends Jegtabla implements Serializable {
 		epitmenyTorles();
 	}
 
+	/** Az instabil jégtábla kapacitásának lekérdezése. */
 	public int getKapacitas() {
 		return kapacitas;
+	}
+	
+	/** Az instabil jégtábla kapacitásának beállítása. */
+	public void setKapacitas(int cap) {
+		kapacitas = cap;
 	}
 }
 

@@ -6,13 +6,14 @@ import java.util.ArrayList;
 //import java.util.Random;
 import java.util.Scanner;
 
+
 public class Jegmezo implements Serializable {
     private ArrayList<Jegtabla> JegT;
     private int width;
 
     /**
-     * Konstruktor: L√©trehozza a j√°gt√°bl√°kat, √©s megadja az adott j√°gt√°bla szomsz√©dait
-     * @param width height A J√©gmez≈ët alkot√≥ j√©gt√°bl√°k sz√°ma.
+     * Konstruktor: LÈtrehozza a j·gt·bl·kat, Ès megadja az adott j·gt·bla szomszÈdait
+     * @param width height A JÈgmezıt alkotÛ jÈgt·bl·k sz·ma.
      */
     public Jegmezo(int width, int height) {
         this.width = width;
@@ -47,7 +48,11 @@ public class Jegmezo implements Serializable {
     }
 
     public Jegtabla getJegtabla(int x, int y) {
-        return JegT.get(x*width + y);
+    	for(int i = 0; i<JegT.size(); i++) {
+    		if(JegT.get(i).getPoz().getX() == x && JegT.get(i).getPoz().getY() == y)
+    			return JegT.get(i);
+    	}
+        return null;
     }
 
     public void szomszedokkaTesz(Jegtabla egy, Jegtabla ketto) {
@@ -62,7 +67,7 @@ public class Jegmezo implements Serializable {
     }
 
     /**
-     * H√≥vihar eset√©n v√©gigmegy az √∂sszes j√©gt√°bl√°n, √©s bizonyos logika alapj√°n, egyes j√©gt√°bl√°kon h√≥vihart gerjeszt.
+     * HÛvihar esetÈn vÈgigmegy az ˆsszes jÈgt·bl·n, Ès bizonyos logika alapj·n, egyes jÈgt·bl·kon hÛvihart gerjeszt.
      */
     public void hovihar_indul() {
         //Random rand = new Random();

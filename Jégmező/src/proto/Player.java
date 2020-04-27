@@ -34,6 +34,7 @@ public class Player implements Serializable {
         while(aktiv&&k.munkak_szama>0) {
             //proto.nextCommand();//???
         }
+        kor_vegzes();
     }
 
     /**
