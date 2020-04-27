@@ -18,44 +18,48 @@ public class Main extends Commands{
 			System.out.print("command: ");
 			line = reader.readLine();
 			String[] cmd = line.split(" ");
-			if (cmd[0].equals("exit")) isOver = true;
-			else if (cmd[0].equals("help")) help();
-			else if (cmd[0].equals("loadMap")) loadMap(cmd);
-			else if (cmd[0].equals("loadTest")) loadTest();
-			else if (cmd[0].equals("saveTest")) saveTest();
-			else if (cmd[0].equals("start")) start();
-			else if (cmd[0].equals("saveMap")) saveMap(cmd);
-			else if (cmd[0].equals("generateMap")) generateMap(cmd);
-			else if (cmd[0].equals("changeJegtabla")) changeJegtabla(cmd);
-			else if (cmd[0].equals("addTargy")) addTargy(cmd);
-			else if (cmd[0].equals("addPlayer")) addPlayer(cmd);
-			else if (cmd[0].equals("playerLep")) playerLep(cmd);
-			else if (cmd[0].equals("iglutEpit")) iglutEpit(cmd);
-			else if (cmd[0].equals("kutatoVizsgal")) kutatoVizsgal(cmd);
-			else if (cmd[0].equals("targyatHasznal")) targyatHasznal(cmd);
-			else if (cmd[0].equals("targyFelvetel")) targyFelvetel();
-			else if (cmd[0].equals("targyHozzaadasa")) targyHozzadasa(cmd);
-			else if (cmd[0].equals("addMedve")) addMedve(cmd);
-			else if (cmd[0].equals("medveLep")) medveLep();
-			else if (cmd[0].equals("egyHovihar")) egyHovihar();
-			else if (cmd[0].equals("hoviharRand")) hoviharRand();
-			else if (cmd[0].equals("listKarakterTargyak")) listKarakterTargyak();
-			else if (cmd[0].equals("listJegtablaAttrib")) listJegtablaAttrib(cmd);
-			else if (cmd[0].equals("listJegmezo")) listJegmezo();
-			else if (cmd[0].equals("printPlayersLife")) printPlayersLife(cmd);
-			else if (cmd[0].equals("digSnow")) digSnow(cmd);
-			else if (cmd[0].equals("setSnow")) setSnow(cmd);
-			else if (cmd[0].equals("listKarAttrib")) listKarAttrib();
-			else if (cmd[0].equals("listKarTargy")) listKarTargy();
-			else if (cmd[0].equals("addJegtabla")) addJegtabla();
-			else if (cmd[0].equals("listJegtablaSzomszed")) listJegtablaSzomszed();
-			else if (cmd[0].equals("addJegtablaSzomszed")) addJegtablaSzomszed();
-			else if (cmd[0].equals("setInstabilKap")) setInstabilKap();
-			else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege();
-			else if (cmd[0].equals("startGame")) startGame();
+			try {
+				if (cmd[0].equals("exit")) isOver = true;
+				else if (cmd[0].equals("help")) help();
+				else if (cmd[0].equals("loadMap")) loadMap(cmd);
+				else if (cmd[0].equals("loadTest")) loadTest();
+				else if (cmd[0].equals("saveTest")) saveTest();
+				else if (cmd[0].equals("start")) start();
+				else if (cmd[0].equals("saveMap")) saveMap(cmd);
+				else if (cmd[0].equals("generateMap")) generateMap(cmd);
+				else if (cmd[0].equals("changeJegtabla")) changeJegtabla(cmd);
+				else if (cmd[0].equals("addTargy")) addTargy(cmd);
+				else if (cmd[0].equals("addPlayer")) addPlayer(cmd);
+				else if (cmd[0].equals("playerLep")) playerLep(cmd);
+				else if (cmd[0].equals("iglutEpit")) iglutEpit(cmd);
+				else if (cmd[0].equals("kutatoVizsgal")) kutatoVizsgal(cmd);
+				else if (cmd[0].equals("targyatHasznal")) targyatHasznal(cmd);
+				else if (cmd[0].equals("targyFelvetel")) targyFelvetel();
+				else if (cmd[0].equals("targyHozzaadasa")) targyHozzadasa(cmd);
+				else if (cmd[0].equals("addMedve")) addMedve(cmd);
+				else if (cmd[0].equals("medveLep")) medveLep();
+				else if (cmd[0].equals("egyHovihar")) egyHovihar();
+				else if (cmd[0].equals("hoviharRand")) hoviharRand();
+				else if (cmd[0].equals("listKarakterTargyak")) listKarakterTargyak();
+				else if (cmd[0].equals("listJegtablaAttrib")) listJegtablaAttrib(cmd);
+				else if (cmd[0].equals("listJegmezo")) listJegmezo();
+				else if (cmd[0].equals("printPlayersLife")) printPlayersLife(cmd);
+				else if (cmd[0].equals("digSnow")) digSnow(cmd);
+				else if (cmd[0].equals("setSnow")) setSnow(cmd);
+				else if (cmd[0].equals("listKarAttrib")) listKarAttrib();
+				else if (cmd[0].equals("listKarTargy")) listKarTargy();
+				else if (cmd[0].equals("addJegtabla")) addJegtabla();
+				else if (cmd[0].equals("listJegtablaSzomszed")) listJegtablaSzomszed();
+				else if (cmd[0].equals("addJegtablaSzomszed")) addJegtablaSzomszed();
+				else if (cmd[0].equals("setInstabilKap")) setInstabilKap();
+				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege();
+				else if (cmd[0].equals("startGame")) startGame();
+				else System.out.println("Ilyen parancs nem letezik :(");
+			} catch(Exception e) {
+				System.out.println(cmd[0] + " nem sikerult");
+			}
 
 
-			else System.out.println("Ilyen parancs nem letezik :(");
 		}
 	}
 }

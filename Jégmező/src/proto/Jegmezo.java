@@ -36,6 +36,10 @@ public class Jegmezo implements Serializable {
         JegT.add(jeg);
     }
 
+    public ArrayList<Jegtabla> getJegtablak() {
+        return JegT;
+    }
+
     public Jegtabla getJegtabla(int x, int y) {
         return JegT.get(x*width + y);
     }
