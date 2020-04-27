@@ -33,6 +33,10 @@ public class Jegmezo implements Serializable {
                 if(j+1<width) jelen.addSzomszed(getJegtabla(i, j+1));
             }
     }
+    
+    public int getwidth() {
+    	return width;
+    }
 
     public void addJegtabla(Jegtabla jeg) {
         JegT.add(jeg);
