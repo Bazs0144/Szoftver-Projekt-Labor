@@ -11,6 +11,7 @@ public class Commands {
     static protected FileReader fr;
     static protected boolean siker;
     static boolean isTest = false;
+    static ArrayList<String> commandBuffer;
 
     protected static void help(){ //Ez jo
         System.out.println("Reszletes leiras a parancsokra a 7. reszletes tervek dokumentacioban talalhato.\n");
@@ -58,7 +59,7 @@ public class Commands {
 
     protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jó
         if (cmd.length > 1) {
-            File f = new File(cmd[1]);
+            File f = new File(cmd[1] + ".dat");
             if (!f.exists())
                 f.createNewFile();
             if (f.exists()) {
@@ -73,7 +74,7 @@ public class Commands {
     protected static void loadMap(String[] cmd) throws IOException, ClassNotFoundException { //Remelhetoleg jo
 
         String wd = System.getProperty("user.dir");
-        File f = new File(wd, cmd[1]);
+        File f = new File(wd, cmd[1] + ".dat");
         if (cmd.length > 1) {
             if (f.exists()) {
 
@@ -87,7 +88,7 @@ public class Commands {
     }
 
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
-        File f = new File(cmd[1]);
+        File f = new File(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
         if (!f.exists()) {
             System.out.println("loadTest nem sikerult");
             siker = false;
@@ -97,8 +98,13 @@ public class Commands {
     }
 
 
-    protected static void saveTest() {
-
+    protected static void saveTest(String[] cmd) throws IOException {
+        FileWriter fw = new FileWriter(cmd[1] + ".txt");
+        PrintWriter pw = new PrintWriter(fw);
+        for(String command: commandBuffer){
+            pw.println(command);
+        }
+        pw.close();
     }
 
     protected static  void start() throws IOException {

@@ -4,12 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.SyncFailedException;
+import java.util.ArrayList;
 
 public class Main extends Commands{
 	static boolean isOver = false;
 
 	public static void main(String[] args) throws IOException {
-
+		commandBuffer = new ArrayList<String>();
 		reader = new BufferedReader(new InputStreamReader(System.in));
 		String line = null;
 		System.out.println("Udvozlom a prototipusban\n" +
@@ -17,21 +18,22 @@ public class Main extends Commands{
 		while (!isOver) {
 			if(!isTest)System.out.print("command: ");
 			siker = true;
-
-			if((line = reader.readLine()) == null && isTest) {
+			line = reader.readLine();
+			if(line == null && isTest) {
 				isTest = false;
 				reader.close();
 				reader = new BufferedReader(new InputStreamReader(System.in));
 				line = "";
 
 			}
+			if(line.compareTo("") != 0 && !line.contains("saveTest")) commandBuffer.add(line);
 			String[] cmd = line.split(" ");
 			try {
 				if (cmd[0].equals("exit")) isOver = true;
 				else if (cmd[0].equals("help")) help();
 				else if (cmd[0].equals("loadMap")) loadMap(cmd);
 				else if (cmd[0].equals("loadTest")) loadTest(cmd);
-				else if (cmd[0].equals("saveTest")) saveTest();
+				else if (cmd[0].equals("saveTest")) saveTest(cmd);
 				else if (cmd[0].equals("start")) start();
 				else if (cmd[0].equals("saveMap")) saveMap(cmd);
 				else if (cmd[0].equals("generateMap")) generateMap(cmd);
