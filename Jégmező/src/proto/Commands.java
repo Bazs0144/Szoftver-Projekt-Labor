@@ -2,6 +2,7 @@ package proto;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Commands {
 
@@ -179,21 +180,34 @@ public class Commands {
 
     }
 
-    protected static void addMedve(String[] cmd) { //Ez jo
+    protected static void addMedve(String[] cmd) { //Szerintem jo
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
-        j.addFigura(new Jegesmedve());
+        Jegesmedve jm = new Jegesmedve();
+        j.addFigura(jm);
+        jt.setJegesmedve(jm);
     }
 
-    protected static void medveLep() {
-
+    protected static void medveLep(String[] cmd) {//Szerintem jo
+        Jegesmedve jm = jt.getJegesmedve();
+        Jegmezo jgm = jt.getJegMezo();
+        ArrayList<Jegtabla> ja = jm.getJegtabla().getSzomszedok();
+        Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
+        jm.lep(j2);
     }
 
-    protected static void egyHovihar() {
-
+    protected static void egyHovihar(String[] cmd) {//Jo?
+        Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+        j.hovihar_volt();
     }
 
-    protected static void hoviharRand() {
-
+    protected static void hoviharRand() {//Eeeeelvileg jo, de egy jegtablan igy lehet tobb hovihar
+        Random r = new Random();
+        int mennyi = 1 + r.nextInt(3);
+        Jegmezo jm = jt.getJegMezo();
+        ArrayList<Jegtabla> ja = jm.getJegtablak();
+        for(int i = 0; i<mennyi; i++){
+            ja.get(r.nextInt(ja.size())).hovihar_volt();
+        }
     }
 
     //Ebből valamiért ketto van ne csináld meg, lejebb már megvan

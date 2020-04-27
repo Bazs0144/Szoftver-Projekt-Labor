@@ -37,8 +37,8 @@ public class Main extends Commands{
 				else if (cmd[0].equals("targyFelvetel")) targyFelvetel(cmd);
 				else if (cmd[0].equals("targyHozzaadasa")) targyHozzadasa(cmd);
 				else if (cmd[0].equals("addMedve")) addMedve(cmd);
-				else if (cmd[0].equals("medveLep")) medveLep();
-				else if (cmd[0].equals("egyHovihar")) egyHovihar();
+				else if (cmd[0].equals("medveLep")) medveLep(cmd);
+				else if (cmd[0].equals("egyHovihar")) egyHovihar(cmd);
 				else if (cmd[0].equals("hoviharRand")) hoviharRand();
 				else if (cmd[0].equals("listKarakterTargyak")) listKarakterTargyak();
 				else if (cmd[0].equals("listJegtablaAttrib")) listJegtablaAttrib(cmd);

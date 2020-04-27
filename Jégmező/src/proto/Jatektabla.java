@@ -8,6 +8,7 @@ public class Jatektabla implements Serializable {
     private Jegmezo j;
     private ArrayList<Player> p;
     private ArrayList<Alkatresz> a;
+    private Jegesmedve jm;
 
     /**
      * A játéktábla konstruktora, mely legenerál egy jégmezőt, és az alkatrészeket, valamint megkapja a jétékosokat.
@@ -20,6 +21,13 @@ public class Jatektabla implements Serializable {
         j = new Jegmezo(width, height);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
+    }
+
+    public Jegesmedve getJegesmedve(){
+        return jm;
+    }
+    public void setJegesmedve(Jegesmedve jgm){
+        jm = jgm;
     }
 
     /**
