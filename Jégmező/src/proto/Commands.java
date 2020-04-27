@@ -155,11 +155,15 @@ public class Commands {
 
     }
 
-    protected static void targyFelvetel() {
-
+    protected static void targyFelvetel(String[] cmd) throws Exception {//Szerintem jo
+        Karakter k = jt.getPlayer(cmd[1]).getKarakter();
+        Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
+        if(j.elvesz(k, j.getTargy())==false){
+            throw new Exception();
+        }
     }
 
-    protected static void targyHozzadasa(String[] cmd) {//Nem tudom hogy jo
+    protected static void targyHozzadasa(String[] cmd) {//Szerintem jo
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         if(cmd[2].compareTo("Alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
@@ -167,7 +171,7 @@ public class Commands {
             jt.addAlkatresz(alk);
         }
         else if(cmd[2].compareTo("aso") == 0 ) k.targy_hozzaadasa(new Aso());
-        else if(cmd[2].compareTo( "buvarruha") == 0) k.targy_hozzaadasa(new Buvarruha());
+        else if(cmd[2].compareTo("buvarruha") == 0) k.targy_hozzaadasa(new Buvarruha());
         else if(cmd[2].compareTo("etel") == 0) k.targy_hozzaadasa(new Etel());
         else if(cmd[2].compareTo("kotel") == 0) k.targy_hozzaadasa(new Kotel());
         else if(cmd[2].equals("lapat")) k.targy_hozzaadasa(new Lapat());

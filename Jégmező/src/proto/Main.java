@@ -34,7 +34,7 @@ public class Main extends Commands{
 				else if (cmd[0].equals("iglutEpit")) iglutEpit(cmd);
 				else if (cmd[0].equals("kutatoVizsgal")) kutatoVizsgal(cmd);
 				else if (cmd[0].equals("targyatHasznal")) targyatHasznal(cmd);
-				else if (cmd[0].equals("targyFelvetel")) targyFelvetel();
+				else if (cmd[0].equals("targyFelvetel")) targyFelvetel(cmd);
 				else if (cmd[0].equals("targyHozzaadasa")) targyHozzadasa(cmd);
 				else if (cmd[0].equals("addMedve")) addMedve(cmd);
 				else if (cmd[0].equals("medveLep")) medveLep();
