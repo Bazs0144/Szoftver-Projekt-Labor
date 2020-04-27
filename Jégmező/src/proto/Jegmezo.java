@@ -23,12 +23,14 @@ public class Jegmezo implements Serializable {
             JegT.add(jeg);
           //  Szkeleton.objects.put(JegT.get(i), "Jegt["+i+"]");
         }
+        Jegtabla jelen;
         for(int i=0; i<height; i++)
             for(int j=0; j<width; j++) {
-                if(i-1>=0) JegT.get(i).addSzomszed(JegT.get(i-1));
-                if(i+1<height) JegT.get(i).addSzomszed(JegT.get(i+1));
-                if(j-1>=0) JegT.get(i).addSzomszed(JegT.get(j-1));
-                if(j+1<width) JegT.get(i).addSzomszed(JegT.get(j+1));
+                jelen=getJegtabla(i ,j);
+                if(i-1>=0) jelen.addSzomszed(getJegtabla(i-1, j));
+                if(i+1<height) jelen.addSzomszed(getJegtabla(i+1, j));
+                if(j-1>=0) jelen.addSzomszed(getJegtabla(i, j-1));
+                if(j+1<width) jelen.addSzomszed(getJegtabla(i, j+1));
             }
     }
 

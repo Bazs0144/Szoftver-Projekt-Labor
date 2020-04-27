@@ -46,10 +46,10 @@ public class Main extends Commands{
 				else if (cmd[0].equals("printPlayersLife")) printPlayersLife(cmd);
 				else if (cmd[0].equals("digSnow")) digSnow(cmd);
 				else if (cmd[0].equals("setSnow")) setSnow(cmd);
-				else if (cmd[0].equals("listKarAttrib")) listKarAttrib();
-				else if (cmd[0].equals("listKarTargy")) listKarTargy();
+				else if (cmd[0].equals("listKarAttrib")) listKarAttrib(cmd);
+				else if (cmd[0].equals("listKarTargy")) listKarTargy(cmd);
 				else if (cmd[0].equals("addJegtabla")) addJegtabla();
-				else if (cmd[0].equals("listJegtablaSzomszed")) listJegtablaSzomszed();
+				else if (cmd[0].equals("listJegtablaSzomszed")) listJegtablaSzomszed(cmd);
 				else if (cmd[0].equals("addJegtablaSzomszed")) addJegtablaSzomszed();
 				else if (cmd[0].equals("setInstabilKap")) setInstabilKap();
 				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege();

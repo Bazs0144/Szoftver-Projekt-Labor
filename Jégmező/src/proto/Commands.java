@@ -152,6 +152,7 @@ public class Commands {
     }
 
     protected static void targyatHasznal(String[] cmd) {
+
     }
 
     protected static void targyFelvetel() {
@@ -160,7 +161,7 @@ public class Commands {
 
     protected static void targyHozzadasa(String[] cmd) {//Nem tudom hogy jo
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
-        if(cmd[3].compareTo("Alkatresz") == 0){
+        if(cmd[2].compareTo("Alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
             k.targy_hozzaadasa(alk);
             jt.addAlkatresz(alk);
@@ -169,7 +170,7 @@ public class Commands {
         else if(cmd[2].compareTo( "buvarruha") == 0) k.targy_hozzaadasa(new Buvarruha());
         else if(cmd[2].compareTo("etel") == 0) k.targy_hozzaadasa(new Etel());
         else if(cmd[2].compareTo("kotel") == 0) k.targy_hozzaadasa(new Kotel());
-        else if(cmd[2].compareTo("lapat") == 0) k.targy_hozzaadasa(new Lapat());
+        else if(cmd[2].equals("lapat")) k.targy_hozzaadasa(new Lapat());
         else if(cmd[2].compareTo("sator") == 0) k.targy_hozzaadasa(new Sator());
 
     }
@@ -191,6 +192,7 @@ public class Commands {
 
     }
 
+    //Ebből valamiért ketto van ne csináld meg, lejebb már megvan
     protected static void listKarakterTargyak() {
 
     }
@@ -245,20 +247,39 @@ public class Commands {
         jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setHo(Integer.parseInt(cmd[3]));
     }
 
-    protected static void listKarAttrib() {
-
+    protected static void listKarAttrib(String[] cmd) {
+        Karakter k = jt.getPlayer(cmd[1]).getKarakter();
+        Poz p=k.getJegtabla().getPoz();
+        System.out.println("Jatekos: " + cmd[1]);
+        System.out.println("Karakter: " + k.getClass().getName());
+        System.out.println("Ho: " + k.getHo());
+        String viz= (k.get_vizben_van()) ? "igen" : "nem";
+        System.out.println("Vizben: " + viz);
+        System.out.println("Munkak: " + k.munkak_szama);
+        System.out.println("Jegtabla: " +p.x + " " +p.y );
     }
 
-    protected static void listKarTargy() {
-
+    protected static void listKarTargy(String[] cmd) {
+        Karakter k = jt.getPlayer(cmd[1]).getKarakter();
+        int i=0;
+        for(Targy t: k.getTargyak()) {
+            System.out.println(i + ": " + t.Name);
+            i++;
+        }
     }
 
     protected static void addJegtabla() {
 
     }
 
-    protected static void listJegtablaSzomszed() {
-
+    protected static void listJegtablaSzomszed(String[] cmd) {
+        Jegtabla jeg = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+        int i=0;
+        for(Jegtabla j: jeg.getSzomszedok()) {
+            Poz p=j.getPoz();
+            System.out.println(i + ": " + p.x + " " + p.y);
+            i++;
+        }
     }
 
     protected static void addJegtablaSzomszed() {
@@ -274,7 +295,7 @@ public class Commands {
     }
 
     protected static void startGame() {
-
+        jt.init();
     }
 
     //----------------------------------------------
