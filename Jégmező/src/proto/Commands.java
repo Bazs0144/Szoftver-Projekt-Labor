@@ -53,8 +53,7 @@ public class Commands {
         System.out.println("startGame: Elkezdi a jetekot.");
     }
 
-    protected static void saveMap(String[] cmd) { //Remelhetoleg jo
-        try {
+    protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jo
             if (cmd.length > 1) {
                 File f = new File(cmd[1]);
                 if (!f.exists())
@@ -64,78 +63,48 @@ public class Commands {
                     ObjectOutputStream out = new ObjectOutputStream(fs);
                     out.writeObject(jt);
                     out.close();
-                    System.out.println("saveMap sikerult");
                 }
             }
-        }
-        catch (Exception e) {
-            System.out.println("saveMap nem sikerult");
-        }
     }
 
-    protected static void loadMap(String[] cmd) throws IOException { //Remelhetoleg jo
-        try {
+    protected static void loadMap(String[] cmd) throws Exception { //Remelhetoleg jo
             String wd = System.getProperty("user.dir");
             File f = new File(wd, cmd[1]);
             if (cmd.length > 1) {
                 if (f.exists()) {
-
                     FileInputStream fs = new FileInputStream(f);
                     ObjectInputStream in = new ObjectInputStream(fs);
                     jt = (Jatektabla) in.readObject();
                     in.close();
-                    System.out.println("loadMap sikeresen lefutott");
-
-                } else System.out.println("loadMap nem sikerult");
-            } else System.out.println("loadMap nem sikerult");
-        } catch (Exception e) {
-            System.out.println("loadMap nem sikerult");
-        }
+                } else throw new Exception();
+            } else throw new Exception();
     }
 
-    protected  static void loadTest(String[] cmd) throws FileNotFoundException {
-        try {
+    protected  static void loadTest(String[] cmd) throws Exception {
             File f = new File(cmd[2]);
             if (!f.exists()) {
-                System.out.println("loadTest nem sikerult");
-                return;
+                throw new Exception();
             }
             fr = new FileReader(f);
-            System.out.println("loadTest sikerult");
-        }
-        catch (Exception e) {
-            System.out.println("loadTest nem sikerult");
-        }
     }
 
     protected static void saveTest() {
 
     }
 
-    protected static  void start() {
-        try {
+    protected static  void start() throws Exception {
             reader = new BufferedReader(fr);
             if (reader.readLine().compareTo("90kjk12") != 0) {
                 System.out.println("start nem sikerult");
-                return;
+                throw new Exception();
             }
-        }
-        catch (Exception e){
-            System.out.println("start nem sikerult");
-        }
     }
 
-    protected static void generateMap(String[] cmd) { //Ez jo
-        try {
+    protected static void generateMap(String[] cmd) throws Exception { //Ez jo
              if(Integer.parseInt(cmd[1]) < 0 || Integer.parseInt(cmd[2]) < 0) {
-                 System.out.println("generateMap nem sikerult");
-                 return;
+                 throw new Exception();
              }
             jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
-            System.out.println("generateMap sikeresen lefutott");
-        } catch (Exception e) {
-            System.out.println("generateMap nem sikerult");
-        }
     }
 
     protected static void changeJegtabla(String[] cmd) {
@@ -206,7 +175,7 @@ public class Commands {
 
     protected static void targyHozzadasa(String[] cmd) {//Szerintem jo
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
-        if(cmd[2].compareTo("Alkatresz") == 0){
+        if(cmd[2].compareTo("alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
             k.targy_hozzaadasa(alk);
             jt.addAlkatresz(alk);
@@ -248,11 +217,6 @@ public class Commands {
         for(int i = 0; i<mennyi; i++){
             ja.get(r.nextInt(ja.size())).hovihar_volt();
         }
-    }
-
-    //Ebből valamiért ketto van ne csináld meg, lejebb már megvan
-    protected static void listKarakterTargyak() {
-
     }
 
     protected static void listJegtablaAttrib(String[] cmd) { //Ez jo
