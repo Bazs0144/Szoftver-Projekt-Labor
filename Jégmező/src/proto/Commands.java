@@ -129,7 +129,7 @@ public class Commands {
 
     }
 
-    protected static void playerLep(String[] cmd) {// Nem tudom hogy jÃ³-e
+    protected static void playerLep(String[] cmd) {// Nem tudom hogy jó-e
             Player p = jt.getPlayer(cmd[1]);
             ArrayList<Jegtabla> ja = p.getKarakter().jegtabla.getSzomszedok();
             Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
@@ -223,25 +223,20 @@ public class Commands {
     }
 
     protected static void listJegmezo() {
-        for(Jegtabla j: jt.getJegMezo().getJegtablak()) {
-            String[] cmd={"listJegtablaAttrib", String.valueOf(j.getPoz().x), String.valueOf(j.getPoz().y)};
-            listJegtablaAttrib(cmd);
-        }
 
     }
 
     protected static void printPlayersLife(String[] cmd) {
-            System.out.println("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
-
+        System.out.println("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
     }
 
-    protected static void digSnow(String[] cmd) { //Ez jÃ³
+    protected static void digSnow(String[] cmd) { //Ez jó
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         k.kias();
         // Ide minek PozX PozY
     }
 
-    protected static void setSnow(String[] cmd) { //Ez jÃ³
+    protected static void setSnow(String[] cmd) { //Ez jó
         jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setHo(Integer.parseInt(cmd[3]));
     }
 
@@ -253,28 +248,55 @@ public class Commands {
 
     }
 
-    protected static void addJegtabla() {
+    protected static void addJegtabla(String[] cmd) {
+    	if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null)
+    		System.out.println("Ezen a pozíción már található egy jégtábla!");
+    	else {
+    		if(cmd[3].compareTo("stabil") == 0) jt.getJegMezo().addJegtabla(new Stabil(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
+    		if(cmd[3].compareTo("instabil") == 0) jt.getJegMezo().addJegtabla(new Instabil(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
+    		if(cmd[3].compareTo("luk") == 0) jt.getJegMezo().addJegtabla(new Luk(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
+    		
+    		Jegtabla jegt = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+    		
+    		if(cmd[4].compareTo("etel") == 0) jegt.setTargy(new Etel());
+    		if(cmd[4].compareTo("buvarruha") == 0) jegt.setTargy(new Buvarruha());
+    		if(cmd[4].compareTo("kotel") == 0) jegt.setTargy(new Kotel());
+    		if(cmd[4].compareTo("sator") == 0) jegt.setTargy(new Sator());
+    		if(cmd[4].compareTo("lapat") == 0) jegt.setTargy(new Lapat());
+    		if(cmd[4].compareTo("aso") == 0) jegt.setTargy(new Aso());
+    		if(cmd[4].compareTo("raketa") == 0) jegt.setTargy(new Alkatresz(jt));
+    		
+    		if(cmd[5].compareTo("iglu") == 0) jegt.epitmenyKeszul(new Iglu());
+    		if(cmd[5].compareTo("sator") == 0) jegt.epitmenyKeszul(new Sator());
+    		if(cmd[5].compareTo("null") == 0) ;
+    	}
+    }
+
+    protected static void listJegtablaSzomszed(String[] cmd) {
+    	if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
+    		ArrayList<Jegtabla> szom = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).getSzomszedok();
+    		for(int i = 0; i < szom.size(); i++) {
+    			System.out.println(i + ". szomszéd, koordináták: (" + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")" );
+    		}
+    	}
+    }
+
+    protected static void addJegtablaSzomszed(String[] cmd) {
+    	jt.getJegMezo().szomszedokkaTesz(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])), jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[3]), Integer.parseInt(cmd[4])));
+    }
+
+    protected static void setInstabilKap(String[] cmd) {
+    	jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setKapacitas(Integer.parseInt(cmd[3]));
 
     }
 
-    protected static void listJegtablaSzomszed() {
-
+    protected static void jatekosKorVege(String[] cmd) {
+    	if(jt.getPlayer(cmd[1]) != null)
+    		jt.getPlayer(cmd[1]).kor_vegzes();
     }
 
-    protected static void addJegtablaSzomszed() {
-
-    }
-
-    protected static void setInstabilKap() {
-
-    }
-
-    protected static void jatekosKorVege() {
-
-    }
-
-    protected static void startGame() {
-
+    protected static void startGame(String[] cmd) {
+    	
     }
 
     //----------------------------------------------
