@@ -48,11 +48,11 @@ public class Main extends Commands{
 				else if (cmd[0].equals("setSnow")) setSnow(cmd);
 				else if (cmd[0].equals("listKarAttrib")) listKarAttrib(cmd);
 				else if (cmd[0].equals("listKarTargy")) listKarTargy(cmd);
-				else if (cmd[0].equals("addJegtabla")) addJegtabla();
+				else if (cmd[0].equals("addJegtabla")) addJegtabla(cmd);
 				else if (cmd[0].equals("listJegtablaSzomszed")) listJegtablaSzomszed(cmd);
-				else if (cmd[0].equals("addJegtablaSzomszed")) addJegtablaSzomszed();
-				else if (cmd[0].equals("setInstabilKap")) setInstabilKap();
-				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege();
+				else if (cmd[0].equals("addJegtablaSzomszed")) addJegtablaSzomszed(cmd);
+				else if (cmd[0].equals("setInstabilKap")) setInstabilKap(cmd);
+				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
 				else if (cmd[0].equals("startGame")) startGame();
 				else System.out.println("Ilyen parancs nem letezik :(");
 			} catch(Exception e) {
