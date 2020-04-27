@@ -1,18 +1,21 @@
 package proto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 //import java.util.ListIterator;
 //import java.util.Random;
 import java.util.Scanner;
 
-public class Jegmezo {
+public class Jegmezo implements Serializable {
     private ArrayList<Jegtabla> JegT;
+    private int width;
 
     /**
      * Konstruktor: Létrehozza a jágtáblákat, és megadja az adott jágtábla szomszédait
      * @param width height A Jégmezőt alkotó jégtáblák száma.
      */
     public Jegmezo(int width, int height) {
+        this.width = width;
         this.JegT = new ArrayList<>();
         for(int i=0; i<height; i++)
             for(int j=0; j<width; j++) {
@@ -31,6 +34,10 @@ public class Jegmezo {
 
     public void addJegtabla(Jegtabla jeg) {
         JegT.add(jeg);
+    }
+
+    public Jegtabla getJegtabla(int x, int y) {
+        return JegT.get(x*width + y);
     }
 
     public void szomszedokkaTesz(Jegtabla egy, Jegtabla ketto) {

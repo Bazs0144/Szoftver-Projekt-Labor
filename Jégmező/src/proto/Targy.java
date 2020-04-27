@@ -1,11 +1,13 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * Az tárgy implementálásáért felelõs osztály a Targy.
  *
  */
 
-public class Targy {
+public class Targy implements Serializable {
 	/**
 	 * String név: a tárgy nevét tárolja
 	 * Karalter k: a karakter akinek a tulajdonában található a tárgy. Amig be van fagyva a jégtáblába, az értéke null.
@@ -13,6 +15,7 @@ public class Targy {
 	
 	private String nev;
 	private Karakter k;
+	public String Name = "Targy";
 	
 	/**
 	 * A Targy osztály konstruktora.

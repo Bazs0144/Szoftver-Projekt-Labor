@@ -1,8 +1,9 @@
 package proto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Alkatresz extends Targy {
+public class Alkatresz extends Targy implements Serializable {
 	private Jatektabla jt;
 
 	/**
@@ -10,6 +11,7 @@ public class Alkatresz extends Targy {
 	 */
 	public Alkatresz(Jatektabla j) {
 		jt=j;
+		Name = "Alkatresz";
 	}
 
 	/**

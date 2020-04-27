@@ -1,10 +1,11 @@
 package proto;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * A Karaketer az Eszkimó és Sarkkutató ősosztálya, egyenlőre nem absztrakt, hogy általános teszteléseket el tudjunk rajta végezni
  */
-public class Karakter extends Figura {
+public class Karakter extends Figura implements Serializable {
     /**
      * A Karakter osztály adattagjai:
      * - int ho : A Karakter hőmérséklete
@@ -22,6 +23,7 @@ public class Karakter extends Figura {
      */
      public Karakter() {
         zseb= new ArrayList<Targy>();
+        Name = "Karakter";
     }
 
     /**
@@ -140,10 +142,11 @@ public class Karakter extends Figura {
      * Megprobóál kiásni egy tárgyat a jégből, ha sikerül visszatér igazzal ,ha nem hamissal
      */
     public boolean kias() {
-        if(jegtabla.getHoMennyiseg()==0) {
+        if(jegtabla.getHoMennyiseg() == 0) {
             jegtabla.setBefagyva(false);
             return true;
         }
+        else jegtabla.setHo(jegtabla.getHoMennyiseg() - 1);
         return false;
     }
 
@@ -161,5 +164,13 @@ public class Karakter extends Figura {
      */
     public void setHo(int ho) {
         this.ho=ho;
+    }
+
+    public Jegtabla getJegtabla() {
+        return jegtabla;
+    }
+
+    public void setJegtabla(Jegtabla jt) {
+        jegtabla = jt;
     }
 }

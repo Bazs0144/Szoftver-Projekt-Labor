@@ -1,15 +1,18 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * Az luk implementálásáért felelős osztály a Luk, a Jegtabla leszármazottja.
  *
  */
-public class Luk extends Jegtabla{
+public class Luk extends Jegtabla implements Serializable {
 
 	/**
 	 * A Luk osztály konstruktora, amelyben beállitásra kerül ennek poziciója a jégmezőn*/
 	public Luk(Poz p) {
 		super(p);
+		type = "Luk";
 	}
 	
 	/**

@@ -1,20 +1,22 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
- * Az lapát implementálásáért felelõs osztály a Lapat, a Targy leszármazottja.
+ * Az lapï¿½t implementï¿½lï¿½sï¿½ï¿½rt felelï¿½s osztï¿½ly a Lapat, a Targy leszï¿½rmazottja.
  *
  */
-public class Lapat extends Targy {
+public class Lapat extends Targy implements Serializable {
 	
 	/**
-	 * A Lapat osztály konstruktora..
+	 * A Lapat osztï¿½ly konstruktora..
 	 */
 	public Lapat() {
-		
+		Name = "Lapat";
 	}
 	/**
-	 * A paraméterként kapott karakter használja a lapátot, hogy 2-t takaritson a jégtáblán.
-	 * A karakter csak akkor használhatja a lapátot, ha nincs vizbe esve.
+	 * A paramï¿½terkï¿½nt kapott karakter hasznï¿½lja a lapï¿½tot, hogy 2-t takaritson a jï¿½gtï¿½blï¿½n.
+	 * A karakter csak akkor hasznï¿½lhatja a lapï¿½tot, ha nincs vizbe esve.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {

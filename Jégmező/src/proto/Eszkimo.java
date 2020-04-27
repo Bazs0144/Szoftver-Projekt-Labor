@@ -1,10 +1,16 @@
 package proto;
 
-public class Eszkimo extends Karakter {
+import java.io.Serializable;
+
+public class Eszkimo extends Karakter implements Serializable {
 	/**
 	 * Az eszkimó különleges képessége, amellyel iglut építhetünk a tartózkodási helyén.
 	 * @return: Ha sikerült az iglu építése igazzal tér vissza, egyébként hamissal.
 	 */
+	public Eszkimo() {
+		Name = "Eszkimo";
+	}
+
 	public boolean iglut_epit() {
 		if(jegtabla.getEpitmeny() != null) {
 			if(jegtabla.getHoMennyiseg() == 0)

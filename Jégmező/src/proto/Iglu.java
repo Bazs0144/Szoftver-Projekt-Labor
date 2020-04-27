@@ -1,6 +1,8 @@
 package proto;
 
-public class Iglu implements Epitmeny {
+import java.io.Serializable;
+
+public class Iglu implements Epitmeny, Serializable {
 
     @Override
     public boolean megvedHovihartol() {
@@ -10,5 +12,10 @@ public class Iglu implements Epitmeny {
     @Override
     public boolean megvedMedvetol() {
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return "iglu";
     }
 }

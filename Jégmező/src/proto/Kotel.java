@@ -1,15 +1,18 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * Az kötél implementálásáért felelõs osztály a Kotel, a Targy leszármazottja.
  *
  */
-public class Kotel extends Targy {
+public class Kotel extends Targy implements Serializable {
 
 	/**
 	 * A Kotel osztály konstruktora.
 	 */
 	public Kotel() {
+		Name = "Kotel";
 	}
 	
 	

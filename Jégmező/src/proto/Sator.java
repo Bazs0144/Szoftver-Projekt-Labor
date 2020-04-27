@@ -1,11 +1,12 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * Az sátor implementálásáért felelős osztály a Sator, a Tárgy leszármazottja.
  *
  */
-public class Sator extends Targy implements Epitmeny {
-
+public class Sator extends Targy implements Epitmeny, Serializable {
 	
 	/**
 	 * A Sátor osztály adattagjai:
@@ -21,6 +22,7 @@ public class Sator extends Targy implements Epitmeny {
 	
 	public Sator() {
 		all = false;
+		Name = "Sator";
 	}
 	
 	/** A sátor véd a hóvihar ellen, ha éppen áll .*/
@@ -36,6 +38,11 @@ public class Sator extends Targy implements Epitmeny {
     public boolean megvedMedvetol() {
         return false;
     }
+
+    @Override
+	public String getName(){
+    	return "Sator";
+	}
     
     /** A sátor felállitasa a paraméterként kapott jégtáblára, a paraméterként kapott karakter álltal.
      * Ha a karakter vizben van vagy a sátor már nem használható, a sátor felállitása nem valósitható meg.*/
@@ -49,7 +56,7 @@ public class Sator extends Targy implements Epitmeny {
     
     /** Minden kör esetén a sátor használódik.*/
     public void hasznalodik() {
-    	hasznalatban++;
-    	if(hasznalatban > hasznalhato) all = false;
-    }
+		hasznalatban++;
+		if (hasznalatban > hasznalhato) all = false;
+	}
 }

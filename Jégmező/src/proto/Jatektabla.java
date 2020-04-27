@@ -1,8 +1,9 @@
 package proto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Jatektabla {
+public class Jatektabla implements Serializable {
     int kor;
     private Jegmezo j;
     private ArrayList<Player> p;
@@ -68,5 +69,28 @@ public class Jatektabla {
             //+
         }
         game_over();
+    }
+
+    public Jegmezo getJegMezo() {
+        return  j;
+    }
+
+    public void setJegMezo(Jegmezo JM) {
+        j = JM;
+    }
+
+    public void addAlkatresz(Alkatresz a) {
+        this.a.add(a);
+    }
+
+    public void addPlayer(Player pl) {
+        p.add(pl);
+    }
+
+    public  Player getPlayer(String Name){
+        for (Player pl: p) {
+            if(pl.getName().compareTo(Name) == 0) return pl;
+        }
+        return null;
     }
 }

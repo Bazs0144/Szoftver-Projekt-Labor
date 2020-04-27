@@ -1,6 +1,8 @@
 package proto;
 
-public class Poz {
+import java.io.Serializable;
+
+public class Poz implements Serializable {
     int x,y;
 
     public Poz(Poz p) {

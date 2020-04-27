@@ -1,15 +1,18 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * Az étel implementálásáért felelõs osztály az Etel, a Targy leszármazottja.
  *
  */ 
-public class Etel extends Targy {
+public class Etel extends Targy implements Serializable {
 
 	/**
 	 * Az Etel osztály konstruktora.
 	 */
 	public Etel() {
+		Name = "Etel";
 	}
 	/**
 	 * A paraméterként kapott karakter használja az ételt, hogy megnövelje a hőmennyiségét.

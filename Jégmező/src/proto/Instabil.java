@@ -1,10 +1,12 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * Az instabil jégtábla implementálásáért felelõs osztály az Instabil, a Jegtabla leszármazottja.
  *
  */
-public class Instabil extends Jegtabla{
+public class Instabil extends Jegtabla implements Serializable {
 	/**
 	 *@param figurak_szama: tárolja az aktuálisan a jégtáblán álló figurák számát.
 	 *@param kapacitas: az instabil jégtábla max. ennyi figurát bir el.
@@ -17,6 +19,7 @@ public class Instabil extends Jegtabla{
 	 * */
 	public Instabil(Poz p) {
 		super(p);
+		type = "Instabil";
 	}
 
 	/**
@@ -41,6 +44,10 @@ public class Instabil extends Jegtabla{
 			figurak.get(i).vizbe_esik();
 		}
 		epitmenyTorles();
+	}
+
+	public int getKapacitas() {
+		return kapacitas;
 	}
 }
 

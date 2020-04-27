@@ -1,8 +1,9 @@
 package proto;
 
-public class Player {
-    Proto proto;
-    private String nev;
+import java.io.Serializable;
+
+public class Player implements Serializable {
+    private String name;
     private int id;
     private Karakter k;
     boolean aktiv;
@@ -11,9 +12,9 @@ public class Player {
      * Egyszerű konstruktor.
      * @param kr A Játékos választott karaktere.
      */
-    Player(Karakter kr, Proto p) {
+    Player(Karakter kr, String name) {
         k=kr;
-        proto=p;
+        this.name = name;
     }
 
     /**
@@ -31,7 +32,7 @@ public class Player {
         aktiv=true;
         k.munkak_szama=4;
         while(aktiv&&k.munkak_szama>0) {
-            proto.nextCommand();
+            //proto.nextCommand();//???
         }
     }
 
@@ -40,5 +41,9 @@ public class Player {
      */
     public void kor_vegzes() {
         aktiv=false;
+    }
+
+    public String getName(){
+        return name;
     }
 }

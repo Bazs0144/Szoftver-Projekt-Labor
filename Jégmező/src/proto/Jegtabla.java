@@ -1,5 +1,6 @@
 package proto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ import java.util.Scanner;
  * A jégtáblát megvalósitó osztály.
  *
  */
-public class Jegtabla {
+public class Jegtabla implements Serializable {
 	/**
 	 * A Jegtabla osztály adattagjai:
 	 * @param kapacitas: tárolja, hogy maximálisan hány karakter állhat rajta egy idõben. Luk esetén az értéke 0, Stabil esetén végtelen (közelitve), Instabil esetén pedig változó.
@@ -27,7 +28,7 @@ public class Jegtabla {
 	private Targy T;
 	protected Epitmeny E;
 	private boolean medveitt;
-	
+	public String type = "Jegtabla";
 	
 	ArrayList<Figura> figurak;
 	ArrayList<Jegtabla> szomszedok;
@@ -197,5 +198,15 @@ public class Jegtabla {
 	/** a jégtáblán található épitmény értéke a paraméterként kapott épitmény lesz.*/
 	public void epitmenyKeszul(Epitmeny e) {
 		E = e; //
+	}
+
+	public void addPlayer(Player p) {
+		figurak.add(p.getKarakter());
+	}
+
+	public void addFigura(Figura f) { figurak.add(f);}
+
+	public void setHo(int size) {
+		ho_mennyiseg = size;
 	}
 }

@@ -1,8 +1,13 @@
 package proto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Jegesmedve extends Figura {
+public class Jegesmedve extends Figura implements Serializable {
+
+    public Jegesmedve(){
+      Name = "Jegesmedve";
+    }
 
     @Override
     public void sebzodik() {

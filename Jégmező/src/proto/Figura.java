@@ -1,8 +1,11 @@
 package proto;
 
-public abstract class Figura {
+import java.io.Serializable;
+
+public abstract class Figura implements Serializable {
     boolean vizben_van;
     Jegtabla jegtabla;
+    public String Name;
 
 
     public abstract boolean lep(Jegtabla jt);

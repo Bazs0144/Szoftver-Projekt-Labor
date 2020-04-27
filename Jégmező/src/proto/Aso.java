@@ -1,18 +1,20 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * Az ásó implementálásáért felelõs osztály az Aso, a Targy leszármazottja.
  *
  */
 
-public class Aso extends Targy {
+public class Aso extends Targy implements Serializable {
 	
 	private int tartossag;
 	/**
 	 * Az Aso osztály konstruktora.
 	 */
 	public Aso() {
-		
+		Name = "Aso";
 	}
 	/**
 	 * A paraméterként kapott karakter használja az ásót, hogy 2-t takarítson a jégtábláról.

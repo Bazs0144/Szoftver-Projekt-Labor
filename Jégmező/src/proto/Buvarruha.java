@@ -1,22 +1,25 @@
 package proto;
+
+import java.io.Serializable;
+
 /**
- * A búvárruha implementálásáért felelõs osztály az Buvarruha, a Targy leszármazottja.
+ * A bï¿½vï¿½rruha implementï¿½lï¿½sï¿½ï¿½rt felelï¿½s osztï¿½ly az Buvarruha, a Targy leszï¿½rmazottja.
  *
  */
 
-public class Buvarruha extends Targy {
+public class Buvarruha extends Targy implements Serializable {
 	
 	/**
-	 * A Buvarruha osztály konstruktora.
+	 * A Buvarruha osztï¿½ly konstruktora.
 	 */
 	public Buvarruha() {
-	
+		Name = "Buvarruha";
 	}
 
 	/**
-	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán.
-	 * Ha a karakter búvárruhát használ, nem éri viz, a vizben van attribútuma hamisra lesz állitva.
-	 * Az egyetlen tárgy amit vizbe esett karakter tud használni.
+	 * A paramï¿½terkï¿½nt kapott karakter hasznï¿½lja a tï¿½rgyat a paramï¿½terkï¿½nt kapott jï¿½gtï¿½blï¿½n.
+	 * Ha a karakter bï¿½vï¿½rruhï¿½t hasznï¿½l, nem ï¿½ri viz, a vizben van attribï¿½tuma hamisra lesz ï¿½llitva.
+	 * Az egyetlen tï¿½rgy amit vizbe esett karakter tud hasznï¿½lni.
 	 */
 	
 	@Override

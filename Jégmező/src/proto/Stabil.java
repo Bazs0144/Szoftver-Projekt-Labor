@@ -1,15 +1,18 @@
 package proto;
 
+import java.io.Serializable;
+
 /**
  * A stabil jégtábla implementálásáért felelõs osztály az Stabil, a Jegtabla leszármazottja.
  *
  */
-public class Stabil extends Jegtabla {
+public class Stabil extends Jegtabla implements Serializable {
 	/**
 	 * A Jegtabla osztály konstruktóra, amelyben beállitásra kerül ennek poziciója a jégmezőn.
 	 */
 	public Stabil(Poz p) {
 		super(p);
+		type = "Stabil";
 	}
 
 	
