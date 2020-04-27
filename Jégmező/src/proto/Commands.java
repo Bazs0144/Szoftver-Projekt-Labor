@@ -223,7 +223,10 @@ public class Commands {
     }
 
     protected static void listJegmezo() {
-
+    	 for(Jegtabla j: jt.getJegMezo().getJegtablak()) {
+             String[] cmd={"listJegtablaAttrib", String.valueOf(j.getPoz().x), String.valueOf(j.getPoz().y)};
+             listJegtablaAttrib(cmd);
+         }
     }
 
     protected static void printPlayersLife(String[] cmd) {
