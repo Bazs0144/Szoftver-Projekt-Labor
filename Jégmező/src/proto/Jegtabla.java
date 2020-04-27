@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * A jÃ©gtÃ¡blÃ¡t megvalÃ³sitÃ³ osztÃ¡ly.
+ * A jégtáblát megvalósitó osztály.
  *
  */
 public class Jegtabla implements Serializable {
 	/**
-	 * A Jegtabla osztÃ¡ly adattagjai:
-	 * @param kapacitas: tÃ¡rolja, hogy maximÃ¡lisan hÃ¡ny karakter Ã¡llhat rajta egy idÃµben. Luk esetÃ©n az Ã©rtÃ©ke 0, Stabil esetÃ©n vÃ©gtelen (kÃ¶zelitve), Instabil esetÃ©n pedig vÃ¡ltozÃ³.
-	 * @param ho_mennyiseg: a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ aktuÃ¡lis hÃ³mennyisÃ©get tÃ¡rolja. Ennek Ã©rtÃ©ke hÃ³vihar kÃ¶vetkeztÃ©ben nÃ¶velhetÃµ, takarjtÃ¡s utÃ¡n pedig csÃ¶kken.
-	 * @param befagyva: ha igaz Ã©rtÃ©ket tÃ¡rol, a jÃ©gtÃ¡bla a hÃ³rÃ©teg alatt mÃ©g tartalmaz egy rÃ©teg jeget, amelyben egy tÃ¡rgy lehet befagyva.
-	 * @param poz: a jÃ©gtÃ¡bla poziciÃ³ja a jÃ©gmezÃµn.
-	 * @param T: a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ tÃ¡rgy; Ã©rtÃ©ke lehett null is.
-	 * @param E: a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny; Ã©rtÃ©ke lehett null is.
-	 * @param figurak: a jÃ©gtÃ¡blÃ¡n Ã¡llÃ³ figurÃ¡k nyilvÃ¡ntartÃ¡sa.
-	 * @param szomszedok: a jÃ©gtÃ¡bla szomszÃ©dsÃ¡gÃ¡ban talÃ¡lhatÃ³ jÃ©gtÃ¡blÃ¡k nyilvÃ¡ntartÃ¡sa.
-	 * @param medveitt: Ã¡ll-e medve ezen a jÃ©gtÃ¡blÃ¡n.
+	 * A Jegtabla osztály adattagjai:
+	 * @param kapacitas: tárolja, hogy maximálisan hány karakter állhat rajta egy idõben. Luk esetén az értéke 0, Stabil esetén végtelen (közelitve), Instabil esetén pedig változó.
+	 * @param ho_mennyiseg: a jégtáblán található aktuális hómennyiséget tárolja. Ennek értéke hóvihar következtében növelhetõ, takarjtás után pedig csökken.
+	 * @param befagyva: ha igaz értéket tárol, a jégtábla a hóréteg alatt még tartalmaz egy réteg jeget, amelyben egy tárgy lehet befagyva.
+	 * @param poz: a jégtábla poziciója a jégmezõn.
+	 * @param T: a jégtáblán található tárgy; értéke lehett null is.
+	 * @param E: a jégtáblán található épitmény; értéke lehett null is.
+	 * @param figurak: a jégtáblán álló figurák nyilvántartása.
+	 * @param szomszedok: a jégtábla szomszédságában található jégtáblák nyilvántartása.
+	 * @param medveitt: áll-e medve ezen a jégtáblán.
 	 */
 	private int kapacitas;
 	private int ho_mennyiseg;
@@ -33,41 +33,38 @@ public class Jegtabla implements Serializable {
 	ArrayList<Figura> figurak;
 	ArrayList<Jegtabla> szomszedok;
 	
-	/**
-	 * A Jegtabla osztÃ¡ly konstruktÃ³ra. A paramÃ©terkÃ©nt kapott poziciÃ³ lesz a jÃ©gtÃ¡bla poziciÃ³ja a jÃ©gmezÅ‘n */
+	/** A Jegtabla osztály konstruktora. A paraméterként kapott pozició lesz a jégtábla poziciója a jégmezõn */
 	public Jegtabla(Poz p) {
 		figurak = new  ArrayList<Figura>();
 		szomszedok= new ArrayList<Jegtabla>();
 		poz=new Poz(p);
 	}
-
-	/** JÃ©gtÃ¡bla poziciÃ³jÃ¡nak lekÃ©rdezÃ©se.*/
+	
+	/** Jégtábla poziciójának lekérdezése.*/
 	public Poz getPoz() {
 		return poz;
 	}
 
-	/** SzomszÃ©dos jÃ©gtÃ¡bla hozzÃ¡adÃ¡sa a jÃ©gtÃ¡bla nyilvÃ¡ntartÃ¡sÃ¡ba.*/
+	/** Szomszédos jégtábla hozzáadása a jégtábla nyilvántartásába.*/
 	public void addSzomszed(Jegtabla j) {
 		szomszedok.add(j);
 	}
 	
-	/**
-	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ figurÃ¡k lekÃ©rdezÃ©se. */
+	/** A jégtáblán található figurák lekérdezése. */
 	public ArrayList<Figura> getFigurak(){
 		return figurak;
 	}
 	
 	
-	/**
-	 * A jÃ©gtÃ¡bla szomszÃ©dainak lekÃ©rdezÃ©se. */
+	/** A jégtábla szomszédainak lekérdezése. */
 	public ArrayList<Jegtabla> getSzomszedok(){
 		return szomszedok;
 	}
 	
 	/**
-	 * Amikor hÃ³vihar Ã©ri a jÃ©gtÃ¡blÃ¡t, megvizsgÃ¡lja ha van rajta epitmÃ©ny. 
-	 * Amennyiben nincs, minden rajta Ã¡llÃ³ karakter sebzÃµdik; minden karakterre meghivja a sebzodik fÃ¼ggvÃ©nyÃ©t.
-	 * A  jÃ©gtÃ¡bla ho_mennyiseg Ã©rtÃ©ke egy egysÃ©ggel nÃ¶vekszik.*/
+	 * Amikor hóvihar éri a jégtáblát, megvizsgálja ha van rajta epitmény. 
+	 * Amennyiben nincs, minden rajta álló karakter sebzõdik; minden karakterre meghivja a sebzodik függvényét.
+	 * A  jégtábla ho_mennyiseg értéke egy egységgel növekszik.*/
 	public void hovihar_volt() {
 		
 		if(E == null) 
@@ -79,63 +76,59 @@ public class Jegtabla implements Serializable {
 		ho_mennyiseg++;
 	}
 	
-	/**
-	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ figurÃ¡k szÃ¡mÃ¡nak lekÃ©rdezÃ©se. */
+	/** A jégtáblán található figurák számának lekérdezése. */
 	public int getFigurak_szama() {
 		return  figurak.size();
 	}
-	
 	/**
-	 * A jÃ©gtÃ¡blÃ¡ra lÃ©pett figura nyilvÃ¡ntartÃ¡sa kerÃ¼l.
-	 * A figura jÃ©gtÃ¡blÃ¡jÃ¡t is beÃ¡llitja az aktuÃ¡lisra. */
+	 * A jégtáblára lépett figura nyilvántartása kerül.
+	 * A figura jégtábláját is beállitja az aktuálisra. */
 	public void ralepnek(Figura f) {
 		figurak.add(f);
 		f.setJegtabla(this);
 	}
 	
 	/**
-	 * Egy karakter jÃ©gtÃ¡bla takaritÃ¡si munkÃ¡ja: a paramÃ©tertkÃ©nt kapott intensity Ã©rtÃ©kkel csÃ¶kken a jÃ©gtÃ¡bla hÃ³mennyisÃ©ge.
-	 * Az intensity Ã©rtÃ©ke 1 vagy 2, attÃ³l fÃ¼gg, hogy a karakter tÃ¡rgy nÃ©lkÃ¼l vagy lapÃ¡ttal/Ã¡sÃ³val vÃ©gzi a takarjtÃ¡sat.
-	 * Ha mÃ¡r nincs hÃ³, de mÃ©g be van fagyva a jÃ©gtÃ¡bla, ezt a jÃ©grÃ©teget is el lehet tÃ¡volitani
-	 * Ha mÃ¡r sem hÃ³, sem jÃ©grÃ©teg nincs a jÃ©gtÃ¡blÃ¡n, akkor nem tÃ¶rtÃ©nik semmi vÃ¡ltozÃ¡s a jÃ©gtÃ¡blÃ¡n */
+	 * Egy karakter jégtábla takaritási munkája: a paramétertként kapott intensity értékkel csökken a jégtábla hómennyisége.
+	 * Az intensity értéke 1 vagy 2, attól függ, hogy a karakter tárgy nélkül vagy lapáttal/ásóval végzi a takarjtásat.
+	 * Ha már nincs hó, de még be van fagyva a jégtábla, ezt a jégréteget is el lehet távolitani
+	 * Ha már sem hó, sem jégréteg nincs a jégtáblán, akkor nem történik semmi változás a jégtáblán */
 	public void takaritas_volt(int intensity) {
 		if(ho_mennyiseg == 0) befagyva = false;
 		if(ho_mennyiseg - intensity >= 0) ho_mennyiseg -= intensity;
 	}
 	
-	/**
-	 * A jÃ©gtÃ¡bla kapacitÃ¡sÃ¡nak lekÃ©rdezÃ©se. */
+	/** A jégtábla kapacitásának lekérdezése. */
 	public int getKapacitas() {
 		return kapacitas;
 	}
+	/** A jégtábla kapacitásának beállítása. */
+	public void setKapacitas(int kapacitas) {
+		this.kapacitas = kapacitas;
+	}
 	
-	/**
-	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ tÃ¡rgy lekÃ©rdezÃ©se. */
+	/** A jégtáblán található tárgy lekérdezése. */
 	public Targy getTargy() {
 		return T;
 	}
 	
-	/**
-	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny lekÃ©rdezÃ©se. */
+	/** A jégtáblán található épitmény lekérdezése. */
 	public Epitmeny getEpitmeny() {
 		return E;
 	}
 	
-	/**
-	 * A paramÃ©terkÃ©nt megkapott tÃ¡rgy beÃ¡llitÃ¡sa. */
+	/** A paraméterként megkapott tárgy beállitása. */
 	public void setTargy(Targy t) {
 		this.T = t;
 	}
-	
-	/**
-	 * A jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ hÃ³mennyisÃ©g lekÃ©rdezÃ©se. */
+	/** A jégtáblán található hómennyiség lekérdezése. */
 	public int getHoMennyiseg() {
 		return ho_mennyiseg;
 	}
 	
 	/**
-	 * MeghatÃ¡rozza, ha a paramÃ©terkÃ©nt kapott jÃ©gtÃ¡bla szomszÃ©dos-e a jelengivel.
-	 * A jelenlegi szomszÃ©djainak nyilvÃ¡ntartÃ¡sÃ¡ban vÃ©gighalad Ã©s megvizsgÃ¡lja, ha az egyes elemek egyenlÅ‘ek-e a paramÃ©terkÃ©nt kapottal */
+	 * Meghatározza, ha a paraméterként kapott jégtábla szomszédos-e a jelengivel.
+	 * A jelenlegi szomszédjainak nyilvántartásában végighalad és megvizsgálja, ha az egyes elemek egyenlõek-e a paraméterként kapottal */
 	public boolean szomszed_e(Jegtabla j) {
 		
 		for(int i = 0; i < szomszedok.size(); ++i) {
@@ -144,17 +137,15 @@ public class Jegtabla implements Serializable {
 		 return false;
 	}
 	
-	/**
-	 *Amikor egy figura rÃ¡lÃ©p egy szomszÃ©dos jÃ©gtÃ¡blÃ¡ra, a jelenlegirÃµl lelÃ©p, ilyenkor tÃ¶rlÃµdik ennek nyilvÃ¡ntartÃ¡sÃ¡bÃ³l*/
+	/** Amikor egy figura rálép egy szomszédos jégtáblára, a jelenlegirõl lelép, ilyenkor törlõdik ennek nyilvántartásából*/
 	public void lelepnek(Figura f) {
 		figurak.remove(f);
 	}
-	
 	/**
-	 *A paramÃ©terkÃ©nt kapott karakter elveszi a jÃ©gtÃ¡blÃ¡rÃ³l a paramÃ©terkÃ©nt megadott tÃ¡rgyat.
-	 *Ekkor a karakter targy_hozzaadasa fÃ¼ggvÃ©nyÃ©nek meghivÃ¡sÃ¡val a tÃ¡rgy a karakter tulajdonÃ¡ba kerÃ¼l.
-	 *Ugyanakkor a jÃ©gtÃ¡bla tÃ¡rgy adattagja null Ã©rtÃ©kÃ» lesz.
-	 *Ha a felvÃ©tel sikeres volt, a metÃ³dus igaz Ã©rtÃ©kkel tÃ©r vissza, kÃ¼lÃ¶nben hamissal.*/
+	 *A paraméterként kapott karakter elveszi a jégtábláról a paraméterként megadott tárgyat.
+	 *Ekkor a karakter targy_hozzaadasa függvényének meghivásával a tárgy a karakter tulajdonába kerül.
+	 *Ugyanakkor a jégtábla tárgy adattagja null értékû lesz.
+	 *Ha a felvétel sikeres volt, a metódus igaz értékkel tér vissza, különben hamissal.*/
 	public boolean elvesz(Karakter k, Targy t) {
 		
 		if(!befagyva && ho_mennyiseg == 0) {
@@ -166,36 +157,35 @@ public class Jegtabla implements Serializable {
 			return false;
 		}
 	}
-	
 	/**
-	 *Amikor egy vizbe esett karaktert sikeresen kiment egy tÃ¡rsa, a jelenlegi jÃ©gtÃ¡bÃ¡rÃ³l (luk vagy Ã¡tfordult instabil jÃ©gtÃ¡bla) lelÃ©p Ã©s rÃ¡lÃ©p arra a szomszÃ©dos 
-	 *jÃ©gtÃ¡blÃ¡ra, amelyen a megmentÃµje is Ã¡ll. */
+	 *Amikor egy vizbe esett karaktert sikeresen kiment egy társa, a jelenlegi jégtábáról (luk vagy átfordult instabil jégtábla) lelép és rálép arra a szomszédos 
+	 *jégtáblára, amelyen a megmentõje is áll. */
 	public void kiment(Karakter kit, Jegtabla j) {
 		this.lelepnek(kit);
 		j.ralepnek(kit);
 	}
 
-	/** a jÃ©gtÃ¡blÃ¡t befagyottra Ã¡llitja*/
+	/** A jégtáblát befagyottra állitja. */
 	public void setBefagyva(boolean be) {
 		befagyva=be;
 	}
 	
-	/** a jÃ©gtÃ¡bla befagyott igazsÃ¡gÃ©rtÃ©kÃ©t kÃ©rdezi le*/
+	/** A jégtábla befagyott igazságértékét kérdezi le. */	
 	public boolean get_befagyva() {
 		return befagyva;
 	}
 	
-	/** a jÃ©gtÃ¡bla medveitt igazsÃ¡gÃ©rtÃ©kÃ©t kÃ©rdezi le*/
+	/** A jégtábla medveitt igazságértékét kérdezi le. */
 	public boolean get_medveitt(){
 		return medveitt;
 	}
 	
-	/** a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny Ã©rtÃ©ke null lesz*/
+	/** A jégtáblán található épitmény értéke null lesz. */
 	public void epitmenyTorles() {
 		E = null;
 	}
 	
-	/** a jÃ©gtÃ¡blÃ¡n talÃ¡lhatÃ³ Ã©pitmÃ©ny Ã©rtÃ©ke a paramÃ©terkÃ©nt kapott Ã©pitmÃ©ny lesz.*/
+	/** A jégtáblán található épitmény értéke a paraméterként kapott épitmény lesz. */	
 	public void epitmenyKeszul(Epitmeny e) {
 		E = e; //
 	}
