@@ -399,15 +399,11 @@ public class Commands {
     }
 
     protected static void jatekosKorVege(String[] cmd) {
-    	/*if(jt.getPlayer(cmd[1]) != null)
-    		jt.getPlayer(cmd[1]).kor_vegzes();
-
-    	 */
         jt.getPlayers().get(jt.act_index).getKarakter().munkak_szama=0;
     }
 
     protected static void startGame() {
-    	System.out.println("Az elsõ játékos neve: " + jt.getFirstPlayer().getName());
+        doublePrint("Az elsõ játékos neve: " + jt.getFirstPlayer().getName());
     	initGame();
     }
 
@@ -423,7 +419,7 @@ public class Commands {
         jt.game_over=jt.check_game_over();
         if(jt.game_over) {
             inGame=false;
-            System.out.println("Játék vége");
+            doublePrint("Játék vége");
         }
         if(!jt.game_over) {
             Player current = jt.getPlayers().get(jt.act_index);
@@ -434,7 +430,7 @@ public class Commands {
                 } else jt.act_index++;
                 jt.next_player(jt.getPlayers().get(jt.act_index));
             }
-            System.out.println(jt.kor + ". kör, játékos: " + jt.getPlayers().get(jt.act_index).getName());
+            doublePrint(jt.kor + ". kör, játékos: " + jt.getPlayers().get(jt.act_index).getName());
         }
     }
 
