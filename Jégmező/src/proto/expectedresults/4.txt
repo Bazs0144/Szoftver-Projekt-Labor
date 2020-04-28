@@ -1,5 +1,7 @@
 generateMap sikeresen lefutott
-addJegtabla sikeresen lefutott
+changeJegtabla sikeresen lefutott
+changeJegtabla sikeresen lefutott
+addJegtablaSzomszed sikeresen lefutott
 addPlayer sikeresen lefutott
 A vizsgalt jegtabla kapacitasa: 0
 Maradt munkainak szama: 3
