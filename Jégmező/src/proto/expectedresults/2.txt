@@ -1,6 +1,5 @@
-GenerateMap sikeresen lefutott
-addPlayer
-sikeresen lefutott
+generateMap sikeresen lefutott
+addPlayer sikeresen lefutott
+A vizsgált jégtábla kapacitása: 0
 kutatoVizsgal sikeresen lefutott
-Vizsgálat eredménye: stabil jégtábla, végtelen kapacitás
 p1 munkák száma: 3
