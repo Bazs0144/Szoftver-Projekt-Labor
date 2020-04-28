@@ -108,8 +108,9 @@ public class Commands {
 
 
     protected static void saveTest(String[] cmd) throws IOException {
-        FileWriter fw = new FileWriter(cmd[1] + ".txt");
+        FileWriter fw = new FileWriter(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
         PrintWriter pw = new PrintWriter(fw);
+        pw.println("90kjk12");
         for(String command: commandBuffer){
             pw.println(command);
         }
@@ -519,6 +520,10 @@ public class Commands {
     static void calculateTestResult() throws IOException {
         File f = new File(".\\src\\proto\\expectedresults\\" + actTest + ".txt");
         File f2 = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
+        if(!f.exists()){
+            System.out.println("Nincsen teszt irva ehhet a tesztesethez");
+            return;
+        }
         FileReader r2 = new FileReader(f2);
         FileReader r = new FileReader(f);
         BufferedReader br = new BufferedReader(r);
