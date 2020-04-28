@@ -2,7 +2,6 @@ generateMap sikeresen lefutott
 addJegtabla sikeresen lefutott
 setInstabilKap sikeresen lefutott
 addPlayer sikeresen lefutott
-A vizsgÃ¡lt jÃ©gtÃ¡bla kapacitÃ¡sa: 2
-Maradt munkÃ¡inak szÃ¡ma: 3
+A vizsgált jégtábla kapacitása: 2
+Maradt munkáinak száma: 3
 kutatoVizsgal sikeresen lefutott
-

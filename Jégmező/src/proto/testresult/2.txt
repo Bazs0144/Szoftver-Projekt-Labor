@@ -1,0 +1,5 @@
+generateMap sikeresen lefutott
+addPlayer sikeresen lefutott
+A vizsgált jégtábla kapacitása: 100
+Maradt munkáinak száma: 3
+kutatoVizsgal sikeresen lefutott
