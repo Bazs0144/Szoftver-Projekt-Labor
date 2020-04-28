@@ -34,6 +34,9 @@ public class Karakter extends Figura implements Serializable {
         return munkak_szama;
     }
 
+    public void set_munkak_szama(int msz) {
+    	munkak_szama = msz;
+    }
     /**
      * A Karakter takarít azon a jégtáblán amin áll, meghívja a jégtáblán a takaritas_volt függvényt
      * @param intensity : ez adja meg hogy mennyi hómennyiséget távolít el a jégtábláról
