@@ -35,6 +35,9 @@ public class Alkatresz extends Targy implements Serializable {
 				break;
 			}
 		}
-		if(siker) jt.game_over();
+		if(siker) {
+			for(Player pl: jt.getPlayers())
+			pl.getKarakter().setHo(0);
+		}
 	}
 }

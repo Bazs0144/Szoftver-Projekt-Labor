@@ -6,4 +6,5 @@ addPlayer p3 0 0 eszkimo
 targyHozzaadasa p1 alkatresz
 targyHozzaadasa p2 alkatresz
 targyHozzaadasa p3 alkatresz
+startGame
 targyatHasznal p1 0 0 0

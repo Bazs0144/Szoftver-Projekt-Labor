@@ -5,6 +5,9 @@ addPlayer sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
-p1 munkák száma: 4
+Az elso jatekos neve: p1
+1. kor, jatekos: p1
+startGame sikeresen lefutott
+p1 munkak szama: 3
 targyatHasznal sikeresen lefutott
-Játék vége
+Jatek vege
