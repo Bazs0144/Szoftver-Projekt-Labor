@@ -197,12 +197,24 @@ public class Jegtabla implements Serializable {
 		E = e; //
 	}
 
+	/**
+	 * Hoozad egy jatekos karakteret a jegtablan allokhoz
+	 * @param p ezt a jatekost adja hozza
+	 */
 	public void addPlayer(Player p) {
 		figurak.add(p.getKarakter());
 	}
 
+	/**
+	 * hozzaad egy figurat a jegtablan allokhoz
+	 * @param f ezt a figurat adja hozza
+	 */
 	public void addFigura(Figura f) { figurak.add(f);}
 
+	/**
+	 * Beallitja a ho mennyiseget a jegtablan
+	 * @param size erre a szamra allitja
+	 */
 	public void setHo(int size) {
 		ho_mennyiseg = size;
 	}

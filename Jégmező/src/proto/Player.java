@@ -3,8 +3,12 @@ package proto;
 import java.io.Serializable;
 
 public class Player implements Serializable {
+    /**
+     * name - a jatekos neve
+     * k - a jatekos karaktere
+     * aktiv - eppen a jatekos kore van-e a jatekban
+     */
     private String name;
-    private int id;
     private Karakter k;
     boolean aktiv;
 
@@ -44,6 +48,9 @@ public class Player implements Serializable {
         aktiv=false;
     }
 
+    /**
+     * @return Visszaadja a jatekos nevet
+     */
     public String getName(){
         return name;
     }

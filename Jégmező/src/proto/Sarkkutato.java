@@ -4,15 +4,17 @@ import java.io.Serializable;
 
 public class Sarkkutato extends Karakter implements Serializable {
 	/**
-	 * A sarkkutat� k�pess�ge, amellyel meg lehet tudni egy szomsz�dos mez�r�l, hogy h�ny embert b�r el.
-	 * @param j: A j�gt�bla, amelynek szeretn�nk megtudni a kapacit�s�t.
-	 * @return kap: A j�gt�bla kapacit�sa, ha -1-el t�r vissza, akkor nem szomsz�dos mez�t pr�b�lt megvizsg�lni a karakter.
+	 * A Sarkkutato konstruktora, a homerseklete alapbol 4
 	 */
 	public Sarkkutato() {
 		Name = "Sarkkutato";
 		ho = 4;
 	}
-
+	/**
+	 * A sarkkutato kepess�ee, amellyel meg lehet tudni egy szomszedos mezorol, hogy hany embert bir el.
+	 * @param j: A jegtabla, amelynek szeretnenk megtudni a kapacitasat.
+	 * @return kap: A jegtabla kapacitasa, ha -1-el ter vissza, akkor nem szomszedos mezot probalt megvizsgalni a karakter.
+	 */
 	public int megnez(Jegtabla j) {
 		int kap;
 		if(this.jegtabla.szomszed_e(j)) {

@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 
 public class Jegmezo implements Serializable {
+    /**
+     * A Jegmezoben levo jegtablak listaja
+     */
     private ArrayList<Jegtabla> JegT;
 
 
@@ -35,14 +38,26 @@ public class Jegmezo implements Serializable {
             }
     }
 
+    /**
+     * Hooózzad egy jegtablat a listahoz
+     * @param jeg ezt adja hozza
+     */
     public void addJegtabla(Jegtabla jeg) {
         JegT.add(jeg);
     }
 
+    /**
+     * Visszaadja a jegtablak listajat
+     */
     public ArrayList<Jegtabla> getJegtablak() {
         return JegT;
     }
 
+    /**
+     *Visszaadja a a jegtablat ami az adott x, y koordinataval rendelkezik
+     * @param x az adott x koordinata
+     * @param y az adott y koordinata
+     */
     public Jegtabla getJegtabla(int x, int y) {
     	for(int i = 0; i<JegT.size(); i++) {
     		if(JegT.get(i).getPoz().getX() == x && JegT.get(i).getPoz().getY() == y)
@@ -51,11 +66,21 @@ public class Jegmezo implements Serializable {
         return null;
     }
 
+    /**
+     * Egymas szomszedaihoz hozzaad ket jegtablat
+     * @param egy az egyik jegtabla
+     * @param ketto a masik jegtabla
+     */
     public void szomszedokkaTesz(Jegtabla egy, Jegtabla ketto) {
         egy.addSzomszed(ketto);
         ketto.addSzomszed(egy);
     }
 
+    /**
+     * Hozzaad egy targyat az adott pozicioju jegtablahoz
+     * @param p a jegtabla pozicioja
+     * @param t a targy
+     */
     public void addTargy(Poz p, Targy t) {
         for(Jegtabla jt: JegT) {
             if(jt.getPoz().equals(p)) jt.setTargy(t);

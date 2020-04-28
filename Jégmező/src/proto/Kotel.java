@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Az k�t�l implement�l�s��rt felel�s oszt�ly a Kotel, a Targy lesz�rmazottja.
+ * Az kotel implementalasaert felelos osztaly a Kotel, a Targy leszarmazottja.
  *
  */
 public class Kotel extends Targy implements Serializable {
 
 	/**
-	 * A Kotel oszt�ly konstruktora.
+	 * A Kotel osztaly konstruktora.
 	 */
 	public Kotel() {
 		Name = "Kotel";
@@ -18,10 +18,9 @@ public class Kotel extends Targy implements Serializable {
 	
 	
 	/**
-	 * A param�terk�nt kapott karakter haszn�lja a t�rgyat a param�terk�nt kapott j�gt�bl�n, kimentve az �sszes karaktert a j�gt�bla szomsz�ds�g�ban.
-	 * Csak akkor haszn�lhat� a k�t�l, ha a menekit� karakter nincs vizben.
+	 * A parameterkent kapott karakter hasznalja a targyat a parameterkent kapott jegtablan, kimentve az osszes karaktert a jegtabla szomszedsagaban.
+	 * Csak akkor hasznalhato a kotel, ha a menekito karakter nincs vizben.
 	 */
-
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		 if(karakter.vizben_van) return;

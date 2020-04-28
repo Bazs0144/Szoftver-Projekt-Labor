@@ -3,23 +3,23 @@ package proto;
 import java.io.Serializable;
 
 /**
- * A b�v�rruha implement�l�s��rt felel�s oszt�ly az Buvarruha, a Targy lesz�rmazottja.
+ * A buvarruha implementalasaert felelos osztaly az Buvarruha, a Targy leszarmazottja.
  *
  */
 
 public class Buvarruha extends Targy implements Serializable {
 	
 	/**
-	 * A Buvarruha oszt�ly konstruktora.
+	 * A Buvarruha osztaly konstruktora.
 	 */
 	public Buvarruha() {
 		Name = "Buvarruha";
 	}
 
 	/**
-	 * A param�terk�nt kapott karakter haszn�lja a t�rgyat a param�terk�nt kapott j�gt�bl�n.
-	 * Ha a karakter b�v�rruh�t haszn�l, nem �ri viz, a vizben van attrib�tuma hamisra lesz �llitva.
-	 * Az egyetlen t�rgy amit vizbe esett karakter tud haszn�lni.
+	 * A parameterkent kapott karakter hasznalja a targyat a parameterkent kapott jegtablan.
+	 * Ha a karakter buvarruhat hasznal, nem eri viz, a vizben van attributuma hamisra lesz allitva.
+	 * Az egyetlen targy amit vizbe esett karakter tud hasznalni.
 	 */
 	
 	@Override

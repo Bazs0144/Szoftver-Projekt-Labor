@@ -3,42 +3,34 @@ package proto;
 import java.io.Serializable;
 
 /**
- * Az t�rgy implement�l�s��rt felel�s oszt�ly a Targy.
+ * Az targy implementalasaert felelos osztaly a Targy.
  *
  */
 
 public class Targy implements Serializable {
 	/**
-	 * String n�v: a t�rgy nev�t t�rolja
-	 * Karalter k: a karakter akinek a tulajdon�ban tal�lhat� a t�rgy. Amig be van fagyva a j�gt�bl�ba, az �rt�ke null.
+	 * String nev: a targy nevet tarolja
+	 * Karalter k: a karakter akinek a tulajdonaban talalhato a targy. Amig be van fagyva a jegtablaba, az erteke null.
 	 */
-	
 	private String nev;
 	private Karakter k;
 	public String Name = "Targy";
 	
 	/**
-	 * A Targy oszt�ly konstruktora.
+	 * A parameterkent kapott karakter hasznalja a targyat a parameterkent kapott jegtablan. Minden leszarmazott osztaly felulirja.
 	 */
-	public Targy() {
-	}
-	
-	/**
-	 * A param�terk�nt kapott karakter haszn�lja a t�rgyat a param�terk�nt kapott j�gt�bl�n. Minden lesz�rmazott oszt�ly fel�lirja.
-	 */
-	
     public void hasznaljak(Karakter karakter, Jegtabla hol) throws Exception{
     }
 
     /**
-     *A param�terk�nt karakterhez �ll�tja be, hogy n�la van a t�rgy
+     *A parameterkent karakterhez allitja be, hogy nala van a targy
      */
     public void setKarakter(Karakter k) {
         this.k=k;
     }
 
     /**
-     *Visszadja melyik karaktern�l van a t�rgy
+     *Visszadja melyik karakternel van a targy
      */
     public Karakter getKarakter() {
         return k;

@@ -9,9 +9,7 @@ public class Karakter extends Figura implements Serializable {
     /**
      * A Karakter osztály adattagjai:
      * - int ho : A Karakter hőmérséklete
-     * - int munkak_szama : hány munkája van még vissza a körben
-     * - boolean vizben_van : ha igaz vízben van, ha nem akkor nem
-     * - Jegtabla jegtabla : ezen a Jégtáblán áll a Karakter
+     * - int vizbeKerultKor : a kör amikor a karakter beleesett a vizbe
      * - ArrayList<Targy> zseb : azoknak a tárgyaknak a listája amik a karakternél vannak
      */
     int ho;
@@ -27,14 +25,24 @@ public class Karakter extends Figura implements Serializable {
         Name = "Karakter";
     }
 
+    /**
+     * @return visszadja a karakternél levo targyakat
+     */
     public ArrayList<Targy> getTargyak() {
         return zseb;
     }
-    
+
+    /**
+     * @return Visszadja hany munkaja van a karakternek
+     */
     public int get_munkakszama() {
         return munkak_szama;
     }
 
+    /**
+     * Beallitja hany munkaja van a karakternek
+     * @param msz erre allitja be
+     */
     public void set_munkak_szama(int msz) {
     	munkak_szama = msz;
     }
@@ -185,11 +193,4 @@ public class Karakter extends Figura implements Serializable {
         this.ho=ho;
     }
 
-    public Jegtabla getJegtabla() {
-        return jegtabla;
-    }
-
-    public void setJegtabla(Jegtabla jt) {
-        jegtabla = jt;
-    }
 }

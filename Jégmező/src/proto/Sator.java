@@ -19,7 +19,11 @@ public class Sator extends Targy implements Epitmeny, Serializable {
 	private boolean all;
 	private int hasznalhato;
 	private int hasznalatban;
-	
+
+	/**
+	 * A Sator konstruktora
+	 * @param kor megadja hany korig hasznalhato
+	 */
 	public Sator(int kor) {
 		all = false;
 		Name = "Sator";

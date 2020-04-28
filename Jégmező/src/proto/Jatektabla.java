@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Jatektabla implements Serializable {
+    /**
+     * kor - ennél a körnél tart a jatek
+     * j - a jegmezo a jatektablan
+     * p - a jatekosok listaja
+     * a - az alkatreszek listaja
+     * jm - a jegesmedve ami a jegmezon van
+     * game_over - ha igaz vege a jateknak, ha nem, folyamatban van
+     * int act_index - a jatekoso kozul ennel az indexu jatekosnal tart a kör
+     */
     int kor;
     private Jegmezo j;
     private ArrayList<Player> p;
@@ -26,14 +35,25 @@ public class Jatektabla implements Serializable {
         a = new ArrayList<>(); //Ez csak egyszerûsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
     }
 
+    /**
+     * @return Visszadja a a jatekosok listaja
+     */
     public ArrayList<Player> getPlayers() {
         return p;
     }
 
+    /**
+     * visszadja a jatektabla jegesmedvejet
+     * @return
+     */
     public Jegesmedve getJegesmedve(){
         return jm;
     }
-    
+
+    /**
+     * beallitja a jegesmedvet
+     * @param jgm erre allitja be
+     */
     public void setJegesmedve(Jegesmedve jgm){
         jm = jgm;
     }
@@ -92,23 +112,41 @@ public class Jatektabla implements Serializable {
         game_over();
     }
 
+    /**
+     * @return Visszadja a jegmezot
+     */
     public Jegmezo getJegMezo() {
         return  j;
     }
 
+    /**
+     * Beallitja a jegmezot
+     * @param JM erre allitja be
+     */
     public void setJegMezo(Jegmezo JM) {
         j = JM;
     }
 
+    /**
+     * hozzadegy alkatresz az alkatresz listahoz
+     * @param a ezt adja hozza
+     */
     public void addAlkatresz(Alkatresz a) {
         this.a.add(a);
     }
 
+    /**
+     * Hoozad egy jatekost a jatekosok listajahoz
+     * @param pl ezt adja hozza
+     */
     public void addPlayer(Player pl) {
         p.add(pl);
     }
 
-    public  Player getPlayer(String Name){
+    /**
+     * Visszadja a parameterkent kapott nevu jatekost
+     */
+    public Player getPlayer(String Name){
         for (Player pl: p) {
             if(pl.getName().compareTo(Name) == 0) return pl;
         }

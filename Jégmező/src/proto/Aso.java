@@ -3,7 +3,7 @@ package proto;
 import java.io.Serializable;
 
 /**
- * Az �s� implement�l�s��rt felel�s oszt�ly az Aso, a Targy lesz�rmazottja.
+ * Az Aso implementalasaert felelos osztaly az Aso, a Targy leszarmazottja.
  *
  */
 
@@ -11,18 +11,18 @@ public class Aso extends Targy implements Serializable {
 	
 	private int tartossag;
 	/**
-	 * Az Aso oszt�ly konstruktora.
+	 * Az Aso osztaly konstruktora.
 	 */
 	public Aso() {
 		Name = "Aso";
 		tartossag = 3;
 	}
 	/**
-	 * A param�terk�nt kapott karakter haszn�lja az �s�t, hogy 2-t takar�tson a j�gt�bl�r�l.
-	 * Ha a karakter vizben van, nem tudja haszn�lni az �s�t.
-	 * Ha m�r h�romszor haszn�lta, akkor az �s� haszn�lhatatlan, ekkor nem megy v�gbe a takarit�s.
-	 * Ha m�g haszn�lhat� az �s�, a tartoss�gi �rt�ke kisebb mint h�rom, az �s�t haszn�l� karakter takaritani kezd.
-	 * Minden haszn�lat ut�n a tart�ss�g �rt�ke egyel n�vekszik.
+	 * A parameterkent kapott karakter hasznalja az asot, hogy 2-t takaritson a jegtablarol.
+	 * Ha a karakter vizben van, nem tudja hasznalni az asot.
+	 * Ha mar haromszor hasznalta, akkor az aso hasznalhatatlan, ekkor nem megy vegbe a takaritas.
+	 * Ha meg hasznalhato az aso, a tartossagi erteke kisebb mint harom, az asot hasznalo karakter takaritani kezd.
+	 * Minden hasznalat utan a tartossag erteke eggyel novekszik.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) throws Exception{
