@@ -1,9 +1,9 @@
 90kjk12
-GenerateMap 1 1 0
+generateMap 1 1 0
 addPlayer p1 0 0 eszkimo
 addPlayer p2 0 0 eszkimo
 addPlayer p3 0 0 eszkimo
-targyHozzadasa p1 raketa
-targyHozzadasa p2 raketa
-targyHozzadasa p3 raketa
+targyHozzaadasa p1 alkatresz
+targyHozzaadasa p2 alkatresz
+targyHozzaadasa p3 alkatresz
 targyatHasznal p1 0 0 0
