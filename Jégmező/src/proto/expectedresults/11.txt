@@ -1,8 +1,8 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
-Maradt munkáinak száma: 3
+Maradt munkainak szama: 3
 iglutEpit sikeresen lefutott
 addMedve sikeresen lefutott
-MedveLep sikeresen lefutott
+medveLep sikeresen lefutott
 Homennyiseg: 5
 printPlayersLife sikeresen lefutott
