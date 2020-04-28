@@ -1,14 +1,15 @@
 generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
-targyatHasznal nem sikerult
+jatekos1 munkak szama: 3
+targyatHasznal sikeresen lefutott
 egyHovihar sikeresen lefutott
 Pozicio: 2 3
 Tipus: Stabil
 Homennyiseg: 1
 Karakterek: Eszkimo 
 Targy: null
-Epitmeny: null
+Epitmeny: Sator
 listJegtablaAttrib sikeresen lefutott
-Homennyiseg: 4
+Homennyiseg: 5
 printPlayersLife sikeresen lefutott

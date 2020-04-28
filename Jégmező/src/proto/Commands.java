@@ -211,7 +211,7 @@ public class Commands {
         if(j.getKapacitas() == 0)  {
         	p.getKarakter().vizbe_esik();
         	doublePrintln("vizbeesett");
-        	doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+        	munkaVolt(p);
         	
         }
 
