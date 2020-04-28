@@ -252,7 +252,7 @@ public class Commands {
         	if(k.get_vizben_van())throw new Exception(); 
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
             doublePrintln("A vizsgalt jegtabla kapacitasa: " + kapacitas);
-            doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+            munkaVolt(jt.getPlayer(cmd[1]));
         }
         else throw new Exception(); 
     }
