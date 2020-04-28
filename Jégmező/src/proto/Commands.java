@@ -28,7 +28,7 @@ public class Commands {
         System.out.println("saveMap <filename>: Elmenti a jegmezo allapotat egy fajlba");
         System.out.println("generateMap <width><height><rand>: General egy jegmezot " +
                 "a megadott szelesseggel es magassaggal, " +
-                "és rand opciotol fuggoen hogy kitolti-e objektumokkal a jegmezot. ");
+                "Ã©s rand opciotol fuggoen hogy kitolti-e objektumokkal a jegmezot. ");
         System.out.println("changeJegtabla <pozX><pozY><Type>: Atalakitja az egyik mar letezo " +
                 "jegtablat masik tipussa az adott pozicioban.");
         System.out.println("addTargy <pozX><pozY><Type> Beallitja az adott pzicioban levo " +
@@ -45,8 +45,8 @@ public class Commands {
         System.out.println("egyHovihar <pozX><pozY>: Hovihart general az adott jegtablan.");
         System.out.println("hoviharRand: Hovihart general veletlenszeruen kivalasztott jegtablakon.");
         System.out.println("listKarakterTargyak <name>: Kilistazza a karakternel levo targyakat.");
-        System.out.println("listJegtablaAttrib <pozX><pozY>: Kiírja a jegtabla attributumait.");
-        System.out.println("listJegmezo: kiirja mindegyik jégtablan mely " +
+        System.out.println("listJegtablaAttrib <pozX><pozY>: KiÃ­rja a jegtabla attributumait.");
+        System.out.println("listJegmezo: kiirja mindegyik jÃ©gtablan mely " +
                 "karakterek allnak, mennyi rajtuk a homennyiseg," +
                 " es a rajtuk levo targy micsoda.");
         System.out.println("printPlayersLife <name>: Kiirja az adott jatekos eletet.");
@@ -62,7 +62,7 @@ public class Commands {
     }
 
 
-    protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jó
+    protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jÃ³
         if (cmd.length > 1) {
             File f = new File(cmd[1] + ".dat");
             if (!f.exists())
@@ -239,7 +239,7 @@ public class Commands {
         if(k.Name.compareTo("Sarkkutato") == 0) {
         	if(k.get_vizben_van())throw new Exception(); 
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
-            doublePrintln("A vizsgált jégtábla kapacitása: " + kapacitas);
+            doublePrintln("A vizsgalt jegtabla kapacitasa: " + kapacitas);
             doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
         }
         else throw new Exception(); 
@@ -353,13 +353,13 @@ public class Commands {
 
     }
 
-    protected static void digSnow(String[] cmd) { //Ez jó
+    protected static void digSnow(String[] cmd) { //Ez jÃ³
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         k.kias();
         munkaVolt(jt.getPlayer(cmd[1]));
     }
 
-    protected static void setSnow(String[] cmd) { //Ez jó
+    protected static void setSnow(String[] cmd) { //Ez jÃ³
         jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setHo(Integer.parseInt(cmd[3]));
     }
 
@@ -449,7 +449,7 @@ public class Commands {
         jt.game_over=jt.check_game_over();
         if(jt.game_over) {
             inGame=false;
-            doublePrintln("Játék vége");
+            doublePrintln("JÃ¡tÃ©k vÃ©ge");
         }
         if(!jt.game_over) {
             Player current = jt.getPlayers().get(jt.act_index);
