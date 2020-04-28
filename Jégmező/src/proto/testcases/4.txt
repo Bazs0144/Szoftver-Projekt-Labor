@@ -1,5 +1,7 @@
 90kjk12
 generateMap 5 5 0
-addJegtabla 2 3 luk
+changeJegtabla 2 2 stabil 
+changeJegtabla 2 3 luk 
+addJegtablaSzomszed 2 2 2 3
 addPlayer p1 2 2 sarkkutato
 kutatoVizsgal p1 2 3

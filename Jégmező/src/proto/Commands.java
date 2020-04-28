@@ -60,7 +60,8 @@ public class Commands {
         System.out.println("listJegtablaSzomszed<pozX1><pozY1><pozX2><pozY2>: Szomszedda teszi a ket jegtablat");
         System.out.println("setInstabilKap <pozX><pozY><size>: Beallitja a jegtabla kapacitasat.");
         System.out.println("JatekosKorVege <name>: Befejezi a jatekos koret.");
-        System.out.println("startGame: Elkezdi a jetekot.");
+        System.out.println("startGame: Elkezdi a jatekot.");
+        System.out.println("testAllCases: Az osszes dokumentumban levo tesztesetet teszteli.");
     }
 
 
@@ -142,7 +143,7 @@ public class Commands {
         jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
     }
 
-    protected static void changeJegtabla(String[] cmd) throws Exception{
+ protected static void changeJegtabla(String[] cmd) throws Exception{
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         if(j == null) throw new Exception();
         Poz poz=new Poz(Integer.parseInt(cmd[1]),Integer.parseInt(cmd[2]));
@@ -157,14 +158,20 @@ public class Commands {
         if(cmd[3].compareTo("luk") == 0 ) {
             Luk luk = new Luk(poz);
             jt.getJegMezo().addJegtabla(luk);
+            j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+            j.setKapacitas(0); 
         }
         else  if(cmd[3].compareTo("instabil") == 0 ) {
             Instabil in = new Instabil(poz);
             jt.getJegMezo().addJegtabla(in);
+            j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+            j.setKapacitas(2); 
         }
         else  if(cmd[3].compareTo("stabil") == 0 ) {
             Stabil st = new Stabil(poz);
             jt.getJegMezo().addJegtabla(st);
+            j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+            j.setKapacitas(1000); 
         }
         else throw new Exception();
         
@@ -201,7 +208,7 @@ public class Commands {
         jt.addPlayer(p);
         j.addPlayer(p);
         p.getKarakter().setJegtabla(j);
-        if(j.type.compareTo("luk") == 0) {
+        if(j.getKapacitas() == 0)  {
         	p.getKarakter().vizbe_esik();
         	doublePrintln("vizbeesett");
         	doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());

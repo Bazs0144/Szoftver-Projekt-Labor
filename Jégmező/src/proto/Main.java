@@ -24,6 +24,7 @@ public class Main extends Commands{
 			siker = true;
 			line = reader.readLine();
 			if(line == null && isTest) {
+				inGame = false;
 				isTest = false;
 				reader.close();
 				writer.close();
