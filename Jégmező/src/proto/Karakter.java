@@ -15,7 +15,7 @@ public class Karakter extends Figura implements Serializable {
      * - ArrayList<Targy> zseb : azoknak a tárgyaknak a listája amik a karakternél vannak
      */
     int ho;
-    int munkak_szama;
+    int munkak_szama=4;
     ArrayList<Targy> zseb;
 
     /**

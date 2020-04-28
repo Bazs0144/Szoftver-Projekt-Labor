@@ -209,6 +209,7 @@ public class Commands {
         Eszkimo k =(Eszkimo) jt.getPlayer(cmd[1]).getKarakter();
         if(k.Name.compareTo("Eszkimo") == 0) {
             k.iglut_epit();
+            munkaVolt(jt.getPlayer(cmd[1]));
         }
         else throw new Exception();
 
@@ -219,6 +220,7 @@ public class Commands {
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
             if(kapacitas < 0) throw new Exception();
             doublePrintln("A vizsgált jégtábla kapacitása: " + kapacitas);
+            munkaVolt(jt.getPlayer(cmd[1]));
         }
         else throw new Exception();
     }
@@ -232,6 +234,7 @@ public class Commands {
         Targy T = zseb.get(Integer.parseInt(cmd[4]));
         if(T == null) throw new Exception();
         T.hasznaljak(p.getKarakter(), j);
+        munkaVolt(p);
     }
 
     protected static void targyFelvetel(String[] cmd) throws Exception {//Szerintem jo
@@ -436,6 +439,10 @@ public class Commands {
             }
             doublePrintln(jt.kor + ". kör, játékos: " + jt.getPlayers().get(jt.act_index).getName());
         }
+    }
+
+    protected static void munkaVolt(Player p) {
+        doublePrintln(p.getName()+  " munkák száma: " + p.getKarakter().munkak_szama);
     }
 
     //----------------------------------------------
