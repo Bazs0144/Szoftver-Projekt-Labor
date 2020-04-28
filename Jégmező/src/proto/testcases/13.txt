@@ -1,6 +1,7 @@
 90kjk12
 generateMap 5 5 0
-changeJegtabla 2 3 luk
-addPlayer jatekos1 2 3 eszkimo
+changeJegtabla 0 1 luk
+addPlayer jatekos1 0 0 eszkimo
+playerLep jatekos1 1
 targyHozzaadasa jatekos1 sator
-targyatHasznal jatekos1 sator 2 3
+targyatHasznal jatekos1 2 3 0

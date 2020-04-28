@@ -62,9 +62,9 @@ public class Karakter extends Figura implements Serializable {
     @Override
     public boolean lep(Jegtabla jt) {
         if(jegtabla.szomszed_e(jt)) {
+        	munkak_szama--;
             jegtabla.lelepnek(this);
             jt.ralepnek(this);
-            munkak_szama--;
             return true;
         } else {
             return false; }

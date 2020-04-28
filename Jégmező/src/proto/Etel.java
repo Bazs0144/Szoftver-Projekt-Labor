@@ -25,5 +25,6 @@ public class Etel extends Targy implements Serializable {
 		if(karakter.vizben_van) return;
 		karakter.ho_nov();
         karakter.targy_elhasznalasa(this);
+        karakter.set_munkak_szama(karakter.get_munkakszama()-1);
 	}
 }

@@ -50,6 +50,12 @@ public class Jegtabla implements Serializable {
 		szomszedok.add(j);
 	}
 	
+	public void deleteSzomszed(Jegtabla j) {
+		for(int i = 0; i < szomszedok.size(); i++)
+			if(szomszedok.get(i).equals(j))
+				szomszedok.remove(i);
+	}
+	
 	/** A jégtáblán található figurák lekérdezése. */
 	public ArrayList<Figura> getFigurak(){
 		return figurak;

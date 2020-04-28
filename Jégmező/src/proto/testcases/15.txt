@@ -2,7 +2,7 @@
 generateMap 5 5 0
 addPlayer jatekos1 2 3 sarkkutato
 targyHozzaadasa jatekos1 sator
-targyatHasznal jatekos1 sator 2 3
+targyatHasznal jatekos1 2 3 0
 addMedve 2 2
-MedveLep right
+medveLep 1
 printPlayersLife jatekos1

@@ -49,7 +49,7 @@ public class Sator extends Targy implements Epitmeny, Serializable {
     /** A sátor felállitasa a paraméterként kapott jégtáblára, a paraméterként kapott karakter álltal.
      * Ha a karakter vizben van vagy a sátor már nem használható, a sátor felállitása nem valósitható meg.*/
     public void hasznaljak(Karakter k, Jegtabla j) {
-    	if(k.get_vizben_van()) return;
+    	if(k.get_vizben_van() || k.get_munkakszama() <= 0) return;
     	if(hasznalatban < hasznalhato) {
     	j.epitmenyKeszul(this);
     	all = true;

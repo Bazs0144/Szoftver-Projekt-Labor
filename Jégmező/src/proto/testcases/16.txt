@@ -3,6 +3,6 @@ generateMap 5 5 0
 addPlayer jatekos1 2 3 sarkkutato
 targyHozzaadasa jatekos1 etel
 printPlayersLife jatekos1
-targyatHasznal jatekos1 etel 2 3
+targyatHasznal jatekos1 2 3 0
 printPlayersLife jatekos1
 listKarTargy jatekos1

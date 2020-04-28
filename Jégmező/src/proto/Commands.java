@@ -147,6 +147,12 @@ public class Commands {
         if(j == null) throw new Exception();
         Poz poz=new Poz(Integer.parseInt(cmd[1]),Integer.parseInt(cmd[2]));
         ArrayList<Jegtabla> jegT = jt.getJegMezo().getJegtablak();
+        ArrayList<Jegtabla> szomszedok = j.getSzomszedok();
+        
+        for(int i = 0; i < jegT.size(); i++) {
+        	jegT.get(i).deleteSzomszed(j);
+        }
+        
         jegT.remove(jt.getJegMezo().getJegtabla(poz.x, poz.y));
         if(cmd[3].compareTo("luk") == 0 ) {
             Luk luk = new Luk(poz);
@@ -161,6 +167,9 @@ public class Commands {
             jt.getJegMezo().addJegtabla(st);
         }
         else throw new Exception();
+        
+        for(int i = 0; i < szomszedok.size(); i++)
+        	jt.getJegMezo().szomszedokkaTesz(szomszedok.get(i), jt.getJegMezo().getJegtabla(poz.x, poz.y));
     }
 
     protected static void addTargy(String[] cmd)throws Exception {
@@ -250,6 +259,7 @@ public class Commands {
         Targy T = zseb.get(Integer.parseInt(cmd[4]));
         if(T == null) throw new Exception();
         T.hasznaljak(p.getKarakter(), j);
+        if(p.getKarakter().get_vizben_van()) throw new Exception();
         munkaVolt(p);
     }
 

@@ -1,11 +1,10 @@
 generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
+Homennyiseg: 4
 printPlayersLife sikeresen lefutott
-Hőmennyiség 4
+jatekos1 munkak szama: 3
 targyatHasznal sikeresen lefutott
-jatekos1 munkák száma: 3
+Homennyiseg: 5
 printPlayersLife sikeresen lefutott
-Hőmennyiség 5
 listKarTargy sikeresen lefutott
-null
