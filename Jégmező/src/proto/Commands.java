@@ -241,7 +241,7 @@ public class Commands {
         if(k.get_vizben_van())throw new Exception(); 
         if(k.Name.compareTo("Eszkimo") == 0 && k.van_munkaja() && !k.jegtabla.get_befagyva() && k.jegtabla.getHoMennyiseg() == 0 && k.jegtabla.getEpitmeny()== null && k.jegtabla.getTargy() == null) {
             k.iglut_epit();
-            doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+            munkaVolt(jt.getPlayer(cmd[1]));
         }
         else throw new Exception(); 
 
@@ -462,7 +462,7 @@ public class Commands {
         jt.game_over=jt.check_game_over();
         if(jt.game_over) {
             inGame=false;
-            doublePrintln("Játék vége");
+            doublePrintln("Jatek vege");
         }
         if(!jt.game_over) {
             Player current = jt.getPlayers().get(jt.act_index);
