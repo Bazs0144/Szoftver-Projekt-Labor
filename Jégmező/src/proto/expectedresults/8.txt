@@ -1,4 +1,4 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 addTargy sikeresen lefutott
 addPlayer sikeresen lefutott
 iglutEpit nem sikerult
