@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Az kötél implementálásáért felelõs osztály a Kotel, a Targy leszármazottja.
+ * Az kï¿½tï¿½l implementï¿½lï¿½sï¿½ï¿½rt felelï¿½s osztï¿½ly a Kotel, a Targy leszï¿½rmazottja.
  *
  */
 public class Kotel extends Targy implements Serializable {
 
 	/**
-	 * A Kotel osztály konstruktora.
+	 * A Kotel osztï¿½ly konstruktora.
 	 */
 	public Kotel() {
 		Name = "Kotel";
@@ -18,8 +18,8 @@ public class Kotel extends Targy implements Serializable {
 	
 	
 	/**
-	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán, kimentve az összes karaktert a jégtábla szomszédságában.
-	 * Csak akkor használható a kötél, ha a menekitó karakter nincs vizben.
+	 * A paramï¿½terkï¿½nt kapott karakter hasznï¿½lja a tï¿½rgyat a paramï¿½terkï¿½nt kapott jï¿½gtï¿½blï¿½n, kimentve az ï¿½sszes karaktert a jï¿½gtï¿½bla szomszï¿½dsï¿½gï¿½ban.
+	 * Csak akkor hasznï¿½lhatï¿½ a kï¿½tï¿½l, ha a menekitï¿½ karakter nincs vizben.
 	 */
 
 	@Override

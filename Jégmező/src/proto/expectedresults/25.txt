@@ -1,30 +1,34 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
 setInstabilKap sikeresen lefutott
 addPlayer sikeresen lefutott
 addPlayer sikeresen lefutott
-0 0 jégtábla felborult.
-p1 vízbeesett
-p1 munkák száma: 0
-p2 vízbeesett
-p2 munkák száma: 0
+p1 munkak szama: 3
+playerLep sikeresen lefutott
+p1 vizbeesett
+p1 munkak szama: 0
+p2 vizbeesett
+p2 munkak szama: 0
+playerLep sikeresen lefutott
+Pozicio: 0 1
+Tipus: Instabil
+Homennyiseg: 0
+Karakterek: Eszkimo Sarkkutato 
+Targy: null
+Epitmeny: null
+Kapacitas: 1
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 0 0
-Hómennyiség: 0
-Karakterek: p1 p2
-Tárgy: null
-Építmény: null
+Jatekos: p1
+Karakter: Eszkimo
+Ho: 5
+Vizben: igen
+Munkak: 0
+Jegtabla: 0 1
 listKarAttrib sikeresen lefutott
-Játékos: p1
-Karakter: Eszkimó
-Hő: 5
-Vízben: igen
-Munkák: 0
-Jegtábla: 0 0
+Jatekos: p2
+Karakter: Sarkkutato
+Ho: 4
+Vizben: igen
+Munkak: 0
+Jegtabla: 0 1
 listKarAttrib sikeresen lefutott
-Játékos: p2
-Karakter: Sarkkutató
-Hő: 4
-Vízben: igen
-Munkák: 0
-Jegtábla: 0 0
