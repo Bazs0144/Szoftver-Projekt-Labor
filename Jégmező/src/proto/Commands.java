@@ -269,8 +269,8 @@ public class Commands {
         ArrayList<Targy> zseb = p.getKarakter().getTargyak();
         Targy T = zseb.get(Integer.parseInt(cmd[4]));
         if(T == null) throw new Exception();
-        T.hasznaljak(p.getKarakter(), j);
         if(p.getKarakter().get_vizben_van()) throw new Exception();
+        T.hasznaljak(p.getKarakter(), j);
         munkaVolt(p);
     }
 

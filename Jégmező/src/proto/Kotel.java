@@ -1,6 +1,7 @@
 package proto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Az kötél implementálásáért felelõs osztály a Kotel, a Targy leszármazottja.
@@ -24,11 +25,14 @@ public class Kotel extends Targy implements Serializable {
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		 if(karakter.vizben_van) return;
-
-		for(Jegtabla sz : hol.getSzomszedok())
-		for (Figura f : sz.getFigurak()) {
-			if(f.vizben_van)
-			karakter.menekit((Karakter)f);
+		try {
+			ArrayList<Figura> fig=hol.getFigurak();
+			//for(Jegtabla sz : hol.getSzomszedok())
+			for (Figura f : fig) {
+				if (f.vizben_van)
+					karakter.menekit((Karakter) f);
+			}
+		} catch(Exception e) {
 		}
 	}
 }
