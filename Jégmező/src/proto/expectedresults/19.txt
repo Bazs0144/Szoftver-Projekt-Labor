@@ -2,7 +2,7 @@ generateMap sikeresen lefutott
 setSnow sikeresen lefutott
 addPlayer sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
-jatekos1 munkak szama: 4
+jatekos1 munkak szama: 3
 targyatHasznal sikeresen lefutott
 Pozicio: 2 3
 Tipus: Stabil
