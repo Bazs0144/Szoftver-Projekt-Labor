@@ -1,6 +1,5 @@
 generateMap sikeresen lefutott
-addJegtabla sikeresen lefutott
 addPlayer sikeresen lefutott
-A vizsgalt jegtabla kapacitasa: 0
-Maradt munkainak szama: 3
+A vizsgált jégtábla kapacitása: 100
+Maradt munkáinak száma: 3
 kutatoVizsgal sikeresen lefutott

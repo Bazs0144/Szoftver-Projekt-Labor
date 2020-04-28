@@ -1,6 +1,6 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
-Maradt munkáinak száma: 3
+Maradt munkainak szama: 3
 iglutEpit sikeresen lefutott
 egyHovihar sikeresen lefutott
 Homennyiseg: 5

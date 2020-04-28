@@ -181,7 +181,7 @@ public class Commands {
 
     }
 
-  protected static void addPlayer(String[] cmd)throws Exception { 
+   protected static void addPlayer(String[] cmd)throws Exception { 
         Karakter k;
         if(cmd[4].compareTo("eszkimo") == 0) {k = new Eszkimo(); k.set_munkak_szama(4); }
         else if(cmd[4].compareTo("sarkkutato") == 0) { k = new Sarkkutato(); k.set_munkak_szama(4);}
@@ -192,6 +192,12 @@ public class Commands {
         jt.addPlayer(p);
         j.addPlayer(p);
         p.getKarakter().setJegtabla(j);
+        if(j.type.compareTo("luk") == 0) {
+        	p.getKarakter().vizbe_esik();
+        	doublePrintln("vizbeesett");
+        	doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+        	
+        }
 
     }
 
@@ -219,7 +225,7 @@ public class Commands {
         if(k.get_vizben_van())throw new Exception(); 
         if(k.Name.compareTo("Eszkimo") == 0 && k.van_munkaja() && !k.jegtabla.get_befagyva() && k.jegtabla.getHoMennyiseg() == 0 && k.jegtabla.getEpitmeny()== null && k.jegtabla.getTargy() == null) {
             k.iglut_epit();
-            doublePrintln("Maradt munkainak száma: " + k.get_munkakszama());
+            doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
         }
         else throw new Exception(); 
 
@@ -234,6 +240,7 @@ public class Commands {
         }
         else throw new Exception(); 
     }
+
     protected static void targyatHasznal(String[] cmd)throws Exception {
         Player p = jt.getPlayer(cmd[1]);
         if(p == null) throw new Exception();
@@ -454,7 +461,7 @@ public class Commands {
     }
 
     protected static void munkaVolt(Player p) {
-        doublePrintln(p.getName()+  " munkák száma: " + p.getKarakter().munkak_szama);
+        doublePrintln(p.getName()+  " munkak szama: " + p.getKarakter().munkak_szama);
     }
 
     protected static void testAllCases() throws IOException {
