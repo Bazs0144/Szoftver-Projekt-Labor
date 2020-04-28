@@ -222,7 +222,11 @@ public class Commands {
         ArrayList<Jegtabla> ja = p.getKarakter().getJegtabla().getSzomszedok();
         Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
         p.getKarakter().lep(j2);
-        if(j2.type.equals("Instabil")) {
+        if(j2.type.equals("Luk")) {
+            doublePrintln(p.getName() + " vizbeesett");
+            doublePrintln(p.getName() + " munkak szama: " + p.getKarakter().munkak_szama);
+        }
+        else if(j2.type.equals("Instabil")) {
             if(j2.getKapacitas()<j2.figurak.size()) {
                 p.getKarakter().munkak_szama=0;
                 for(Player pl: jt.getPlayers()) {

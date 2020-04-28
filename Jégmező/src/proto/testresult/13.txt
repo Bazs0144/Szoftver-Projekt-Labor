@@ -1,6 +1,7 @@
 generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
 addPlayer sikeresen lefutott
+jatekos1 vizbeesett
 jatekos1 munkak szama: 0
 playerLep sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
