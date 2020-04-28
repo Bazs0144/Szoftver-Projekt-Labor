@@ -49,6 +49,7 @@ public class Jatektabla implements Serializable {
      * Befejezi a játékot.
      */
     public void game_over() {
+        game_over=true;
     }
 
     /**

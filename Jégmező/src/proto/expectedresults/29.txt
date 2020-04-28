@@ -1,18 +1,17 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
-setSnow sikeresen lefutott
+Jatekos: p1
+Karakter: Eszkimo
+Ho: 5
+Vizben: nem
+Munkak: 4
+Jegtabla: 0 0
 listKarAttrib sikeresen lefutott
-Játékos: p1
-Karakter: Eszkimó
-Hő: 5
-Vízben: nem
-Munkák: 4
-Jégtábla: 0 0
 egyHovihar sikeresen lefutott
+Jatekos: p1
+Karakter: Eszkimo
+Ho: 4
+Vizben: nem
+Munkak: 4
+Jegtabla: 0 0
 listKarAttrib sikeresen lefutott
-Játékos: p1
-Karakter: Eszkimó
-Hő: 4
-Vízben: nem
-Munkák: 4
-Jégtábla: 0 0

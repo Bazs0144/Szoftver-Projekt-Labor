@@ -1,11 +1,10 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
 addPlayer sikeresen lefutott
 addPlayer sikeresen lefutott
-targyHozzadasa sikeresen lefutott
-targyHozzadasa sikeresen lefutott
-targyHozzadasa sikeresen lefutott
+targyHozzaadasa sikeresen lefutott
+targyHozzaadasa sikeresen lefutott
+targyHozzaadasa sikeresen lefutott
+p1 munkák száma: 4
 targyatHasznal sikeresen lefutott
-Rakáta összerakva
-p1 munkák száma: 3
 Játék vége

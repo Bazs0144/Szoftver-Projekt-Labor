@@ -1,15 +1,17 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 setSnow sikeresen lefutott
+Pozicio: 0 0
+Tipus: Stabil
+Homennyiseg: 3
+Karakterek: null
+Targy: null
+Epitmeny: null
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 0 0
-Hómennyiség: 3
-Karakterek:
-Tárgy: null
-Építmény: null
 egyHovihar sikeresen lefutott
+Pozicio: 0 0
+Tipus: Stabil
+Homennyiseg: 4
+Karakterek: null
+Targy: null
+Epitmeny: null
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 0 0
-Hómennyiség: 4
-Karakterek:
-Tárgy: null
-Építmény: null

@@ -1,5 +1,5 @@
 90kjk12
-GenerateMap 1 1 0
+generateMap 1 1 0
 changeJegtabla 0 0 instabil
 setInstabilKap 0 0 1
 addPlayer p1 0 0 eszkimo

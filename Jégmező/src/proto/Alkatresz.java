@@ -22,6 +22,7 @@ public class Alkatresz extends Targy implements Serializable {
 	 */
 	public void hasznaljak(Karakter k, Jegtabla hol) {
 		if(k.vizben_van) return;
+		k.munkak_szama--;
 		ArrayList<Alkatresz> alk = new ArrayList<>(jt.getAlkatresz());
 		ArrayList<Jegtabla> jegt=new ArrayList<>();
 		for(Alkatresz j : alk) {
