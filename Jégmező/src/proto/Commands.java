@@ -142,7 +142,7 @@ public class Commands {
         jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
     }
 
-    protected static void changeJegtabla(String[] cmd) throws Exception{
+ protected static void changeJegtabla(String[] cmd) throws Exception{
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         if(j == null) throw new Exception();
         Poz poz=new Poz(Integer.parseInt(cmd[1]),Integer.parseInt(cmd[2]));
@@ -151,14 +151,20 @@ public class Commands {
         if(cmd[3].compareTo("luk") == 0 ) {
             Luk luk = new Luk(poz);
             jt.getJegMezo().addJegtabla(luk);
+            j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+            j.setKapacitas(0); 
         }
         else  if(cmd[3].compareTo("instabil") == 0 ) {
             Instabil in = new Instabil(poz);
             jt.getJegMezo().addJegtabla(in);
+            j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+            j.setKapacitas(2); 
         }
         else  if(cmd[3].compareTo("stabil") == 0 ) {
             Stabil st = new Stabil(poz);
             jt.getJegMezo().addJegtabla(st);
+            j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+            j.setKapacitas(1000); 
         }
         else throw new Exception();
     }
