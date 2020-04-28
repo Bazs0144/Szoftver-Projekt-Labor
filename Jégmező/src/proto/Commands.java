@@ -4,9 +4,18 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-
+/**
+ * A prototipus tesztelésére használt parancsok osztálya.
+ * */
 public class Commands {
 
+	/**
+	 * jt : a játéktábla amelyen az éppen tesztelt játék fut. A további objektumok ehhez a jégtáblához tartoznak.
+	 * inGame: igaz értéket vesz fel, ha éppen el van inditva a játék.
+	 * allCases: ha igaz értéket vesz fel, akkor minden tesztesetet kell futtatni és eredményüket megjeleiteni.
+	 * siker: ha igaz, a kiadott parancs futtatása sikeres volt.
+	 * isTest: a teszteset sikeresen be lett töltve.
+	 */
     static protected Jatektabla jt;
     static protected boolean inGame = false;
     static protected boolean allCases = false;
@@ -20,7 +29,9 @@ public class Commands {
     static boolean isTest = false;
     static ArrayList<String> commandBuffer;
 
-    protected static void help(){ //Ez jo
+    /**
+     * Kilistázza az összes lehetséges parancsot, a helyes megadási szintaktikáját is feltüntetve*/
+    protected static void help(){ 
         System.out.println("Reszletes leiras a parancsokra a 7. reszletes tervek dokumentacioban talalhato.\n");
 
         System.out.println("exit: Leallitja a program futasat.");
@@ -65,7 +76,8 @@ public class Commands {
     }
 
 
-    protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jó
+    /** az aktuális pálya elmentése egy fájlba*/
+    protected static void saveMap(String[] cmd) throws IOException { 
         if (cmd.length > 1) {
             File f = new File(cmd[1] + ".dat");
             if (!f.exists())
@@ -79,7 +91,8 @@ public class Commands {
         }
     }
 
-    protected static void loadMap(String[] cmd) throws IOException, ClassNotFoundException { //Remelhetoleg jo
+    /** Egy létező pálya betöltése a megadott fájlból*/
+    protected static void loadMap(String[] cmd) throws IOException, ClassNotFoundException { 
 
         String wd = System.getProperty("user.dir");
         File f = new File(wd, cmd[1] + ".dat");
@@ -95,6 +108,11 @@ public class Commands {
         } else {doublePrintln("loadMap nem sikerult"); siker = false;};
     }
 
+    /** A paraméterként megadott sorszámú teszteset betöltése. Betöltés után futtatható a teszt, az elvégzett parancsok a 
+     * megadott fájlban található parancsok lesznek.
+     * Ha nem létezik a megadott sorszámú teszteset, a siker attribútum értéke hamis lesz,
+     * majd hibaüzenetben jelezzük a felhasználónak, hogy nem sikerült a teszt betöltése.
+     * */
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
         File f = new File(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
         actTest = cmd[1];
@@ -107,6 +125,9 @@ public class Commands {
     }
 
 
+    /**Egy aktuális teszteset elmentése, a parancs bufferben található parancsokat sorba elhelyezi egy fájlban, igy egy tesztesetet generálva
+     * A teszteset azonositóval kezdődik minden teszt fájl tartalma.
+     * */
     protected static void saveTest(String[] cmd) throws IOException {
         FileWriter fw = new FileWriter(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
         PrintWriter pw = new PrintWriter(fw);
@@ -117,6 +138,12 @@ public class Commands {
         pw.close();
     }
 
+    /**
+     * 
+     * Egy betöltött teszteset futásának elinditására szolgáló parancs.
+     * Csak akkor futtatható egy teszt, ha a betöltése sikeres volt.
+     * Csak az aktuálisan betöltött, egy darab tesztesetet indit el.
+     */
     protected static  void start() throws IOException {
 
         reader = new BufferedReader(fr);
@@ -135,6 +162,8 @@ public class Commands {
         isTest = true;
     }
 
+    /** Egy új játéktábla generálása. Paraméterként a jégmező méreteit várja (szélessége és hosszúsága) Jégtábla egységekben.
+     * Ha a méretek nem természetes egész számok, a akkor a parnacs hibaüzenettel jelez a felhasználónak.*/
     protected static void generateMap(String[] cmd) { //Ez jo
         if (Integer.parseInt(cmd[1]) < 0 || Integer.parseInt(cmd[2]) < 0) {
             doublePrintln("hihi?");
@@ -144,6 +173,12 @@ public class Commands {
         jt = new Jatektabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]), new ArrayList<Player>());
     }
 
+    /** Egy létező jégtábla átalakitása.
+     * Első sorban elmenti a megváltoztatni kivánt jégtábla szomszédait, majd kitörli a jégtáblát.
+     * Létrehoz egy új jégtáblát a kitörölt jégtábla helyére.
+     * Az új jégtáblának tipusától függően beállitja ennek kapacitását,
+     * majd beállitja a szomszédait is.
+     * Ha nem létezik a megadott koordinátájú  vagy a megadott tipúsú jégtábla, akkor a parnacs hibaüzenettel jelez a felhasználónak.*/
  protected static void changeJegtabla(String[] cmd) throws Exception{
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         if(j == null) throw new Exception();
@@ -180,6 +215,9 @@ public class Commands {
         	jt.getJegMezo().szomszedokkaTesz(szomszedok.get(i), jt.getJegMezo().getJegtabla(poz.x, poz.y));
     }
 
+ 	/** Hozzáad egy, a harmadik paraméterként megadott tipusú tárgyat, a paraméterként megadott jégtáblához.
+ 	 * A megadott tipusnak megfelelő tárgyat hoz létre és állitja be a jégtábla tárgy attribútumaként.
+ 	 * Ha nem létezik a megadott koordinátájú jégtábla, vagy a megadott tipúsú tárgy, akkor a parnacs hibaüzenettel jelez a felhasználónak.*/
     protected static void addTargy(String[] cmd)throws Exception {
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         if(j == null) throw new Exception();
@@ -198,6 +236,10 @@ public class Commands {
 
     }
 
+    /**
+     * Hozzáad egy új játékost a jégtáblához. A játékos karakterének  beállitásra kerül a munkáinak száma.
+     * Ha a játékost egy luk-ra helyezzük, akkor automatikusan vizbe esik a karaktere.
+     * */
    protected static void addPlayer(String[] cmd)throws Exception { 
         Karakter k;
         if(cmd[4].compareTo("eszkimo") == 0) {k = new Eszkimo(); k.set_munkak_szama(4); }
@@ -218,6 +260,10 @@ public class Commands {
 
     }
 
+   /**
+    * A játékos átlép egy másik jégtáblára.
+    * Az új jégtábla tipusa szerint ellenőrizni kell, ha biztonságban van, egyből vizbe esik vagy feldordul a jégtábla és az összes ott található karakter vizbe esik.
+    * */
     protected static void playerLep(String[] cmd) throws Exception {
         Player p = jt.getPlayer(cmd[1]);
         ArrayList<Jegtabla> ja = p.getKarakter().getJegtabla().getSzomszedok();
@@ -243,6 +289,12 @@ public class Commands {
       
     }
 
+    /**
+     *A játékos iglut épit. Csak a következő feltételek mellett sikeres az iglu épitése:
+     *a játékos karaktere egy eszkimó, a jégtábla nincs befagyva és nincs már rajta hó, nem található tárgy a jégtáblán és nincs más épitmény sem ott.
+     *Ha a karakter vizben van, egyértelműen akkor sem végezheti el a tevékenységet.
+     *Sikeretelen iglu épités esetén, a parnacs hibaüzenettel jelez ezt a felhasználónak.
+     * */
     protected static void iglutEpit(String[] cmd)throws Exception {
         Eszkimo k =(Eszkimo) jt.getPlayer(cmd[1]).getKarakter();
         if(k.get_vizben_van())throw new Exception(); 
@@ -253,6 +305,11 @@ public class Commands {
         else throw new Exception(); 
 
     }
+    
+    /**
+     * A játékos jégtábla kapacitását vizsgálja meg.
+     * Ha a játékos karaktere nem sarkkutató, akkor a munka nem megy végbe és a parnacs hibaüzenettel jelez a felhasználónak.
+     * */
     protected static void kutatoVizsgal(String[] cmd)throws Exception { 
         Sarkkutato k =(Sarkkutato) jt.getPlayer(cmd[1]).getKarakter();
         if(k.Name.compareTo("Sarkkutato") == 0) {
