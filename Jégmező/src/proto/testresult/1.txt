@@ -1,4 +1,10 @@
-generateMap nem sikerult
-addMedve nem sikerult
-Ilyen parancs nem letezik :(
-listJegtablaAttrib nem sikerult
+generateMap sikeresen lefutott
+addMedve sikeresen lefutott
+medveLep sikeresen lefutott
+Pozicio: 0 1
+Tipus: Stabil
+Homennyiseg: 0
+Karakterek: 
+Targy: null
+Epitmeny: null
+listJegtablaAttrib sikeresen lefutott

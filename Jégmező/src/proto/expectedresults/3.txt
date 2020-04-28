@@ -1,7 +1,6 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
 setInstabilKap sikeresen lefutott
 addPlayer sikeresen lefutott
+A vizsgált jégtábla kapacitása: 2
 kutatoVizsgal sikeresen lefutott
-Vizsgálat eredménye: 2
-p1 munkák száma: 3
