@@ -2,6 +2,5 @@ generateMap sikeresen lefutott
 addTargy sikeresen lefutott
 addPlayer sikeresen lefutott
 targyFelvetel sikeresen lefutott
-jatekos1 munkák száma: 3
-listKarTargy jatekos1
-0: etel
+0: Etel
+listKarTargy sikeresen lefutott

@@ -3,14 +3,14 @@ package proto;
 import java.io.Serializable;
 
 /**
- * Az tárgy implementálásáért felelõs osztály a Targy.
+ * Az tï¿½rgy implementï¿½lï¿½sï¿½ï¿½rt felelï¿½s osztï¿½ly a Targy.
  *
  */
 
 public class Targy implements Serializable {
 	/**
-	 * String név: a tárgy nevét tárolja
-	 * Karalter k: a karakter akinek a tulajdonában található a tárgy. Amig be van fagyva a jégtáblába, az értéke null.
+	 * String nï¿½v: a tï¿½rgy nevï¿½t tï¿½rolja
+	 * Karalter k: a karakter akinek a tulajdonï¿½ban talï¿½lhatï¿½ a tï¿½rgy. Amig be van fagyva a jï¿½gtï¿½blï¿½ba, az ï¿½rtï¿½ke null.
 	 */
 	
 	private String nev;
@@ -18,27 +18,27 @@ public class Targy implements Serializable {
 	public String Name = "Targy";
 	
 	/**
-	 * A Targy osztály konstruktora.
+	 * A Targy osztï¿½ly konstruktora.
 	 */
 	public Targy() {
 	}
 	
 	/**
-	 * A paraméterként kapott karakter használja a tárgyat a paraméterként kapott jégtáblán. Minden leszármazott osztály felülirja.
+	 * A paramï¿½terkï¿½nt kapott karakter hasznï¿½lja a tï¿½rgyat a paramï¿½terkï¿½nt kapott jï¿½gtï¿½blï¿½n. Minden leszï¿½rmazott osztï¿½ly felï¿½lirja.
 	 */
 	
-    public void hasznaljak(Karakter karakter, Jegtabla hol) {
+    public void hasznaljak(Karakter karakter, Jegtabla hol) throws Exception{
     }
 
     /**
-     *A paraméterként karakterhez állítja be, hogy nála van a tárgy
+     *A paramï¿½terkï¿½nt karakterhez ï¿½llï¿½tja be, hogy nï¿½la van a tï¿½rgy
      */
     public void setKarakter(Karakter k) {
         this.k=k;
     }
 
     /**
-     *Visszadja melyik karakternél van a tárgy
+     *Visszadja melyik karakternï¿½l van a tï¿½rgy
      */
     public Karakter getKarakter() {
         return k;

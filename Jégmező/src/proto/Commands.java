@@ -211,7 +211,7 @@ public class Commands {
         if(j.getKapacitas() == 0)  {
         	p.getKarakter().vizbe_esik();
         	doublePrintln("vizbeesett");
-        	doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+        	munkaVolt(p);
         	
         }
 
@@ -222,7 +222,11 @@ public class Commands {
         ArrayList<Jegtabla> ja = p.getKarakter().getJegtabla().getSzomszedok();
         Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
         p.getKarakter().lep(j2);
-        if(j2.type.equals("Instabil")) {
+        if(j2.type.equals("Luk")) {
+            doublePrintln(p.getName() + " vizbeesett");
+            doublePrintln(p.getName() + " munkak szama: " + p.getKarakter().munkak_szama);
+        }
+        else if(j2.type.equals("Instabil")) {
             if(j2.getKapacitas()<j2.figurak.size()) {
                 p.getKarakter().munkak_szama=0;
                 for(Player pl: jt.getPlayers()) {
@@ -241,7 +245,7 @@ public class Commands {
         if(k.get_vizben_van())throw new Exception(); 
         if(k.Name.compareTo("Eszkimo") == 0 && k.van_munkaja() && !k.jegtabla.get_befagyva() && k.jegtabla.getHoMennyiseg() == 0 && k.jegtabla.getEpitmeny()== null && k.jegtabla.getTargy() == null) {
             k.iglut_epit();
-            doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+            munkaVolt(jt.getPlayer(cmd[1]));
         }
         else throw new Exception(); 
 
@@ -252,7 +256,7 @@ public class Commands {
         	if(k.get_vizben_van())throw new Exception(); 
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
             doublePrintln("A vizsgalt jegtabla kapacitasa: " + kapacitas);
-            doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+            munkaVolt(jt.getPlayer(cmd[1]));
         }
         else throw new Exception(); 
     }
@@ -265,8 +269,8 @@ public class Commands {
         ArrayList<Targy> zseb = p.getKarakter().getTargyak();
         Targy T = zseb.get(Integer.parseInt(cmd[4]));
         if(T == null) throw new Exception();
-        T.hasznaljak(p.getKarakter(), j);
         if(p.getKarakter().get_vizben_van()) throw new Exception();
+        T.hasznaljak(p.getKarakter(), j);
         munkaVolt(p);
     }
 
@@ -366,9 +370,14 @@ public class Commands {
 
     }
 
-    protected static void digSnow(String[] cmd) { //Ez jó
+    protected static void digSnow(String[] cmd) throws Exception{ //Ez jó
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
-        k.kias();
+        if(k.getJegtabla().getHoMennyiseg()!=0){
+            k.takarit(1);
+        }
+        else{
+            k.kias();
+        }
         munkaVolt(jt.getPlayer(cmd[1]));
     }
 
@@ -462,7 +471,7 @@ public class Commands {
         jt.game_over=jt.check_game_over();
         if(jt.game_over) {
             inGame=false;
-            doublePrintln("Játék vége");
+            doublePrintln("Jatek vege");
         }
         if(!jt.game_over) {
             Player current = jt.getPlayers().get(jt.act_index);

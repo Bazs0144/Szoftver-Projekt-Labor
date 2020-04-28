@@ -19,7 +19,7 @@ public class Lapat extends Targy implements Serializable {
 	 * A karakter csak akkor haszn�lhatja a lap�tot, ha nincs vizbe esve.
 	 */
 	@Override
-	public void hasznaljak(Karakter karakter, Jegtabla hol) {
+	public void hasznaljak(Karakter karakter, Jegtabla hol) throws Exception{
         if(karakter.vizben_van) return;
 		karakter.takarit(2);
 	}

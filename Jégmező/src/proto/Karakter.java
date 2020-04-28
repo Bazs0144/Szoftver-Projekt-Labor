@@ -41,7 +41,9 @@ public class Karakter extends Figura implements Serializable {
      * A Karakter takarít azon a jégtáblán amin áll, meghívja a jégtáblán a takaritas_volt függvényt
      * @param intensity : ez adja meg hogy mennyi hómennyiséget távolít el a jégtábláról
      */
-    public void takarit(int intensity) {
+    public void takarit(int intensity) throws Exception{
+        if(munkak_szama <= 0) throw new Exception();
+        munkak_szama--;
         jegtabla.takaritas_volt(intensity);
     }
 
@@ -60,7 +62,8 @@ public class Karakter extends Figura implements Serializable {
      * @return ha át tudott lépni igazzal tér vissza, ha nem akkor hamissal
      */
     @Override
-    public boolean lep(Jegtabla jt) {
+    public boolean lep(Jegtabla jt) throws Exception{
+        if(munkak_szama <= 0) throw new Exception();
         if(jegtabla.szomszed_e(jt)) {
         	munkak_szama--;
             jegtabla.lelepnek(this);
@@ -75,11 +78,13 @@ public class Karakter extends Figura implements Serializable {
      * @param k : a Karakter akit ki kell menekíteni
      * @return igazzal tér vissza ha sikerült kimenekíteni, hamissal ha nem
      */
-    public boolean menekit(Karakter k) {
+    public boolean menekit(Karakter k) throws Exception{
        Jegtabla j1=k.getJegtabla();
+        if(munkak_szama <= 0) throw new Exception();
        if(j1.szomszed_e(jegtabla)){
            j1.kiment(k,jegtabla);
            munkak_szama--;
+           k.set_vizben_van(false);
            return true;
         }
        else {
@@ -91,8 +96,9 @@ public class Karakter extends Figura implements Serializable {
      * A Karakter megpróbálja felvenni a tárgyat ami azon a jégtáblán áll amin áll, ehhez meghívja a jégtábla elvesz föggvényét
      * @return ha sikeült elvenni igazzal tér vissza, ha nem akkor hamissal
      */
-    public boolean targy_felvetele() {
+    public boolean targy_felvetele() throws Exception{
         Targy t=jegtabla.getTargy();
+        if(munkak_szama <= 0) throw new Exception();
         if(jegtabla.elvesz(this, t)) {
             munkak_szama--;
             return true;
@@ -146,7 +152,7 @@ public class Karakter extends Figura implements Serializable {
      * @param t: ezt a tárgyat használja
      * @param hol: ezen a jégtáblán használja
      */
-    public void hasznal(Targy t, Jegtabla hol) {
+    public void hasznal(Targy t, Jegtabla hol) throws Exception{
         t.hasznaljak(this, hol);
     }
 
@@ -158,7 +164,6 @@ public class Karakter extends Figura implements Serializable {
             jegtabla.setBefagyva(false);
             return true;
         }
-        else jegtabla.setHo(jegtabla.getHoMennyiseg() - 1);
         return false;
     }
 

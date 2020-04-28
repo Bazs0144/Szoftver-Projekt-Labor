@@ -13,10 +13,10 @@ jegtabla: 1 2
 0: 0 2
 1: 1 1
 2: 1 3
-3: 3 2
+3: 2 2
 4: 3 2
 listJegtablaSzomszed sikeresen lefutott
-p1 munkák száma: 3
+p1 munkak szama: 3
 playerLep sikeresen lefutott
 jatekosKorVege sikeresen lefutott
 1. kor, jatekos: p2
@@ -26,7 +26,7 @@ jegtabla: 3 1
 2: 2 2
 3: 3 2
 listJegtablaSzomszed sikeresen lefutott
-p2 munkák száma: 3
+p2 munkak szama: 3
 playerLep sikeresen lefutott
 jatekosKorVege sikeresen lefutott
 1. kor, jatekos: p3
@@ -36,7 +36,7 @@ jegtabla: 3 2
 2: 1 2
 3: 1 3
 listJegtablaSzomszed sikeresen lefutott
-p3 munkák száma: 3
+p3 munkak szama: 3
 playerLep sikeresen lefutott
 jatekosKorVege sikeresen lefutott
 2. kor, jatekos: p1
@@ -47,4 +47,4 @@ jegtabla: 0 1
 3: 1 1
 listJegtablaSzomszed sikeresen lefutott
 medveLep sikeresen lefutott
-Játék vége
+Jatek vege

@@ -17,7 +17,7 @@ Targy: null
 Epitmeny: null
 Kapacitas: 1
 listJegtablaAttrib sikeresen lefutott
-p1 munkák száma: 3
+p1 munkak szama: 3
 iglutEpit sikeresen lefutott
 Pozicio: 1 2
 Tipus: Instabil

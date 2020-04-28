@@ -1,5 +1,5 @@
 generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
-Maradt munkainak szama: 3
+p1 munkak szama: 3
 iglutEpit sikeresen lefutott
 iglutEpit nem sikerult

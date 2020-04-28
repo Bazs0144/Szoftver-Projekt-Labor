@@ -1,9 +1,11 @@
 90kjk12
-generateMap 1 1 0
-changeJegtabla 0 0 instabil
-setInstabilKap 0 0 1
+generateMap 1 2 0
+changeJegtabla 0 1 instabil
+setInstabilKap 0 1 1
 addPlayer p1 0 0 eszkimo
 addPlayer p2 0 0 sarkkutato
-listJegtablaAttrib 0 0
+playerLep p1 0
+playerLep p2 0
+listJegtablaAttrib 0 1
 listKarAttrib p1
 listKarAttrib p2

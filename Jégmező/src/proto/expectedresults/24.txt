@@ -1,14 +1,14 @@
 generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
 addPlayer sikeresen lefutott
+jatekos1 vizbeesett
+jatekos1 munkak szama: 0
 playerLep sikeresen lefutott
+Jatekos: jatekos1
+Karakter: Eszkimo
+Ho: 5
+Vizben: igen
+Munkak: 0
+Jegtabla: 0 1
 listKarAttrib sikeresen lefutott
-Játékos: p1
-Karakter: Eszkimó
-Hő: 5
-Vízben: nem
-Munkák: 4
-Jegtábla: 0 0
-playerLep sikeresen lefutott
-p1 vízbeesett
-p1 munkák száma: 0
+playerLep nem sikerult
