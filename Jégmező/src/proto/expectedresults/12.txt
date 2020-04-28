@@ -1,14 +1,13 @@
 generateMap sikeresen lefutott
 addPlayer sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
-targyatHasznal sikeresen lefutott
 jatekos1 munkák száma: 3
-listJegtablaAttrib sikeresen lefutott
-Pozíció: 2 3
+targyatHasznal sikeresen lefutott
+Pozicio: 2 3
 Típus: stabil
-Hómennyiség: 0
-Karakterek: jatekos1
+Homennyiseg: 0
+Karakterek: Eszkimo
 Tárgy: null
-Épitmény: sátor
+Epitmeny: Sator
+listJegtablaAttrib sikeresen lefutott
 listKarTargy sikeresen lefutott
-null

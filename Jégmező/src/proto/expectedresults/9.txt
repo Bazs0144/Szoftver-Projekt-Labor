@@ -1,4 +1,4 @@
 GenerateMap sikeresen lefutott
 addPlayer sikeresen lefutott
+Maradt munkáinak száma: 3
 iglutEpit sikeresen lefutott
-p1 munkák száma: 3
