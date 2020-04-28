@@ -207,12 +207,13 @@ public class Commands {
 
     protected static void iglutEpit(String[] cmd)throws Exception {
         Eszkimo k =(Eszkimo) jt.getPlayer(cmd[1]).getKarakter();
-        if(k.Name.compareTo("Eszkimo") == 0 && k.van_munkaja() && !k.jegtabla.get_befagyva() && k.jegtabla.getHoMennyiseg() == 0 && k.jegtabla.getEpitmeny()== null) {
+        if(k.Name.compareTo("Eszkimo") == 0 && k.van_munkaja() && !k.jegtabla.get_befagyva() && k.jegtabla.getHoMennyiseg() == 0 && k.jegtabla.getEpitmeny()== null && k.jegtabla.getTargy() == null) {
             k.iglut_epit();
             doublePrintln("Maradt munkáinak száma: " + k.get_munkakszama());
         }
         else throw new Exception(); 
-     }
+
+    }
     
     protected static void kutatoVizsgal(String[] cmd)throws Exception {
         Sarkkutato k =(Sarkkutato) jt.getPlayer(cmd[1]).getKarakter();
