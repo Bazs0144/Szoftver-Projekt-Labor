@@ -72,7 +72,7 @@ public class Jatektabla implements Serializable {
     /**
      * Kezeli a játék menetét addig, amíg nincsen vége a játéknak.
      */
-    public void init() {
+    public void init() throws Exception {
         boolean game_over = false;
         int act_index = 0;
         while(!game_over) {

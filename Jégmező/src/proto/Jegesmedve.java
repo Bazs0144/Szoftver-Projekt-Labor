@@ -30,7 +30,7 @@ public class Jegesmedve extends Figura implements Serializable {
      * @param jt : erre a jégtáblára akar átlépni
      * @return ha át tudott lépni igazzal tér vissza, ha nem akkor hamissal
      */
-    public boolean lep(Jegtabla jt) {
+    public boolean lep(Jegtabla jt) throws Exception {
         if(jegtabla.szomszed_e(jt)) {
             jegtabla.lelepnek(this);
             jt.ralepnek(this);

@@ -22,7 +22,7 @@ public class Luk extends Jegtabla implements Serializable {
 	 * A luk jégtábla kapacitása nulla, ezért a figura aki rálép egyből vizbe esik. 
 	 * Ez a figura vizbe_esik függvényével valósul majd meg.*/
 	@Override
-	public void ralepnek(Figura f) {
+	public void ralepnek(Figura f) throws Exception {
 		figurak.add(f);
 		f.setJegtabla(this);
 		f.vizbe_esik();

@@ -27,7 +27,7 @@ public abstract class Figura implements Serializable {
         return jegtabla;
     }
 
-    public abstract void vizbe_esik();
+    public abstract void vizbe_esik() throws Exception;
 
     public boolean get_vizben_van() {
         return vizben_van;

@@ -1,23 +1,21 @@
-GenerateMap sikeresen lefutott
+generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
 addPlayer sikeresen lefutott
+Jatekos: p1
+Karakter: Eszkimo
+Ho: 5
+Vizben: nem
+Munkak: 4
+Jegtabla: 0 1
 listKarAttrib sikeresen lefutott
-Játékos: p1
-Karakter: Eszkimó
-Hő: 5
-Vízben: nem
-Munkák: 4
-Jegtábla: 0 1
+Az elso jatekos neve: p1
+1. kor, jatekos: p1
 startGame sikeresen lefutott
-Következő játékos: p1
-listJegtablaSzomszed sikeresen lefutott
 jegtabla: 0 1
 0: 0 0
+listJegtablaSzomszed sikeresen lefutott
+p1 vizbeesett
+p1 munkak szama: 0
 playerLep sikeresen lefutott
-p1 munkák száma: 3
-p1 vízbeesett
-p1 munkák száma: 0
-1. kör vége, 2. kör:
-Következő játékos: p1
-p1 meghalt
-Játék vége
+2. kor, jatekos: p1
+Jatek vege

@@ -225,6 +225,7 @@ public class Commands {
         if(j2.type.equals("Luk")) {
             doublePrintln(p.getName() + " vizbeesett");
             doublePrintln(p.getName() + " munkak szama: " + p.getKarakter().munkak_szama);
+            p.getKarakter().vizbeKerultKor=jt.kor;
         }
         else if(j2.type.equals("Instabil")) {
             if(j2.getKapacitas()<j2.figurak.size()) {
@@ -233,6 +234,7 @@ public class Commands {
                     if(pl.getKarakter().getJegtabla().getPoz().equals(j2.getPoz())) {
                     doublePrintln(pl.getName() + " vizbeesett");
                     doublePrintln(pl.getName() + " munkak szama: " + pl.getKarakter().munkak_szama);
+                    pl.getKarakter().vizbeKerultKor=jt.kor;
                     }
                 }
             }else munkaVolt(p);
@@ -307,7 +309,7 @@ public class Commands {
         jt.setJegesmedve(jm);
     }
 
-    protected static void medveLep(String[] cmd) {//Szerintem jo
+    protected static void medveLep(String[] cmd) throws Exception {//Szerintem jo
         Jegesmedve jm = jt.getJegesmedve();
         Jegmezo jgm = jt.getJegMezo();
         ArrayList<Jegtabla> ja = jm.getJegtabla().getSzomszedok();
@@ -480,8 +482,14 @@ public class Commands {
                     jt.act_index = 0;
                     jt.kor++;
                 } else jt.act_index++;
-                jt.next_player(jt.getPlayers().get(jt.act_index));
+                current=jt.getPlayers().get(jt.act_index);
+                jt.next_player(current);
                 doublePrintln(jt.kor + ". kor, jatekos: " + jt.getPlayers().get(jt.act_index).getName());
+                if(current.getKarakter().vizbeKerultKor!=jt.kor&&current.getKarakter().get_vizben_van()) {
+                    jt.game_over=true;
+                    inGame=false;
+                    doublePrintln("Jatek vege");
+                }
             }
         }
     }

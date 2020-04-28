@@ -15,6 +15,7 @@ public class Karakter extends Figura implements Serializable {
      * - ArrayList<Targy> zseb : azoknak a tárgyaknak a listája amik a karakternél vannak
      */
     int ho;
+    int vizbeKerultKor;
     int munkak_szama=4;
     ArrayList<Targy> zseb;
 
@@ -51,9 +52,10 @@ public class Karakter extends Figura implements Serializable {
      * Ha a karakter vízbeesik, átváltja a saját vizben_van adattagját igazra
      */
     @Override
-    public void vizbe_esik() {
+    public void vizbe_esik() throws Exception {
         vizben_van=true;
         munkak_szama=0;
+        for(Targy t: zseb) hasznal(t, jegtabla);
     }
 
     /**

@@ -89,7 +89,7 @@ public class Jegtabla implements Serializable {
 	/**
 	 * A jégtáblára lépett figura nyilvántartása kerül.
 	 * A figura jégtábláját is beállitja az aktuálisra. */
-	public void ralepnek(Figura f) {
+	public void ralepnek(Figura f) throws Exception {
 		figurak.add(f);
 		f.setJegtabla(this);
 	}
@@ -167,7 +167,7 @@ public class Jegtabla implements Serializable {
 	/**
 	 *Amikor egy vizbe esett karaktert sikeresen kiment egy társa, a jelenlegi jégtábáról (luk vagy átfordult instabil jégtábla) lelép és rálép arra a szomszédos 
 	 *jégtáblára, amelyen a megmentõje is áll. */
-	public void kiment(Karakter kit, Jegtabla j) {
+	public void kiment(Karakter kit, Jegtabla j) throws Exception {
 		this.lelepnek(kit);
 		j.ralepnek(kit);
 	}
