@@ -179,10 +179,10 @@ public class Commands {
 
     }
 
-    protected static void addPlayer(String[] cmd)throws Exception { //Ez jo
+   protected static void addPlayer(String[] cmd)throws Exception { 
         Karakter k;
-        if(cmd[4].compareTo("eszkimo") == 0) k = new Eszkimo();
-        else if(cmd[4].compareTo("sarkkutato") == 0) k = new Sarkkutato();
+        if(cmd[4].compareTo("eszkimo") == 0) {k = new Eszkimo(); k.set_munkak_szama(4); }
+        else if(cmd[4].compareTo("sarkkutato") == 0) { k = new Sarkkutato(); k.set_munkak_szama(4);}
         else throw new Exception();
         Player p = new Player(k, cmd[1]);
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
@@ -190,6 +190,12 @@ public class Commands {
         jt.addPlayer(p);
         j.addPlayer(p);
         p.getKarakter().setJegtabla(j);
+        if(j.type.compareTo("luk") == 0) {
+        	p.getKarakter().vizbe_esik();
+        	doublePrintln("vizbeesett");
+        	doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());
+        	
+        }
 
     }
 
@@ -198,10 +204,6 @@ public class Commands {
         ArrayList<Jegtabla> ja = p.getKarakter().getJegtabla().getSzomszedok();
         Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
         p.getKarakter().lep(j2);
-        if(j2.type.equals("Luk")) {
-            doublePrintln(p.getName() + " vizbeesett");
-            p.getKarakter().munkak_szama=0;
-             doublePrintln(p.getName() + " munkak szama: " + p.getKarakter().munkak_szama); }
         if(j2.type.equals("Instabil")) {
             if(j2.getKapacitas()<j2.figurak.size()) {
                 p.getKarakter().munkak_szama=0;
@@ -213,15 +215,7 @@ public class Commands {
                 }
             }else munkaVolt(p);
         }else munkaVolt(p);
-      /*  Jegtabla j2 = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
-        if( j2 == null) throw new Exception();
-        Jegtabla j = p.getKarakter().jegtabla;
-        if(j.szomszed_e(j2))
-        {
-            p.getKarakter().lep(j2);
-        }
-        else throw new Exception();
-       */
+      
     }
 
     protected static void iglutEpit(String[] cmd)throws Exception {
