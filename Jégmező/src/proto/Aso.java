@@ -25,7 +25,7 @@ public class Aso extends Targy implements Serializable {
 	 * Minden haszn�lat ut�n a tart�ss�g �rt�ke egyel n�vekszik.
 	 */
 	@Override
-	public void hasznaljak(Karakter karakter, Jegtabla hol) {
+	public void hasznaljak(Karakter karakter, Jegtabla hol) throws Exception{
         if(karakter.vizben_van) return;
 		karakter.takarit(2);
         tartossag--;

@@ -8,7 +8,7 @@ public abstract class Figura implements Serializable {
     public String Name;
 
 
-    public abstract boolean lep(Jegtabla jt);
+    public abstract boolean lep(Jegtabla jt) throws Exception;
     public abstract void sebzodik();
     public abstract void setHo(int ho);
 

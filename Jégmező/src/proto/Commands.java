@@ -370,9 +370,14 @@ public class Commands {
 
     }
 
-    protected static void digSnow(String[] cmd) { //Ez jó
+    protected static void digSnow(String[] cmd) throws Exception{ //Ez jó
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
-        k.kias();
+        if(k.getJegtabla().getHoMennyiseg()!=0){
+            k.takarit(1);
+        }
+        else{
+            k.kias();
+        }
         munkaVolt(jt.getPlayer(cmd[1]));
     }
 
