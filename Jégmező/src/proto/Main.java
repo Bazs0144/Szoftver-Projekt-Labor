@@ -30,7 +30,13 @@ public class Main extends Commands{
 				calculateTestResult();
 				reader = new BufferedReader(new InputStreamReader(System.in));
 				line = "";
-
+				if(allCases && actAllTest == 35) {
+					actAllTest = 0;
+					allCases = false;
+				}
+				else if(allCases) {
+					testAllCases();
+				}
 			}
 
 
@@ -72,6 +78,7 @@ public class Main extends Commands{
 				else if (cmd[0].equals("setInstabilKap")) setInstabilKap(cmd);
 				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
 				else if (cmd[0].equals("startGame")) startGame();
+				else if (cmd[0].equals("testAllCases")) testAllCases();
 				else if (cmd[0].equals("")) siker = false;
 				else {doublePrintln("Ilyen parancs nem letezik :("); siker=false;}
 				if(siker) doublePrintln(cmd[0] + " sikeresen lefutott");

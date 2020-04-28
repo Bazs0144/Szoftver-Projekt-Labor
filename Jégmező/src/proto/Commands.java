@@ -8,12 +8,14 @@ import java.util.Random;
 public class Commands {
 
     static protected Jatektabla jt;
-    static protected boolean inGame=false;
+    static protected boolean inGame = false;
+    static protected boolean allCases = false;
     static protected BufferedReader reader;
     static protected FileReader fr;
     static protected FileWriter fw;
     static protected PrintWriter writer;
     static protected  String actTest;
+    static protected  int actAllTest = 0;
     static protected boolean siker;
     static boolean isTest = false;
     static ArrayList<String> commandBuffer;
@@ -88,15 +90,15 @@ public class Commands {
                 jt = (Jatektabla) in.readObject();
                 in.close();
 
-            } else {System.out.println("loadMap nem sikerult"); siker = false;};
-        } else {System.out.println("loadMap nem sikerult"); siker = false;};
+            } else {doublePrintln("loadMap nem sikerult"); siker = false;};
+        } else {doublePrintln("loadMap nem sikerult"); siker = false;};
     }
 
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
         File f = new File(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
         actTest = cmd[1];
         if (!f.exists()) {
-            System.out.println("loadTest nem sikerult");
+            doublePrintln("loadTest nem sikerult");
             siker = false;
             return;
         }
@@ -127,7 +129,7 @@ public class Commands {
             siker = false;
             return;
         }
-        System.out.println("----------------------------------------");
+        if(!allCases) System.out.println("----------------------------------------");
         isTest = true;
     }
 
@@ -307,7 +309,7 @@ public class Commands {
         doublePrintln("Homennyiseg: " + j.getHoMennyiseg());
         doublePrint("Karakterek: ");
         ArrayList<Figura> k = j.getFigurak();
-        if(k.size() == 0) System.out.print("null");
+        if(k.size() == 0) doublePrint("null");
         else {
             for (Figura f : k) {
                 doublePrint(f.Name + " ");
@@ -455,14 +457,21 @@ public class Commands {
         doublePrintln(p.getName()+  " munkák száma: " + p.getKarakter().munkak_szama);
     }
 
+    protected static void testAllCases() throws IOException {
+            loadTest(new String[]{"loadTest", String.valueOf(++actAllTest)});
+            System.out.print(actAllTest + " teszteset: ");
+            allCases = true;
+            start();
+    }
+
     //----------------------------------------------
     static void doublePrintln(String s) {
-        System.out.println(s);
+        if(!allCases)System.out.println(s);
         if(isTest)writer.println(s);
     }
 
     static void doublePrint(String s) {
-        System.out.print(s);
+        if(!allCases)System.out.print(s);
         if(isTest)writer.print(s);
     }
 
@@ -481,7 +490,7 @@ public class Commands {
             if(line.compareTo(expectedLine) == 0) c++;
             i++;
         }
-        System.out.println("----------------------------------------");
+        if(!allCases)System.out.println("----------------------------------------");
         System.out.println("A teszteset helyessege: " + 100*c/i + "%");
         br.close();
         br2.close();
