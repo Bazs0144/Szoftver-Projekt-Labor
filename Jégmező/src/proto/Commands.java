@@ -338,8 +338,10 @@ public class Commands {
         T.hasznaljak(p.getKarakter(), j);
         munkaVolt(p);
     }
-
-    protected static void targyFelvetel(String[] cmd) throws Exception {//Szerintem jo
+    
+    /**Egy karakter felvesz egy tárgyat a megadott jégtábláról.
+     * Ha a tárgy elvétele nem sikeres, ezt hibaüzenetben jelezzük a felhasználónak.*/
+    protected static void targyFelvetel(String[] cmd) throws Exception {
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
         if(j.elvesz(k, j.getTargy())==false){
@@ -347,7 +349,8 @@ public class Commands {
         }
     }
 
-    protected static void targyHozzadasa(String[] cmd) throws Exception{//Szerintem jo
+    /**Egy paraméterként megadott tipusú tárgyat ad hozzá a szintén paraméterként megadot koordinátájú jégtáblához.*/
+    protected static void targyHozzadasa(String[] cmd) throws Exception{
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         if(cmd[2].compareTo("alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
@@ -364,7 +367,8 @@ public class Commands {
 
     }
 
-    protected static void addMedve(String[] cmd) { //Szerintem jo
+    /**Hozzáad egy jegesmedvét a paraméterként megadott koórdinátájú jégtáblára.*/
+    protected static void addMedve(String[] cmd) {
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         Jegesmedve jm = new Jegesmedve();
         j.addFigura(jm);
@@ -372,7 +376,8 @@ public class Commands {
         jt.setJegesmedve(jm);
     }
 
-    protected static void medveLep(String[] cmd) throws Exception {//Szerintem jo
+    /**A jegesmedve lép egyet a jégmezőn.*/
+    protected static void medveLep(String[] cmd) throws Exception {
         Jegesmedve jm = jt.getJegesmedve();
         Jegmezo jgm = jt.getJegMezo();
         ArrayList<Jegtabla> ja = jm.getJegtabla().getSzomszedok();
@@ -380,12 +385,14 @@ public class Commands {
         jm.lep(j2);
     }
 
-    protected static void egyHovihar(String[] cmd) {//Jo?
+    /**Egy paraméterként megadott jégtáblát hóvihar éri.*/
+    protected static void egyHovihar(String[] cmd) {
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         j.hovihar_volt();
     }
 
-    protected static void hoviharRand() {//Eeeeelvileg jo, de egy jegtablan igy lehet tobb hovihar
+    /**Hóvihart generál a jégmezőn.*/
+    protected static void hoviharRand() {
         Random r = new Random();
         int mennyi = 1 + r.nextInt(3);
         Jegmezo jm = jt.getJegMezo();
@@ -395,6 +402,7 @@ public class Commands {
         }
     }
 
+    /**A paraméterként megadott jégtábla attribútumainak értékét listázza ki.*/
     protected static void listJegtablaAttrib(String[] cmd) { //Ez jo
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         doublePrintln("Pozicio: " + cmd[1] + " " + cmd[2]);
@@ -422,6 +430,7 @@ public class Commands {
 
     }
 
+    /**A jégmező összes jégtábláját és ezeknek attribútumait listázza ki.*/
     protected static void listJegmezo() {
         for(Jegtabla j: jt.getJegMezo().getJegtablak()) {
             String[] cmd={"listJegtablaAttrib", String.valueOf(j.getPoz().x), String.valueOf(j.getPoz().y)};
@@ -430,12 +439,14 @@ public class Commands {
 
     }
 
+    /**Kiirja a megadott játékos életeinek számát (hőmennyiségének értékét)*/
     protected static void printPlayersLife(String[] cmd) {
         doublePrintln("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
 
     }
 
-    protected static void digSnow(String[] cmd) throws Exception{ //Ez jó
+    /**A paraméterként megadott karakter takaritást végez a jégtáblán, amellyen éppen áll.*/
+    protected static void digSnow(String[] cmd) throws Exception{ 
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         if(k.getJegtabla().getHoMennyiseg()!=0){
             k.takarit(1);
@@ -446,10 +457,12 @@ public class Commands {
         munkaVolt(jt.getPlayer(cmd[1]));
     }
 
-    protected static void setSnow(String[] cmd) { //Ez jó
+    /**Egy, harmadik paraméterként megadott értékű hómennyiséget állit be a megadott jégtáblára.*/
+    protected static void setSnow(String[] cmd) { 
         jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setHo(Integer.parseInt(cmd[3]));
     }
 
+    /**Egy karakter attribútumainak aktuális értékeit listázza ki.*/
     protected static void listKarAttrib(String[] cmd) {
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         Poz p=k.getJegtabla().getPoz();
@@ -462,6 +475,7 @@ public class Commands {
         doublePrintln("Jegtabla: " +p.x + " " +p.y );
     }
 
+    /**Egy karakter tárgyainak kilistázása*/
     protected static void listKarTargy(String[] cmd) {
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         int i=0;
@@ -470,7 +484,9 @@ public class Commands {
             i++;
         }
     }
-
+    
+    /**Egy új jégtábla hozzáadása a jégmezőhöz. A jégtábla a megadott tipus szerinti lesz. 
+     * A jégtábla a paraméterként megadott kóordinátákba lesz elhelyezve a jégtáblán. Tárgy is megadható a jégtáblára.*/
     protected static void addJegtabla(String[] cmd) {
         if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null)
             ;
@@ -495,6 +511,7 @@ public class Commands {
         }
     }
 
+    /**Kiiratja egy jégtábla szomszédjait.*/
     protected static void listJegtablaSzomszed(String[] cmd) {
         if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
             doublePrintln("jegtabla: "+ Integer.parseInt(cmd[1])+ " "+Integer.parseInt(cmd[2]));
@@ -505,24 +522,29 @@ public class Commands {
         }
     }
 
+    /**Egy első két paraméterrel megadott jégtáblának szomszédként megadja a másik két paraméterrel megadott jégtáblát.*/
     protected static void addJegtablaSzomszed(String[] cmd) {
         jt.getJegMezo().szomszedokkaTesz(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])), jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[3]), Integer.parseInt(cmd[4])));
     }
 
+    /**Egy instabil jégtáblának a kapacitását beállitja/átirja.*/
     protected static void setInstabilKap(String[] cmd) {
         jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setKapacitas(Integer.parseInt(cmd[3]));
 
     }
 
+    /**Egy adott játékosnak a köre véget ér. Munkáinak száma ekkor 0, a soron következő játékos fog tudni munkát végezni.*/
     protected static void jatekosKorVege(String[] cmd) {
         jt.getPlayers().get(jt.act_index).getKarakter().munkak_szama=0;
     }
 
+    /**Egy játék konkrét elinditása.*/
     protected static void startGame() {
         doublePrintln("Az elso jatekos neve: " + jt.getFirstPlayer().getName());
         initGame();
     }
 
+    /**Egy játék elkezdésekor elvégezendő inicializálások.*/
     protected static void initGame() {
         jt.game_over = false;
         jt.act_index = 0;
@@ -532,6 +554,8 @@ public class Commands {
         doublePrintln(jt.kor + ". kor, jatekos: " + jt.getPlayers().get(jt.act_index).getName());
     }
 
+    /**A játék menete. Amikor egy karakter elhasználja a munkáinak számát a körén belül, a soron következő játékos
+     * köre indul el. Ha a játék közben véget ért ezt jelezzük a felhasználónak.*/
     protected static void inGameRound() {
         jt.game_over=jt.check_game_over();
         if(jt.game_over) {
@@ -557,10 +581,12 @@ public class Commands {
         }
     }
 
+    /**Egy játékos munkáinak száma a körén belül*/
     protected static void munkaVolt(Player p) {
         doublePrintln(p.getName()+  " munkak szama: " + p.getKarakter().munkak_szama);
     }
 
+    /**Az összes teszt lefuttatása egy paranccsal. Mindegyik teszt esetén kiirja a teszt sikerességi százalékát*/
     protected static void testAllCases() throws IOException {
             loadTest(new String[]{"loadTest", String.valueOf(++actAllTest)});
             System.out.print(actAllTest + " teszteset: ");
@@ -569,6 +595,7 @@ public class Commands {
     }
 
     //----------------------------------------------
+    /**A teszt kimenetének kiiratása*/
     static void doublePrintln(String s) {
         if(!allCases)System.out.println(s);
         if(isTest)writer.println(s);
@@ -579,6 +606,8 @@ public class Commands {
         if(isTest)writer.print(s);
     }
 
+    /**Kiszámitja az elvárt teszt eredményt és a valós teszt eredménye közötti egyezési százalékot.
+     * Ez a százalék kerül kiiratásra a teszt eset lefutása után.*/
     static void calculateTestResult() throws IOException {
         File f = new File(".\\src\\proto\\expectedresults\\" + actTest + ".txt");
         File f2 = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
