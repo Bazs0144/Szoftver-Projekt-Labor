@@ -329,7 +329,6 @@ public class Commands {
     protected static void digSnow(String[] cmd) { //Ez jó
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         k.kias();
-        // Ide minek PozX PozY
     }
 
     protected static void setSnow(String[] cmd) { //Ez jó
