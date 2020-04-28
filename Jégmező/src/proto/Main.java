@@ -7,11 +7,16 @@ import java.io.SyncFailedException;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * A Program Main osztalya, innen indul a prototipus
+ */
 public class Main extends Commands{
+	/**
+	 * isOver - addig fut a main fuggvényben, amig exit parancsot nem kapunk
+	 */
 	static boolean isOver = false;
 
 	public static void main(String[] args) throws IOException {
-
 
 		commandBuffer = new ArrayList<String>();
 		reader = new BufferedReader(new InputStreamReader(System.in));
@@ -39,9 +44,6 @@ public class Main extends Commands{
 					testAllCases();
 				}
 			}
-
-
-
 			if(line.compareTo("") != 0 && !line.contains("saveTest")) commandBuffer.add(line);
 			String[] cmd = line.split(" ");
 			try {

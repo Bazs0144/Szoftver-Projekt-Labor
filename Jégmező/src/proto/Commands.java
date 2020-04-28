@@ -321,6 +321,11 @@ public class Commands {
         else throw new Exception(); 
     }
 
+    /**
+     * Egy jatekos karaktere hasznal a targyai kozul egy adott indexut, adott pozicioju jegtablan
+     * @param cmd a kapott parancs
+     * @throws Exception kivetelt dob, ha nem letezik a jatekos, ha nem letezik a jegtabla, ha nem letezik az adott targy
+     */
     protected static void targyatHasznal(String[] cmd)throws Exception {
         Player p = jt.getPlayer(cmd[1]);
         if(p == null) throw new Exception();
