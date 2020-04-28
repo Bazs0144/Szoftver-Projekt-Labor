@@ -212,22 +212,23 @@ public class Commands {
 
     protected static void iglutEpit(String[] cmd)throws Exception {
         Eszkimo k =(Eszkimo) jt.getPlayer(cmd[1]).getKarakter();
+        if(k.get_vizben_van())throw new Exception(); 
         if(k.Name.compareTo("Eszkimo") == 0 && k.van_munkaja() && !k.jegtabla.get_befagyva() && k.jegtabla.getHoMennyiseg() == 0 && k.jegtabla.getEpitmeny()== null && k.jegtabla.getTargy() == null) {
             k.iglut_epit();
-            munkaVolt(jt.getPlayer(cmd[1]));
+            doublePrintln("Maradt munkáinak száma: " + k.get_munkakszama());
         }
-        else throw new Exception();
+        else throw new Exception(); 
+
     }
-    
-    protected static void kutatoVizsgal(String[] cmd)throws Exception {
+    protected static void kutatoVizsgal(String[] cmd)throws Exception { 
         Sarkkutato k =(Sarkkutato) jt.getPlayer(cmd[1]).getKarakter();
-        if(k.Name.compareTo("Sarkkutato") == 0&&k.van_munkaja()) {
+        if(k.Name.compareTo("Sarkkutato") == 0) {
+        	if(k.get_vizben_van())throw new Exception(); 
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
-            if(kapacitas < 0) throw new Exception();
             doublePrintln("A vizsgált jégtábla kapacitása: " + kapacitas);
-            munkaVolt(jt.getPlayer(cmd[1]));
+            doublePrintln("Maradt munkáinak száma: " + k.get_munkakszama());
         }
-        else throw new Exception();
+        else throw new Exception(); 
     }
 
     protected static void targyatHasznal(String[] cmd)throws Exception {
