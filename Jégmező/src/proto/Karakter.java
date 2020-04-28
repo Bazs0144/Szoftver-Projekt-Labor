@@ -84,6 +84,7 @@ public class Karakter extends Figura implements Serializable {
        if(j1.szomszed_e(jegtabla)){
            j1.kiment(k,jegtabla);
            munkak_szama--;
+           k.set_vizben_van(false);
            return true;
         }
        else {
