@@ -1,0 +1,6 @@
+generateMap 5 5 0
+setSnow 2 3 2
+addPlayer jatekos1 2 3 sarkkutato
+targyHozzaadasa jatekos1 lapat
+targyatHasznal jatekos1 lapat 2 3
+listJegtablaAttrib 2 3

@@ -1,0 +1,11 @@
+GenerateMap sikeresen lefutott
+addPlayer sikeresen lefutott
+addPlayer sikeresen lefutott
+addPlayer sikeresen lefutott
+targyHozzadasa sikeresen lefutott
+targyHozzadasa sikeresen lefutott
+targyHozzadasa sikeresen lefutott
+targyatHasznal sikeresen lefutott
+Rakáta összerakva
+p1 munkák száma: 3
+Játék vége

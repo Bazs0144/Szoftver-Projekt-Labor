@@ -1,0 +1,7 @@
+GenerateMap sikeresen lefutott
+changeJegtabla sikeresen lefutott
+setInstabilKap sikeresen lefutott
+addPlayer sikeresen lefutott
+kutatoVizsgal sikeresen lefutott
+Vizsgálat eredménye: 2
+p1 munkák száma: 3

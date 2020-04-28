@@ -1,0 +1,7 @@
+generateMap sikeresen lefutott
+changeJegtabla sikeresen lefutott
+addPlayer sikeresen lefutott
+jatekos1 vízbeesett
+jatekos1 munkák száma: 0
+TargyHozzaadasa sikeresen lefutott
+targyatHasznal nem sikerült

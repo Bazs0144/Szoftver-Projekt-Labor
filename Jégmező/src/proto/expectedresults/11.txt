@@ -1,0 +1,8 @@
+GenerateMap sikeresen lefutott
+addPlayer sikeresen lefutott
+iglutEpit sikeresen lefutott
+p1 munkák száma: 3
+addMedve sikeresen lefutott
+MedveLep sikeresen lefutott
+printPlayersLife sikeresen lefutott
+Hőmennyiség: 5

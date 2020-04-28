@@ -1,0 +1,34 @@
+loadMap sikeresen lefutott
+startGame sikeresen lefutott
+Következő játékos: p1
+listJegtablaAttrib sikeresen lefutott
+Pozíció: 1 2
+Típus: instabil
+Hómennyiség: 0
+Karakterek: p1
+Tárgy: null
+Építmény: null
+Kapacitás: 1
+jatekosKorVege sikeresen lefutott
+Következő játékos: p2
+listJegtablaSzomszed sikeresen lefutott
+jegtabla: 3 1
+0: 3 0
+1: 2 1
+2: 2 2
+3: 3 2
+playerLep sikeresen lefutott
+p2 munkák száma: 3
+listJegtablaSzomszed sikeresen lefutott
+jegtabla: 3 2
+0: 3 1
+1: 2 2
+2: 1 2
+3: 1 3
+playerLep sikeresen lefutott
+p2 munkák száma: 2
+1 2 jégtábla felborult.
+p1 vízbeesett
+p1 munkák száma: 0
+p2 vízbeesett
+p2 munkák száma: 0

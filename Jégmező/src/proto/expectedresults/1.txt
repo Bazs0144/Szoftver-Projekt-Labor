@@ -1,0 +1,10 @@
+generateMap sikeresen lefutott
+addMedve sikeresen lefutott
+medveLep sikeresen lefutott
+listJegtablaAttrib sikeresen lefutott
+Pozíció: 0 1
+Típus: stabil
+Hómennyiség: 0
+Karakterek:medve
+Tárgy: null
+Építmény: null

@@ -1,0 +1,4 @@
+generateMap nem sikerult
+addMedve nem sikerult
+Ilyen parancs nem letezik :(
+listJegtablaAttrib nem sikerult

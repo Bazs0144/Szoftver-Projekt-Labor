@@ -1,0 +1,18 @@
+generateMap sikeresen lefutott
+addPlayer sikeresen lefutott
+jatekos1 munkák száma: 3
+playerLep sikeresen lefutott
+listJegtablaAttrib
+Pozíció: 0 0
+Típus: stabil
+Hómennyiség: 0
+Karakterek: null
+Tárgy: null
+Épitmény: null
+listJegtablaAttrib
+Pozíció: 0 1
+Típus: stabil
+Hómennyiség: 0
+Karakterek: jatekos1
+Tárgy: null
+Épitmény: null

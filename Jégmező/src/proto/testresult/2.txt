@@ -1,0 +1,5 @@
+start sikeresen lefutott
+generateMap sikeresen lefutott
+addPlayer sikeresen lefutott
+A vizsgált jégtábla kapacitása: 0
+kutatoVizsgal sikeresen lefutott

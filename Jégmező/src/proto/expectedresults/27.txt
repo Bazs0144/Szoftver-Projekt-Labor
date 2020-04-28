@@ -1,0 +1,29 @@
+GenerateMap sikeresen lefutott
+changeJegtabla sikeresen lefutott
+addPlayer sikeresen lefutott
+targyHozzadasa sikeresen lefutott
+listKarAttrib sikeresen lefutott
+Játékos: p1
+Karakter: Eszkimó
+Hő: 5
+Vízben: nem
+Munkák: 4
+Jegtábla: 0 1
+listKarakterTargyak sikeresen lefutott
+0: buvarruha
+startGame sikeresen lefutott
+Következő játékos: p1
+listJegtablaSzomszed sikeresen lefutott
+jegtabla: 0 1
+0: 0 0
+playerLep sikeresen lefutott
+p1 munkák száma: 3
+p1 vízbeesett
+Búvárruha használva
+listKarAttrib sikeresen lefutott
+Játékos: p1
+Karakter: Eszkimó
+Hő: 5
+Vízben: nem
+Munkák: 3
+Jegtábla: 0 0

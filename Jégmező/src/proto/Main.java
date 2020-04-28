@@ -27,6 +27,7 @@ public class Main extends Commands{
 				isTest = false;
 				reader.close();
 				writer.close();
+				calculateTestResult();
 				reader = new BufferedReader(new InputStreamReader(System.in));
 				line = "";
 
@@ -72,10 +73,10 @@ public class Main extends Commands{
 				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
 				else if (cmd[0].equals("startGame")) startGame();
 				else if (cmd[0].equals("")) siker = false;
-				else {doublePrint("Ilyen parancs nem letezik :("); siker=false;}
-				if(siker) doublePrint(cmd[0] + " sikeresen lefutott");
+				else {doublePrintln("Ilyen parancs nem letezik :("); siker=false;}
+				if(siker) doublePrintln(cmd[0] + " sikeresen lefutott");
 			} catch(Exception e) {
-				doublePrint(cmd[0] + " nem sikerult");
+				doublePrintln(cmd[0] + " nem sikerult");
 			}
 
 

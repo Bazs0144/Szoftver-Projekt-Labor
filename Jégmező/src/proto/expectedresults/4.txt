@@ -1,0 +1,6 @@
+GenerateMap sikeresen lefutott
+changeJegtabla sikeresen lefutott
+addPlayer sikeresen lefutott
+kutatoVizsgal sikeresen lefutott
+Vizsgálat eredménye: 0
+p1 munkák száma: 3

@@ -1,0 +1,9 @@
+generateMap sikeresen lefutott
+addPlayer sikeresen lefutott
+targyHozzaadasa sikeresen lefutott
+targyatHasznal sikeresen lefutott
+jatekos1 munkák száma: 3
+addMedve sikeresen lefutott
+medveLep sikeresen lefutott
+Medve megette jatekos1 játékos(oka)t
+Játék vége

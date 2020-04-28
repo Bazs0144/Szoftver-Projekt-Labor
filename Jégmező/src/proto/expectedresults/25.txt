@@ -1,0 +1,30 @@
+GenerateMap sikeresen lefutott
+changeJegtabla sikeresen lefutott
+setInstabilKap sikeresen lefutott
+addPlayer sikeresen lefutott
+addPlayer sikeresen lefutott
+0 0 jégtábla felborult.
+p1 vízbeesett
+p1 munkák száma: 0
+p2 vízbeesett
+p2 munkák száma: 0
+listJegtablaAttrib sikeresen lefutott
+Pozíció: 0 0
+Hómennyiség: 0
+Karakterek: p1 p2
+Tárgy: null
+Építmény: null
+listKarAttrib sikeresen lefutott
+Játékos: p1
+Karakter: Eszkimó
+Hő: 5
+Vízben: igen
+Munkák: 0
+Jegtábla: 0 0
+listKarAttrib sikeresen lefutott
+Játékos: p2
+Karakter: Sarkkutató
+Hő: 4
+Vízben: igen
+Munkák: 0
+Jegtábla: 0 0

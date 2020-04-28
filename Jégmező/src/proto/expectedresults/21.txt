@@ -1,0 +1,37 @@
+generateMap sikeresen lefutott
+SetSnow sikeresen lefutott
+addPlayer sikeresen lefutott
+targyHozzaadasa sikeresen lefutott
+targyatHasznal sikeresen lefutott
+jatekos1 munkák száma: 3
+listKarTargy jatekos1
+0: aso
+listJegtablaAttrib sikeresen lefutott
+Pozíció: 2 3
+Típus: stabil
+Hómennyiség: 10
+Karakterek: jatekos1
+Tárgy: null
+Épitmény: null
+targyatHasznal sikeresen lefutott
+ jatekos1 munkák száma: 2
+listKarTargy jatekos1
+0: aso
+listJegtablaAttrib sikeresen lefutott
+Pozíció: 2 3
+Típus: stabil
+Hómennyiség: 8
+Karakterek: jatekos1
+Tárgy: null
+Épitmény: null
+targyatHasznal sikeresen lefutott
+jatekos1 munkák száma: 1
+listKarTargy jatekos1
+null
+listJegtablaAttrib sikeresen lefutott
+Pozíció: 2 3
+Típus: stabil
+Hómennyiség: 6
+Karakterek: jatekos1
+Tárgy: null
+Épitmény: null 

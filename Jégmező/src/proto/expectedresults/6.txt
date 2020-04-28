@@ -1,0 +1,4 @@
+GenerateMap sikeresen lefutott
+setSnow sikeresen lefutott
+addPlayer sikeresen lefutott
+iglutEpit nem sikerult
