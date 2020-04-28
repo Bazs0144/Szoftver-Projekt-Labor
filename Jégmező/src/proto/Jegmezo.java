@@ -9,34 +9,30 @@ import java.util.Scanner;
 
 public class Jegmezo implements Serializable {
     private ArrayList<Jegtabla> JegT;
-    private int width;
+
 
     /**
      * Konstruktor: Létrehozza a jágtáblákat, és megadja az adott jágtábla szomszédait
      * @param width height A Jégmezõt alkotó jégtáblák száma.
      */
     public Jegmezo(int width, int height) {
-        this.width = width;
+
         this.JegT = new ArrayList<>();
-        for(int i=0; i<height; i++)
-            for(int j=0; j<width; j++) {
-            Jegtabla jeg=new Stabil(new Poz(j, i));
+        for(int y=0; y<height; y++)
+            for(int x=0; x<width; x++) {
+            Jegtabla jeg=new Stabil(new Poz(x, y));
             JegT.add(jeg);
           //  Szkeleton.objects.put(JegT.get(i), "Jegt["+i+"]");
         }
         Jegtabla jelen;
-        for(int i=0; i<height; i++)
-            for(int j=0; j<width; j++) {
-                jelen=getJegtabla(i ,j);
-                if(i-1>=0) jelen.addSzomszed(getJegtabla(i-1, j));
-                if(i+1<height) jelen.addSzomszed(getJegtabla(i+1, j));
-                if(j-1>=0) jelen.addSzomszed(getJegtabla(i, j-1));
-                if(j+1<width) jelen.addSzomszed(getJegtabla(i, j+1));
+        for(int y=0; y<height; y++)
+            for(int x=0; x<width; x++) {
+                jelen=getJegtabla(x ,y);
+                if(y-1>=0) jelen.addSzomszed(getJegtabla(x, y-1));
+                if(y+1<height) jelen.addSzomszed(getJegtabla(x, y+1));
+                if(x-1>=0) jelen.addSzomszed(getJegtabla(x-1, y));
+                if(x+1<width) jelen.addSzomszed(getJegtabla(x+1, y));
             }
-    }
-    
-    public int getwidth() {
-    	return width;
     }
 
     public void addJegtabla(Jegtabla jeg) {

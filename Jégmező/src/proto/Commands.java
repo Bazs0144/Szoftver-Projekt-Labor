@@ -132,7 +132,7 @@ public class Commands {
 
     protected static void generateMap(String[] cmd) { //Ez jo
         if (Integer.parseInt(cmd[1]) < 0 || Integer.parseInt(cmd[2]) < 0) {
-            doublePrintln("generateMap nem sikerult");
+            doublePrintln("hihi?");
             siker = false;
             return;
         }
@@ -142,9 +142,9 @@ public class Commands {
        protected static void changeJegtabla(String[] cmd) throws Exception{
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         if(j == null) throw new Exception();
+        Poz poz=new Poz(Integer.parseInt(cmd[1]),Integer.parseInt(cmd[2]));
         ArrayList<Jegtabla> jegT = jt.getJegMezo().getJegtablak();
-        jegT.remove(Integer.parseInt(cmd[1]) * jt.getJegMezo().getwidth()  + Integer.parseInt(cmd[2]));
-        Poz poz =  new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+        jegT.remove(jt.getJegMezo().getJegtabla(poz.x, poz.y));
         if(cmd[3].compareTo("luk") == 0 ) {
         	Luk luk = new Luk(poz);
         	jt.getJegMezo().addJegtabla(luk);
@@ -387,7 +387,7 @@ public class Commands {
     	if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
     		ArrayList<Jegtabla> szom = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).getSzomszedok();
     		for(int i = 0; i < szom.size(); i++) {
-    			doublePrintln(i + ". szomszéd, koordináták: (" + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")");
+    			doublePrintln(i + ": " + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")");
     		}
     	}
     }
@@ -406,7 +406,7 @@ public class Commands {
     }
 
     protected static void startGame() {
-        doublePrintln("Az elsõ játékos neve: " + jt.getFirstPlayer().getName());
+        doublePrintln("Az elso jatekos neve: " + jt.getFirstPlayer().getName());
     	initGame();
     }
 
@@ -464,7 +464,7 @@ public class Commands {
                i++;
         }
         System.out.println("----------------------------------------");
-        System.out.println("A teszteset helyessége: " + 100*c/i + "%");
+        System.out.println("A teszteset helyessege: " + 100*c/i + "%");
         br.close();
         br2.close();
     }
