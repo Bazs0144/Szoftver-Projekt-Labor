@@ -25,16 +25,17 @@ public class Jegesmedve extends Figura implements Serializable {
     }
 
     /**
-     * A Jegesmedve át akar lépni egy másik jégtáblára, elõbb megkérdezi, a jégtáblától amin áll, hogy szomszédja-e a jégtábla amire lépni akar, ha igen átlép, ha nem akkor nem
-     * és megeszi a rajtalévõ játékosokat
-     * @param jt : erre a jégtáblára akar átlépni
-     * @return ha át tudott lépni igazzal tér vissza, ha nem akkor hamissal
+     * A Jegesmedve ï¿½t akar lï¿½pni egy mï¿½sik jï¿½gtï¿½blï¿½ra, elï¿½bb megkï¿½rdezi, a jï¿½gtï¿½blï¿½tï¿½l amin ï¿½ll, hogy szomszï¿½dja-e a jï¿½gtï¿½bla amire lï¿½pni akar, ha igen ï¿½tlï¿½p, ha nem akkor nem
+     * ï¿½s megeszi a rajtalï¿½vï¿½ jï¿½tï¿½kosokat
+     * @param jt : erre a jï¿½gtï¿½blï¿½ra akar ï¿½tlï¿½pni
+     * @return ha ï¿½t tudott lï¿½pni igazzal tï¿½r vissza, ha nem akkor hamissal
      */
     public boolean lep(Jegtabla jt) {
         if(jegtabla.szomszed_e(jt)) {
             jegtabla.lelepnek(this);
             jt.ralepnek(this);
-            if(!jt.getEpitmeny().megvedMedvetol())
+            if(jt.getEpitmeny()==null) megesz();
+            else if(!jt.getEpitmeny().megvedMedvetol())
             	megesz();
             return true;
         } else {
