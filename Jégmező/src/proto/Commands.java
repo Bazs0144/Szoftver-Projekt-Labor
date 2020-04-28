@@ -242,7 +242,7 @@ public class Commands {
         }
     }
 
-    protected static void targyHozzadasa(String[] cmd) {//Szerintem jo
+    protected static void targyHozzadasa(String[] cmd) throws Exception{//Szerintem jo
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         if(cmd[2].compareTo("alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
@@ -255,6 +255,7 @@ public class Commands {
         else if(cmd[2].compareTo("kotel") == 0) k.targy_hozzaadasa(new Kotel());
         else if(cmd[2].equals("lapat")) k.targy_hozzaadasa(new Lapat());
         else if(cmd[2].compareTo("sator") == 0) k.targy_hozzaadasa(new Sator());
+        else throw new Exception();
 
     }
 
