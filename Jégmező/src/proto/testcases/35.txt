@@ -1,5 +1,5 @@
 90kjk12
-loadMap palya.ser
+loadMap palya
 startGame
 listKarAttrib p1
 listJegtablaAttrib 1 2

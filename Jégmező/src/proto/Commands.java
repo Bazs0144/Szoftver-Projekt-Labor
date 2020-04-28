@@ -163,7 +163,7 @@ public class Commands {
     protected static void addTargy(String[] cmd)throws Exception {
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         if(j == null) throw new Exception();
-        if(cmd[3].compareTo("Alkatresz") == 0){
+        if(cmd[3].compareTo("alkatresz") == 0){
             Alkatresz alk = new Alkatresz(jt);
             j.setTargy(alk);
             jt.addAlkatresz(alk);
@@ -194,8 +194,11 @@ public class Commands {
 
     protected static void playerLep(String[] cmd) throws Exception {
         Player p = jt.getPlayer(cmd[1]);
-        if(p == null) throw new Exception();
-        Jegtabla j2 = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
+        ArrayList<Jegtabla> ja = p.getKarakter().getJegtabla().getSzomszedok();
+        Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
+        p.getKarakter().lep(j2);
+        munkaVolt(p);
+      /*  Jegtabla j2 = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
         if( j2 == null) throw new Exception();
         Jegtabla j = p.getKarakter().jegtabla;
         if(j.szomszed_e(j2))
@@ -203,21 +206,22 @@ public class Commands {
             p.getKarakter().lep(j2);
         }
         else throw new Exception();
+
+       */
     }
 
     protected static void iglutEpit(String[] cmd)throws Exception {
         Eszkimo k =(Eszkimo) jt.getPlayer(cmd[1]).getKarakter();
         if(k.Name.compareTo("Eszkimo") == 0 && k.van_munkaja() && !k.jegtabla.get_befagyva() && k.jegtabla.getHoMennyiseg() == 0 && k.jegtabla.getEpitmeny()== null && k.jegtabla.getTargy() == null) {
             k.iglut_epit();
-            doublePrintln("Maradt munkáinak száma: " + k.get_munkakszama());
+            munkaVolt(jt.getPlayer(cmd[1]));
         }
-        else throw new Exception(); 
-
+        else throw new Exception();
     }
     
     protected static void kutatoVizsgal(String[] cmd)throws Exception {
         Sarkkutato k =(Sarkkutato) jt.getPlayer(cmd[1]).getKarakter();
-        if(k.Name.compareTo("Sarkkutato") == 0) {
+        if(k.Name.compareTo("Sarkkutato") == 0&&k.van_munkaja()) {
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
             if(kapacitas < 0) throw new Exception();
             doublePrintln("A vizsgált jégtábla kapacitása: " + kapacitas);
@@ -392,7 +396,7 @@ public class Commands {
         if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
             ArrayList<Jegtabla> szom = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).getSzomszedok();
             for(int i = 0; i < szom.size(); i++) {
-                doublePrintln(i + ": " + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")");
+                doublePrintln(i + ": " + szom.get(i).getPoz().getX() + " " + szom.get(i).getPoz().getY());
             }
         }
     }
@@ -421,6 +425,7 @@ public class Commands {
         jt.kor=1;
         inGame=true;
         jt.next_player(jt.getPlayers().get(jt.act_index));
+        doublePrintln(jt.kor + ". kor, jatekos: " + jt.getPlayers().get(jt.act_index).getName());
     }
 
     protected static void inGameRound() {
@@ -437,8 +442,8 @@ public class Commands {
                     jt.kor++;
                 } else jt.act_index++;
                 jt.next_player(jt.getPlayers().get(jt.act_index));
+                doublePrintln(jt.kor + ". kor, jatekos: " + jt.getPlayers().get(jt.act_index).getName());
             }
-            doublePrintln(jt.kor + ". kör, játékos: " + jt.getPlayers().get(jt.act_index).getName());
         }
     }
 

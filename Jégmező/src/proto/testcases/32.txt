@@ -1,8 +1,8 @@
 90kjk12
-GenerateMap 1 1 0
+generateMap 1 1 0
 changeJegtabla 0 0 instabil
 setInstabilKap 0 0 3
-addTargy 0 0 raketa
+addTargy 0 0 alkatresz
 setSnow 0 0 1
 addJegtabla 0 1 stabil null null
 setSnow 0 1 2
@@ -56,5 +56,4 @@ addPlayer p1 1 2 eszkimo
 addPlayer p2 3 1 sarkkutato
 addPlayer p2 3 2 sarkkutato
 addMedve 0 1
-saveMap palya.ser
-listJegmezo
+saveMap palya
