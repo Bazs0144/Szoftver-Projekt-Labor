@@ -1,12 +1,12 @@
 generateMap sikeresen lefutott
 setSnow sikeresen lefutott
 addPlayer sikeresen lefutott
+jatekos1 munkak szama: 4
 digSnow sikeresen lefutott
-jatekos1 munkák száma: 3
+Pozicio: 2 3
+Tipus: Stabil
+Homennyiseg: 1
+Karakterek: Sarkkutato 
+Targy: null
+Epitmeny: null
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 2 3
-Típus: stabil
-Hómennyiség: 1
-Karakterek: jatekos1
-Tárgy: null
-Épitmény: null

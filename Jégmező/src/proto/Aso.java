@@ -3,7 +3,7 @@ package proto;
 import java.io.Serializable;
 
 /**
- * Az ásó implementálásáért felelõs osztály az Aso, a Targy leszármazottja.
+ * Az ï¿½sï¿½ implementï¿½lï¿½sï¿½ï¿½rt felelï¿½s osztï¿½ly az Aso, a Targy leszï¿½rmazottja.
  *
  */
 
@@ -11,23 +11,24 @@ public class Aso extends Targy implements Serializable {
 	
 	private int tartossag;
 	/**
-	 * Az Aso osztály konstruktora.
+	 * Az Aso osztï¿½ly konstruktora.
 	 */
 	public Aso() {
 		Name = "Aso";
+		tartossag = 3;
 	}
 	/**
-	 * A paraméterként kapott karakter használja az ásót, hogy 2-t takarítson a jégtábláról.
-	 * Ha a karakter vizben van, nem tudja használni az ásót.
-	 * Ha már háromszor használta, akkor az ásó használhatatlan, ekkor nem megy végbe a takaritás.
-	 * Ha még használható az ásó, a tartossági értéke kisebb mint három, az ásót használó karakter takaritani kezd.
-	 * Minden használat után a tartósság értéke egyel növekszik.
+	 * A paramï¿½terkï¿½nt kapott karakter hasznï¿½lja az ï¿½sï¿½t, hogy 2-t takarï¿½tson a jï¿½gtï¿½blï¿½rï¿½l.
+	 * Ha a karakter vizben van, nem tudja hasznï¿½lni az ï¿½sï¿½t.
+	 * Ha mï¿½r hï¿½romszor hasznï¿½lta, akkor az ï¿½sï¿½ hasznï¿½lhatatlan, ekkor nem megy vï¿½gbe a takaritï¿½s.
+	 * Ha mï¿½g hasznï¿½lhatï¿½ az ï¿½sï¿½, a tartossï¿½gi ï¿½rtï¿½ke kisebb mint hï¿½rom, az ï¿½sï¿½t hasznï¿½lï¿½ karakter takaritani kezd.
+	 * Minden hasznï¿½lat utï¿½n a tartï¿½ssï¿½g ï¿½rtï¿½ke egyel nï¿½vekszik.
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
         if(karakter.vizben_van) return;
-        if(tartossag >= 3) return;
 		karakter.takarit(2);
-		tartossag++;
+        tartossag--;
+        if(tartossag<=0) karakter.targy_elhasznalasa(this);
 	}
 }

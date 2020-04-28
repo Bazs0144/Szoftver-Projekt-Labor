@@ -1,7 +1,7 @@
 generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
+vizbeesett
+Maradt munkainak szama: 0
 addPlayer sikeresen lefutott
-jatekos1 vízbeesett
-jatekos1 munkák száma: 0
-TargyHozzaadasa sikeresen lefutott
-targyatHasznal nem sikerült
+targyHozzaadasa sikeresen lefutott
+targyatHasznal nem sikerult

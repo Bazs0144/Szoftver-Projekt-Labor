@@ -1,6 +1,13 @@
-generateMap 5 5 0
-setSnow 2 3 2
-addPlayer jatekos1 2 3 sarkkutato
-targyHozzaadasa jatekos1 lapat
-targyatHasznal jatekos1 lapat 2 3
-listJegtablaAttrib 2 3
+generateMap sikeresen lefutott
+setSnow sikeresen lefutott
+addPlayer sikeresen lefutott
+targyHozzaadasa sikeresen lefutott
+jatekos1 munkak szama: 4
+targyatHasznal sikeresen lefutott
+Pozicio: 2 3
+Tipus: Stabil
+Homennyiseg: 0
+Karakterek: Sarkkutato 
+Targy: null
+Epitmeny: null
+listJegtablaAttrib sikeresen lefutott

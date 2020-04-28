@@ -3,12 +3,12 @@ generateMap 5 5 0
 setSnow 2 3 10
 addPlayer jatekos1 2 3 sarkkutato
 targyHozzaadasa jatekos1 aso
-targyatHasznal jatekos1 0
+targyatHasznal jatekos1 2 3 0
 listKarTargy jatekos1
 listJegtablaAttrib 2 3
-targyatHasznal jatekos1 0
+targyatHasznal jatekos1 2 3 0
 listKarTargy jatekos1
 listJegtablaAttrib 2 3
-targyatHasznal jatekos1 0
+targyatHasznal jatekos1 2 3 0
 listKarTargy jatekos1
 listJegtablaAttrib 2 3
