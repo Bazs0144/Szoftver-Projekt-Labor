@@ -2,5 +2,4 @@ generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
 setInstabilKap sikeresen lefutott
 addPlayer sikeresen lefutott
-A vizsgált jégtábla kapacitása: 2
-kutatoVizsgal sikeresen lefutott
+kutatoVizsgal nem sikerult
