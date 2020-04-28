@@ -92,7 +92,7 @@ public class Commands {
     }
 
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
-        File f = new File(".\\proto\\testcases\\" + cmd[1] + ".txt");
+        File f = new File(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
         actTest = cmd[1];
         if (!f.exists()) {
             System.out.println("loadTest nem sikerult");
@@ -117,7 +117,7 @@ public class Commands {
         reader = new BufferedReader(fr);
 
         siker = false; //hogyne irja ki a tesztfajlba a startot
-        File f = new File(".\\proto\\testresult\\" + actTest + ".txt");
+        File f = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
         f.createNewFile();
         fw = new FileWriter(f);
         writer = new PrintWriter(fw);
@@ -146,20 +146,20 @@ public class Commands {
         ArrayList<Jegtabla> jegT = jt.getJegMezo().getJegtablak();
         jegT.remove(jt.getJegMezo().getJegtabla(poz.x, poz.y));
         if(cmd[3].compareTo("luk") == 0 ) {
-        	Luk luk = new Luk(poz);
-        	jt.getJegMezo().addJegtabla(luk);
+            Luk luk = new Luk(poz);
+            jt.getJegMezo().addJegtabla(luk);
         }
         else  if(cmd[3].compareTo("instabil") == 0 ) {
             Instabil in = new Instabil(poz);
             jt.getJegMezo().addJegtabla(in);
-            }
+        }
         else  if(cmd[3].compareTo("stabil") == 0 ) {
             Stabil st = new Stabil(poz);
             jt.getJegMezo().addJegtabla(st);
-            }
+        }
         else throw new Exception();
     }
-    
+
     protected static void addTargy(String[] cmd)throws Exception {
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
         if(j == null) throw new Exception();
@@ -175,7 +175,7 @@ public class Commands {
         else if(cmd[3].compareTo("lapat") == 0) j.setTargy(new Lapat());
         else if(cmd[3].compareTo("sator") == 0) j.setTargy(new Sator());
         else throw new Exception();
-    	
+
     }
 
     protected static void addPlayer(String[] cmd)throws Exception { //Ez jo
@@ -193,16 +193,16 @@ public class Commands {
     }
 
     protected static void playerLep(String[] cmd) throws Exception {
-            Player p = jt.getPlayer(cmd[1]);
-            if(p == null) throw new Exception();
-            Jegtabla j2 = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
-            if( j2 == null) throw new Exception();
-            Jegtabla j = p.getKarakter().jegtabla;
-            if(j.szomszed_e(j2))
-            {
-            	 p.getKarakter().lep(j2);
-            }
-            else throw new Exception();
+        Player p = jt.getPlayer(cmd[1]);
+        if(p == null) throw new Exception();
+        Jegtabla j2 = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
+        if( j2 == null) throw new Exception();
+        Jegtabla j = p.getKarakter().jegtabla;
+        if(j.szomszed_e(j2))
+        {
+            p.getKarakter().lep(j2);
+        }
+        else throw new Exception();
     }
 
     protected static void iglutEpit(String[] cmd)throws Exception {
@@ -210,21 +210,21 @@ public class Commands {
         if(k.Name.compareTo("Eszkimo") == 0) {
             k.iglut_epit();
         }
-        else throw new Exception(); 
+        else throw new Exception();
 
     }
-    protected static void kutatoVizsgal(String[] cmd)throws Exception { 
+    protected static void kutatoVizsgal(String[] cmd)throws Exception {
         Sarkkutato k =(Sarkkutato) jt.getPlayer(cmd[1]).getKarakter();
         if(k.Name.compareTo("Sarkkutato") == 0) {
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
-            if(kapacitas < 0) throw new Exception(); 
+            if(kapacitas < 0) throw new Exception();
             doublePrintln("A vizsgált jégtábla kapacitása: " + kapacitas);
         }
-        else throw new Exception(); 
+        else throw new Exception();
     }
 
     protected static void targyatHasznal(String[] cmd)throws Exception {
-    	Player p = jt.getPlayer(cmd[1]);
+        Player p = jt.getPlayer(cmd[1]);
         if(p == null) throw new Exception();
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
         if(j == null) throw new Exception();
@@ -233,7 +233,7 @@ public class Commands {
         if(T == null) throw new Exception();
         T.hasznaljak(p.getKarakter(), j);
     }
-    
+
     protected static void targyFelvetel(String[] cmd) throws Exception {//Szerintem jo
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
@@ -326,7 +326,7 @@ public class Commands {
     }
 
     protected static void printPlayersLife(String[] cmd) {
-            doublePrintln("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
+        doublePrintln("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
 
     }
 
@@ -361,44 +361,44 @@ public class Commands {
     }
 
     protected static void addJegtabla(String[] cmd) {
-    	if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null)
-    		;
-    	else {
-    		if(cmd[3].compareTo("stabil") == 0) jt.getJegMezo().addJegtabla(new Stabil(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
-    		if(cmd[3].compareTo("instabil") == 0) jt.getJegMezo().addJegtabla(new Instabil(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
-    		if(cmd[3].compareTo("luk") == 0) jt.getJegMezo().addJegtabla(new Luk(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
-    		
-    		Jegtabla jegt = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
-    		
-    		if(cmd[4].compareTo("etel") == 0) jegt.setTargy(new Etel());
-    		if(cmd[4].compareTo("buvarruha") == 0) jegt.setTargy(new Buvarruha());
-    		if(cmd[4].compareTo("kotel") == 0) jegt.setTargy(new Kotel());
-    		if(cmd[4].compareTo("sator") == 0) jegt.setTargy(new Sator());
-    		if(cmd[4].compareTo("lapat") == 0) jegt.setTargy(new Lapat());
-    		if(cmd[4].compareTo("aso") == 0) jegt.setTargy(new Aso());
-    		if(cmd[4].compareTo("raketa") == 0) jegt.setTargy(new Alkatresz(jt));
-    		
-    		if(cmd[5].compareTo("iglu") == 0) jegt.epitmenyKeszul(new Iglu());
-    		if(cmd[5].compareTo("sator") == 0) jegt.epitmenyKeszul(new Sator());
-    		if(cmd[5].compareTo("null") == 0) ;
-    	}
+        if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null)
+            ;
+        else {
+            if(cmd[3].compareTo("stabil") == 0) jt.getJegMezo().addJegtabla(new Stabil(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
+            if(cmd[3].compareTo("instabil") == 0) jt.getJegMezo().addJegtabla(new Instabil(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
+            if(cmd[3].compareTo("luk") == 0) jt.getJegMezo().addJegtabla(new Luk(new Poz(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]))));
+
+            Jegtabla jegt = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
+
+            if(cmd[4].compareTo("etel") == 0) jegt.setTargy(new Etel());
+            if(cmd[4].compareTo("buvarruha") == 0) jegt.setTargy(new Buvarruha());
+            if(cmd[4].compareTo("kotel") == 0) jegt.setTargy(new Kotel());
+            if(cmd[4].compareTo("sator") == 0) jegt.setTargy(new Sator());
+            if(cmd[4].compareTo("lapat") == 0) jegt.setTargy(new Lapat());
+            if(cmd[4].compareTo("aso") == 0) jegt.setTargy(new Aso());
+            if(cmd[4].compareTo("raketa") == 0) jegt.setTargy(new Alkatresz(jt));
+
+            if(cmd[5].compareTo("iglu") == 0) jegt.epitmenyKeszul(new Iglu());
+            if(cmd[5].compareTo("sator") == 0) jegt.epitmenyKeszul(new Sator());
+            if(cmd[5].compareTo("null") == 0) ;
+        }
     }
 
     protected static void listJegtablaSzomszed(String[] cmd) {
-    	if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
-    		ArrayList<Jegtabla> szom = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).getSzomszedok();
-    		for(int i = 0; i < szom.size(); i++) {
-    			doublePrintln(i + ": " + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")");
-    		}
-    	}
+        if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
+            ArrayList<Jegtabla> szom = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).getSzomszedok();
+            for(int i = 0; i < szom.size(); i++) {
+                doublePrintln(i + ": " + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")");
+            }
+        }
     }
 
     protected static void addJegtablaSzomszed(String[] cmd) {
-    	jt.getJegMezo().szomszedokkaTesz(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])), jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[3]), Integer.parseInt(cmd[4])));
+        jt.getJegMezo().szomszedokkaTesz(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])), jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[3]), Integer.parseInt(cmd[4])));
     }
 
     protected static void setInstabilKap(String[] cmd) {
-    	jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setKapacitas(Integer.parseInt(cmd[3]));
+        jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).setKapacitas(Integer.parseInt(cmd[3]));
 
     }
 
@@ -408,7 +408,7 @@ public class Commands {
 
     protected static void startGame() {
         doublePrintln("Az elso jatekos neve: " + jt.getFirstPlayer().getName());
-    	initGame();
+        initGame();
     }
 
     protected static void initGame() {
@@ -450,8 +450,8 @@ public class Commands {
     }
 
     static void calculateTestResult() throws IOException {
-        File f = new File(".\\proto\\expectedresults\\" + actTest + ".txt");
-        File f2 = new File(".\\proto\\testresult\\" + actTest + ".txt");
+        File f = new File(".\\src\\proto\\expectedresults\\" + actTest + ".txt");
+        File f2 = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
         FileReader r2 = new FileReader(f2);
         FileReader r = new FileReader(f);
         BufferedReader br = new BufferedReader(r);
@@ -461,8 +461,8 @@ public class Commands {
         int i = 0;
         int c = 0;
         while((expectedLine = br.readLine()) != null & (line = br2.readLine()) != null) {
-               if(line.compareTo(expectedLine) == 0) c++;
-               i++;
+            if(line.compareTo(expectedLine) == 0) c++;
+            i++;
         }
         System.out.println("----------------------------------------");
         System.out.println("A teszteset helyessege: " + 100*c/i + "%");

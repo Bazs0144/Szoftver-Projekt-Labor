@@ -4,7 +4,7 @@ medveLep sikeresen lefutott
 Pozicio: 0 1
 Tipus: Stabil
 Homennyiseg: 0
-Karakterek: 
+Karakterek: Jegesmedve 
 Targy: null
 Epitmeny: null
 listJegtablaAttrib sikeresen lefutott
