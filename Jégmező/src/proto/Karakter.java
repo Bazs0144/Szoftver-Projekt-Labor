@@ -29,6 +29,10 @@ public class Karakter extends Figura implements Serializable {
     public ArrayList<Targy> getTargyak() {
         return zseb;
     }
+    
+    public int get_munkakszama() {
+        return munkak_szama;
+    }
 
     /**
      * A Karakter takarít azon a jégtáblán amin áll, meghívja a jégtáblán a takaritas_volt függvényt
