@@ -34,7 +34,8 @@ public class Jegesmedve extends Figura implements Serializable {
         if(jegtabla.szomszed_e(jt)) {
             jegtabla.lelepnek(this);
             jt.ralepnek(this);
-            if(!jt.getEpitmeny().megvedMedvetol())
+            if(jt.getEpitmeny()==null) megesz();
+            else if(!jt.getEpitmeny().megvedMedvetol())
             	megesz();
             return true;
         } else {

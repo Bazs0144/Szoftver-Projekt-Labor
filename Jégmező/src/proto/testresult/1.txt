@@ -1,6 +1,6 @@
 generateMap sikeresen lefutott
 addMedve sikeresen lefutott
-medveLep nem sikerult
+medveLep sikeresen lefutott
 Pozicio: 0 1
 Tipus: Stabil
 Homennyiseg: 0

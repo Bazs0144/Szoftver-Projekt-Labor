@@ -9,16 +9,17 @@ startGame sikeresen lefutott
 jegtabla: 0 1
 0: 0 0
 listJegtablaSzomszed sikeresen lefutott
-p1 munkák száma: 3
+p1 vizbeesett
+p1 munkak szama: 0
 playerLep sikeresen lefutott
 0: Kotel
 listKarTargy sikeresen lefutott
-p2 munkák száma: 4
+p2 munkak szama: 3
 targyatHasznal sikeresen lefutott
 Jatekos: p1
 Karakter: Eszkimo
 Ho: 5
 Vizben: nem
 Munkak: 3
-Jegtabla: 0 0
+Jegtabla: 0 1
 listKarAttrib sikeresen lefutott
