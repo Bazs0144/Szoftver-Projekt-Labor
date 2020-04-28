@@ -1,28 +1,29 @@
 loadMap sikeresen lefutott
+Az elso jatekos neve: p1
+1. kor, jatekos: p1
 startGame sikeresen lefutott
-Következő játékos: p1
+Jatekos: p1
+Karakter: Eszkimo
+Ho: 5
+Vizben: nem
+Munkak: 4
+Jegtabla: 1 2
 listKarAttrib sikeresen lefutott
-Játékos: p1
-Karakter: Eszkimó
-Hő: 5
-Vízben: nem
-Munkák: 4
-Jégtábla: 1 2
+Pozicio: 1 2
+Tipus: Instabil
+Homennyiseg: 0
+Karakterek: Eszkimo 
+Targy: null
+Epitmeny: null
+Kapacitas: 1
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 1 2
-Típus: instabil
-Hómennyiség: 0
-Karakterek: p1
-Tárgy: null
-Építmény: null
-Kapacitás: 1
-iglutEpit sikeresen lefutott
 p1 munkák száma: 3
+iglutEpit sikeresen lefutott
+Pozicio: 1 2
+Tipus: Instabil
+Homennyiseg: 0
+Karakterek: Eszkimo 
+Targy: null
+Epitmeny: iglu
+Kapacitas: 1
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 1 2
-Típus: instabil
-Hómennyiség: 0
-Karakterek: p1
-Tárgy: null
-Építmény: iglu
-Kapacitás: 1

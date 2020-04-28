@@ -13,6 +13,7 @@ public class Stabil extends Jegtabla implements Serializable {
 	public Stabil(Poz p) {
 		super(p);
 		type = "Stabil";
+		setKapacitas(100);
 	}
 
 	

@@ -197,7 +197,17 @@ public class Commands {
         ArrayList<Jegtabla> ja = p.getKarakter().getJegtabla().getSzomszedok();
         Jegtabla j2 = ja.get(Integer.parseInt(cmd[2]));
         p.getKarakter().lep(j2);
-        munkaVolt(p);
+        if(j2.type.equals("Instabil")) {
+            if(j2.getKapacitas()<j2.figurak.size()) {
+                p.getKarakter().munkak_szama=0;
+                for(Player pl: jt.getPlayers()) {
+                    if(pl.getKarakter().getJegtabla().getPoz().equals(j2.getPoz())) {
+                    doublePrintln(pl.getName() + " vizbeesett");
+                    doublePrintln(pl.getName() + " munkak szama: " + pl.getKarakter().munkak_szama);
+                    }
+                }
+            }else munkaVolt(p);
+        }else munkaVolt(p);
       /*  Jegtabla j2 = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3]));
         if( j2 == null) throw new Exception();
         Jegtabla j = p.getKarakter().jegtabla;
@@ -394,6 +404,7 @@ public class Commands {
 
     protected static void listJegtablaSzomszed(String[] cmd) {
         if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
+            doublePrintln("jegtabla: "+ Integer.parseInt(cmd[1])+ " "+Integer.parseInt(cmd[2]));
             ArrayList<Jegtabla> szom = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).getSzomszedok();
             for(int i = 0; i < szom.size(); i++) {
                 doublePrintln(i + ": " + szom.get(i).getPoz().getX() + " " + szom.get(i).getPoz().getY());

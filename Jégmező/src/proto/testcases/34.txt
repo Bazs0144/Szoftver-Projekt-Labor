@@ -5,5 +5,5 @@ listJegtablaAttrib 1 2
 jatekosKorVege p1
 listJegtablaSzomszed 3 1
 playerLep p2 3
-listJegtablaSzomszed 3 1
+listJegtablaSzomszed 3 2
 playerLep p2 2

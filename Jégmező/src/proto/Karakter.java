@@ -51,6 +51,7 @@ public class Karakter extends Figura implements Serializable {
     @Override
     public void vizbe_esik() {
         vizben_van=true;
+        munkak_szama=0;
     }
 
     /**

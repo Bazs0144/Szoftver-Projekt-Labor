@@ -1,34 +1,34 @@
 loadMap sikeresen lefutott
+Az elso jatekos neve: p1
+1. kor, jatekos: p1
 startGame sikeresen lefutott
-Következő játékos: p1
-listJegtablaAttrib sikeresen lefutott
-Pozíció: 1 2
-Típus: instabil
-Hómennyiség: 0
+Pozicio: 1 2
+Típus: Instabil
+Homennyiseg: 0
 Karakterek: p1
-Tárgy: null
-Építmény: null
+Targy: null
+Epitmeny: null
 Kapacitás: 1
+listJegtablaAttrib sikeresen lefutott
 jatekosKorVege sikeresen lefutott
-Következő játékos: p2
-listJegtablaSzomszed sikeresen lefutott
+1. kor, jatekos: p2
 jegtabla: 3 1
 0: 3 0
 1: 2 1
 2: 2 2
 3: 3 2
-playerLep sikeresen lefutott
-p2 munkák száma: 3
 listJegtablaSzomszed sikeresen lefutott
+p2 munkák száma: 3
+playerLep sikeresen lefutott
 jegtabla: 3 2
 0: 3 1
 1: 2 2
 2: 1 2
 3: 1 3
-playerLep sikeresen lefutott
-p2 munkák száma: 2
-1 2 jégtábla felborult.
+listJegtablaSzomszed sikeresen lefutott
 p1 vízbeesett
 p1 munkák száma: 0
 p2 vízbeesett
 p2 munkák száma: 0
+playerLep sikeresen lefutott
+1. kor, jatekos: p3
