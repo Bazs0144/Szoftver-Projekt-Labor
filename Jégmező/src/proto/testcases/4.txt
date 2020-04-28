@@ -1,5 +1,5 @@
 90kjk12
 generateMap 5 5 0
-changeJegtabla 2 3 luk
+addJegtabla 2 3 luk
 addPlayer p1 2 2 sarkkutato
 kutatoVizsgal p1 2 3
