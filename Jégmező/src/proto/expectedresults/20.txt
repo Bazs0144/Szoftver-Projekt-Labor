@@ -1,4 +1,5 @@
 generateMap sikeresen lefutott
 setSnow sikeresen lefutott
 addPlayer sikeresen lefutott
-digSnow nem sikerült
+jatekos1 munkak szama: 3
+digSnow sikeresen lefutott

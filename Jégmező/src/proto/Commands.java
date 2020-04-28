@@ -96,7 +96,7 @@ public class Commands {
     }
 
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
-        File f = new File(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
+        File f = new File(".\\proto\\testcases\\" + cmd[1] + ".txt");
         actTest = cmd[1];
         if (!f.exists()) {
             doublePrintln("loadTest nem sikerult");
@@ -121,7 +121,7 @@ public class Commands {
         reader = new BufferedReader(fr);
 
         siker = false; //hogyne irja ki a tesztfajlba a startot
-        File f = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
+        File f = new File(".\\proto\\testresult\\" + actTest + ".txt");
         f.createNewFile();
         fw = new FileWriter(f);
         writer = new PrintWriter(fw);
@@ -504,8 +504,8 @@ public class Commands {
     }
 
     static void calculateTestResult() throws IOException {
-        File f = new File(".\\src\\proto\\expectedresults\\" + actTest + ".txt");
-        File f2 = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
+        File f = new File(".\\proto\\expectedresults\\" + actTest + ".txt");
+        File f2 = new File(".\\proto\\testresult\\" + actTest + ".txt");
         FileReader r2 = new FileReader(f2);
         FileReader r = new FileReader(f);
         BufferedReader br = new BufferedReader(r);

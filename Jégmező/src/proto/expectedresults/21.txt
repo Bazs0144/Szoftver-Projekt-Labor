@@ -1,37 +1,36 @@
 generateMap sikeresen lefutott
-SetSnow sikeresen lefutott
+setSnow sikeresen lefutott
 addPlayer sikeresen lefutott
 targyHozzaadasa sikeresen lefutott
+jatekos1 munkak szama: 3
 targyatHasznal sikeresen lefutott
-jatekos1 munkák száma: 3
-listKarTargy jatekos1
-0: aso
+0: Aso
+listKarTargy sikeresen lefutott
+Pozicio: 2 3
+Tipus: Stabil
+Homennyiseg: 8
+Karakterek: Sarkkutato 
+Targy: null
+Epitmeny: null
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 2 3
-Típus: stabil
-Hómennyiség: 10
-Karakterek: jatekos1
-Tárgy: null
-Épitmény: null
+jatekos1 munkak szama: 2
 targyatHasznal sikeresen lefutott
- jatekos1 munkák száma: 2
-listKarTargy jatekos1
-0: aso
+0: Aso
+listKarTargy sikeresen lefutott
+Pozicio: 2 3
+Tipus: Stabil
+Homennyiseg: 6
+Karakterek: Sarkkutato 
+Targy: null
+Epitmeny: null
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 2 3
-Típus: stabil
-Hómennyiség: 8
-Karakterek: jatekos1
-Tárgy: null
-Épitmény: null
+jatekos1 munkak szama: 1
 targyatHasznal sikeresen lefutott
-jatekos1 munkák száma: 1
-listKarTargy jatekos1
-null
+listKarTargy sikeresen lefutott
+Pozicio: 2 3
+Tipus: Stabil
+Homennyiseg: 4
+Karakterek: Sarkkutato 
+Targy: null
+Epitmeny: null
 listJegtablaAttrib sikeresen lefutott
-Pozíció: 2 3
-Típus: stabil
-Hómennyiség: 6
-Karakterek: jatekos1
-Tárgy: null
-Épitmény: null 
