@@ -60,7 +60,8 @@ public class Commands {
         System.out.println("listJegtablaSzomszed<pozX1><pozY1><pozX2><pozY2>: Szomszedda teszi a ket jegtablat");
         System.out.println("setInstabilKap <pozX><pozY><size>: Beallitja a jegtabla kapacitasat.");
         System.out.println("JatekosKorVege <name>: Befejezi a jatekos koret.");
-        System.out.println("startGame: Elkezdi a jetekot.");
+        System.out.println("startGame: Elkezdi a jatekot.");
+        System.out.println("testAllCases: Az osszes dokumentumban levo tesztesetet teszteli.");
     }
 
 
