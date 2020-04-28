@@ -31,10 +31,10 @@ public class Player implements Serializable {
     public void kor_kezdes() {
         aktiv=true;
         k.munkak_szama=4;
-        while(aktiv&&k.munkak_szama>0) {
+     //   while(aktiv&&k.munkak_szama>0) {
             //proto.nextCommand();//???
-        }
-        kor_vegzes();
+       // }
+       // kor_vegzes();
     }
 
     /**

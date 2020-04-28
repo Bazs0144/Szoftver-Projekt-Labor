@@ -5,17 +5,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.SyncFailedException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main extends Commands{
 	static boolean isOver = false;
 
 	public static void main(String[] args) throws IOException {
+
+
 		commandBuffer = new ArrayList<String>();
 		reader = new BufferedReader(new InputStreamReader(System.in));
 		String line = null;
 		System.out.println("Udvozlom a prototipusban\n" +
 				" A lehetseges parancsok listajahoz irja be a help parancsot.\n");
 		while (!isOver) {
+			if(inGame) inGameRound();
 			if(!isTest)System.out.print("command: ");
 			siker = true;
 			line = reader.readLine();
@@ -26,6 +30,9 @@ public class Main extends Commands{
 				line = "";
 
 			}
+
+
+
 			if(line.compareTo("") != 0 && !line.contains("saveTest")) commandBuffer.add(line);
 			String[] cmd = line.split(" ");
 			try {
@@ -62,7 +69,7 @@ public class Main extends Commands{
 				else if (cmd[0].equals("addJegtablaSzomszed")) addJegtablaSzomszed(cmd);
 				else if (cmd[0].equals("setInstabilKap")) setInstabilKap(cmd);
 				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
-				else if (cmd[0].equals("jatekosKorVege")) jatekosKorVege(cmd);
+				else if (cmd[0].equals("startGame")) startGame();
 				else if (cmd[0].equals("")) siker = false;
 				else {System.out.println("Ilyen parancs nem letezik :("); siker=false;}
 				if(siker) System.out.println(cmd[0] + " sikeresen lefutott");
@@ -73,4 +80,5 @@ public class Main extends Commands{
 
 		}
 	}
+
 }

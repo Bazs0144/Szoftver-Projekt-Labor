@@ -10,6 +10,8 @@ public class Jatektabla implements Serializable {
     private ArrayList<Player> p;
     private ArrayList<Alkatresz> a;
     private Jegesmedve jm;
+    boolean game_over;
+    int act_index;
 
     /**
      * A játéktábla konstruktora, mely legenerál egy jégmezõt, és az alkatrészeket, valamint megkapja a jétékosokat.
@@ -22,6 +24,10 @@ public class Jatektabla implements Serializable {
         j = new Jegmezo(width, height);
         this.p = p;
         a = new ArrayList<>(); //Ez csak egyszerûsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return p;
     }
 
     public Jegesmedve getJegesmedve(){
@@ -49,7 +55,7 @@ public class Jatektabla implements Serializable {
      * Ellenõrzi, hogy a játék véget ért-e, vagy sem.
      * @return igaz ha véget ért, hamis ha nem.
      */
-    private boolean check_game_over() {
+    public boolean check_game_over() {
      for(Player pl: p) if(pl.getKarakter().getHo()==0) return true;
      return false;
     }
@@ -58,7 +64,7 @@ public class Jatektabla implements Serializable {
      * Átadja a játék kezelését a következõ játékosnak.
      * pl: az  adott játékos következik.
      */
-    private void next_player(Player pl) {
+    void next_player(Player pl) {
         pl.kor_kezdes();
     }
 
@@ -70,7 +76,7 @@ public class Jatektabla implements Serializable {
         int act_index = 0;
         while(!game_over) {
             act_index = act_index % p.size();
-            System.out.println(kor+". kör, következõ játékos: " + p.get(act_index));
+
             next_player(p.get(act_index));
             game_over = check_game_over();
             if(act_index==p.size()-1) {

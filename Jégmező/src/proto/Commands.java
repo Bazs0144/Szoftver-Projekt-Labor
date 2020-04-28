@@ -7,6 +7,7 @@ import java.util.Random;
 public class Commands {
 
     static protected Jatektabla jt;
+    static protected boolean inGame=false;
     static protected BufferedReader reader;
     static protected FileReader fr;
     static protected boolean siker;
@@ -391,13 +392,43 @@ public class Commands {
     }
 
     protected static void jatekosKorVege(String[] cmd) {
-    	if(jt.getPlayer(cmd[1]) != null)
+    	/*if(jt.getPlayer(cmd[1]) != null)
     		jt.getPlayer(cmd[1]).kor_vegzes();
+
+    	 */
+        jt.getPlayers().get(jt.act_index).getKarakter().munkak_szama=0;
     }
 
-    protected static void startGame(String[] cmd) {
+    protected static void startGame() {
     	System.out.println("Az elsõ játékos neve: " + jt.getFirstPlayer().getName());
-    	jt.init();
+    	initGame();
+    }
+
+    protected static void initGame() {
+        jt.game_over = false;
+        jt.act_index = 0;
+        jt.kor=1;
+        inGame=true;
+        jt.next_player(jt.getPlayers().get(jt.act_index));
+    }
+
+    protected static void inGameRound() {
+        jt.game_over=jt.check_game_over();
+        if(jt.game_over) {
+            inGame=false;
+            System.out.println("Játék vége");
+        }
+        if(!jt.game_over) {
+            Player current = jt.getPlayers().get(jt.act_index);
+            if (!current.getKarakter().van_munkaja()) {
+                if (jt.act_index == jt.getPlayers().size() - 1) {
+                    jt.act_index = 0;
+                    jt.kor++;
+                } else jt.act_index++;
+                jt.next_player(jt.getPlayers().get(jt.act_index));
+            }
+            System.out.println(jt.kor + ". kör, játékos: " + jt.getPlayers().get(jt.act_index).getName());
+        }
     }
 
     //----------------------------------------------
