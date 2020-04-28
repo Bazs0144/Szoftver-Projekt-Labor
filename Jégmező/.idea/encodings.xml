@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/proto/Aso.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/proto/Commands.java" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/proto/Eszkimo.java" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/proto/Kotel.java" charset="windows-1250" />
     <file url="file://$PROJECT_DIR$/src/proto/Main.java" charset="windows-1250" />

@@ -9,6 +9,9 @@ public class Commands {
     static protected Jatektabla jt;
     static protected BufferedReader reader;
     static protected FileReader fr;
+    static protected FileWriter fw;
+    static protected PrintWriter writer;
+    static protected  String actTest;
     static protected boolean siker;
     static boolean isTest = false;
     static ArrayList<String> commandBuffer;
@@ -59,7 +62,7 @@ public class Commands {
 
     protected static void saveMap(String[] cmd) throws IOException { //Remelhetoleg jó
         if (cmd.length > 1) {
-            File f = new File(cmd[1] + ".dat");
+            File f = new File(cmd[1] + ".sef");
             if (!f.exists())
                 f.createNewFile();
             if (f.exists()) {
@@ -74,7 +77,7 @@ public class Commands {
     protected static void loadMap(String[] cmd) throws IOException, ClassNotFoundException { //Remelhetoleg jo
 
         String wd = System.getProperty("user.dir");
-        File f = new File(wd, cmd[1] + ".dat");
+        File f = new File(wd, cmd[1] + ".sef");
         if (cmd.length > 1) {
             if (f.exists()) {
 
@@ -83,14 +86,15 @@ public class Commands {
                 jt = (Jatektabla) in.readObject();
                 in.close();
 
-            } else {System.out.println("loadMap nem sikerult"); siker = false;};
-        } else {System.out.println("loadMap nem sikerult"); siker = false;};
+            } else {doublePrint("loadMap nem sikerult"); siker = false;};
+        } else {doublePrint("loadMap nem sikerult"); siker = false;};
     }
 
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
         File f = new File(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
+        actTest = cmd[1];
         if (!f.exists()) {
-            System.out.println("loadTest nem sikerult");
+            doublePrint("loadTest nem sikerult");
             siker = false;
             return;
         }
@@ -111,8 +115,12 @@ public class Commands {
 
         reader = new BufferedReader(fr);
         isTest = true;
+        File f = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
+        f.createNewFile();
+        fw = new FileWriter(f);
+        writer = new PrintWriter(fw);
         if (reader.readLine().compareTo("90kjk12") != 0) {
-            System.out.println("start nem sikerult");
+            doublePrint("start nem sikerult");
             siker = false;
             return;
         }
@@ -121,7 +129,7 @@ public class Commands {
 
     protected static void generateMap(String[] cmd) { //Ez jo
         if (Integer.parseInt(cmd[1]) < 0 || Integer.parseInt(cmd[2]) < 0) {
-            System.out.println("generateMap nem sikerult");
+            doublePrint("generateMap nem sikerult");
             siker = false;
             return;
         }
@@ -207,7 +215,7 @@ public class Commands {
         if(k.Name.compareTo("Sarkkutato") == 0) {
             int kapacitas = k.megnez(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[2]), Integer.parseInt(cmd[3])));
             if(kapacitas < 0) throw new Exception(); 
-            System.out.println("A vizsgált jégtábla kapacitása: " + kapacitas);
+            doublePrint("A vizsgált jégtábla kapacitása: " + kapacitas);
         }
         else throw new Exception(); 
     }
@@ -279,27 +287,27 @@ public class Commands {
 
     protected static void listJegtablaAttrib(String[] cmd) { //Ez jo
         Jegtabla j = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
-        System.out.println("Pozicio: " + cmd[1] + " " + cmd[2]);
-        System.out.println("Tipus: " +  j.type);
-        System.out.println("Homennyiseg: " + j.getHoMennyiseg());
-        System.out.print("Karakterek: ");
+        doublePrint("Pozicio: " + cmd[1] + " " + cmd[2]);
+        doublePrint("Tipus: " +  j.type);
+        doublePrint("Homennyiseg: " + j.getHoMennyiseg());
+        doublePrint("Karakterek: ");
         ArrayList<Figura> k = j.getFigurak();
         if(k.size() == 0) System.out.print("null");
         else {
             for (Figura f : k) {
-                System.out.print(f.Name + " ");
+                doublePrint(f.Name + " ");
             }
         }
-        System.out.println();
-        System.out.print("Targy: ");
+        doublePrint("");
+        doublePrint("Targy: ");
         if(j.getTargy() == null) System.out.println("null");
         else System.out.println(j.getTargy().Name);
-        System.out.print("Epitmeny: ");
+        doublePrint("Epitmeny: ");
         if(j.getEpitmeny() == null) System.out.println("null");
-        else System.out.println(j.getEpitmeny().getName());
+        else doublePrint(j.getEpitmeny().getName());
         if(j.type.compareTo("Instabil") == 0) {
             Instabil jr = (Instabil) jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2]));
-            System.out.println("Kapacitas: " + jr.getKapacitas());
+            doublePrint("Kapacitas: " + jr.getKapacitas());
         }
 
     }
@@ -313,7 +321,7 @@ public class Commands {
     }
 
     protected static void printPlayersLife(String[] cmd) {
-            System.out.println("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
+            doublePrint("Homennyiseg: " + jt.getPlayer(cmd[1]).getKarakter().getHo());
 
     }
 
@@ -330,20 +338,20 @@ public class Commands {
     protected static void listKarAttrib(String[] cmd) {
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         Poz p=k.getJegtabla().getPoz();
-        System.out.println("Jatekos: " + cmd[1]);
-        System.out.println("Karakter: " + k.getClass().getName());
-        System.out.println("Ho: " + k.getHo());
+        doublePrint("Jatekos: " + cmd[1]);
+        doublePrint("Karakter: " + k.getClass().getName());
+        doublePrint("Ho: " + k.getHo());
         String viz= (k.get_vizben_van()) ? "igen" : "nem";
-        System.out.println("Vizben: " + viz);
-        System.out.println("Munkak: " + k.munkak_szama);
-        System.out.println("Jegtabla: " +p.x + " " +p.y );
+        doublePrint("Vizben: " + viz);
+        doublePrint("Munkak: " + k.munkak_szama);
+        doublePrint("Jegtabla: " +p.x + " " +p.y );
     }
 
     protected static void listKarTargy(String[] cmd) {
         Karakter k = jt.getPlayer(cmd[1]).getKarakter();
         int i=0;
         for(Targy t: k.getTargyak()) {
-            System.out.println(i + ": " + t.Name);
+            doublePrint(i + ": " + t.Name);
             i++;
         }
     }
@@ -376,7 +384,7 @@ public class Commands {
     	if(jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])) != null) {
     		ArrayList<Jegtabla> szom = jt.getJegMezo().getJegtabla(Integer.parseInt(cmd[1]), Integer.parseInt(cmd[2])).getSzomszedok();
     		for(int i = 0; i < szom.size(); i++) {
-    			System.out.println(i + ". szomszéd, koordináták: (" + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")");
+    			doublePrint(i + ". szomszéd, koordináták: (" + szom.get(i).getPoz().getX() + "; " + szom.get(i).getPoz().getY() + ")");
     		}
     	}
     }
@@ -396,9 +404,13 @@ public class Commands {
     }
 
     protected static void startGame(String[] cmd) {
-    	System.out.println("Az elsõ játékos neve: " + jt.getFirstPlayer().getName());
+    	doublePrint("Az elsõ játékos neve: " + jt.getFirstPlayer().getName());
     	jt.init();
     }
 
     //----------------------------------------------
+    static void doublePrint(String s) {
+        System.out.println(s);
+        if(isTest)writer.println(s);
+    }
 }
