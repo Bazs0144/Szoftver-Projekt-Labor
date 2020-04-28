@@ -1,5 +1,0 @@
-generateMap sikeresen lefutott
-changeJegtabla sikeresen lefutott
-addPlayer sikeresen lefutott
-targyHozzaadasa sikeresen lefutott
-targyatHasznal nem sikerult
