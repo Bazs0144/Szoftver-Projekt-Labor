@@ -199,7 +199,7 @@ public class Commands {
         jt.addPlayer(p);
         j.addPlayer(p);
         p.getKarakter().setJegtabla(j);
-        if(j.type.compareTo("luk") == 0) {
+        if(j.getKapacitas() == 0)  {
         	p.getKarakter().vizbe_esik();
         	doublePrintln("vizbeesett");
         	doublePrintln("Maradt munkainak szama: " + k.get_munkakszama());

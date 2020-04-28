@@ -1,6 +1,6 @@
 generateMap sikeresen lefutott
 changeJegtabla sikeresen lefutott
+vizbeesett
+Maradt munkainak szama: 0
 addPlayer sikeresen lefutott
-p1 vizbeesett
-p1 munkak szama:0
 iglutEpit nem sikerult
