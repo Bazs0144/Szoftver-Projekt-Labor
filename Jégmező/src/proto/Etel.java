@@ -27,4 +27,8 @@ public class Etel extends Targy implements Serializable {
         karakter.targy_elhasznalasa(this);
         karakter.set_munkak_szama(karakter.get_munkakszama()-1);
 	}
+	
+	public Poz getPoz() {
+		return k.jegtabla.getPoz();
+	}
 }
