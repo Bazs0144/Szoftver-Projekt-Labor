@@ -13,7 +13,7 @@ public class Targy implements Serializable {
 	 * Karalter k: a karakter akinek a tulajdonaban talalhato a targy. Amig be van fagyva a jegtablaba, az erteke null.
 	 */
 	private String nev;
-	private Karakter k;
+	protected Karakter k;
 	public String Name = "Targy";
 	
 	/**
