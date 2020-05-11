@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Eszkimo extends Karakter implements Serializable {
 
 	/**
-	 * Eszkimo konstruktora, az eszkimonak alapból 5 a homerseklete
+	 * Eszkimo konstruktora, az eszkimonak alapbÃ³l 5 a homerseklete
 	 */
 	public Eszkimo() {
 		Name = "Eszkimo";
@@ -13,8 +13,8 @@ public class Eszkimo extends Karakter implements Serializable {
 	}
 
 	/**
-	 * Az eszkimó különleges képessége, amellyel iglut építhetünk a tartózkodási helyén.
-	 * @return: Ha sikerült az iglu építése igazzal tér vissza, egyébként hamissal.
+	 * Az eszkimÃ³ kÃ¼lÃ¶nleges kÃ©pessÃ©ge, amellyel iglut Ã©pÃ­thetÃ¼nk a tartÃ³zkodÃ¡si helyÃ©n.
+	 * @return: Ha sikerÃ¼lt az iglu Ã©pÃ­tÃ©se igazzal tÃ©r vissza, egyÃ©bkÃ©nt hamissal.
 	 */
 	public boolean iglut_epit() {
 		if(jegtabla.getEpitmeny() == null) { //??? Itt miert volt !=
@@ -31,5 +31,9 @@ public class Eszkimo extends Karakter implements Serializable {
 		return false;
 
 	}
+	
+	public Poz getPoz() {
+		return jegtabla.getPoz();
+		}
 	
 }
