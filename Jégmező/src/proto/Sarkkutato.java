@@ -25,4 +25,8 @@ public class Sarkkutato extends Karakter implements Serializable {
 			kap = -1;
 		return kap;
 	}
+	
+	public Poz getPoz() {
+		return jegtabla.getPoz();
+		}
 }
