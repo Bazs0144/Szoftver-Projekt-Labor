@@ -34,4 +34,8 @@ public class Kotel extends Targy implements Serializable {
 		} catch(Exception e) {
 		}
 	}
+	
+	public Poz getPoz() {
+		return k.jegtabla.getPoz();
+	}
 }
