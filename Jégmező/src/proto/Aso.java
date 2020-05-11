@@ -31,4 +31,8 @@ public class Aso extends Targy implements Serializable {
         tartossag--;
         if(tartossag<=0) karakter.targy_elhasznalasa(this);
 	}
+	
+	public Poz getPoz() {
+		return k.jegtabla.getPoz();
+	}
 }
