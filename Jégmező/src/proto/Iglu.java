@@ -3,6 +3,7 @@ package proto;
 import java.io.Serializable;
 
 public class Iglu implements Epitmeny, Serializable {
+    Jegtabla jegtabla;
 
     /**
      * @return Visszaadja hogy az iglu megved a vihartol
@@ -27,4 +28,12 @@ public class Iglu implements Epitmeny, Serializable {
     public String getName() {
         return "iglu";
     }
+    
+    public Poz getPoz() {
+		return jegtabla.getPoz();
+		}
+	
+	public void set_jegtabla(Jegtabla j) {
+		jegtabla = j;
+	}
 }
