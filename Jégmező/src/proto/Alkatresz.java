@@ -40,4 +40,8 @@ public class Alkatresz extends Targy implements Serializable {
 			pl.getKarakter().setHo(0);
 		}
 	}
+	
+	public Poz getPoz() {
+		return k.jegtabla.getPoz();
+	}
 }
