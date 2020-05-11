@@ -26,4 +26,9 @@ public class Buvarruha extends Targy implements Serializable {
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
         karakter.set_vizben_van(false);
 	}
+	
+	public Poz getPoz() {
+		return k.jegtabla.getPoz();
+	}
+	
 }
