@@ -23,4 +23,8 @@ public class Lapat extends Targy implements Serializable {
         if(karakter.vizben_van) return;
 		karakter.takarit(2);
 	}
+	
+	public Poz getPoz() {
+		return k.jegtabla.getPoz();
+	}
 }
