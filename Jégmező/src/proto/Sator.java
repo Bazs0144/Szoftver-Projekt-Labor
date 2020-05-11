@@ -3,18 +3,18 @@ package proto;
 import java.io.Serializable;
 
 /**
- * Az sátor implementálásáért felelõs osztály a Sator, a Tárgy leszármazottja.
+ * Az sÃ¡tor implementÃ¡lÃ¡sÃ¡Ã©rt felelÅ‘s osztÃ¡ly a Sator, a TÃ¡rgy leszÃ¡rmazottja.
  *
  */
 public class Sator extends Targy implements Epitmeny, Serializable {
 	
 	/**
-	 * A Sátor osztály adattagjai:
-	 * @param all: igaz értéket tárol, ha a sátor használatban van.
-	 * @param hasznalhato: a játékosok száma, ennyi játékos körével egyenlõ a játékkör. Ez továbbra egyenlõ a sátor használhatóságának idejével.
-	 * @param hasznalatban:a sátor felállításától eltelt idõ (eltelt játékos körök száma).A sátor felállításakor az értéke 0, a használódik függvény pedig minden
-						alkalommal eggyel növeli az értéket, amikor a next_player függvény meghívódik (amikor egy másik játékos elkezdi a körét). Az érték a hasznalhato attribútum
-						által tárolt értékig növekszik, ezután a sátor már nem tud karaktert megvédeni a hóvihartól.
+	 * A SÃ¡tor osztÃ¡ly adattagjai:
+	 * @param all: igaz Ã©rtÃ©ket tÃ¡rol, ha a sÃ¡tor hasznÃ¡latban van.
+	 * @param hasznalhato: a jÃ¡tÃ©kosok szÃ¡ma, ennyi jÃ¡tÃ©kos kÃ¶rÃ©vel egyenlÅ‘ a jÃ¡tÃ©kkÃ¶r. Ez tovÃ¡bbra egyenlÅ‘ a sÃ¡tor hasznÃ¡lhatÃ³sÃ¡gÃ¡nak idejÃ©vel.
+	 * @param hasznalatban:a sÃ¡tor felÃ¡llÃ­tÃ¡sÃ¡tÃ³l eltelt idÅ‘ (eltelt jÃ¡tÃ©kos kÃ¶rÃ¶k szÃ¡ma).A sÃ¡tor felÃ¡llÃ­tÃ¡sakor az Ã©rtÃ©ke 0, a hasznÃ¡lÃ³dik fÃ¼ggvÃ©ny pedig minden
+						alkalommal eggyel nÃ¶veli az Ã©rtÃ©ket, amikor a next_player fÃ¼ggvÃ©ny meghÃ­vÃ³dik (amikor egy mÃ¡sik jÃ¡tÃ©kos elkezdi a kÃ¶rÃ©t). Az Ã©rtÃ©k a hasznalhato attribÃºtum
+						Ã¡ltal tÃ¡rolt Ã©rtÃ©kig nÃ¶vekszik, ezutÃ¡n a sÃ¡tor mÃ¡r nem tud karaktert megvÃ©deni a hÃ³vihartÃ³l.
 	 */
 	private boolean all;
 	private int hasznalhato;
@@ -31,7 +31,7 @@ public class Sator extends Targy implements Epitmeny, Serializable {
 		hasznalatban = 0;
 	}
 	
-	/** A sátor véd a hóvihar ellen, ha éppen áll .*/
+	/** A sÃ¡tor vÃ©d a hÃ³vihar ellen, ha Ã©ppen Ã¡ll .*/
     @Override
     public boolean megvedHovihartol() {
     	if(all)
@@ -39,7 +39,7 @@ public class Sator extends Targy implements Epitmeny, Serializable {
     	else return false;
     }
 
-    /** A sátor nem véd a hóvihar ellen.*/
+    /** A sÃ¡tor nem vÃ©d a hÃ³vihar ellen.*/
     @Override
     public boolean megvedMedvetol() {
         return false;
@@ -50,8 +50,8 @@ public class Sator extends Targy implements Epitmeny, Serializable {
     	return "Sator";
 	}
     
-    /** A sátor felállitasa a paraméterként kapott jégtáblára, a paraméterként kapott karakter álltal.
-     * Ha a karakter vizben van vagy a sátor már nem használható, a sátor felállitása nem valósitható meg.*/
+    /** A sÃ¡tor felÃ¡llitasa a paramÃ©terkÃ©nt kapott jÃ©gtÃ¡blÃ¡ra, a paramÃ©terkÃ©nt kapott karakter Ã¡lltal.
+     * Ha a karakter vizben van vagy a sÃ¡tor mÃ¡r nem hasznÃ¡lhatÃ³, a sÃ¡tor felÃ¡llitÃ¡sa nem valÃ³sithatÃ³ meg.*/
     public void hasznaljak(Karakter k, Jegtabla j) {
     	if(k.get_vizben_van() || k.get_munkakszama() <= 0) return;
     	if(hasznalatban < hasznalhato) {
@@ -62,9 +62,13 @@ public class Sator extends Targy implements Epitmeny, Serializable {
     	}
     }
     
-    /** Minden kör esetén a sátor használódik.*/
+    /** Minden kÃ¶r esetÃ©n a sÃ¡tor hasznÃ¡lÃ³dik.*/
     public void hasznalodik() {
 		hasznalatban++;
 		if (hasznalatban > hasznalhato) all = false;
+	}
+	
+    public Poz getPoz() {
+		return k.jegtabla.getPoz();
 	}
 }
