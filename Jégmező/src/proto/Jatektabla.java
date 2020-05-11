@@ -3,16 +3,17 @@ package proto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.JFrame;
 
-public class Jatektabla implements Serializable {
+public class Jatektabla extends JFrame implements Serializable {
     /**
-     * kor - ennél a körnél tart a jatek
+     * kor - ennÃ©l a kÃ¶rnÃ©l tart a jatek
      * j - a jegmezo a jatektablan
      * p - a jatekosok listaja
      * a - az alkatreszek listaja
      * jm - a jegesmedve ami a jegmezon van
      * game_over - ha igaz vege a jateknak, ha nem, folyamatban van
-     * int act_index - a jatekoso kozul ennel az indexu jatekosnal tart a kör
+     * int act_index - a jatekoso kozul ennel az indexu jatekosnal tart a kÃ¶r
      */
     int kor;
     private Jegmezo j;
@@ -22,17 +23,19 @@ public class Jatektabla implements Serializable {
     boolean game_over;
     int act_index;
 
+    
+    public Jatektabla() {}
     /**
-     * A játéktábla konstruktora, mely legenerál egy jégmezõt, és az alkatrészeket, valamint megkapja a jétékosokat.
-     * @param width: A jégmezõ szélessége
-     * @param height  a jégmezõ hossza
-     * @param p : a játékosok, akik játszani fognak.
+     * A jÃ¡tÃ©ktÃ¡bla konstruktora, mely legenerÃ¡l egy jÃ©gmezÅ‘t, Ã©s az alkatrÃ©szeket, valamint megkapja a jÃ©tÃ©kosokat.
+     * @param width: A jÃ©gmezÅ‘ szÃ©lessÃ©ge
+     * @param height  a jÃ©gmezÅ‘ hossza
+     * @param p : a jÃ¡tÃ©kosok, akik jÃ¡tszani fognak.
      */
     public Jatektabla(int width,int height, ArrayList<Player> p) {
         kor=1;
         j = new Jegmezo(width, height);
         this.p = p;
-        a = new ArrayList<>(); //Ez csak egyszerûsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
+        a = new ArrayList<>(); //Ez csak egyszerÅ±sÃ­tÃ©s, bele kell rakni ebbe majd alkatrÃ©szeket, Ã©s elosztani a jÃ©gtÃ¡blÃ¡k kÃ¶zÃ¶tt.
     }
 
     /**
@@ -59,22 +62,22 @@ public class Jatektabla implements Serializable {
     }
 
     /**
-     *Visszaadja a játéktáblán lévõ alkatrészek listáját.
+     *Visszaadja a jÃ¡tÃ©ktÃ¡blÃ¡n lÃ©vÅ‘ alkatrÃ©szek listÃ¡jÃ¡t.
      */
     public ArrayList<Alkatresz> getAlkatresz() {
         return a;
     }
 
     /**
-     * Befejezi a játékot.
+     * Befejezi a jÃ¡tÃ©kot.
      */
     public void game_over() {
         game_over=true;
     }
 
     /**
-     * Ellenõrzi, hogy a játék véget ért-e, vagy sem.
-     * @return igaz ha véget ért, hamis ha nem.
+     * EllenÅ‘rzi, hogy a jÃ¡tÃ©k vÃ©get Ã©rt-e, vagy sem.
+     * @return igaz ha vÃ©get Ã©rt, hamis ha nem.
      */
     public boolean check_game_over() {
      for(Player pl: p) if(pl.getKarakter().getHo()==0) return true;
@@ -82,15 +85,15 @@ public class Jatektabla implements Serializable {
     }
 
     /**
-     * Átadja a játék kezelését a következõ játékosnak.
-     * pl: az  adott játékos következik.
+     * Ãtadja a jÃ¡tÃ©k kezelÃ©sÃ©t a kÃ¶vetkezÅ‘ jÃ¡tÃ©kosnak.
+     * pl: az  adott jÃ¡tÃ©kos kÃ¶vetkezik.
      */
     void next_player(Player pl) {
         pl.kor_kezdes();
     }
 
     /**
-     * Kezeli a játék menetét addig, amíg nincsen vége a játéknak.
+     * Kezeli a jÃ¡tÃ©k menetÃ©t addig, amÃ­g nincsen vÃ©ge a jÃ¡tÃ©knak.
      */
     public void init() throws Exception {
         boolean game_over = false;
@@ -153,7 +156,7 @@ public class Jatektabla implements Serializable {
         return null;
     }
     
-    /** Visszaadja az elsõ játékost. */
+    /** Visszaadja az elsÅ‘ jÃ¡tÃ©kost. */
     public Player getFirstPlayer() {
     	if(p != null)
     		return p.get(0);
