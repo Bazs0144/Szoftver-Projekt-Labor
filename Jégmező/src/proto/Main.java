@@ -19,7 +19,9 @@ public class Main extends Commands{
 	public static void main(String[] args) throws IOException {
 		new MainFrame();
 
-		commandBuffer = new ArrayList<String>();
+
+
+	/*	commandBuffer = new ArrayList<String>();
 		reader = new BufferedReader(new InputStreamReader(System.in));
 		String line = null;
 		System.out.println("Udvozlom a prototipusban\n" +
@@ -92,7 +94,11 @@ public class Main extends Commands{
 			}
 
 
+
+
 		}
+
+	 */
 	}
 
 }
