@@ -17,6 +17,7 @@ public class Main extends Commands{
 	static boolean isOver = false;
 
 	public static void main(String[] args) throws IOException {
+		new MainFrame();
 
 		commandBuffer = new ArrayList<String>();
 		reader = new BufferedReader(new InputStreamReader(System.in));
@@ -24,6 +25,7 @@ public class Main extends Commands{
 		System.out.println("Udvozlom a prototipusban\n" +
 				" A lehetseges parancsok listajahoz irja be a help parancsot.\n");
 		while (!isOver) {
+
 			if(inGame) inGameRound();
 			if(!isTest)System.out.print("command: ");
 			siker = true;
