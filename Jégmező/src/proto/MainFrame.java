@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.Scanner;
 
 
 public class MainFrame extends Jatektabla {
@@ -64,7 +66,11 @@ public class MainFrame extends Jatektabla {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			dispose();
+			JFrame settings = new JFrame();
+			settings.setVisible(true);
+			settings.setTitle("New Game Settings");
+			settings.setSize(800, 800);
+
 		}
 	}
 
@@ -72,7 +78,15 @@ public class MainFrame extends Jatektabla {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			dispose();
+			Jatektabla JT = new Jatektabla();
+			Scanner scanner;
+			try{
+				scanner = new Scanner(new File("IceFiled.txt"));
+				
+			} catch (Exception exception) {
+				exception.printStackTrace();
+				System.out.println("Hiba!! Nem talalja a file-t ");
+			}
 		}
 	}
 
