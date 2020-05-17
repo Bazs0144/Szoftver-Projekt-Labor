@@ -1,7 +1,7 @@
 package proto;
 
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -18,5 +18,9 @@ public class GraphicsStable extends GraphicsField {
 		}
 		image = Utils.resize(image, width, height);
 		g.drawImage(image, x, y, null);
+
+
+		g.setFont(new Font("Arial", Font.BOLD, 20));
+		g.drawString(ho.toString(), x+width-18, y+height-8);
 	}
 }

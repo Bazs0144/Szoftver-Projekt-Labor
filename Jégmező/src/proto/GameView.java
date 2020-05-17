@@ -50,9 +50,12 @@ public class GameView extends Canvas {
         fields.clear();
         ArrayList<Jegtabla> jeg=MainFrame.jt.getJegMezo().getJegtablak();
         for(Jegtabla j: jeg) {
-            if (j.type.equals("Stabil")) fields.add(new GraphicsStable());
-            else if (j.type.equals("Instabil")) fields.add(new GraphicsUnstable());
-            else if (j.type.equals("Luk")) fields.add(new GraphicsHole());
+            GraphicsField fl;
+            if (j.type.equals("Stabil")) fl= new GraphicsStable();
+            else if (j.type.equals("Instabil")) fl=new GraphicsUnstable();
+            else fl=new GraphicsHole();
+            fl.ho=j.getHoMennyiseg();
+            fields.add(fl);
         }
 
         for(int i = 0; i < 4; i++) {
