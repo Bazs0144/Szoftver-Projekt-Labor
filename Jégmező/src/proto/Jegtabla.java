@@ -45,6 +45,10 @@ public class Jegtabla implements Serializable {
 		return poz;
 	}
 
+	public void setPoz(Poz poz) {
+		this.poz = poz;
+	}
+
 	/** Szomszédos jégtábla hozzáadása a jégtábla nyilvántartásába.*/
 	public void addSzomszed(Jegtabla j) {
 		szomszedok.add(j);

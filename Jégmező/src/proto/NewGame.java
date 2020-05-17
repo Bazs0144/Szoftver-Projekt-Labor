@@ -14,7 +14,7 @@ public class NewGame extends JPanel {
 
    public NewGame() {
 
-       this.setBackground(Color.cyan);
+       this.setBackground(new Color(189, 216, 235));
        GridBagLayout gl=new GridBagLayout();
        this.setLayout(gl);
        GridBagConstraints c = new GridBagConstraints();

@@ -66,6 +66,7 @@ public class MainFrame extends JFrame {
 			currentPanel.setVisible(false);
 			currentPanel= new View();
 			jt=new Jatektabla(4,4,newPlayers);
+
 			currentPanel.setVisible(true);
 			this.add(currentPanel);
 		}

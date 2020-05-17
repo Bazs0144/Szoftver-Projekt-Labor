@@ -13,7 +13,7 @@ public class Menu extends JPanel{
 	private JTextArea text, text2;
 	
 	public Menu (){
-		this.setBackground(Color.cyan);
+		this.setBackground(new Color(189, 216, 235));
 		GridBagLayout gl=new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		this.setPreferredSize(new Dimension(3, 5));
@@ -24,7 +24,7 @@ public class Menu extends JPanel{
 		text.append("ICEFIELD\n");
 		text.setEditable(false);
 		text.setFont(new Font("Serif", Font.BOLD, 96));
-		text.setBackground(Color.cyan);
+		text.setBackground(new Color(189, 216, 235));
 		c.weightx = 0.2;
 		c.gridx = 1;
 		c.gridy = 0;
@@ -37,7 +37,7 @@ public class Menu extends JPanel{
 		text2.append("THE GAME");
 		text2.setEditable(false);
 		text2.setFont(new Font("Serif", Font.BOLD, 50));
-		text2.setBackground(Color.cyan);
+		text2.setBackground(new Color(189, 216, 235));
 		c.weightx = 0.2;
 		c.gridx = 1;
 		c.gridy = 1;

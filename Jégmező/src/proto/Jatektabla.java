@@ -65,6 +65,11 @@ public class Jatektabla extends JFrame implements Serializable {
             }
         }
 
+        Random rand=new Random();
+        int index=rand.nextInt(notLuk.size()-1)+1;
+       jm=new Jegesmedve();
+       notLuk.get(index).ralepnek(jm);
+
     }
 
 

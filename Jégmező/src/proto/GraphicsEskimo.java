@@ -9,7 +9,9 @@ import java.io.IOException;
 public class GraphicsEskimo extends GraphicsFigure {
 
 	//a num a játékos sorszáma
-	public void Draw(Graphics g, int x, int y, int width, int height, int num){
+	public void Draw(Graphics g, int width, int height, int num){
+		int x=poz.x;
+		int y=poz.y;
 		BufferedImage image = null;
 		String path = ".\\src\\proto\\graphics\\eszkimo.png";
 		try {

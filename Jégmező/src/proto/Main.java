@@ -19,10 +19,6 @@ public class Main extends Commands{
 
 	public static void main(String[] args) throws Exception {
 		new MainFrame();
-	/*	ArrayList<Player> pl=new ArrayList<>();
-		pl.add(new Player(new Eszkimo(), "p1"));
-		jt=new Jatektabla(3,3,pl);
-	listJegmezo(); */
 
 	/*	commandBuffer = new ArrayList<String>();
 		reader = new BufferedReader(new InputStreamReader(System.in));
