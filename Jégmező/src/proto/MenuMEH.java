@@ -27,7 +27,7 @@ public class MenuMEH implements MouseListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Jatektabla JT = new Jatektabla();
+		//	Jatektabla JT = new Jatektabla();
 			Scanner scanner;
 			try{
 				scanner = new Scanner(new File("IceFiled.txt"));

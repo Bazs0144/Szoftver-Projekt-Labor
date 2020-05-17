@@ -23,21 +23,51 @@ public class Jatektabla extends JFrame implements Serializable {
     boolean game_over;
     int act_index;
 
-    
-    public Jatektabla() {
-    }
+
     /**
      * A játéktábla konstruktora, mely legenerál egy jégmezőt, és az alkatrészeket, valamint megkapja a jétékosokat.
      * @param width: A jégmező szélessége
      * @param height  a jégmező hossza
      * @param p : a játékosok, akik játszani fognak.
      */
-    public Jatektabla(int width,int height, ArrayList<Player> p) {
+    public Jatektabla(int width,int height, ArrayList<Player> p) throws Exception {
         kor=1;
-        j = new Jegmezo(width, height);
+        boolean b=true;
+        j =new Jegmezo(width, height,b);
+        for(Player pl: p) j.getJegtabla(0,0).ralepnek(pl.getKarakter());
         this.p = p;
-        a = new ArrayList<>(); //Ez csak egyszerűsítés, bele kell rakni ebbe majd alkatrészeket, és elosztani a jégtáblák között.
+        a = new ArrayList<>();
+        for(int i=0; i<3; i++) a.add(new Alkatresz(this));
+        ArrayList<Jegtabla> notLuk=j.getNotLuk();
+        for( Alkatresz alk: a) {
+            boolean lerakva=false;
+            while(!lerakva) {
+                Random rand=new Random();
+                int index=rand.nextInt(notLuk.size());
+                Jegtabla jeg=notLuk.get(index);
+                if(jeg.getTargy()==null)  {
+                    jeg.setTargy(alk);
+                    lerakva=true;
+                }
+            }
+        }
+
+        for(Jegtabla jeg: notLuk) {
+            if(jeg.getTargy()==null) {
+                Random rand = new Random();
+                int szam = rand.nextInt(6)+1;
+                if(szam%6==0) jeg.setTargy(new Sator(0));
+                else if(szam%5==0) jeg.setTargy(new Aso());
+                else if(szam%4==0) jeg.setTargy(new Etel());
+                else if(szam%3==0) jeg.setTargy(new Lapat());
+                else if(szam%2==0) jeg.setTargy(new Kotel());
+                else jeg.setTargy(new Buvarruha());
+            }
+        }
+
     }
+
+
 
     /**
      * @return Visszadja a a jatekosok listaja
@@ -48,7 +78,6 @@ public class Jatektabla extends JFrame implements Serializable {
 
     /**
      * visszadja a jatektabla jegesmedvejet
-     * @return
      */
     public Jegesmedve getJegesmedve(){
         return jm;
@@ -133,10 +162,10 @@ public class Jatektabla extends JFrame implements Serializable {
 
     /**
      * hozzadegy alkatresz az alkatresz listahoz
-     * @param a ezt adja hozza
+     * @param alk ezt adja hozza
      */
-    public void addAlkatresz(Alkatresz a) {
-        this.a.add(a);
+    public void addAlkatresz(Alkatresz alk) {
+        this.a.add(alk);
     }
 
     /**

@@ -1,5 +1,6 @@
 package proto;
 
+import java.awt.geom.AffineTransform;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,10 +17,12 @@ public class Main extends Commands{
 	 */
 	static boolean isOver = false;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		new MainFrame();
-
-
+	/*	ArrayList<Player> pl=new ArrayList<>();
+		pl.add(new Player(new Eszkimo(), "p1"));
+		jt=new Jatektabla(3,3,pl);
+	listJegmezo(); */
 
 	/*	commandBuffer = new ArrayList<String>();
 		reader = new BufferedReader(new InputStreamReader(System.in));

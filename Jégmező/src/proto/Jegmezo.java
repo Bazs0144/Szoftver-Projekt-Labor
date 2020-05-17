@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 //import java.util.ListIterator;
 //import java.util.Random;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -37,6 +38,51 @@ public class Jegmezo implements Serializable {
                 if(x+1<width) jelen.addSzomszed(getJegtabla(x+1, y));
             }
     }
+
+    public Jegmezo(int width, int height, boolean b) {
+        this.JegT = new ArrayList<>();
+        for(int y=0; y<height; y++)
+            for(int x=0; x<width; x++) {
+                Jegtabla jeg;
+                if(y==0&&x==0) jeg=new Stabil(new Poz(x, y));
+                else {
+                    Random rand = new Random();
+                    int value = rand.nextInt(50);
+                    if(value%2==0) {
+                        jeg=new Instabil(new Poz(x,y));
+                        jeg.setKapacitas(rand.nextInt(10));
+                        jeg.setBefagyva(true);
+                        jeg.setHo(rand.nextInt(5));
+                    }else if(value%3==0)  jeg=new Luk(new Poz(x,y));
+                    else {
+                        jeg=new Stabil(new Poz(x, y));
+                        jeg.setBefagyva(true);
+                        jeg.setHo(rand.nextInt(5));
+                    }
+                }
+                JegT.add(jeg);
+            }
+        Jegtabla jelen;
+        for(int y=0; y<height; y++)
+            for(int x=0; x<width; x++) {
+                jelen=getJegtabla(x ,y);
+                if(y-1>=0) jelen.addSzomszed(getJegtabla(x, y-1));
+                if(y+1<height) jelen.addSzomszed(getJegtabla(x, y+1));
+                if(x-1>=0) jelen.addSzomszed(getJegtabla(x-1, y));
+                if(x+1<width) jelen.addSzomszed(getJegtabla(x+1, y));
+            }
+    }
+
+    /**
+     * visszadja azokat a jégtáblákat amikor stabilak/instabilak
+     */
+    public ArrayList<Jegtabla> getNotLuk() {
+        ArrayList<Jegtabla> ez=new ArrayList<>();
+        for(Jegtabla j: JegT) if(j.type.equals("Stabil")||j.type.equals("Instabil")) ez.add(j);
+        return ez;
+    }
+
+
 
     /**
      * Hooózzad egy jegtablat a listahoz

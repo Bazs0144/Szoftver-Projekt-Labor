@@ -164,7 +164,7 @@ public class Commands {
 
     /** Egy új játéktábla generálása. Paraméterként a jégmező méreteit várja (szélessége és hosszúsága) Jégtábla egységekben.
      * Ha a méretek nem természetes egész számok, a akkor a parnacs hibaüzenettel jelez a felhasználónak.*/
-    protected static void generateMap(String[] cmd) { //Ez jo
+    protected static void generateMap(String[] cmd) throws Exception { //Ez jo
         if (Integer.parseInt(cmd[1]) < 0 || Integer.parseInt(cmd[2]) < 0) {
             doublePrintln("hihi?");
             siker = false;

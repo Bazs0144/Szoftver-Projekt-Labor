@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
-public class MainFrame extends Jatektabla {
+public class MainFrame extends JFrame {
 	static MainFrame Instance;
 	private State state;
 	private JPanel currentPanel;
@@ -18,7 +18,7 @@ public class MainFrame extends Jatektabla {
 	private View view;
 
 	public MainFrame(){
-		Instance=this;
+        Instance=this;
 		state=State.MenuS;
 		this.setTitle("IceField");
 		this.setSize(800, 800);
