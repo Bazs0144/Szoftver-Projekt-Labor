@@ -58,7 +58,7 @@ public class Menu extends JPanel{
 
 		button2 = new JButton();
 		button2.setText("Load Game");
-		button2.addActionListener(new MenuMEH.OkButtonActionListener2());
+		button2.addActionListener(new MainFrame.load());
 		button2.setBackground( new Color(250,180,200));
 		button2.setFont(new Font("Arial", Font.PLAIN, 40));
 		c.gridx = 1;

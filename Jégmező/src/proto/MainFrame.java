@@ -2,12 +2,17 @@ package proto;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class MainFrame extends JFrame {
 	static MainFrame Instance;
 	static Jatektabla jt;
+	static boolean loaded;
 	private State state;
 	private JPanel currentPanel;
 	private Player currentPlayer;
@@ -65,7 +70,7 @@ public class MainFrame extends JFrame {
 			this.remove(currentPanel);
 			currentPanel.setVisible(false);
 			currentPanel= new View();
-			jt=new Jatektabla(4,4,newPlayers);
+			if(!loaded)jt=new Jatektabla(4,4,newPlayers);
 
 			currentPanel.setVisible(true);
 			this.add(currentPanel);
@@ -99,4 +104,49 @@ public class MainFrame extends JFrame {
 	public void endTurn(){}
 	
 	public void Ability(){}
+
+	public static class save implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				File f = new File("Saved.ser");
+				if (!f.exists())
+					f.createNewFile();
+				if (f.exists()) {
+					FileOutputStream fs = new FileOutputStream(f);
+					ObjectOutputStream out = new ObjectOutputStream(fs);
+					out.writeObject(MainFrame.jt);
+					out.close();
+					JOptionPane.showMessageDialog(Instance, "Save succesful");
+				}
+			} catch (Exception err) {
+				JOptionPane.showMessageDialog(Instance, "Save failed");
+			}
+		}
+	}
+
+	public static class load implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			File f = new File( "Saved.ser");
+
+			if (f.exists()) {
+				try {
+					FileInputStream fs = new FileInputStream(f);
+					ObjectInputStream in = new ObjectInputStream(fs);
+					MainFrame.jt = (Jatektabla) in.readObject();
+					in.close();
+					MainFrame.loaded = true;
+					Instance.changeState(State.InGameS);
+				} catch (IOException | ClassNotFoundException ex) {
+					ex.printStackTrace();
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+
+		}
+	}
 }

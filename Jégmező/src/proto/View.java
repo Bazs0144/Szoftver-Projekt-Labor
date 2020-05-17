@@ -85,6 +85,7 @@ public class View extends JPanel{
 		sg.setBackground(new Color(189, 216, 235));
 
 		JButton save = new JButton("Save Game");
+		save.addActionListener(new MainFrame.save());
 		save.setFont(new Font("Arial", Font.BOLD, 30));
 		save.setBackground(new Color(189, 216, 235));
 		save.setBorder(null);
