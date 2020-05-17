@@ -61,8 +61,11 @@ public class MainFrame extends Jatektabla {
 
 		else if(state.equals(State.InGameS)) {
 			currentPanel.setVisible(false);
-			currentPanel=menu;
+			this.remove(currentPanel);
+			currentPanel.setVisible(false);
+			currentPanel= new View();
 			currentPanel.setVisible(true);
+			this.add(currentPanel);
 		}
 	}
 

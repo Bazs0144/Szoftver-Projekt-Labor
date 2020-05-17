@@ -1,8 +1,9 @@
 package proto;
 
+import java.awt.*;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class View extends JPanel{
 
@@ -12,7 +13,103 @@ public class View extends JPanel{
 	private ArrayList<GraphicsField> fields =  new ArrayList<GraphicsField>();
 	private ArrayList<GraphicsTool> tools = new ArrayList<GraphicsTool>();
 	private Statusbar statusbar;
-	
+
+	String currentPlayer = "player";  //Ezt kell megváltoztatni a sarokban lévő név kiírásához
+	int currentRound = 1; // Ezt kell novelni a bal felső sarokban
+	ArrayList<JPanel> jps = new ArrayList<>(); //Eszkozok listaja
+
+	public View() {
+		//this.setPreferredSize(new Dimension(800, 800));
+		this.setLayout(new BorderLayout());
+		this.setBackground(new Color(189, 216, 235));
+
+		gameState(); // két felső sarokban lévő szöveg kiírása
+
+		InGame p2 = new InGame();//a lenyegi resz
+		this.add(p2, BorderLayout.CENTER);
+
+		savePanel();//a mentes gombot tartalmazza
+
+		equipmentPanel();//az eszközök helyei vannak itt
+
+		this.setVisible(true);
+	}
+
+	void gameState() {
+		JPanel p = new JPanel();
+		p.setLayout(new BorderLayout());
+		JPanel west = new JPanel();
+		JPanel center = new JPanel();
+		JPanel east = new JPanel();
+		JLabel round = new JLabel();
+		round.setFont(new Font("Arial", Font.BOLD, 43));
+		east.setBackground(new Color(189, 216, 235));
+		JLabel player = new JLabel();
+		player.setFont(new Font("Arial", Font.BOLD, 25));
+		west.setBackground(new Color(189, 216, 235));
+
+		setFields(round, player);
+		center.setBackground(new Color(189, 216, 235));
+		west.add(round);
+		east.add(player);
+		p.add(center, BorderLayout.CENTER);
+		p.add(west, BorderLayout.WEST);
+		p.add(east, BorderLayout.EAST);
+
+		p.setPreferredSize(new Dimension(730, 50));
+		p.setBackground(new Color(189, 216, 235));
+		this.add(p, BorderLayout.NORTH);
+	}
+
+	void setFields(JLabel p1, JLabel p2) {
+		p2.setText(currentPlayer + "'s objects:");
+		p1.setText("Round " + currentRound);
+	}
+
+	void savePanel() {
+		JPanel sg = new JPanel();
+		sg.setLayout(new BorderLayout());
+		sg.setPreferredSize(new Dimension(730, 50));
+		sg.setBackground(new Color(189, 216, 235));
+
+		JButton save = new JButton("Save Game");
+		save.setFont(new Font("Arial", Font.BOLD, 30));
+		save.setBackground(new Color(189, 216, 235));
+		save.setBorder(null);
+
+		JPanel labelHolder = new JPanel();
+		labelHolder.setBackground(new Color(189, 216, 235));
+		labelHolder.add(save);
+
+		JPanel spaceHolder = new JPanel();
+		spaceHolder.setBackground(new Color(189, 216, 235));
+
+		sg.add(spaceHolder, BorderLayout.CENTER);
+		sg.add(labelHolder, BorderLayout.EAST);
+
+		this.add(sg, BorderLayout.SOUTH);
+	}
+
+	void equipmentPanel() {
+		JPanel equipment = new JPanel();
+		equipment.setLayout(new BoxLayout(equipment, BoxLayout.Y_AXIS));
+		equipment.setPreferredSize(new Dimension(70, 700));
+		equipment.setBackground(new Color(189, 216, 235));
+		for (int i = 0; i < 10; i++) jps.add(new JPanel()); //Ez azért kell hogy legen
+		editJPS();
+		for (int i = 0; i < jps.size(); i++) {
+			jps.get(i).setBackground(new Color((i + 1) * 10, (i + 1) * 10, (i + 1) * 10));
+			equipment.add(jps.get(i));
+		}
+		this.add(equipment, BorderLayout.EAST);
+	}
+
+	void editJPS() {
+		for (int i = 0; i < 10; i++){
+			//
+		}
+	}
+
 	public void refreshStatus(Player p){
 		
 	}
