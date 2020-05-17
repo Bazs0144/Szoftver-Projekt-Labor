@@ -18,7 +18,6 @@ public class NewGame extends JPanel {
        GridBagLayout gl=new GridBagLayout();
        this.setLayout(gl);
        GridBagConstraints c = new GridBagConstraints();
-       this.setPreferredSize(new Dimension(3, 5));
        c.fill = GridBagConstraints.NONE;
 
        players = new JLabel("Players");
@@ -78,11 +77,6 @@ public class NewGame extends JPanel {
        listScroller.setPreferredSize(new Dimension(300, 500));
        this.add(listScroller, c);
 
-    }
-
-    public void playersChanged() {
-       listModel.clear();
-        for(Player p : MainFrame.Instance.getNewPlayers())  listModel.addElement(p.getName() + " - "+ p.getKarakter()) ;
     }
 
     public class BackButtonActionListener implements ActionListener {
