@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
 	static MainFrame Instance;
+	static Jatektabla jt;
 	private State state;
 	private JPanel currentPanel;
 	private Player currentPlayer;
@@ -32,7 +33,7 @@ public class MainFrame extends JFrame {
 
 
 
-	public void changeState(State s) {
+	public void changeState(State s) throws Exception {
 		state=s;
 		if(state.equals(State.MenuS)) {
 			currentPanel.setVisible(false);
@@ -64,6 +65,7 @@ public class MainFrame extends JFrame {
 			this.remove(currentPanel);
 			currentPanel.setVisible(false);
 			currentPanel= new View();
+			jt=new Jatektabla(4,4,newPlayers);
 			currentPanel.setVisible(true);
 			this.add(currentPanel);
 		}

@@ -98,7 +98,11 @@ public class AddPlayer extends JPanel {
     class BackButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            MainFrame.Instance.changeState(State.NewGameS);
+            try {
+                MainFrame.Instance.changeState(State.NewGameS);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -111,7 +115,11 @@ public class AddPlayer extends JPanel {
                 if(charac.equals("eskimo")) k=new Eszkimo();
                 else k=new Sarkkutato();
                 MainFrame.Instance.addNewPlayer(new Player(k, pname));
-                MainFrame.Instance.changeState(State.NewGameS);
+                try {
+                    MainFrame.Instance.changeState(State.NewGameS);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }

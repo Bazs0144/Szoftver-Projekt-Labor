@@ -18,7 +18,11 @@ public class MenuMEH implements MouseListener{
 			settings.setVisible(true);
 			settings.setTitle("New Game Settings");
 			settings.setSize(800, 800); */
-		MainFrame.Instance.changeState(State.NewGameS);
+			try {
+				MainFrame.Instance.changeState(State.NewGameS);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
 
 		}
 	}

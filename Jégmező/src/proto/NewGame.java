@@ -82,20 +82,32 @@ public class NewGame extends JPanel {
     public class BackButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            MainFrame.Instance.changeState(State.MenuS);
+            try {
+                MainFrame.Instance.changeState(State.MenuS);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
     public class StartButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            MainFrame.Instance.changeState(State.InGameS);
+            try {
+                MainFrame.Instance.changeState(State.InGameS);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
     public class AddButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            MainFrame.Instance.changeState(State.AddPlayerS);
+            try {
+                MainFrame.Instance.changeState(State.AddPlayerS);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 

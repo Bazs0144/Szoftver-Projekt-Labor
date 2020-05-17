@@ -16,11 +16,14 @@ public class GameView extends Canvas {
     public void paint(Graphics g) {
         Graphics2D gd = (Graphics2D) g;
         gd.setStroke(new BasicStroke(5));
-        if(fields.size() < 16) {
+      /*  if(fields.size() < 16) {
             for(int i = 0; i < 16; i++) {
                 fields.add(new GraphicsStable());
             }
         }
+
+       */
+      setFields();
         for(int i = 0; i < 4; i++) {
             for(int i2 = 0; i2 < 4; i2++) {
                 if(!(i2 + 1 == 4)) {
@@ -42,5 +45,14 @@ public class GameView extends Canvas {
         figures = _figures;
         fields = _fields;
         tools = _tools;
+    }
+
+    void setFields() {
+        ArrayList<Jegtabla> jeg=MainFrame.jt.getJegMezo().getJegtablak();
+        for(Jegtabla j: jeg) {
+            if (j.type.equals("Stabil")) fields.add(new GraphicsStable());
+            else if (j.type.equals("Instabil")) fields.add(new GraphicsUnstable());
+            else if (j.type.equals("Luk")) fields.add(new GraphicsHole());
+        }
     }
 }
