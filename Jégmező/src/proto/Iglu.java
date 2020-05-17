@@ -26,7 +26,7 @@ public class Iglu implements Epitmeny, Serializable {
      */
     @Override
     public String getName() {
-        return "iglu";
+        return "Iglu";
     }
     
     public Poz getPoz() {

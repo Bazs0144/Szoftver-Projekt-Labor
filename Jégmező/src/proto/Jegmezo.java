@@ -43,10 +43,14 @@ public class Jegmezo implements Serializable {
         this.JegT = new ArrayList<>();
         for(int y=0; y<height; y++)
             for(int x=0; x<width; x++) {
+                Random rand = new Random();
                 Jegtabla jeg;
-                if(y==0&&x==0) jeg=new Stabil(new Poz(x, y));
+                if(y==0&&x==0)  {
+                    jeg=new Stabil(new Poz(x, y));
+                    jeg.setBefagyva(true);
+                    jeg.setHo(rand.nextInt(5));
+                }
                 else {
-                    Random rand = new Random();
                     int value = rand.nextInt(50);
                     if(value%2==0) {
                         jeg=new Instabil(new Poz(x,y));

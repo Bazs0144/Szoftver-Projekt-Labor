@@ -8,7 +8,9 @@ import java.io.IOException;
 
 public class GraphicsSpade extends GraphicsTool {
 	
-	public void Draw(Graphics g,  int x, int y, int width, int height){
+	public void Draw(Graphics g, int width, int height){
+		int x=poz.x;
+		int y=poz.y;
 		BufferedImage image = null;
 		String path = ".\\src\\proto\\graphics\\aso.png";
 		try {

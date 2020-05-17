@@ -7,6 +7,10 @@ import java.io.File;
 import java.io.IOException;
 
 public abstract class GraphicsTool implements Drawable{
-	
-	public void Draw(Graphics g,  int x, int y, int width, int height) { }
+	Poz poz;
+	public void Draw(Graphics g, int width, int height) { }
+
+	public void Draw(Graphics g, int x, int y, int width, int height){
+		//ezt ne töröld
+	}
 }
