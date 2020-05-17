@@ -2,31 +2,77 @@ package proto;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 
 public class MainFrame extends Jatektabla {
+	static MainFrame Instance;
+	private State state;
 	private JPanel currentPanel;
 	private Player currentPlayer;
-	private Menu menu;
+	private Menu menu=new Menu();
+	private NewGame newGame;
+	private AddPlayer addPlayer;
+	private ArrayList<Player> newPlayers= new ArrayList<Player>();
 	private SetupMEH setup;
 	private View view;
 
 	public MainFrame(){
+		Instance=this;
+		state=State.MenuS;
 		this.setTitle("IceField");
 		this.setSize(800, 800);
-		currentPanel =  new Menu();
-		currentPanel.setBackground(Color.cyan);
+		currentPanel =  menu;
+		currentPanel.setVisible(true);
 		add(currentPanel);
-
 		setResizable(true);
 		setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
+
+
+	public void changeState(State s) {
+		state=s;
+		if(state.equals(State.MenuS)) {
+			currentPanel.setVisible(false);
+			this.remove(currentPanel);
+			currentPanel=new Menu();
+			currentPanel.setVisible(true);
+			this.add(currentPanel);
+		}
+
+		else if(state.equals(State.NewGameS)) {
+			currentPanel.setVisible(false);
+			this.remove(currentPanel);
+			currentPanel=new NewGame();
+			currentPanel.setVisible(true);
+			this.add(currentPanel);
+
+		}
+
+		else if(state.equals(State.AddPlayerS)) {
+			currentPanel.setVisible(false);
+			this.remove(currentPanel);
+			currentPanel=new AddPlayer();
+			currentPanel.setVisible(true);
+			this.add(currentPanel);
+		}
+
+		else if(state.equals(State.InGameS)) {
+			currentPanel.setVisible(false);
+			currentPanel=menu;
+			currentPanel.setVisible(true);
+		}
+	}
+
+	public ArrayList<Player> getNewPlayers() {
+		return newPlayers;
+	}
+
+	public void addNewPlayer(Player p) {
+		newPlayers.add(p);
+	}
 
 	public Player getCurrentPlayer() {
 		return currentPlayer;

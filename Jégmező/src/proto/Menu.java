@@ -13,6 +13,7 @@ public class Menu extends JPanel{
 	private JTextArea text, text2;
 	
 	public Menu (){
+		this.setBackground(Color.cyan);
 		GridBagLayout gl=new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		this.setPreferredSize(new Dimension(3, 5));
@@ -21,7 +22,6 @@ public class Menu extends JPanel{
 		this.setLayout(gl);
 		text = new JTextArea();
 		text.append("ICEFIELD\n");
-	//	text.setBounds(0, 0, 550, 100);
 		text.setEditable(false);
 		text.setFont(new Font("Serif", Font.BOLD, 96));
 		text.setBackground(Color.cyan);
@@ -35,7 +35,6 @@ public class Menu extends JPanel{
 
 		text2 = new JTextArea();
 		text2.append("THE GAME");
-		text2.setBounds(0, 0, 350, 100);
 		text2.setEditable(false);
 		text2.setFont(new Font("Serif", Font.BOLD, 50));
 		text2.setBackground(Color.cyan);
@@ -48,7 +47,6 @@ public class Menu extends JPanel{
 
 		button1 = new JButton();
 		button1.setText("New Game");
-		button1.setBounds(0, 0, 250, 100);
 		button1.addActionListener(new MenuMEH.OkButtonActionListener1());
 		button1.setBackground( new Color(250,180,200));
 		button1.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -60,7 +58,6 @@ public class Menu extends JPanel{
 
 		button2 = new JButton();
 		button2.setText("Load Game");
-		button2.setBounds(0, 0, 250, 100);
 		button2.addActionListener(new MenuMEH.OkButtonActionListener2());
 		button2.setBackground( new Color(250,180,200));
 		button2.setFont(new Font("Arial", Font.PLAIN, 40));

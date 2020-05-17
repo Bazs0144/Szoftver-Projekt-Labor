@@ -8,7 +8,7 @@ public class Eszkimo extends Karakter implements Serializable {
 	 * Eszkimo konstruktora, az eszkimonak alapból 5 a homerseklete
 	 */
 	public Eszkimo() {
-		Name = "Eszkimo";
+		Name = "Eskimo";
 		ho = 5;
 	}
 

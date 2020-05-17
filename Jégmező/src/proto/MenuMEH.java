@@ -14,10 +14,11 @@ public class MenuMEH implements MouseListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JFrame settings = new JFrame();
+		/*	JFrame settings = new JFrame();
 			settings.setVisible(true);
 			settings.setTitle("New Game Settings");
-			settings.setSize(800, 800);
+			settings.setSize(800, 800); */
+		MainFrame.Instance.changeState(State.NewGameS);
 
 		}
 	}

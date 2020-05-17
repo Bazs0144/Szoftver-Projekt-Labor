@@ -7,7 +7,7 @@ public class Sarkkutato extends Karakter implements Serializable {
 	 * A Sarkkutato konstruktora, a homerseklete alapbol 4
 	 */
 	public Sarkkutato() {
-		Name = "Sarkkutato";
+		Name = "Polar explorer";
 		ho = 4;
 	}
 	/**

@@ -17,14 +17,15 @@ public class Jatektabla extends JFrame implements Serializable {
      */
     int kor;
     private Jegmezo j;
-    private ArrayList<Player> p;
-    private ArrayList<Alkatresz> a;
+    protected ArrayList<Player> p=new ArrayList<Player>();
+    protected ArrayList<Alkatresz> a;
     private Jegesmedve jm;
     boolean game_over;
     int act_index;
 
     
-    public Jatektabla() {}
+    public Jatektabla() {
+    }
     /**
      * A játéktábla konstruktora, mely legenerál egy jégmezőt, és az alkatrészeket, valamint megkapja a jétékosokat.
      * @param width: A jégmező szélessége
