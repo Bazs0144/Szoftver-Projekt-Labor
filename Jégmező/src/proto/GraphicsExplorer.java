@@ -11,7 +11,7 @@ public class GraphicsExplorer extends GraphicsFigure {
 	//a num a játékos sorszáma
 	public void Draw(Graphics g, int x, int y, int width, int height, int num){
 		BufferedImage image = null;
-		String path = ".\\proto\\resources\\sarkkutato.png";
+		String path = ".\\src\\proto\\resources\\sarkkutato.png";
 		try {
 			image = ImageIO.read(new File(path));
 		} catch (IOException e) {

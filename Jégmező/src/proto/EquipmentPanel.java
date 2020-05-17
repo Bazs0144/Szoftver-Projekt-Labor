@@ -8,12 +8,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class EquipmentPanel extends Canvas {
-    private ArrayList<GraphicsTool> charctersTools;
+    private ArrayList<GraphicsTool> charctersTools = new ArrayList<>();
 
     public void setCharactersTools(ArrayList<GraphicsTool> _list) {
         charctersTools = _list;
     }
     public void paint(Graphics g) {
+        //charctersTools.add(new GraphicsFood());
+        //charctersTools.add(new GraphicsRope());
+        charctersTools.add(new GraphicsTentTool());
+        if(charctersTools.size() == 0) return;
         int i = 0;
         for (GraphicsTool item: charctersTools) {
             item.Draw(g, 0, i * 60, 60, 60);

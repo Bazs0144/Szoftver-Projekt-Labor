@@ -10,7 +10,7 @@ public class GraphicsHole extends GraphicsField {
 	
 	public void Draw(Graphics g, int x, int y, int width, int height){
 		BufferedImage image = null;
-		String path = ".\\proto\\resources\\luk.png";
+		String path = ".\\src\\proto\\resources\\luk.png";
 		try {
 			image = ImageIO.read(new File(path));
 		} catch (IOException e) {

@@ -10,7 +10,7 @@ public class GraphicsTentTool extends GraphicsTool {
 	
 	public void Draw(Graphics g,  int x, int y, int width, int height){
 		BufferedImage image = null;
-		String path = ".\\proto\\resources\\sator-targy.png";
+		String path = ".\\src\\proto\\resources\\sator-targy.png";
 		try {
 			image = ImageIO.read(new File(path));
 		} catch (IOException e) {
@@ -19,5 +19,4 @@ public class GraphicsTentTool extends GraphicsTool {
 		image = Utils.resize(image, width, height);
 		g.drawImage(image, x, y, null);
 	}
-
 }
