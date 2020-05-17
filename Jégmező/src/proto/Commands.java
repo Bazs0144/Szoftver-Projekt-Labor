@@ -114,7 +114,7 @@ public class Commands {
      * majd hibaüzenetben jelezzük a felhasználónak, hogy nem sikerült a teszt betöltése.
      * */
     protected  static void loadTest(String[] cmd) throws FileNotFoundException {
-        File f = new File(".\\src\\proto\\testcases\\" + cmd[1] + ".txt");
+        File f = new File(".\\proto\\testcases\\" + cmd[1] + ".txt");
         actTest = cmd[1];
         if (!f.exists()) {
             doublePrintln("loadTest nem sikerult");
@@ -149,7 +149,7 @@ public class Commands {
         reader = new BufferedReader(fr);
 
         siker = false; //hogyne irja ki a tesztfajlba a startot
-        File f = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
+        File f = new File(".\\proto\\testresult\\" + actTest + ".txt");
         f.createNewFile();
         fw = new FileWriter(f);
         writer = new PrintWriter(fw);
@@ -609,8 +609,8 @@ public class Commands {
     /**Kiszámitja az elvárt teszt eredményt és a valós teszt eredménye közötti egyezési százalékot.
      * Ez a százalék kerül kiiratásra a teszt eset lefutása után.*/
     static void calculateTestResult() throws IOException {
-        File f = new File(".\\src\\proto\\expectedresults\\" + actTest + ".txt");
-        File f2 = new File(".\\src\\proto\\testresult\\" + actTest + ".txt");
+        File f = new File(".\\proto\\expectedresults\\" + actTest + ".txt");
+        File f2 = new File(".\\proto\\testresult\\" + actTest + ".txt");
         if(!f.exists()){
             System.out.println("Nincsen teszt irva ehhet a tesztesethez");
             return;
