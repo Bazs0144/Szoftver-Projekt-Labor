@@ -30,7 +30,8 @@ public class View extends JPanel{
 
 		savePanel();//a mentes gombot tartalmazza
 
-		equipmentPanel();//az eszközök helyei vannak itt
+		EquipmentPanel ep = new EquipmentPanel();
+		this.add(ep, BorderLayout.EAST);
 
 		this.setVisible(true);
 	}
@@ -88,26 +89,6 @@ public class View extends JPanel{
 		sg.add(labelHolder, BorderLayout.EAST);
 
 		this.add(sg, BorderLayout.SOUTH);
-	}
-
-	void equipmentPanel() {
-		JPanel equipment = new JPanel();
-		equipment.setLayout(new BoxLayout(equipment, BoxLayout.Y_AXIS));
-		equipment.setPreferredSize(new Dimension(70, 700));
-		equipment.setBackground(new Color(189, 216, 235));
-		for (int i = 0; i < 10; i++) jps.add(new JPanel()); //Ez azért kell hogy legen
-		editJPS();
-		for (int i = 0; i < jps.size(); i++) {
-			jps.get(i).setBackground(new Color((i + 1) * 10, (i + 1) * 10, (i + 1) * 10));
-			equipment.add(jps.get(i));
-		}
-		this.add(equipment, BorderLayout.EAST);
-	}
-
-	void editJPS() {
-		for (int i = 0; i < 10; i++){
-			//
-		}
 	}
 
 	public void refreshStatus(Player p){
