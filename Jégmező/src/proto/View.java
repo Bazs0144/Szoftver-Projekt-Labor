@@ -13,10 +13,11 @@ public class View extends JPanel{
 	private ArrayList<GraphicsField> fields =  new ArrayList<GraphicsField>();
 	private ArrayList<GraphicsTool> tools = new ArrayList<GraphicsTool>();
 	private Statusbar statusbar;
-
-	String currentPlayer = "player";  //Ezt kell megváltoztatni a sarokban lévő név kiírásához
-	int currentRound = 1; // Ezt kell novelni a bal felső sarokban
-	ArrayList<JPanel> jps = new ArrayList<>(); //Eszkozok listaja
+	private InGame gamePanel;
+	private EquipmentPanel ep;
+	private String currentPlayer;
+	private int currentRound = 1;
+	ArrayList<JPanel> charactersTools = new ArrayList<>(); //Eszkozok listaja
 
 	public View() {
 		//this.setPreferredSize(new Dimension(800, 800));
@@ -25,12 +26,12 @@ public class View extends JPanel{
 
 		gameState(); // két felső sarokban lévő szöveg kiírása
 
-		InGame p2 = new InGame();//a lenyegi resz
-		this.add(p2, BorderLayout.CENTER);
+		gamePanel = new InGame();//a lenyegi resz
+		this.add(gamePanel, BorderLayout.CENTER);
 
 		savePanel();//a mentes gombot tartalmazza
 
-		EquipmentPanel ep = new EquipmentPanel();
+		ep = new EquipmentPanel();
 		this.add(ep, BorderLayout.EAST);
 
 		this.setVisible(true);
@@ -39,12 +40,15 @@ public class View extends JPanel{
 	void gameState() {
 		JPanel p = new JPanel();
 		p.setLayout(new BorderLayout());
+
 		JPanel west = new JPanel();
 		JPanel center = new JPanel();
 		JPanel east = new JPanel();
+
 		JLabel round = new JLabel();
 		round.setFont(new Font("Arial", Font.BOLD, 43));
 		east.setBackground(new Color(189, 216, 235));
+
 		JLabel player = new JLabel();
 		player.setFont(new Font("Arial", Font.BOLD, 25));
 		west.setBackground(new Color(189, 216, 235));
@@ -53,12 +57,14 @@ public class View extends JPanel{
 		center.setBackground(new Color(189, 216, 235));
 		west.add(round);
 		east.add(player);
+
 		p.add(center, BorderLayout.CENTER);
 		p.add(west, BorderLayout.WEST);
 		p.add(east, BorderLayout.EAST);
 
 		p.setPreferredSize(new Dimension(730, 50));
 		p.setBackground(new Color(189, 216, 235));
+
 		this.add(p, BorderLayout.NORTH);
 	}
 

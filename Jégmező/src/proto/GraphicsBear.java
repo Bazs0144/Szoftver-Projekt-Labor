@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class GraphicsBear extends GraphicsFigure {
 	
-	public void Draw(Graphics g, int x, int y){
+	public void Draw(Graphics g, int x, int y, int width, int height){
 		BufferedImage image = null;
 		String path = ".\\proto\\resources\\medve.png";
 		try {
@@ -16,6 +16,7 @@ public class GraphicsBear extends GraphicsFigure {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		image = Utils.resize(image, width, height);
 		g.drawImage(image, x, y, null);
 	}
 }

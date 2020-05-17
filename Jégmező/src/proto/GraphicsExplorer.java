@@ -9,7 +9,7 @@ import java.io.IOException;
 public class GraphicsExplorer extends GraphicsFigure {
 
 	//a num a játékos sorszáma
-	public void Draw(Graphics g, int x, int y, int num){
+	public void Draw(Graphics g, int x, int y, int width, int height, int num){
 		BufferedImage image = null;
 		String path = ".\\proto\\resources\\sarkkutato.png";
 		try {
@@ -17,6 +17,7 @@ public class GraphicsExplorer extends GraphicsFigure {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		image = Utils.resize(image, width, height);
 		g.drawImage(image, x, y, null);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 12));
 		g.drawString(String.valueOf(num), x+15, y+15);
