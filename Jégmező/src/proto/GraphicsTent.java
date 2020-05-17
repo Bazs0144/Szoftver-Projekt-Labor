@@ -10,7 +10,7 @@ public class GraphicsTent extends GraphicsBuilding {
 	
 	public void Draw(Graphics g,  int x, int y, int width, int height){
 		BufferedImage image = null;
-		String path = ".\\src\\proto\\resources\\sator-epitmeny.png";
+		String path = ".\\src\\proto\\graphics\\sator-epitmeny.png";
 		try {
 			image = ImageIO.read(new File(path));
 		} catch (IOException e) {

@@ -12,15 +12,15 @@ public class View extends JPanel{
 	private ArrayList<GraphicsFigure> figures = new ArrayList<GraphicsFigure>(); 
 	private ArrayList<GraphicsField> fields =  new ArrayList<GraphicsField>();
 	private ArrayList<GraphicsTool> tools = new ArrayList<GraphicsTool>();
-	private Statusbar statusbar;
 	private InGame gamePanel;
 	private EquipmentPanel ep;
 	private String currentPlayer;
+	private GameView drawField;
+	private Statusbar statusbar;
 	private int currentRound = 1;
 	ArrayList<JPanel> charactersTools = new ArrayList<>(); //Eszkozok listaja
 
 	public View() {
-		//this.setPreferredSize(new Dimension(800, 800));
 		this.setLayout(new BorderLayout());
 		this.setBackground(new Color(189, 216, 235));
 
@@ -28,6 +28,11 @@ public class View extends JPanel{
 
 		gamePanel = new InGame();//a lenyegi resz
 		this.add(gamePanel, BorderLayout.CENTER);
+
+		drawField = gamePanel.getDrawfield();
+		drawField.setParameters(buildings, figures, fields, tools);
+
+		statusbar = gamePanel.getStatusBar();
 
 		savePanel();//a mentes gombot tartalmazza
 

@@ -10,7 +10,7 @@ public class GraphicsDivingSuit extends GraphicsTool {
 	
 	public void Draw(Graphics g,  int x, int y, int width, int height){
 		BufferedImage image = null;
-		String path = ".\\src\\proto\\resources\\buvarruha.png";
+		String path = ".\\src\\proto\\graphics\\buvarruha.png";
 		try {
 			image = ImageIO.read(new File(path));
 		} catch (IOException e) {

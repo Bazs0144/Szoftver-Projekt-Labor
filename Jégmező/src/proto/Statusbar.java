@@ -22,13 +22,13 @@ public class Statusbar extends JPanel {
 	void currentLabel() {
 		JPanel current = new JPanel();
 		current.setLayout(new BorderLayout());
-		current.setPreferredSize(new Dimension(730, 30));
+		current.setPreferredSize(new Dimension(730, 27));
 		current.setBackground(new Color(189, 216, 235));
 
 		JPanel textHolder = new JPanel();
 		textHolder.setBackground(new Color(189, 216, 235));
 		JLabel l = new JLabel("  current player: " + name);
-		l.setFont(new Font("Arial", Font.BOLD, 20));
+		l.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textHolder.add(l);
 		current.add(textHolder, BorderLayout.WEST);
@@ -38,14 +38,14 @@ public class Statusbar extends JPanel {
 	void temperatureLabel() {
 		JPanel temperature = new JPanel();
 		temperature.setLayout(new BorderLayout());
-		temperature.setPreferredSize(new Dimension(730, 30));
+		temperature.setPreferredSize(new Dimension(730, 27));
 		temperature.setBackground(new Color(189, 216, 235));
 
 		JPanel textHolder = new JPanel();
 		textHolder.setBackground(new Color(189, 216, 235));
 		JLabel l = new JLabel("  temperature: " + temp);
 		l.setForeground(new Color(230, 0, 0));
-		l.setFont(new Font("Arial", Font.BOLD, 20));
+		l.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textHolder.add(l);
 		temperature.add(textHolder, BorderLayout.WEST);
@@ -55,13 +55,13 @@ public class Statusbar extends JPanel {
 	void actionsLabel() {
 		JPanel actions = new JPanel();
 		actions.setLayout(new BorderLayout());
-		actions.setPreferredSize(new Dimension(730, 30));
+		actions.setPreferredSize(new Dimension(730, 27));
 		actions.setBackground(new Color(189, 216, 235));
 
 		JPanel textHolder = new JPanel();
 		textHolder.setBackground(new Color(189, 216, 235));
 		JLabel l = new JLabel("  actions left: " + act);
-		l.setFont(new Font("Arial", Font.BOLD, 20));
+		l.setFont(new Font("Arial", Font.BOLD, 18));
 
 		textHolder.add(l);
 		actions.add(textHolder, BorderLayout.WEST);

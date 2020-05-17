@@ -14,13 +14,15 @@ public class EquipmentPanel extends Canvas {
         charctersTools = _list;
     }
     public void paint(Graphics g) {
-        //charctersTools.add(new GraphicsFood());
-        //charctersTools.add(new GraphicsRope());
+        charctersTools = new ArrayList<>();
+        charctersTools.add(new GraphicsFood());
+        charctersTools.add(new GraphicsRope());
         charctersTools.add(new GraphicsTentTool());
         if(charctersTools.size() == 0) return;
         int i = 0;
         for (GraphicsTool item: charctersTools) {
             item.Draw(g, 0, i * 60, 60, 60);
+            i++;
         }
     }
 
