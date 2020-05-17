@@ -21,6 +21,9 @@ public class GraphicsUnstable extends GraphicsField {
 
 		g.setFont(new Font("Arial", Font.BOLD, 20));
 		g.drawString(ho.toString(), x+width-18, y+height-8);
+		g.setColor(new Color(230, 0, 0));
+		g.drawString(kap.toString(), x+8, y+height-8);
+		g.setColor(new Color(0, 0, 0));
 	}
 
 }

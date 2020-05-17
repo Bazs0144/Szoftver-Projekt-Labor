@@ -52,7 +52,10 @@ public class GameView extends Canvas {
         for(Jegtabla j: jeg) {
             GraphicsField fl;
             if (j.type.equals("Stabil")) fl= new GraphicsStable();
-            else if (j.type.equals("Instabil")) fl=new GraphicsUnstable();
+            else if (j.type.equals("Instabil"))  {
+                fl=new GraphicsUnstable();
+                fl.kap=j.getKapacitas();
+            }
             else fl=new GraphicsHole();
             fl.ho=j.getHoMennyiseg();
             fields.add(fl);
