@@ -2,12 +2,14 @@ package proto;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GameView extends Canvas {
+public class GameView extends Canvas implements MouseListener {
     private int jegWidth = 110, jegHeight = 110;
     private int figWidth = 40, figHeight = 40;
     private ArrayList<GraphicsBuilding> buildings = new ArrayList<GraphicsBuilding>();
@@ -18,6 +20,7 @@ public class GameView extends Canvas {
     public void paint(Graphics g) {
         Graphics2D gd = (Graphics2D) g;
         gd.setStroke(new BasicStroke(5));
+        this.addMouseListener(this);
         setFields();
         setFigures();
         setTools();
@@ -40,8 +43,6 @@ public class GameView extends Canvas {
         for (int i = 0; i < figures.size(); i++) figures.get(i).Draw(g, figWidth, figHeight, i);
         for (int i = 0; i < tools.size(); i++) tools.get(i).Draw(g, figWidth, figHeight);
         for (int i = 0; i < buildings.size(); i++) buildings.get(i).Draw(g, figWidth, figHeight);
-        System.out.println(buildings.size());
-
     }
 
     void setParameters(ArrayList<GraphicsBuilding> _buildings, ArrayList<GraphicsFigure> _figures,
@@ -133,5 +134,38 @@ public class GameView extends Canvas {
             }
         }
     }
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		//Tartomany ellenorzes
+		if(e.getX() >= 100 && e.getX() <= 570)
+			if(e.getY() >= 20 && e.getY() <= 490) {
+				//Konverzio raw inputrol a jegtablak koordinata rendszerere
+				//X:0-3, Y:0-3
+				int x = (e.getX()-100)/120;
+				int y = (e.getY()-20)/120;
+				if(x >= 0 && x <= 3 && y >= 0 && y <= 3) {
+					//A megadott koordinatakon levo jegtabla eltarolasa a konnyebb olvashatosagert.
+					Jegtabla here = MainFrame.Instance.jt.getJegMezo().getJegtabla(x, y);
+					try {
+						//Lepesi kiserlet.
+						MainFrame.Instance.getCurrentPlayer().getKarakter().lep(here);
+					} catch (Exception e1) {}
+			}
+		}	
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+
+	@Override
+	public void mouseExited(MouseEvent e) {}
 }
 

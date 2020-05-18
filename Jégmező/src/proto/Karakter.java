@@ -192,5 +192,9 @@ public class Karakter extends Figura implements Serializable {
     public void setHo(int ho) {
         this.ho=ho;
     }
+    
+    public Poz getPoz() {
+		return jegtabla.getPoz();
+	}
 
 }
