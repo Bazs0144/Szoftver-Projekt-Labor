@@ -120,10 +120,11 @@ public class MainFrame extends JFrame {
 	public void refreshGame() {
 		view.getDrawField().repaint();
 		view.refreshStatus();
+		view.refreshTools();
 	}
 	 public void inGameRound() throws Exception {
 		 if(!jt.game_over) {
-			 view.refreshStatus();
+			 refreshGame();
 			jt.game_over=jt.check_game_over();
 			if(jt.game_over) {
 				jt.game_over=true;

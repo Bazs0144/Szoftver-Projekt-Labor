@@ -121,7 +121,7 @@ public class Statusbar extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			try {
 				MainFrame.Instance.getCurrentPlayer().getKarakter().takarit(1);
-				MainFrame.Instance.refreshGame();
+				MainFrame.Instance.inGameRound();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
