@@ -150,7 +150,7 @@ public class MainFrame extends JFrame {
 	}
 	/** Leptet egyet a jatekbeli koron */
 	 public void inGameRound() throws Exception {
-		 if(!jt.game_over) {
+		 if(!jt.game_over&&!jt.gameWon) {
 			 refreshGame();
 			jt.game_over=jt.check_game_over();
 			if(jt.game_over) {
@@ -194,6 +194,19 @@ public class MainFrame extends JFrame {
 		currentPanel.add(textPane, BorderLayout.CENTER);
 	}
 
+	void gameWon() {
+		jt.gameWon=true;
+		JTextPane textPane=new JTextPane();
+		StyledDocument style = textPane.getStyledDocument();
+		SimpleAttributeSet align= new SimpleAttributeSet();
+		StyleConstants.setAlignment(align, StyleConstants.ALIGN_CENTER);
+		style.setParagraphAttributes(0, style.getLength(), align, false);
+		textPane.setText("WIN");
+		textPane.setEditable(false);
+		textPane.setFont(new Font("Arial", Font.BOLD, 96));
+		textPane.setBackground(new Color(38, 235, 48));
+		currentPanel.add(textPane, BorderLayout.CENTER);
+	}
 	/** Veletlenszeru helyeken hovihart okoz*/
 	protected static void hoviharRand() {
 		Random r = new Random();

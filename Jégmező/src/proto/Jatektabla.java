@@ -20,6 +20,7 @@ public class Jatektabla extends JFrame implements Serializable {
     protected ArrayList<Player> p=new ArrayList<Player>();
     protected ArrayList<Alkatresz> a;
     private Jegesmedve jm;
+    boolean gameWon;
     boolean game_over;
     int act_index;
 
@@ -34,6 +35,7 @@ public class Jatektabla extends JFrame implements Serializable {
         kor=1;
         act_index=0;
         game_over=false;
+        gameWon=false;
         boolean b=true;
         j =new Jegmezo(width, height,b);
         for(Player pl: p) j.getJegtabla(0,0).ralepnek(pl.getKarakter());

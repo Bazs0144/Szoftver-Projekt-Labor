@@ -25,10 +25,11 @@ public class Alkatresz extends Targy implements Serializable {
 		k.munkak_szama--;
 		ArrayList<Alkatresz> alk = new ArrayList<>(jt.getAlkatresz());
 		ArrayList<Jegtabla> jegt=new ArrayList<>();
-		for(Alkatresz j : alk) {
-			jegt.add(j.getKarakter().getJegtabla());
-		}
 		boolean siker=true;
+		for(Alkatresz j : alk) {
+			if(j.getKarakter()!=null) jegt.add(j.getKarakter().getJegtabla());
+			else siker=false;
+		}
 		for(Jegtabla jeg: jegt) {
 			if (!jeg.equals(hol)) {
 				siker = false;
@@ -36,8 +37,7 @@ public class Alkatresz extends Targy implements Serializable {
 			}
 		}
 		if(siker) {
-			for(Player pl: jt.getPlayers())
-			pl.getKarakter().setHo(0);
+			MainFrame.Instance.gameWon();
 		}
 	}
 	
