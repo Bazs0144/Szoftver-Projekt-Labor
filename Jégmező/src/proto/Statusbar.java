@@ -9,13 +9,14 @@ public class Statusbar extends JPanel {
 	private String ab = "ability";
 	private int temp;
 	private int act;
+	JLabel NameL, TempL, ActL;
 
 	public Statusbar() {
 		Player pl=MainFrame.Instance.getCurrentPlayer();
 		name=pl.getName();
 		temp=pl.getKarakter().ho;
 		act=pl.getKarakter().munkak_szama;
-		System.out.println("status" + act);
+
 		this.setBackground(new Color(189, 216, 235));
 		this.setPreferredSize(new Dimension(730, 150));
 		currentLabel();
@@ -32,10 +33,10 @@ public class Statusbar extends JPanel {
 
 		JPanel textHolder = new JPanel();
 		textHolder.setBackground(new Color(189, 216, 235));
-		JLabel l = new JLabel("  current player: " + name);
-		l.setFont(new Font("Arial", Font.BOLD, 18));
+		NameL = new JLabel("  current player: " + name);
+		NameL.setFont(new Font("Arial", Font.BOLD, 18));
 
-		textHolder.add(l);
+		textHolder.add(NameL);
 		current.add(textHolder, BorderLayout.WEST);
 		this.add(current);
 	}
@@ -48,11 +49,11 @@ public class Statusbar extends JPanel {
 
 		JPanel textHolder = new JPanel();
 		textHolder.setBackground(new Color(189, 216, 235));
-		JLabel l = new JLabel("  temperature: " + temp);
-		l.setForeground(new Color(230, 0, 0));
-		l.setFont(new Font("Arial", Font.BOLD, 18));
+		TempL = new JLabel("  temperature: " + temp);
+		TempL.setForeground(new Color(230, 0, 0));
+		TempL.setFont(new Font("Arial", Font.BOLD, 18));
 
-		textHolder.add(l);
+		textHolder.add(TempL);
 		temperature.add(textHolder, BorderLayout.WEST);
 		this.add(temperature);
 	}
@@ -65,10 +66,10 @@ public class Statusbar extends JPanel {
 
 		JPanel textHolder = new JPanel();
 		textHolder.setBackground(new Color(189, 216, 235));
-		JLabel l = new JLabel("  actions left: " + act);
-		l.setFont(new Font("Arial", Font.BOLD, 18));
+		ActL = new JLabel("  actions left: " + act);
+		ActL.setFont(new Font("Arial", Font.BOLD, 18));
 
-		textHolder.add(l);
+		textHolder.add(ActL);
 		actions.add(textHolder, BorderLayout.WEST);
 
 		this.add(actions);
@@ -99,6 +100,17 @@ public class Statusbar extends JPanel {
 		buttons.add(ability);
 
 		this.add(buttons);
+	}
+
+	public void refresh() {
+		Player pl=MainFrame.Instance.getCurrentPlayer();
+		name=pl.getName();
+		temp=pl.getKarakter().ho;
+		act=pl.getKarakter().munkak_szama;
+		TempL.setText("  temperature: " + temp);
+		NameL.setText("  current player: " + name);
+		ActL.setText("  actions left: " + act);
+
 	}
 }
 

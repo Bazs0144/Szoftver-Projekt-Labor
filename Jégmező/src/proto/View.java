@@ -18,9 +18,13 @@ public class View extends JPanel{
 	private GameView drawField;
 	private Statusbar statusbar;
 	private int currentRound = 1;
+	private JLabel player, round;
 	ArrayList<JPanel> charactersTools = new ArrayList<>(); //Eszkozok listaja
 
 	public View() {
+		int index=MainFrame.jt.act_index;
+		currentPlayer=MainFrame.jt.getPlayers().get(index).getName();
+		currentRound=MainFrame.jt.kor;
 		this.setLayout(new BorderLayout());
 		this.setBackground(new Color(189, 216, 235));
 
@@ -50,11 +54,11 @@ public class View extends JPanel{
 		JPanel center = new JPanel();
 		JPanel east = new JPanel();
 
-		JLabel round = new JLabel();
+		round = new JLabel();
 		round.setFont(new Font("Arial", Font.BOLD, 43));
 		east.setBackground(new Color(189, 216, 235));
 
-		JLabel player = new JLabel();
+		player = new JLabel();
 		player.setFont(new Font("Arial", Font.BOLD, 25));
 		west.setBackground(new Color(189, 216, 235));
 
@@ -104,9 +108,11 @@ public class View extends JPanel{
 	}
 
 	public void refreshStatus(){
-		gamePanel.remove(statusbar);
-		statusbar=new Statusbar();
-		gamePanel.add(statusbar, BorderLayout.NORTH);
+		int index=MainFrame.jt.act_index;
+		currentPlayer=MainFrame.jt.getPlayers().get(index).getName();
+		currentRound=MainFrame.jt.kor;
+		setFields(round,player);
+		gamePanel.getStatusBar().refresh();
 	}
 	
 	public void addBuilding(GraphicsBuilding g){
