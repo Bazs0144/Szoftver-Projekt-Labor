@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * a GameViewt megvalosito osztaly.
  * Ez rajzolja ki a grafikus elemeket.
  */
-public class GameView extends Canvas implements MouseListener, MouseMotionListener {
+public class GameView extends BufferedCanvas implements MouseListener, MouseMotionListener {
     /**
      * A GameView osztaly adattagjai
      * @param jegWidth:egy jegtabla szelessege.
@@ -33,8 +33,12 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
     private ArrayList<GraphicsField> fields = new ArrayList<GraphicsField>();
     private ArrayList<GraphicsTool> tools = new ArrayList<GraphicsTool>();
 
+    public void paint (Graphics g) {
+        update(g);
+    }
+
     /** A kirajzolo fv */
-    public void paint(Graphics g) {
+    public void render(Graphics g) {
         Graphics2D gd = (Graphics2D) g;
         gd.setStroke(new BasicStroke(5));
         this.addMouseListener(this);

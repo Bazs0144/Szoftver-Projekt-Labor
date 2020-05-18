@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>AddPlayer.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AddPlayer.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">proto</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">javax.swing.*</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.*</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionEvent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionListener</span><span class="s0">;</span>
+
+<span class="s2">/** A j�t�k be�ll�t�sakor haszn�lt JPanelt megval�sit� oszt�ly.</span>
+ <span class="s2">*  Itt lehet be�llitani a j�t�kosokat �s a j�t�kos karaktereinek tipus�t.*/</span>
+<span class="s0">public class </span><span class="s1">AddPlayer </span><span class="s0">extends </span><span class="s1">JPanel {</span>
+    <span class="s2">/**</span>
+     <span class="s2">* chooseName - a JLabel ki�rja, hogy itt lehet nevet adni a j�t�kosnak.</span>
+     <span class="s2">* chooseChar - a JLabel ki�rja, hogy itt lehet tipust v�lasztani a j�t�kos karakter�nek.</span>
+     <span class="s2">* name - ebbe a JTextArea-ba lehet beirni billenty�zetr�l az �j j�t�kos nev�t.</span>
+     <span class="s2">* eszkimo - gomb, amelynek lenyom�s�val kiv�laszthat�, hogy a j�t�kos karakter�nek tipusa Eszkimo.</span>
+     <span class="s2">* sk - gomb, amelynek lenyom�s�val kiv�laszthat�, hogy a j�t�kos karakter�nek tipusa Sarkkutato.</span>
+     <span class="s2">* back - gomb, amelynek lenyom�s�val kiv�laszthat� a men�be val� visszal�p�s.</span>
+     <span class="s2">* add - gomb, amelynek lenyom�s�val hozz�adhat� az �j be�llitott j�t�kos a �j j�t�khoz.</span>
+     <span class="s2">* charac - �ppen milyen karaktertipus lett kiv�lasztva a j�t�kos hozz�ad�s sor�n.</span>
+     <span class="s2">*/</span>
+    <span class="s1">JLabel chooseName</span><span class="s0">, </span><span class="s1">chooseChar</span><span class="s0">;</span>
+    <span class="s1">JTextArea name</span><span class="s0">;</span>
+    <span class="s1">JButton eskimo</span><span class="s0">, </span><span class="s1">sk</span><span class="s0">, </span><span class="s1">back</span><span class="s0">, </span><span class="s1">add</span><span class="s0">;</span>
+    <span class="s1">String charac=</span><span class="s0">new </span><span class="s1">String(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">* Az attrib�tum .swing elemek megval�sit�sa.</span>
+     <span class="s2">* Mindegyik elem k�l�n ker�l l�trehoz�sra �s k�l�n be lesznek �llitva ezek legfontosabb tulajdons�gai.</span>
+     <span class="s2">* Az egyes elemek be�llit�sa ut�n, a grafikus elem felker�l a JPanle-re, amelyet �ppen megval�situnk.</span>
+     <span class="s2">*/</span>
+    <span class="s0">public </span><span class="s1">AddPlayer() {</span>
+        <span class="s0">this</span><span class="s1">.setBackground(</span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">189</span><span class="s0">, </span><span class="s4">216</span><span class="s0">, </span><span class="s4">235</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">GridBagLayout gl=</span><span class="s0">new </span><span class="s1">GridBagLayout()</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.setLayout(gl)</span><span class="s0">;</span>
+        <span class="s1">GridBagConstraints c = </span><span class="s0">new </span><span class="s1">GridBagConstraints()</span><span class="s0">;</span>
+
+        <span class="s1">chooseName = </span><span class="s0">new </span><span class="s1">JLabel(</span><span class="s3">&quot;Choose your name: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">chooseName.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s3">&quot;Serif&quot;</span><span class="s0">, </span><span class="s1">Font.BOLD</span><span class="s0">, </span><span class="s4">30</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">c.gridx = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s1">c.gridy = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s1">c.gridheight = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridwidth = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">c.fill = GridBagConstraints.WEST</span><span class="s0">;</span>
+        <span class="s1">c.insets = </span><span class="s0">new </span><span class="s1">Insets(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.add(chooseName</span><span class="s0">, </span><span class="s1">c)</span><span class="s0">;</span>
+
+        <span class="s1">name = </span><span class="s0">new </span><span class="s1">JTextArea(</span><span class="s4">1</span><span class="s0">, </span><span class="s4">20</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">c.fill = GridBagConstraints.NONE</span><span class="s0">;</span>
+        <span class="s1">name.setPreferredSize(</span><span class="s0">new </span><span class="s1">Dimension(</span><span class="s4">4</span><span class="s0">, </span><span class="s4">9</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">name.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s3">&quot;Serif&quot;</span><span class="s0">, </span><span class="s1">Font.BOLD</span><span class="s0">, </span><span class="s4">20</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">c.gridx = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">c.gridy = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s1">c.gridheight = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridwidth = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">c.insets = </span><span class="s0">new </span><span class="s1">Insets(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.add(name</span><span class="s0">, </span><span class="s1">c)</span><span class="s0">;</span>
+
+        <span class="s1">chooseChar = </span><span class="s0">new </span><span class="s1">JLabel(</span><span class="s3">&quot;Choose your character: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">chooseChar.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s3">&quot;Serif&quot;</span><span class="s0">, </span><span class="s1">Font.BOLD</span><span class="s0">, </span><span class="s4">30</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">c.gridx = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridy = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridheight = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridwidth = </span><span class="s4">4</span><span class="s0">;</span>
+        <span class="s1">c.fill = GridBagConstraints.CENTER</span><span class="s0">;</span>
+        <span class="s1">c.insets = </span><span class="s0">new </span><span class="s1">Insets(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.add(chooseChar</span><span class="s0">, </span><span class="s1">c)</span><span class="s0">;</span>
+
+        <span class="s1">eskimo = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s3">&quot;Eskimo&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">eskimo.setBackground( </span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">250</span><span class="s0">, </span><span class="s4">255</span><span class="s0">, </span><span class="s4">255</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">eskimo.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s3">&quot;Arial&quot;</span><span class="s0">, </span><span class="s1">Font.PLAIN</span><span class="s0">, </span><span class="s4">30</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">c.gridx = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s1">c.gridy = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">c.gridheight = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridwidth = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">eskimo.addActionListener(</span><span class="s0">new </span><span class="s1">EskimoButtonActionListener())</span><span class="s0">;</span>
+        <span class="s1">c.insets = </span><span class="s0">new </span><span class="s1">Insets(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.add(eskimo</span><span class="s0">, </span><span class="s1">c)</span><span class="s0">;</span>
+
+        <span class="s1">sk = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s3">&quot;Polar explorer&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">sk.setBackground( </span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">255</span><span class="s0">, </span><span class="s4">255</span><span class="s0">, </span><span class="s4">255</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">sk.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s3">&quot;Arial&quot;</span><span class="s0">, </span><span class="s1">Font.PLAIN</span><span class="s0">, </span><span class="s4">30</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">c.gridx = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">c.gridy = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">c.gridheight = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridwidth = </span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s1">sk.addActionListener(</span><span class="s0">new </span><span class="s1">SkButtonActionListener())</span><span class="s0">;</span>
+        <span class="s1">c.insets = </span><span class="s0">new </span><span class="s1">Insets(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.add(sk</span><span class="s0">, </span><span class="s1">c)</span><span class="s0">;</span>
+
+        <span class="s1">add = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s3">&quot;Add Player&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">add.setBackground( </span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">250</span><span class="s0">,</span><span class="s4">180</span><span class="s0">,</span><span class="s4">200</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">add.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s3">&quot;Arial&quot;</span><span class="s0">, </span><span class="s1">Font.PLAIN</span><span class="s0">, </span><span class="s4">30</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">c.gridx = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s1">c.gridy = </span><span class="s4">3</span><span class="s0">;</span>
+        <span class="s1">c.gridheight = </span><span class="s4">1</span><span class="s0">;</span>
+        <span class="s1">c.gridwidth = </span><span class="s4">4</span><span class="s0">;</span>
+        <span class="s1">c.fill = GridBagConstraints.CENTER</span><span class="s0">;</span>
+        <span class="s1">c.insets = </span><span class="s0">new </span><span class="s1">Insets(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">add.addActionListener(</span><span class="s0">new </span><span class="s1">AddButtonActionListener())</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.add(add</span><span class="s0">, </span><span class="s1">c)</span><span class="s0">;</span>
+
+        <span class="s1">back = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s3">&quot;Back to Menu&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">back.setBackground( </span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">250</span><span class="s0">,</span><span class="s4">180</span><span class="s0">,</span><span class="s4">200</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">back.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s3">&quot;Arial&quot;</span><span class="s0">, </span><span class="s1">Font.PLAIN</span><span class="s0">, </span><span class="s4">30</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">c.gridx = </span><span class="s4">0</span><span class="s0">;</span>
+        <span class="s1">c.gridy = </span><span class="s4">4</span><span class="s0">;</span>
+        <span class="s1">c.gridwidth = </span><span class="s4">4</span><span class="s0">;</span>
+        <span class="s1">c.insets = </span><span class="s0">new </span><span class="s1">Insets(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+       <span class="s1">back.addActionListener(</span><span class="s0">new </span><span class="s1">BackButtonActionListener())</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.add(back</span><span class="s0">, </span><span class="s1">c)</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">* A grafikus gomb megval�sit�sa, amely lenyom�s�nak hat�s�ra vissza lehet l�pni a j�t�k men�j�be.</span>
+     <span class="s2">*/</span>
+    <span class="s0">class </span><span class="s1">BackButtonActionListener </span><span class="s0">implements </span><span class="s1">ActionListener {</span>
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+            <span class="s0">try </span><span class="s1">{</span>
+                <span class="s1">MainFrame.Instance.changeState(State.NewGameS)</span><span class="s0">;</span>
+            <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception ex) {</span>
+                <span class="s1">ex.printStackTrace()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">* Az �j j�t�kos hozz�ad�sa a j�t�khoz, miut�n meg lett nyomva a megfelel� grafikus gomb �s meg volt adva a</span>
+     <span class="s2">* j�t�kos karakter�nek tipusa. Nem lehet v�grehajtani a j�t�kos hozz�ad�s�t a j�t�khoz, ha nincs megadva ennek tipusa.</span>
+     <span class="s2">*/</span>
+    <span class="s0">class </span><span class="s1">AddButtonActionListener </span><span class="s0">implements </span><span class="s1">ActionListener {</span>
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+            <span class="s1">String pname=name.getText()</span><span class="s0">;</span>
+            <span class="s0">if</span><span class="s1">(!charac.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)&amp;&amp;!pname.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) {</span>
+                <span class="s1">Karakter k</span><span class="s0">;</span>
+                <span class="s0">if</span><span class="s1">(charac.equals(</span><span class="s3">&quot;eskimo&quot;</span><span class="s1">)) k=</span><span class="s0">new </span><span class="s1">Eszkimo()</span><span class="s0">;</span>
+                <span class="s0">else </span><span class="s1">k=</span><span class="s0">new </span><span class="s1">Sarkkutato()</span><span class="s0">;</span>
+                <span class="s1">MainFrame.Instance.addNewPlayer(</span><span class="s0">new </span><span class="s1">Player(k</span><span class="s0">, </span><span class="s1">pname))</span><span class="s0">;</span>
+                <span class="s0">try </span><span class="s1">{</span>
+                    <span class="s1">MainFrame.Instance.changeState(State.NewGameS)</span><span class="s0">;</span>
+                <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception ex) {</span>
+                    <span class="s1">ex.printStackTrace()</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">* Az �j j�t�kos karakter tipus�nak be�llit�sa eszkim�ra, miut�n meg lett nyomva a megfelel� grafikus gomb.</span>
+     <span class="s2">*/</span>
+    <span class="s0">class </span><span class="s1">EskimoButtonActionListener </span><span class="s0">implements </span><span class="s1">ActionListener {</span>
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+           <span class="s1">charac=</span><span class="s3">&quot;eskimo&quot;</span><span class="s0">;</span>
+           <span class="s1">eskimo.setBackground(</span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">255</span><span class="s0">, </span><span class="s4">26</span><span class="s0">, </span><span class="s4">44</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">sk.setBackground( </span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">255</span><span class="s0">, </span><span class="s4">255</span><span class="s0">, </span><span class="s4">255</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">* Az �j j�t�kos karakter tipus�nak be�llit�sa sarkkutat�ra, miut�n meg lett nyomva a megfelel� grafikus gomb.</span>
+     <span class="s2">*/</span>
+    <span class="s0">class </span><span class="s1">SkButtonActionListener </span><span class="s0">implements </span><span class="s1">ActionListener {</span>
+        <span class="s1">@Override</span>
+        <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+            <span class="s1">charac=</span><span class="s3">&quot;pole&quot;</span><span class="s0">;</span>
+            <span class="s1">sk.setBackground(</span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">255</span><span class="s0">, </span><span class="s4">26</span><span class="s0">, </span><span class="s4">44</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">eskimo.setBackground( </span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">255</span><span class="s0">, </span><span class="s4">255</span><span class="s0">, </span><span class="s4">255</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
