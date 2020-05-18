@@ -100,8 +100,8 @@ public class MainFrame extends JFrame {
 	public void dig(){}
 	
 	public void move(Poz p) throws Exception {
+		if(!jt.game_over)
 		currentPlayer.getKarakter().lep(jt.getJegMezo().getJegtabla(p.x, p.y));
-		//endTurn();
 	}
 	
 	public void use(int index) {}
@@ -113,26 +113,40 @@ public class MainFrame extends JFrame {
 		}
 	}
 	 public void inGameRound() {
+		 if(!jt.game_over) {
 		view.refreshStatus();
-		jt.game_over=jt.check_game_over();
-		if(jt.game_over) {
-			//doublePrintln("Jatek vege");
-		}
-		if(!jt.game_over) {
-			Player current = jt.getPlayers().get(jt.act_index);
-			if (!current.getKarakter().van_munkaja()) {
-				if (jt.act_index == jt.getPlayers().size() - 1) {
-					jt.act_index = 0;
-					jt.kor++;
-				} else jt.act_index++;
-				current=jt.getPlayers().get(jt.act_index);
-				jt.next_player(current);
-			//	doublePrintln(jt.kor + ". kor, jatekos: " + jt.getPlayers().get(jt.act_index).getName());
-				if(current.getKarakter().vizbeKerultKor!=jt.kor&&current.getKarakter().get_vizben_van()) {
-					jt.game_over=true;
+			jt.game_over=jt.check_game_over();
+			if(jt.game_over) {
+				jt.game_over=true;
+				gameOver();
+			}
+			if(!jt.game_over) {
+				Player current = jt.getPlayers().get(jt.act_index);
+				if (!current.getKarakter().van_munkaja()) {
+					if (jt.act_index == jt.getPlayers().size() - 1) {
+						jt.act_index = 0;
+						jt.kor++;
+					} else jt.act_index++;
+					current=jt.getPlayers().get(jt.act_index);
+					jt.next_player(current);
+					currentPlayer=current;
+					if(current.getKarakter().vizbeKerultKor!=jt.kor&&current.getKarakter().get_vizben_van()) {
+						jt.game_over=true;
+						gameOver();
+					}
 				}
 			}
 		}
+
+	}
+
+	void gameOver() {
+		JTextArea go=new JTextArea("Game Over");
+		go.setEditable(false);
+		go.setFont(new Font("Serif", Font.BOLD, 96));
+		go.setBackground(new Color(235, 43, 37));
+		currentPanel.add(go, BorderLayout.CENTER);
+
 	}
 	
 	public void Ability(){}

@@ -32,6 +32,8 @@ public class Jatektabla extends JFrame implements Serializable {
      */
     public Jatektabla(int width,int height, ArrayList<Player> p) throws Exception {
         kor=1;
+        act_index=0;
+        game_over=false;
         boolean b=true;
         j =new Jegmezo(width, height,b);
         for(Player pl: p) j.getJegtabla(0,0).ralepnek(pl.getKarakter());
