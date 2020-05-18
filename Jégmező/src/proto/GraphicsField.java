@@ -5,7 +5,7 @@ import java.awt.Graphics;
  * Az osztály függvényeit a leszármazott osztályok valósitják meg.*/
 public abstract class GraphicsField implements Drawable{
 	Integer ho;
-	Integer kap;
+	Integer kap=0;
 	boolean befagy;
 	
 	public void Draw(Graphics g, int x, int y, int width, int height){
