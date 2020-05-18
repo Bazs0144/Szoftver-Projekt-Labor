@@ -41,6 +41,22 @@ public class View extends JPanel{
 		savePanel();//a mentes gombot tartalmazza
 
 		ep = new EquipmentPanel();
+
+		ArrayList<Targy> targyak = MainFrame.jt.getPlayers().get(index).getKarakter().getTargyak();
+		for(Targy t : targyak){
+			GraphicsTool tl;
+			if (t.Name.equals("Alkatresz")) tl = new GraphicsPart();
+			else if (t.Name.equals("Aso")) tl = new GraphicsSpade();
+			else if (t.Name.equals("Buvarruha")) tl = new GraphicsDivingSuit();
+			else if (t.Name.equals("Etel")) tl = new GraphicsFood();
+			else if (t.Name.equals("Kotel")) tl = new GraphicsRope();
+			else if (t.Name.equals("Lapat")) tl = new GraphicsShovel();
+			else tl = new GraphicsTentTool();
+			tl.poz = t.getKarakter().getPoz();
+			charactersTools.add(tl);
+
+		}
+		ep.setCharactersTools(charactersTools);
 		this.add(ep, BorderLayout.EAST);
 
 		this.setVisible(true);
