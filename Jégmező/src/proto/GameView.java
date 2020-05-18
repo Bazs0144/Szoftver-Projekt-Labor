@@ -10,7 +10,22 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * a GameViewt megvalosito osztaly.
+ * Ez rajzolja ki a grafikus elemeket.
+ */
 public class GameView extends Canvas implements MouseListener, MouseMotionListener {
+    /**
+     * A GameView osztaly adattagjai
+     * @param jegWidth:egy jegtabla szelessege.
+     * @param jegHeight:egy jegtabla magassaga.
+     * @param figWidth:egy figura szelessege.
+     * @param figWidth:egy figura magassaga.
+     * @param buildings: a palyan levo epuletek listaja.
+     * @param figures: a palyan levo figurak listaja.
+     * @param fields: a palyan levo mezok listaja.
+     * @param tools: a palyan levo eszkozok listaja.
+     */
     private int jegWidth = 110, jegHeight = 110;
     private int figWidth = 40, figHeight = 40;
     private ArrayList<GraphicsBuilding> buildings = new ArrayList<GraphicsBuilding>();
@@ -18,6 +33,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
     private ArrayList<GraphicsField> fields = new ArrayList<GraphicsField>();
     private ArrayList<GraphicsTool> tools = new ArrayList<GraphicsTool>();
 
+    /** A kirajzolo fv */
     public void paint(Graphics g) {
         Graphics2D gd = (Graphics2D) g;
         gd.setStroke(new BasicStroke(5));
@@ -47,6 +63,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
         for (int i = 0; i < buildings.size(); i++) buildings.get(i).Draw(g, figWidth, figHeight);
     }
 
+    /** Parametereket beallitja betolteshez */
     void setParameters(ArrayList<GraphicsBuilding> _buildings, ArrayList<GraphicsFigure> _figures,
                        ArrayList<GraphicsField> _fields, ArrayList<GraphicsTool> _tools) {
         buildings = _buildings;
@@ -55,6 +72,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
         tools = _tools;
     }
 
+    /** Mezoket beallitja */
     void setFields() {
         fields.clear();
         ArrayList<Jegtabla> jeg = MainFrame.jt.getJegMezo().getJegtablak();
@@ -76,6 +94,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
         }
     }
 
+    /** Figurakat beallitja */
     void setFigures() {
         figures.clear();
         ArrayList<Player> pl = MainFrame.jt.getPlayers();
@@ -98,6 +117,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
         figures.add(medve);
     }
 
+    /** Eszkozoket beallitja*/
     void setTools() {
         tools.clear();
         ArrayList<Jegtabla> jeg = MainFrame.jt.getJegMezo().getJegtablak();
@@ -121,6 +141,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
         }
     }
 
+    /** Epitmenyeket beallitja */
     void setBuildings() {
         buildings.clear();
         ArrayList<Jegtabla> jeg = MainFrame.jt.getJegMezo().getJegtablak();
@@ -142,6 +163,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
 	@Override
 	public void mouseClicked(MouseEvent e) {}
 
+	/** Mouse event handler */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		//Tartomany ellenorzes
