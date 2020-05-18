@@ -99,7 +99,10 @@ public class MainFrame extends JFrame {
 	
 	public void dig(){}
 	
-	public void move(Poz p) {}
+	public void move(Poz p) throws Exception {
+		currentPlayer.getKarakter().lep(jt.getJegMezo().getJegtabla(p.x, p.y));		
+		endTurn();
+	}
 	
 	public void use(int index) {}
 	
@@ -107,7 +110,6 @@ public class MainFrame extends JFrame {
 
 		if(currentPlayer.getKarakter().get_munkakszama() == 0) {
 			currentPlayer = jt.setNextPlayer(currentPlayer);
-			jt.medveLep();
 		}
 	}
 	

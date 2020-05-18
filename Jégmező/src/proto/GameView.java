@@ -138,8 +138,10 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
     }
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		
+	public void mouseClicked(MouseEvent e) {}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
 		//Tartomany ellenorzes
 		if(e.getX() >= 100 && e.getX() <= 570)
 			if(e.getY() >= 20 && e.getY() <= 490) {
@@ -148,20 +150,15 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
 				int y = (e.getY()-20)/120;
 				x = x*120+100;
 				y = y*120+20;
-					//A megadott koordinatakon levo jegtabla eltarolasa a konnyebb olvashatosagert.
-					Jegtabla here = MainFrame.Instance.jt.getJegMezo().getJegtabla(x, y);
-					try {
-						//Lepesi kiserlet.
-						MainFrame.Instance.getCurrentPlayer().getKarakter().lep(here);
-						MainFrame.Instance.endTurn();
-						this.repaint();
-					} catch (Exception e1) {}
-		}	
-		
+				Poz p = new Poz(x, y);
+				try {
+					MainFrame.Instance.move(p);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				this.repaint();
+		}
 	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {}
@@ -178,7 +175,6 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		this.repaint();
 	}
 }
 

@@ -215,6 +215,7 @@ public class Jatektabla extends JFrame implements Serializable {
     	}
     	else {
     		x++;
+    	}
     	
     	p.get(x).kor_kezdes();
     	return p.get(x);
