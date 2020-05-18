@@ -5,10 +5,18 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * A grafikus eszkimó megjelenitését megvalósitó osztály.
+ */
 public class GraphicsEskimo extends GraphicsFigure {
 
-	//a num a játékos sorszáma
+	/**
+	 * A Draw függvényt valósitja meg az eszkimó grafikus elemre.
+	 * @param g - Graphics objektum, amelyre kerül a megjelenitet, eszkimónak megfelelő kép.
+	 * @param width - a megjelenitett kép szélessége
+	 * @param height - a megjelenitett kép magassága
+	 * @param num - a játékos sorszáma aki ezt a karaktert használja.
+	 */
 	public void Draw(Graphics g, int width, int height, int num){
 		int x=poz.x;
 		int y=poz.y;
