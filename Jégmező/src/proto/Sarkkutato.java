@@ -20,6 +20,7 @@ public class Sarkkutato extends Karakter implements Serializable {
 		if(this.jegtabla.szomszed_e(j)) {
 			kap = j.getKapacitas();
 			munkak_szama--;
+			j.setVizsgalt(true);
 			}
 		else
 			kap = -1;

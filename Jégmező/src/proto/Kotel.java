@@ -25,11 +25,12 @@ public class Kotel extends Targy implements Serializable {
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
 		 if(karakter.vizben_van) return;
 		try {
-			ArrayList<Figura> fig=hol.getFigurak();
-			//for(Jegtabla sz : hol.getSzomszedok())
-			for (Figura f : fig) {
-				if (f.vizben_van)
-					karakter.menekit((Karakter) f);
+			for(Jegtabla sz : hol.getSzomszedok()) {
+				ArrayList<Figura> fig=sz.getFigurak();
+				for (Figura f : fig) {
+					if (f.vizben_van)
+						karakter.menekit((Karakter) f);
+				}
 			}
 		} catch(Exception e) {
 		}
