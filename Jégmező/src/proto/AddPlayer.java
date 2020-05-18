@@ -5,13 +5,29 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/** A játék beállításakor használt JPanelt megvalósitó osztály.
+ *  Itt lehet beállitani a játékosokat és a játékos karaktereinek tipusát.*/
 public class AddPlayer extends JPanel {
+    /**
+     * chooseName - a JLabel kiírja, hogy itt lehet nevet adni a játékosnak.
+     * chooseChar - a JLabel kiírja, hogy itt lehet tipust választani a játékos karakterének.
+     * name - ebbe a JTextArea-ba lehet beirni billentyûzetrõl az új játékos nevét.
+     * eszkimo - gomb, amelynek lenyomásával kiválasztható, hogy a játékos karakterének tipusa Eszkimo.
+     * sk - gomb, amelynek lenyomásával kiválasztható, hogy a játékos karakterének tipusa Sarkkutato.
+     * back - gomb, amelynek lenyomásával kiválasztható a menübe való visszalépés.
+     * add - gomb, amelynek lenyomásával hozzáadható az új beállitott játékos a új játékhoz.
+     * charac - éppen milyen karaktertipus lett kiválasztva a játékos hozzáadás során.
+     */
     JLabel chooseName, chooseChar;
     JTextArea name;
     JButton eskimo, sk, back, add;
     String charac=new String("");
 
-
+    /**
+     * Az attribútum .swing elemek megvalósitása.
+     * Mindegyik elem külön kerül létrehozásra és külön be lesznek állitva ezek legfontosabb tulajdonságai.
+     * Az egyes elemek beállitása után, a grafikus elem felkerül a JPanle-re, amelyet éppen megvalósitunk.
+     */
     public AddPlayer() {
         this.setBackground(new Color(189, 216, 235));
         GridBagLayout gl=new GridBagLayout();
@@ -95,6 +111,9 @@ public class AddPlayer extends JPanel {
 
     }
 
+    /**
+     * A grafikus gomb megvalósitása, amely lenyomásának hatására vissza lehet lépni a játék menüjébe.
+     */
     class BackButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -106,6 +125,10 @@ public class AddPlayer extends JPanel {
         }
     }
 
+    /**
+     * Az új játékos hozzáadása a játékhoz, miután meg lett nyomva a megfelelõ grafikus gomb és meg volt adva a
+     * játékos karakterének tipusa. Nem lehet végrehajtani a játékos hozzáadását a játékhoz, ha nincs megadva ennek tipusa.
+     */
     class AddButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -124,6 +147,9 @@ public class AddPlayer extends JPanel {
         }
     }
 
+    /**
+     * Az új játékos karakter tipusának beállitása eszkimóra, miután meg lett nyomva a megfelelõ grafikus gomb.
+     */
     class EskimoButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -133,6 +159,9 @@ public class AddPlayer extends JPanel {
         }
     }
 
+    /**
+     * Az új játékos karakter tipusának beállitása sarkkutatóra, miután meg lett nyomva a megfelelõ grafikus gomb.
+     */
     class SkButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
