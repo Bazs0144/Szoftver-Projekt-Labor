@@ -5,9 +5,16 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * A grafikus instabil jégtábla megjelenitését megvalósitó osztály.
+ */
 public class GraphicsUnstable extends GraphicsField {
-	
+	/**
+	 * A Draw függvényt valósitja meg a sátor épitmény grafikus elemre.
+	 * @param g - Graphics objektum, amelyre kerül a megjelenitet, sátor épitménynek megfelelõ kép.
+	 * @param width - a megjelenitett kép szélessége
+	 * @param height - a megjelenitett kép magassága
+	 */
 	public void Draw(Graphics g,  int x, int y, int width, int height){
 		BufferedImage image = null;
 		String path = ".\\src\\proto\\graphics\\instabil.png";
