@@ -5,9 +5,17 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * A grafikus iglu megjelenitését megvalósitó osztály.
+ */
 public class GraphicsIgloo  extends GraphicsBuilding {
-	
+
+	/**
+	 * A Draw függvényt valósitja meg az iglu grafikus elemre.
+	 * @param g - Graphics objektum, amelyre kerül a megjelenitet, iglunak megfelelõ kép.
+	 * @param width - a megjelenitett kép szélessége
+	 * @param height - a megjelenitett kép magassága
+	 */
 	public void Draw(Graphics g, int width, int height){
 		int x=poz.x;
 		int y=poz.y;

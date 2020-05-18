@@ -5,9 +5,17 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * A grafikus ásó megjelenitését megvalósitó osztály.
+ */
 public class GraphicsSpade extends GraphicsTool {
-	
+
+	/**
+	 * A Draw függvényt valósitja meg az ásó grafikus elemre.
+	 * @param g - Graphics objektum, amelyre kerül a megjelenitet, ásónak megfelelõ kép.
+	 * @param width - a megjelenitett kép szélessége
+	 * @param height - a megjelenitett kép magassága
+	 */
 	public void Draw(Graphics g, int width, int height){
 		int x=poz.x;
 		int y=poz.y;

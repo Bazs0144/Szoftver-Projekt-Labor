@@ -5,9 +5,17 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * A grafikus sátor tárgy megjelenitését megvalósitó osztály.
+ */
 public class GraphicsTentTool extends GraphicsTool {
-	
+
+	/**
+	 * A Draw függvényt valósitja meg a sátor tárgy grafikus elemre.
+	 * @param g - Graphics objektum, amelyre kerül a megjelenitet, sátor tárgynak megfelelõ kép.
+	 * @param width - a megjelenitett kép szélessége
+	 * @param height - a megjelenitett kép magassága
+	 */
 	public void Draw(Graphics g, int width, int height){
 		int x=poz.x;
 		int y=poz.y;
