@@ -198,7 +198,7 @@ public class Jatektabla extends JFrame implements Serializable {
     	else return null;
     }
     
-    public Player setNextPlayer(Player curr) {
+    public Player setNextPlayer(Player curr) throws Exception {
     	int x = 0;
     	
     	for(int i = 0; i<p.size(); i++) {
@@ -208,9 +208,12 @@ public class Jatektabla extends JFrame implements Serializable {
     	
     	curr.kor_vegzes();
     	
-    	if(x+1 == p.size())
+    	if(x+1 == p.size()) {
     		x = 0;
-    	else
+    		kor++;
+    		medveLep();
+    	}
+    	else {
     		x++;
     	
     	p.get(x).kor_kezdes();
@@ -222,8 +225,10 @@ public class Jatektabla extends JFrame implements Serializable {
         Jegtabla itt = jm.getJegtabla();
         Jegtabla ide = null;
         boolean found = false;
-        while(found == true) {
-        	ide = j.getJegtabla(rand.nextInt(4), rand.nextInt(4));
+        while(found != true) {
+        	int x = rand.nextInt(4);
+        	int y = rand.nextInt(4);
+        	ide = j.getJegtabla(100+x*120, 20+y*120);
         	if(itt.szomszed_e(ide))
         		found = true;
         }
