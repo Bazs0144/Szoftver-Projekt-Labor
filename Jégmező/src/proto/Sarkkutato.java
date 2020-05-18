@@ -17,13 +17,11 @@ public class Sarkkutato extends Karakter implements Serializable {
 	 */
 	public int megnez(Jegtabla j) {
 		int kap;
-		if(this.jegtabla.szomszed_e(j)) {
-			kap = j.getKapacitas();
-			munkak_szama--;
-			j.setVizsgalt(true);
-			}
-		else
-			kap = -1;
+	//	if(this.jegtabla.szomszed_e(j)) {
+		kap = j.getKapacitas();
+		munkak_szama--;
+		kap=j.getKapacitas();
+		j.setVizsgalt(true);
 		return kap;
 	}
 	

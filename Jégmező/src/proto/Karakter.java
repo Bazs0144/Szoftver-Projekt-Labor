@@ -162,6 +162,8 @@ public class Karakter extends Figura implements Serializable {
         return munkak_szama != 0;
     }
 
+
+
     /**
      * A karakter meghívja egy tárgya a használják függvényét
      * @param t: ezt a tárgyat használja

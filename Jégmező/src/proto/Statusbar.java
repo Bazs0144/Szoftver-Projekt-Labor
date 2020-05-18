@@ -12,12 +12,15 @@ public class Statusbar extends JPanel {
 	private int temp;
 	private int act;
 	JLabel NameL, TempL, ActL;
+	JButton ability;
 
 	public Statusbar() {
 		Player pl=MainFrame.Instance.getCurrentPlayer();
 		name=pl.getName();
 		temp=pl.getKarakter().ho;
 		act=pl.getKarakter().munkak_szama;
+		if(pl.getKarakter().Name.equals("Eskimo")) ab="Build igloo";
+		else ab="Examine icefield";
 
 		this.setBackground(new Color(189, 216, 235));
 		this.setPreferredSize(new Dimension(730, 150));
@@ -89,10 +92,11 @@ public class Statusbar extends JPanel {
 		dig.setBorder(new LineBorder(Color.WHITE, 3));
 		dig.addActionListener(new digButtonActionListener());
 
-		JButton ability = new JButton("  " + ab + "  ");
+		ability = new JButton("  " + ab + "  ");
 		ability.setBorder(new LineBorder(Color.WHITE, 3));
 		ability.setFont(new Font("Arial", Font.BOLD, 22));
 		ability.setBackground(new Color(189, 216, 235));
+		ability.addActionListener(new abilButtonActionListener());
 
 		JLabel spaceHolder1 = new JLabel("    ");
 		JLabel spaceHolder2 = new JLabel("        ");
@@ -113,6 +117,9 @@ public class Statusbar extends JPanel {
 		TempL.setText("  temperature: " + temp);
 		NameL.setText("  current player: " + name);
 		ActL.setText("  actions left: " + act);
+		if(pl.getKarakter().Name.equals("Eskimo")) ab="Build igloo";
+		else ab="Examine icefield";
+		ability.setText("  " + ab + "  ");
 
 	}
 
@@ -121,6 +128,25 @@ public class Statusbar extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			try {
 				MainFrame.Instance.getCurrentPlayer().getKarakter().takarit(1);
+				MainFrame.Instance.inGameRound();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+
+	class abilButtonActionListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				Karakter k=MainFrame.Instance.getCurrentPlayer().getKarakter();
+				if(k.Name.equals("Eskimo")) {
+					Eszkimo eszk=(Eszkimo)k;
+					eszk.iglut_epit();
+				}else {
+					Sarkkutato sk=(Sarkkutato) k;
+					sk.megnez(sk.getJegtabla());
+				}
 				MainFrame.Instance.inGameRound();
 			} catch (Exception ex) {
 				ex.printStackTrace();
