@@ -96,6 +96,7 @@ public class Jegtabla implements Serializable {
 	public void ralepnek(Figura f) throws Exception {
 		figurak.add(f);
 		f.setJegtabla(this);
+
 	}
 	
 	/**

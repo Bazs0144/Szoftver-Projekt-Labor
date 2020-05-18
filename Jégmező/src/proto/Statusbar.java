@@ -11,6 +11,11 @@ public class Statusbar extends JPanel {
 	private int act;
 
 	public Statusbar() {
+		Player pl=MainFrame.Instance.getCurrentPlayer();
+		name=pl.getName();
+		temp=pl.getKarakter().ho;
+		act=pl.getKarakter().munkak_szama;
+		System.out.println("status" + act);
 		this.setBackground(new Color(189, 216, 235));
 		this.setPreferredSize(new Dimension(730, 150));
 		currentLabel();

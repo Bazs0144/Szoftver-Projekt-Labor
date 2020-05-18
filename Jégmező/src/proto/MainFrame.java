@@ -69,11 +69,11 @@ public class MainFrame extends JFrame {
 			currentPanel.setVisible(false);
 			this.remove(currentPanel);
 			currentPanel.setVisible(false);
-			currentPanel= new View();
 			if(!loaded)jt=new Jatektabla(4,4,newPlayers);
 			currentPlayer = jt.getFirstPlayer();
 			currentPlayer.kor_kezdes();
-
+			currentPanel= new View();
+			view= (View) currentPanel;
 			currentPanel.setVisible(true);
 			this.add(currentPanel);
 		}
@@ -100,8 +100,8 @@ public class MainFrame extends JFrame {
 	public void dig(){}
 	
 	public void move(Poz p) throws Exception {
-		currentPlayer.getKarakter().lep(jt.getJegMezo().getJegtabla(p.x, p.y));		
-		endTurn();
+		currentPlayer.getKarakter().lep(jt.getJegMezo().getJegtabla(p.x, p.y));
+		//endTurn();
 	}
 	
 	public void use(int index) {}
@@ -110,6 +110,28 @@ public class MainFrame extends JFrame {
 
 		if(currentPlayer.getKarakter().get_munkakszama() == 0) {
 			currentPlayer = jt.setNextPlayer(currentPlayer);
+		}
+	}
+	 public void inGameRound() {
+		view.refreshStatus();
+		jt.game_over=jt.check_game_over();
+		if(jt.game_over) {
+			//doublePrintln("Jatek vege");
+		}
+		if(!jt.game_over) {
+			Player current = jt.getPlayers().get(jt.act_index);
+			if (!current.getKarakter().van_munkaja()) {
+				if (jt.act_index == jt.getPlayers().size() - 1) {
+					jt.act_index = 0;
+					jt.kor++;
+				} else jt.act_index++;
+				current=jt.getPlayers().get(jt.act_index);
+				jt.next_player(current);
+			//	doublePrintln(jt.kor + ". kor, jatekos: " + jt.getPlayers().get(jt.act_index).getName());
+				if(current.getKarakter().vizbeKerultKor!=jt.kor&&current.getKarakter().get_vizben_van()) {
+					jt.game_over=true;
+				}
+			}
 		}
 	}
 	

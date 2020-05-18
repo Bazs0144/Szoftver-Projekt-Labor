@@ -73,14 +73,16 @@ public class Karakter extends Figura implements Serializable {
      */
     @Override
     public boolean lep(Jegtabla jt) throws Exception{
-        if(munkak_szama <= 0) throw new Exception();
+        if(munkak_szama > 0)
         if(jegtabla.szomszed_e(jt)) {
         	munkak_szama--;
+        	System.out.println(munkak_szama);
             jegtabla.lelepnek(this);
             jt.ralepnek(this);
             return true;
         } else {
             return false; }
+        return false;
     }
 
     /**

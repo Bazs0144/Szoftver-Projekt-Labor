@@ -103,8 +103,10 @@ public class View extends JPanel{
 		this.add(sg, BorderLayout.SOUTH);
 	}
 
-	public void refreshStatus(Player p){
-		
+	public void refreshStatus(){
+		gamePanel.remove(statusbar);
+		statusbar=new Statusbar();
+		gamePanel.add(statusbar, BorderLayout.NORTH);
 	}
 	
 	public void addBuilding(GraphicsBuilding g){

@@ -21,6 +21,8 @@ public class InGame extends JPanel {
         this.add(v, BorderLayout.CENTER);
     }
 
+
+
     GameView getDrawfield(){ return v; }
 
     Statusbar getStatusBar(){ return p; }
