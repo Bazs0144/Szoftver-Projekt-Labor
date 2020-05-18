@@ -5,7 +5,29 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+/**
+ * A Viewt megvalosito osztaly, ez biztositja a ralatast a jatektablara
+ */
+
 public class View extends JPanel{
+
+	/**
+	 * A View osztaly adattagjai
+	 * @param valid: tarolja hogy valid-e a view.
+	 * @param buildings: tarolja a megjelenitendo epitmenyek graphics-at.
+	 * @param figures: tarolja a megjelenitendo figurak graphics-at.
+	 * @param fields: tarolja a megjelenitendo mezok graphics-at.
+	 * @param tools: tarolja a megjelenitendo targyak graphics-at.
+	 * @param gamePanel: az aktiv jatekablak.
+	 * @param ep: az aktiv felszerelesablak.
+	 * @param currentPlayer: az aktiv jatekos neve.
+	 * @param drawField: az aktiv jegmezot megjelenito view.
+	 * @param statusbar: a megjelenitendo statusbar.
+	 * @param currentRound: az aktualis kor szama.
+	 * @param player: jatekost kiiro label.
+	 * @param round: kort kiiro label.
+	 * @param charactersTools: az aktiv karakter targyai.
+	 */
 
 	public boolean valid;
 	private ArrayList<GraphicsBuilding> buildings = new ArrayList<GraphicsBuilding>();
@@ -21,6 +43,7 @@ public class View extends JPanel{
 	private JLabel player, round;
 	ArrayList<GraphicsTool> charactersTools = new ArrayList<>(); //Eszkozok listaja
 
+	/** Konstruktora */
 	public View() {
 		int index=MainFrame.jt.act_index;
 		currentPlayer=MainFrame.jt.getPlayers().get(index).getName();
@@ -47,6 +70,7 @@ public class View extends JPanel{
 		this.setVisible(true);
 	}
 
+	/** A view jatekstadiumba allitasa */
 	void gameState() {
 		JPanel p = new JPanel();
 		p.setLayout(new BorderLayout());
@@ -77,12 +101,13 @@ public class View extends JPanel{
 
 		this.add(p, BorderLayout.NORTH);
 	}
-
+	/** Parameterkent kapott labelek beallitasa az aktualis korre es jatekosra.*/
 	void setFields(JLabel p1, JLabel p2) {
 		p2.setText(currentPlayer + "'s objects:");
 		p1.setText("Round " + currentRound);
 	}
 
+	/** A mentes gomb paneljenek letrehozasa */
 	void savePanel() {
 		JPanel sg = new JPanel();
 		sg.setLayout(new BorderLayout());
@@ -108,6 +133,7 @@ public class View extends JPanel{
 		this.add(sg, BorderLayout.SOUTH);
 	}
 
+	/** A view statuszanak es statusbarjanak frissitese */
 	public void refreshStatus(){
 		int index=MainFrame.jt.act_index;
 		currentPlayer=MainFrame.jt.getPlayers().get(index).getName();
@@ -116,10 +142,12 @@ public class View extends JPanel{
 		gamePanel.getStatusBar().refresh();
 	}
 
+	/** Az eszkozok ujrakifestese */
 	public void refreshTools() {
 		ep.repaint();
 	}
 
+	/** A kirajzolt jatekterulet lekerese */
 	public GameView getDrawField() {
 		return drawField;
 	}
