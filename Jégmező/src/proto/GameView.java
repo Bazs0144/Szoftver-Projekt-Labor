@@ -158,8 +158,12 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
 				}
 				this.repaint();
 		}
-		MainFrame.Instance.inGameRound();
-	}
+        try {
+            MainFrame.Instance.inGameRound();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
 	@Override
 	public void mouseReleased(MouseEvent e) {}

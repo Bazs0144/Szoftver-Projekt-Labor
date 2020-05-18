@@ -102,6 +102,7 @@ public class MainFrame extends JFrame {
 	public void move(Poz p) throws Exception {
 		if(!jt.game_over)
 		currentPlayer.getKarakter().lep(jt.getJegMezo().getJegtabla(p.x, p.y));
+		jt.getJegesmedve().megesz();
 	}
 	
 	public void use(int index) {}
@@ -112,7 +113,7 @@ public class MainFrame extends JFrame {
 			currentPlayer = jt.setNextPlayer(currentPlayer);
 		}
 	}
-	 public void inGameRound() {
+	 public void inGameRound() throws Exception {
 		 if(!jt.game_over) {
 		view.refreshStatus();
 			jt.game_over=jt.check_game_over();
@@ -126,6 +127,7 @@ public class MainFrame extends JFrame {
 					if (jt.act_index == jt.getPlayers().size() - 1) {
 						jt.act_index = 0;
 						jt.kor++;
+						jt.medveLep();
 					} else jt.act_index++;
 					current=jt.getPlayers().get(jt.act_index);
 					jt.next_player(current);

@@ -35,17 +35,13 @@ public class Player implements Serializable {
     public void kor_kezdes() {
         aktiv=true;
         k.munkak_szama=4;
-     //   while(aktiv&&k.munkak_szama>0) {
-            //proto.nextCommand();//???
-       // }
-       // kor_vegzes();
     }
 
     /**
      * A játékos ezzel a függvénnyel vethet véget a körének.
      */
     public void kor_vegzes() {
-        aktiv=false;
+        k.munkak_szama=0;
     }
 
     /**
