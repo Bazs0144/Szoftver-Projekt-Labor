@@ -106,15 +106,17 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
                 Poz poz = jg.getPoz();
                 Targy tr = jg.getTargy();
                 GraphicsTool tl;
-                if (tr.Name.equals("Alkatresz")) tl = new GraphicsPart();
-                else if (tr.Name.equals("Aso")) tl = new GraphicsSpade();
-                else if (tr.Name.equals("Buvarruha")) tl = new GraphicsDivingSuit();
-                else if (tr.Name.equals("Etel")) tl = new GraphicsFood();
-                else if (tr.Name.equals("Kotel")) tl = new GraphicsRope();
-                else if (tr.Name.equals("Lapat")) tl = new GraphicsShovel();
-                else tl = new GraphicsTentTool();
-                tl.poz = new Poz(poz.x, poz.y);
-                tools.add(tl);
+                if(tr!=null) {
+                    if (tr.Name.equals("Alkatresz")) tl = new GraphicsPart();
+                    else if (tr.Name.equals("Aso")) tl = new GraphicsSpade();
+                    else if (tr.Name.equals("Buvarruha")) tl = new GraphicsDivingSuit();
+                    else if (tr.Name.equals("Etel")) tl = new GraphicsFood();
+                    else if (tr.Name.equals("Kotel")) tl = new GraphicsRope();
+                    else if (tr.Name.equals("Lapat")) tl = new GraphicsShovel();
+                    else tl = new GraphicsTentTool();
+                    tl.poz = new Poz(poz.x, poz.y);
+                    tools.add(tl);
+                }
             }
         }
     }
@@ -156,6 +158,12 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
+				if(e.getX()<x+jegWidth&&e.getY()<y+jegHeight) {
+				    Jegtabla j=MainFrame.Instance.getCurrentPlayer().getKarakter().getJegtabla();
+				    Jegtabla kattintott=MainFrame.Instance.jt.getJegMezo().getJegtabla(x,y);
+				    if(j.equals(kattintott))
+				        if(j.getTargy()!=null) MainFrame.Instance.getCurrentPlayer().getKarakter().targy_felvetele();
+                }
 				this.repaint();
 		}
         try {

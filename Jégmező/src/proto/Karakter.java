@@ -109,16 +109,18 @@ public class Karakter extends Figura implements Serializable {
      * A Karakter megpróbálja felvenni a tárgyat ami azon a jégtáblán áll amin áll, ehhez meghívja a jégtábla elvesz föggvényét
      * @return ha sikeült elvenni igazzal tér vissza, ha nem akkor hamissal
      */
-    public boolean targy_felvetele() throws Exception{
+    public boolean targy_felvetele(){
         Targy t=jegtabla.getTargy();
-        if(munkak_szama <= 0) throw new Exception();
-        if(jegtabla.elvesz(this, t)) {
-            munkak_szama--;
-            return true;
+        if(munkak_szama >0) {
+            if(jegtabla.elvesz(this, t)) {
+                munkak_szama--;
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
-        }
+        return false;
     }
 
     /**
