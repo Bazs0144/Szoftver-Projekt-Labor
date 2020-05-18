@@ -7,11 +7,24 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * A menut megvalosito osztaly
+ */
+
 public class Menu extends JPanel{
+	/**
+	 * A Menu osztaly adattagjai
+	 * @param MEH: a menuho tartozo egereventkezelok.
+	 * @param button1: az uj jatek inditasahoz hasznalhato gomb.
+	 * @param button2: a jatek betoltesehez hasznalhato gomb.
+	 * @param text: focim elso resze.
+	 * @param text2: focim masodik resze.
+	 */
 	private MenuMEH MEH = new MenuMEH();
 	private JButton button1, button2;
 	private JTextArea text, text2;
-	
+
+	/** Konstruktor */
 	public Menu (){
 		this.setBackground(new Color(189, 216, 235));
 		GridBagLayout gl=new GridBagLayout();

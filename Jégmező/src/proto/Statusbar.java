@@ -6,7 +6,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * A Statusbart megvalosito osztaly.
+ */
 public class Statusbar extends JPanel {
+	/**
+	 * A Statusbar osztaly adattagjai
+	 * @param name: A kiirt jatekos neve.
+	 * @param ab: Egy fix string.
+	 * @param temp: A kiirt jatekos homerseklete.
+	 * @param act: A kiirt jatekos munkaszama.
+	 * @param NameL: A nevkiirasra hasznalatos label.
+	 * @param TempL: A hokiirasra hasznalatos label.
+	 * @param ActL: A munkaszamkiirasra hasznalatos label.
+	 *
+	 */
 	private String name;
 	private String ab = "ability";
 	private int temp;
@@ -14,6 +28,7 @@ public class Statusbar extends JPanel {
 	JLabel NameL, TempL, ActL;
 	JButton ability;
 
+	/** Konstruktor */
 	public Statusbar() {
 		Player pl=MainFrame.Instance.getCurrentPlayer();
 		name=pl.getName();
@@ -30,6 +45,7 @@ public class Statusbar extends JPanel {
 		buttonsLabel();
 	}
 
+	/**  Az aktualis jatekos labelt beallito fv */
 	void currentLabel() {
 		JPanel current = new JPanel();
 		current.setLayout(new BorderLayout());
@@ -46,6 +62,7 @@ public class Statusbar extends JPanel {
 		this.add(current);
 	}
 
+	/**  Az aktualis jatekos homerseklet labelt beallito fv */
 	void temperatureLabel() {
 		JPanel temperature = new JPanel();
 		temperature.setLayout(new BorderLayout());
@@ -63,6 +80,7 @@ public class Statusbar extends JPanel {
 		this.add(temperature);
 	}
 
+	/**  Az aktualis jatekos munkak labelt beallito fv */
 	void actionsLabel() {
 		JPanel actions = new JPanel();
 		actions.setLayout(new BorderLayout());
@@ -80,6 +98,7 @@ public class Statusbar extends JPanel {
 		this.add(actions);
 	}
 
+	/** Az aktualis jatekos akcioit kezelo gombokat tartalmazo label beallitasa */
 	void buttonsLabel() {
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new BoxLayout(buttons, BoxLayout.X_AXIS));
@@ -109,6 +128,7 @@ public class Statusbar extends JPanel {
 		this.add(buttons);
 	}
 
+	/**A statusbart frissito fv*/
 	public void refresh() {
 		Player pl=MainFrame.Instance.getCurrentPlayer();
 		name=pl.getName();
@@ -123,6 +143,7 @@ public class Statusbar extends JPanel {
 
 	}
 
+	/** A dig gomb action listenerje */
 	class digButtonActionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {

@@ -6,12 +6,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * Az uj jatek elkezdesehez hasznalhato interfaceert felelos osztaly
+ */
 public class NewGame extends JPanel {
+    /**
+     * A NewGame osztaly adattagjai
+     * @param players: A cimlabel.
+     * @param start: A start gomb.
+     * @param back: A visszalepes gomb.
+     * @param add: A hozzaadas gomb, ami Addplayerre navigal.
+     * @param playerNames: A jatekosok neveit tarolo lista.
+     * @param listModel: A jatekosok neveit megjelenito listaelem.
+     */
     private JLabel players;
     private JButton start, back, add;
     ArrayList <String> playerNames;
     DefaultListModel listModel;
 
+    /** Konstruktor */
    public NewGame() {
 
        this.setBackground(new Color(189, 216, 235));
@@ -79,6 +92,7 @@ public class NewGame extends JPanel {
 
     }
 
+    /** A visszalepes gomb actionlistenerje */
     public class BackButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -90,6 +104,7 @@ public class NewGame extends JPanel {
         }
     }
 
+    /** A start gomb actionlistenerje */
     public class StartButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -100,6 +115,8 @@ public class NewGame extends JPanel {
             }
         }
     }
+
+    /** A hozzaadas gomb actionlistenerje */
     public class AddButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
