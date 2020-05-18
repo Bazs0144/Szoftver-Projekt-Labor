@@ -10,13 +10,25 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Az aktuális soron levõ játékos tulajdonában levõ tárgyak megjelenítését megvalósitó osztály.
+ */
 public class EquipmentPanel extends Canvas implements MouseListener, MouseMotionListener {
+    /**
+     * charactersTools - a grafikus tárgyak listája, amelyek megfelelnek a jelen soron levõ játékos karakterének tulajdonában
+     * található tárgyaknak.
+     */
     private ArrayList<GraphicsTool> charactersTools = new ArrayList<>();
 
     public void setCharactersTools(ArrayList<GraphicsTool> _list) {
         charactersTools = _list;
 
     }
+
+    /**
+     * Kirajzolja a grafikus tárgyakat a charactersTools listából.
+     * @param g - graphics objektum, amelyre kerül a megjelenitet, tárgyaknak megfelelõ kép.
+     */
     public void paint(Graphics g) {
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
@@ -25,11 +37,17 @@ public class EquipmentPanel extends Canvas implements MouseListener, MouseMotion
         for (GraphicsTool item: charactersTools) item.Draw(g,60, 60);
     }
 
+    /**
+     * a grafikus tárgyak panel-jének beállitása az osztály konstruktorában.
+     */
     EquipmentPanel() {
         this.setBackground(new Color(189, 216, 235));
         this.setPreferredSize(new Dimension(new Dimension(70, 700)));
     }
 
+    /**
+     * Grafikus tárgyak hozzáadása a charactersTools listához, a megvalósitott tárgy tipusának függvényében.
+     */
     public void setTools( ) {
         charactersTools.clear();
 
@@ -62,6 +80,11 @@ public class EquipmentPanel extends Canvas implements MouseListener, MouseMotion
 
     }
 
+
+    /**
+     * Egy grafikus tárgyra való kattintáskor, ez kiválasztásra, majd használatra kerül.
+     * @param mouseEvent
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
         Poz katt=new Poz(mouseEvent.getX(), mouseEvent.getY());
