@@ -200,6 +200,13 @@ public class MainFrame extends JFrame {
 		int mennyi = 1 + r.nextInt(3)+1;
 		Jegmezo jm = jt.getJegMezo();
 		ArrayList<Jegtabla> ja = jm.getJegtablak();
+		for(Jegtabla jg: ja) {
+			if(jg.getEpitmeny()!=null)
+				if(jg.getEpitmeny().getName().equals("Sator"))  {
+					Sator s=(Sator)jg.getEpitmeny();
+					s.hasznalodik();
+				}
+		}
 		for (int i = 0; i < mennyi; i++) {
 			ja.get(r.nextInt(ja.size())).hovihar_volt();
 		}
