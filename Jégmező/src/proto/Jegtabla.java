@@ -24,6 +24,7 @@ public class Jegtabla implements Serializable {
 	private int kapacitas;
 	private int ho_mennyiseg;
 	private boolean befagyva;
+	private boolean vizsgalt;
 	private Poz poz;
 	private Targy T;
 	protected Epitmeny E;
@@ -38,6 +39,7 @@ public class Jegtabla implements Serializable {
 		figurak = new  ArrayList<Figura>();
 		szomszedok= new ArrayList<Jegtabla>();
 		poz=new Poz(p);
+		vizsgalt=false;
 	}
 	
 	/** Jégtábla poziciójának lekérdezése.*/
@@ -47,6 +49,20 @@ public class Jegtabla implements Serializable {
 
 	public void setPoz(Poz poz) {
 		this.poz = poz;
+	}
+
+	/**
+	 * @param vizsgalt Beallitja hogy sarkkutato vizsgalta, e a jegtablat
+	 */
+	public void setVizsgalt(boolean vizsgalt) {
+		this.vizsgalt = vizsgalt;
+	}
+
+	/**
+	 * Visszaadja hogy vizsgaltak e mar a jegtablat
+	 */
+	public boolean isVizsgalt() {
+		return vizsgalt;
 	}
 
 	/** Szomszédos jégtábla hozzáadása a jégtábla nyilvántartásába.*/

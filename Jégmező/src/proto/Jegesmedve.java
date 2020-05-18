@@ -7,6 +7,7 @@ public class Jegesmedve extends Figura implements Serializable {
 
     public Jegesmedve(){
       Name = "Jegesmedve";
+      vizben_van=false;
     }
 
     /**

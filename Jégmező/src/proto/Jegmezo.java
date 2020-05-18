@@ -54,7 +54,7 @@ public class Jegmezo implements Serializable {
                     int value = rand.nextInt(50);
                     if(value%2==0) {
                         jeg=new Instabil(new Poz(x,y));
-                        jeg.setKapacitas(rand.nextInt(10));
+                        jeg.setKapacitas(rand.nextInt(5)+1);
                         jeg.setBefagyva(true);
                         jeg.setHo(rand.nextInt(5));
                     }else if(value%3==0)  jeg=new Luk(new Poz(x,y));

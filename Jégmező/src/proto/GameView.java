@@ -63,7 +63,7 @@ public class GameView extends Canvas implements MouseListener, MouseMotionListen
             if (j.type.equals("Stabil")) fl = new GraphicsStable();
             else if (j.type.equals("Instabil")) {
                 fl = new GraphicsUnstable();
-                fl.kap = j.getKapacitas();
+                if(j.isVizsgalt()) fl.kap = j.getKapacitas();
             } else fl = new GraphicsHole();
             fl.ho = j.getHoMennyiseg();
             fl.befagy = (j.get_befagyva() && j.getHoMennyiseg() == 0);

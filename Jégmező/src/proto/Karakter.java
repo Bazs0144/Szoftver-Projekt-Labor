@@ -168,6 +168,7 @@ public class Karakter extends Figura implements Serializable {
      * @param hol: ezen a jégtáblán használja
      */
     public void hasznal(Targy t, Jegtabla hol) throws Exception{
+        if(munkak_szama>0)
         t.hasznaljak(this, hol);
     }
 
