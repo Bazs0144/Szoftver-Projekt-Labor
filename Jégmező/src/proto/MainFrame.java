@@ -1,6 +1,9 @@
 package proto;
 
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -143,11 +146,16 @@ public class MainFrame extends JFrame {
 	}
 
 	void gameOver() {
-		JTextArea go=new JTextArea("Game Over");
-		go.setEditable(false);
-		go.setFont(new Font("Serif", Font.BOLD, 96));
-		go.setBackground(new Color(235, 43, 37));
-		currentPanel.add(go, BorderLayout.CENTER);
+		JTextPane textPane=new JTextPane();
+		StyledDocument style = textPane.getStyledDocument();
+		SimpleAttributeSet align= new SimpleAttributeSet();
+		StyleConstants.setAlignment(align, StyleConstants.ALIGN_CENTER);
+		style.setParagraphAttributes(0, style.getLength(), align, false);
+		textPane.setText("Game Over");
+		textPane.setEditable(false);
+		textPane.setFont(new Font("Arial", Font.BOLD, 96));
+		textPane.setBackground(new Color(235, 43, 37));
+		currentPanel.add(textPane, BorderLayout.CENTER);
 
 	}
 	
