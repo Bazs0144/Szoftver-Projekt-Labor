@@ -12,8 +12,24 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * A mainframet megvalosito osztaly, ez kezeli az ablakot, valamint az ablakban a valtozo paneleket.
+ */
 public class MainFrame extends JFrame {
+	/**
+	 * A MainFrame osztaly adattagjai
+	 * @param Instance: sasjat maga, hogy ne lehessen duplikalva.
+	 * @param jt: az aktualis jatektabla.
+	 * @param loaded: be van e toltve.
+	 * @param state: a statusza, hogy melyik panelt jelezze ki eppen.
+	 * @param currentPanel: az aktualisan kijelzett panel.
+	 * @param currentPlayer: az aktualisan kijelzett jatekos.
+	 * @param menu: a menu panel egy instance-a.
+	 * @param newGame: a newGame panel egy instance-a.
+	 * @param addPlayer: az addPlayer panel egy instance-a.
+	 * @param newPlayers: a panelrõl beolvasott uj jatekosok listaja.
+	 * @param view: a View egy instance-a.
+	 */
 	static MainFrame Instance;
 	static Jatektabla jt;
 	static boolean loaded;
@@ -27,6 +43,7 @@ public class MainFrame extends JFrame {
 	private SetupMEH setup;
 	private View view;
 
+	/** konstruktor*/
 	public MainFrame(){
         Instance=this;
 		state=State.MenuS;
@@ -42,6 +59,7 @@ public class MainFrame extends JFrame {
 
 
 
+	/** A parameter hatasara egy masik panelre valt a mainframe*/
 	public void changeState(State s) throws Exception {
 		state=s;
 		if(state.equals(State.MenuS)) {
@@ -83,18 +101,23 @@ public class MainFrame extends JFrame {
 		}
 	}
 
+	/** Visszaadja az ujjonnan felvett jatekosokat*/
 	public ArrayList<Player> getNewPlayers() {
 		return newPlayers;
 	}
 
+
+	/** Hozzaad egy uj jatekost */
 	public void addNewPlayer(Player p) {
 		newPlayers.add(p);
 	}
 
+	/** Visszaadja az aktualis jatekost*/
 	public Player getCurrentPlayer() {
 		return currentPlayer;
 	}
-	
+
+	/** Elinditja a jatekot*/
 	public void startGame(){}
 	
 	public void loadGame(){}
@@ -102,7 +125,8 @@ public class MainFrame extends JFrame {
 	public void endGame(){}
 	
 	public void dig(){}
-	
+
+	/** A karaktert lepteti*/
 	public void move(Poz p) throws Exception {
 		if(!jt.game_over)
 		currentPlayer.getKarakter().lep(jt.getJegMezo().getJegtabla(p.x, p.y));
@@ -118,11 +142,13 @@ public class MainFrame extends JFrame {
 		}
 	}
 
+	/** Frissiti a jatekot (ujrarajzolja) */
 	public void refreshGame() {
 		view.getDrawField().repaint();
 		view.refreshStatus();
 		view.refreshTools();
 	}
+	/** Leptet egyet a jatekbeli koron */
 	 public void inGameRound() throws Exception {
 		 if(!jt.game_over) {
 			 refreshGame();
@@ -154,6 +180,7 @@ public class MainFrame extends JFrame {
 
 	}
 
+	/** Veget vet a jateknak, es kiirja hogy game over*/
 	void gameOver() {
 		JTextPane textPane=new JTextPane();
 		StyledDocument style = textPane.getStyledDocument();
@@ -167,6 +194,7 @@ public class MainFrame extends JFrame {
 		currentPanel.add(textPane, BorderLayout.CENTER);
 	}
 
+	/** Veletlenszeru helyeken hovihart okoz*/
 	protected static void hoviharRand() {
 		Random r = new Random();
 		int mennyi = 1 + r.nextInt(3)+1;
@@ -179,6 +207,7 @@ public class MainFrame extends JFrame {
 	
 	public void Ability(){}
 
+	/** A gomb nyomasara elmenti a jatekot*/
 	public static class save implements ActionListener {
 
 		@Override
@@ -200,6 +229,9 @@ public class MainFrame extends JFrame {
 		}
 	}
 
+
+
+	/**A gomb nyomasara betolti a jatekot */
 	public static class load implements ActionListener{
 
 		@Override

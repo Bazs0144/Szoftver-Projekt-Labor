@@ -2,6 +2,8 @@ package proto;
 
 import java.awt.Graphics;
 
+/** A grafikus figura absztrakt osztályát valósitja meg.
+ * Az osztály függvényeit a leszármazott osztályok valósitják meg.*/
 public abstract class GraphicsFigure implements Drawable{
 	Poz poz;
 
