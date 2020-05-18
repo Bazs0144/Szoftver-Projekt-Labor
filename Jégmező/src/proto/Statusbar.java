@@ -3,6 +3,8 @@ package proto;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Statusbar extends JPanel {
 	private String name;
@@ -85,6 +87,7 @@ public class Statusbar extends JPanel {
 		dig.setFont(new Font("Arial", Font.BOLD, 22));
 		dig.setBackground(new Color(189, 216, 235));
 		dig.setBorder(new LineBorder(Color.WHITE, 3));
+		dig.addActionListener(new digButtonActionListener());
 
 		JButton ability = new JButton("  " + ab + "  ");
 		ability.setBorder(new LineBorder(Color.WHITE, 3));
@@ -111,6 +114,18 @@ public class Statusbar extends JPanel {
 		NameL.setText("  current player: " + name);
 		ActL.setText("  actions left: " + act);
 
+	}
+
+	class digButtonActionListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try {
+				MainFrame.Instance.getCurrentPlayer().getKarakter().takarit(1);
+				MainFrame.Instance.refreshGame();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 }
 

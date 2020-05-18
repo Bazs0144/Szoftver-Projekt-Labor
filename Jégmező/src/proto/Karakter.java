@@ -51,9 +51,10 @@ public class Karakter extends Figura implements Serializable {
      * @param intensity : ez adja meg hogy mennyi hómennyiséget távolít el a jégtábláról
      */
     public void takarit(int intensity) throws Exception{
-        if(munkak_szama <= 0) throw new Exception();
-        munkak_szama--;
-        jegtabla.takaritas_volt(intensity);
+        if(munkak_szama > 0) {
+            munkak_szama--;
+            jegtabla.takaritas_volt(intensity);
+        }
     }
 
     /**

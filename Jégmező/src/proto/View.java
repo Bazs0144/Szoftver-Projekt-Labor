@@ -114,7 +114,11 @@ public class View extends JPanel{
 		setFields(round,player);
 		gamePanel.getStatusBar().refresh();
 	}
-	
+
+	public GameView getDrawField() {
+		return drawField;
+	}
+
 	public void addBuilding(GraphicsBuilding g){
 		
 	}

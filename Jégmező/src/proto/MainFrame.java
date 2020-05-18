@@ -116,9 +116,14 @@ public class MainFrame extends JFrame {
 			currentPlayer = jt.setNextPlayer(currentPlayer);
 		}
 	}
+
+	public void refreshGame() {
+		view.getDrawField().repaint();
+		view.refreshStatus();
+	}
 	 public void inGameRound() throws Exception {
 		 if(!jt.game_over) {
-		view.refreshStatus();
+			 view.refreshStatus();
 			jt.game_over=jt.check_game_over();
 			if(jt.game_over) {
 				jt.game_over=true;
@@ -141,6 +146,7 @@ public class MainFrame extends JFrame {
 					}
 				}
 			}
+
 		}
 
 	}
