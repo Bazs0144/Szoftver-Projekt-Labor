@@ -58,7 +58,7 @@ public class Jatektabla extends JFrame implements Serializable {
             if(jeg.getTargy()==null) {
                 Random rand = new Random();
                 int szam = rand.nextInt(6)+1;
-                if(szam%6==0) jeg.setTargy(new Sator(0));
+                if(szam%6==0) jeg.setTargy(new Sator(2));
                 else if(szam%5==0) jeg.setTargy(new Aso());
                 else if(szam%4==0) jeg.setTargy(new Etel());
                 else if(szam%3==0) jeg.setTargy(new Lapat());

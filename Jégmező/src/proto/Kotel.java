@@ -23,7 +23,7 @@ public class Kotel extends Targy implements Serializable {
 	 */
 	@Override
 	public void hasznaljak(Karakter karakter, Jegtabla hol) {
-		 if(karakter.vizben_van) return;
+		 if(!karakter.vizben_van) return;
 		try {
 			for(Jegtabla sz : hol.getSzomszedok()) {
 				ArrayList<Figura> fig=sz.getFigurak();

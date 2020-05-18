@@ -15,8 +15,11 @@ public class EquipmentPanel extends Canvas implements MouseListener, MouseMotion
 
     public void setCharactersTools(ArrayList<GraphicsTool> _list) {
         charactersTools = _list;
+
     }
     public void paint(Graphics g) {
+        this.addMouseListener(this);
+        this.addMouseMotionListener(this);
         setTools();
         if(charactersTools.size() == 0) return;
         for (GraphicsTool item: charactersTools) item.Draw(g,60, 60);
@@ -61,7 +64,6 @@ public class EquipmentPanel extends Canvas implements MouseListener, MouseMotion
 
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
-        System.out.println(mouseEvent.getX() + " " + mouseEvent.getY());
         Poz katt=new Poz(mouseEvent.getX(), mouseEvent.getY());
         Karakter k=MainFrame.Instance.getCurrentPlayer().getKarakter();
         ArrayList<Targy> t=k.getTargyak();
@@ -69,15 +71,14 @@ public class EquipmentPanel extends Canvas implements MouseListener, MouseMotion
             Targy targy=t.get(i);
             if(katt.y<(i+1)*60&&katt.y>i*60) {
                 try {
-                    System.out.println("hasznal");
                     k.hasznal(k.getTargyak().get(i), k.getJegtabla());
                     MainFrame.Instance.inGameRound();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            this.repaint();
         }
+        this.repaint();
         }
 
     @Override

@@ -63,8 +63,9 @@ public class Karakter extends Figura implements Serializable {
     @Override
     public void vizbe_esik() throws Exception {
         vizben_van=true;
-        munkak_szama=0;
+        munkak_szama=zseb.size();
         for(Targy t: zseb) hasznal(t, jegtabla);
+        munkak_szama=0;
     }
 
     /**
