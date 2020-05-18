@@ -22,7 +22,6 @@ public class Eszkimo extends Karakter implements Serializable {
 				if(jegtabla.getHoMennyiseg() == 0)
 					if(jegtabla.getTargy() == null)
 					{
-						System.out.println("iglu");
 						Iglu I = new Iglu();
 						jegtabla.epitmenyKeszul(I);
 						this.munkak_szama--;

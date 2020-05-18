@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -137,6 +138,7 @@ public class MainFrame extends JFrame {
 						jt.act_index = 0;
 						jt.kor++;
 						jt.medveLep();
+						hoviharRand();
 					} else jt.act_index++;
 					current=jt.getPlayers().get(jt.act_index);
 					jt.next_player(current);
@@ -163,7 +165,16 @@ public class MainFrame extends JFrame {
 		textPane.setFont(new Font("Arial", Font.BOLD, 96));
 		textPane.setBackground(new Color(235, 43, 37));
 		currentPanel.add(textPane, BorderLayout.CENTER);
+	}
 
+	protected static void hoviharRand() {
+		Random r = new Random();
+		int mennyi = 1 + r.nextInt(3)+1;
+		Jegmezo jm = jt.getJegMezo();
+		ArrayList<Jegtabla> ja = jm.getJegtablak();
+		for (int i = 0; i < mennyi; i++) {
+			ja.get(r.nextInt(ja.size())).hovihar_volt();
+		}
 	}
 	
 	public void Ability(){}
