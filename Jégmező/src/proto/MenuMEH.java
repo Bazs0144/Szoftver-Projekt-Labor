@@ -8,6 +8,10 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * A menu mouse eventjei kezeleset megvalosito osztaly
+ *
+ */
 public class MenuMEH implements MouseListener{
 
 	public static class OkButtonActionListener1 implements ActionListener {
