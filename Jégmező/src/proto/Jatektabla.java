@@ -122,7 +122,7 @@ public class Jatektabla extends JFrame implements Serializable {
     }
 
     /**
-     * Átadja a játék kezelését a következő játékosnak.
+     * Atadja a játék kezelését a következő játékosnak.
      * pl: az  adott játékos következik.
      */
     void next_player(Player pl) {
