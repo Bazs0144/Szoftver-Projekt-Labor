@@ -19,7 +19,7 @@ public class View extends JPanel{
 	private Statusbar statusbar;
 	private int currentRound = 1;
 	private JLabel player, round;
-	ArrayList<JPanel> charactersTools = new ArrayList<>(); //Eszkozok listaja
+	ArrayList<GraphicsTool> charactersTools = new ArrayList<>(); //Eszkozok listaja
 
 	public View() {
 		int index=MainFrame.jt.act_index;
