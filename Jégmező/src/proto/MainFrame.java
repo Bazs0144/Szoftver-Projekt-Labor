@@ -58,7 +58,6 @@ public class MainFrame extends JFrame {
 	}
 
 
-
 	/** A parameter hatasara egy masik panelre valt a mainframe*/
 	public void changeState(State s) throws Exception {
 		state=s;
@@ -117,29 +116,12 @@ public class MainFrame extends JFrame {
 		return currentPlayer;
 	}
 
-	/** Elinditja a jatekot*/
-	public void startGame(){}
-	
-	public void loadGame(){}
-	
-	public void endGame(){}
-	
-	public void dig(){}
 
 	/** A karaktert lepteti*/
 	public void move(Poz p) throws Exception {
 		if(!jt.game_over)
 		currentPlayer.getKarakter().lep(jt.getJegMezo().getJegtabla(p.x, p.y));
 		jt.getJegesmedve().megesz();
-	}
-	
-	public void use(int index) {}
-	
-	public void endTurn() throws Exception{
-
-		if(currentPlayer.getKarakter().get_munkakszama() == 0) {
-			currentPlayer = jt.setNextPlayer(currentPlayer);
-		}
 	}
 
 	/** Frissiti a jatekot (ujrarajzolja) */
@@ -194,6 +176,9 @@ public class MainFrame extends JFrame {
 		currentPanel.add(textPane, BorderLayout.CENTER);
 	}
 
+	/**
+	 * Amikor nyernek a jatekosok kiirja hogy WIN
+	 */
 	void gameWon() {
 		jt.gameWon=true;
 		JTextPane textPane=new JTextPane();
@@ -224,8 +209,6 @@ public class MainFrame extends JFrame {
 			ja.get(r.nextInt(ja.size())).hovihar_volt();
 		}
 	}
-	
-	public void Ability(){}
 
 	/** A gomb nyomasara elmenti a jatekot*/
 	public static class save implements ActionListener {
