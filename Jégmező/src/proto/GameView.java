@@ -4,12 +4,13 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GameView extends Canvas implements MouseListener {
+public class GameView extends Canvas implements MouseListener, MouseMotionListener {
     private int jegWidth = 110, jegHeight = 110;
     private int figWidth = 40, figHeight = 40;
     private ArrayList<GraphicsBuilding> buildings = new ArrayList<GraphicsBuilding>();
@@ -21,6 +22,7 @@ public class GameView extends Canvas implements MouseListener {
         Graphics2D gd = (Graphics2D) g;
         gd.setStroke(new BasicStroke(5));
         this.addMouseListener(this);
+        this.addMouseMotionListener(this);
         setFields();
         setFigures();
         setTools();
@@ -137,21 +139,23 @@ public class GameView extends Canvas implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
 		//Tartomany ellenorzes
 		if(e.getX() >= 100 && e.getX() <= 570)
 			if(e.getY() >= 20 && e.getY() <= 490) {
-				//Konverzio raw inputrol a jegtablak koordinata rendszerere
-				//X:0-3, Y:0-3
+				//Ez a 4 sor biztositja, hogy megtalalja a getJegtabla(x,y) a megfelelo jegtablat
 				int x = (e.getX()-100)/120;
 				int y = (e.getY()-20)/120;
-				if(x >= 0 && x <= 3 && y >= 0 && y <= 3) {
+				x = x*120+100;
+				y = y*120+20;
 					//A megadott koordinatakon levo jegtabla eltarolasa a konnyebb olvashatosagert.
 					Jegtabla here = MainFrame.Instance.jt.getJegMezo().getJegtabla(x, y);
 					try {
 						//Lepesi kiserlet.
 						MainFrame.Instance.getCurrentPlayer().getKarakter().lep(here);
+						MainFrame.Instance.endTurn();
+						this.repaint();
 					} catch (Exception e1) {}
-			}
 		}	
 		
 	}
@@ -167,5 +171,14 @@ public class GameView extends Canvas implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent e) {}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		this.repaint();
+	}
 }
 

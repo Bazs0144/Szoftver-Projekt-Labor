@@ -71,6 +71,8 @@ public class MainFrame extends JFrame {
 			currentPanel.setVisible(false);
 			currentPanel= new View();
 			if(!loaded)jt=new Jatektabla(4,4,newPlayers);
+			currentPlayer = jt.getFirstPlayer();
+			currentPlayer.kor_kezdes();
 
 			currentPanel.setVisible(true);
 			this.add(currentPanel);
@@ -101,7 +103,13 @@ public class MainFrame extends JFrame {
 	
 	public void use(int index) {}
 	
-	public void endTurn(){}
+	public void endTurn() throws Exception{
+
+		if(currentPlayer.getKarakter().get_munkakszama() == 0) {
+			currentPlayer = jt.setNextPlayer(currentPlayer);
+			jt.medveLep();
+		}
+	}
 	
 	public void Ability(){}
 

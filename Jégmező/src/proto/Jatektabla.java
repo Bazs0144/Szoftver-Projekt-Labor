@@ -197,5 +197,38 @@ public class Jatektabla extends JFrame implements Serializable {
     		return p.get(0);
     	else return null;
     }
+    
+    public Player setNextPlayer(Player curr) {
+    	int x = 0;
+    	
+    	for(int i = 0; i<p.size(); i++) {
+    		if(p.get(i).equals(curr))
+    			x = i;
+    	}
+    	
+    	curr.kor_vegzes();
+    	
+    	if(x+1 == p.size())
+    		x = 0;
+    	else
+    		x++;
+    	
+    	p.get(x).kor_kezdes();
+    	return p.get(x);
+    }
+    
+    public void medveLep() throws Exception {
+        Random rand = new Random();
+        Jegtabla itt = jm.getJegtabla();
+        Jegtabla ide = null;
+        boolean found = false;
+        while(found == true) {
+        	ide = j.getJegtabla(rand.nextInt(4), rand.nextInt(4));
+        	if(itt.szomszed_e(ide))
+        		found = true;
+        }
+        
+        jm.lep(ide);
+    }
 }
 
